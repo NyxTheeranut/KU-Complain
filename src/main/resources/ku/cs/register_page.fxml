@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.RegisterPageController">
+   <children>
+      <TextField layoutX="538.0" layoutY="262.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="538.0" layoutY="342.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="494.0" layoutY="71.0" text="Lorem Ipsum">
+         <font>
+            <Font size="54.0" />
+         </font>
+      </Label>
+      <Label layoutX="538.0" layoutY="215.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="538.0" layoutY="377.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="538.0" layoutY="431.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="538.0" layoutY="466.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="658.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="39.0" prefWidth="124.0" text="Register">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="524.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="39.0" prefWidth="70.0" text="Back">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

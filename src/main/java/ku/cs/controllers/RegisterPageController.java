@@ -6,19 +6,19 @@ import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
 
-public class ProjectController {
-    @FXML public void handleLoginButton(ActionEvent actionEvent){
+public class RegisterPageController {
+    @FXML public void handleBackButton(ActionEvent actionEvent){
         try{
-            FXRouter.goTo("menu_student");
-        } catch(IOException e){
+            FXRouter.goTo("login_page");
+        } catch (IOException e){
             System.err.println(e);
         }
     }
 
     @FXML public void handleRegisterButton(ActionEvent actionEvent){
         try{
-            FXRouter.goTo("register_page");
-        } catch(IOException e){
+            FXRouter.goTo("login_page");
+        } catch (IOException e){
             System.err.println(e);
         }
     }
