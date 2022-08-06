@@ -4,10 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.IntroController">
    <children>
-      <Label layoutX="556.0" layoutY="72.0" text="KU ร้องเรียน">
+      <Label layoutX="475.0" layoutY="70.0" text="KU ร้องเรียน">
          <font>
             <Font name="TH SarabunPSK" size="70.0" />
          </font>

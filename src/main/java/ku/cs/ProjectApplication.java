@@ -10,16 +10,16 @@ import com.github.saacsos.FXRouter;
 public class ProjectApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ProjectApplication.class.getResource("intro.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
-        stage.setTitle("KU RongRian Center");
-        stage.setScene(scene);
-        stage.show();
+        FXRouter.bind(this, stage, "KU RongRian Center", 1280,720);
+        configRoute();
+        FXRouter.goTo("home_student");
     }
 
     private static void configRoute() {
         String packageStr = "ku/cs/";
+        FXRouter.when("home_student", packageStr+"home_student.fxml");
         FXRouter.when("intro", packageStr+"intro.fxml");
+
     }
     public static void main(String[] args) {
         launch();
