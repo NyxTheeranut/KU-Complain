@@ -1,59 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.RegisterPageController">
    <children>
-      <TextField layoutX="538.0" layoutY="262.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="435.0" layoutX="484.0" layoutY="200.0" stroke="TRANSPARENT" strokeType="INSIDE" width="317.0" />
+      <Label layoutX="514.0" layoutY="341.0" text="NEW PASSWORD">
+         <font>
+            <Font name="SP Normal" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="511.0" layoutY="223.0" text="USERNAME">
+         <font>
+            <Font name="SP Normal" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="513.0" layoutY="434.0" text="CONFIRM PASSWORD">
+         <font>
+            <Font name="SP Normal" size="35.0" />
+         </font>
+      </Label>
+      <Button layoutX="658.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="45.0" prefWidth="107.0" text="ลงทะเบียน">
+         <font>
+            <Font name="SP Normal" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="484.0" layoutY="61.0" text="KU ร้องเรียน">
+         <font>
+            <Font name="SP Normal" size="100.0" />
+         </font>
+      </Label>
+      <Label accessibleRole="BUTTON" layoutX="514.0" layoutY="570.0" onDragDetected="#handleBackButton" text="ย้อนกลับ" underline="true">
+         <font>
+            <Font name="SP Normal" size="28.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <TextField layoutX="511.0" layoutY="268.0" prefHeight="39.0" prefWidth="254.0">
          <font>
             <Font size="18.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
       </TextField>
-      <Label layoutX="538.0" layoutY="342.0" text="Label">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="494.0" layoutY="71.0" text="Lorem Ipsum">
-         <font>
-            <Font size="54.0" />
-         </font>
-      </Label>
-      <Label layoutX="538.0" layoutY="215.0" text="Label">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <PasswordField layoutX="538.0" layoutY="377.0">
+      <TextField layoutX="513.0" layoutY="381.0" prefHeight="39.0" prefWidth="254.0">
          <font>
             <Font size="18.0" />
          </font>
-      </PasswordField>
-      <Label layoutX="538.0" layoutY="431.0" text="Label">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <PasswordField layoutX="538.0" layoutY="466.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField layoutX="513.0" layoutY="473.0" prefHeight="39.0" prefWidth="254.0">
          <font>
             <Font size="18.0" />
          </font>
-      </PasswordField>
-      <Button layoutX="658.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="39.0" prefWidth="124.0" text="Register">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="524.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="39.0" prefWidth="70.0" text="Back">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
    </children>
 </AnchorPane>
