@@ -5,8 +5,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.LoginPageController">
    <children>
@@ -40,6 +40,7 @@
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <Button layoutX="610.0" layoutY="581.0" mnemonicParsing="false" onAction="#handleRegisterButton" style="-fx-background-color: 48915;" text="Register" />
+      <Button layoutX="610.0" layoutY="581.0" mnemonicParsing="false" onAction="#handleRegisterButton" style="-fx-background-color: 48915;" text="Register" underline="true" />
+      <CubicCurve controlX1="-75.13887023925781" controlX2="180.43115234375" controlY1="-144.9856719970703" controlY2="46.838653564453125" endX="209.54351806640625" endY="-236.0" fill="TRANSPARENT" layoutX="145.0" layoutY="196.0" startX="-157.88697814941406" startY="64.01434326171875" stroke="BLACK" strokeWidth="10.0" />
    </children>
 </AnchorPane>
