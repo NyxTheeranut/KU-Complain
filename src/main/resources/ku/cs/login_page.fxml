@@ -64,5 +64,10 @@
             <Font name="SP Normal" size="40.0" />
          </font>
       </Label>
+      <Label layoutX="484.0" layoutY="153.0" text="Login" underline="true">
+         <font>
+            <Font name="SP Normal" size="50.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

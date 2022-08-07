@@ -39,14 +39,6 @@
             <Font name="SP Normal" size="100.0" />
          </font>
       </Label>
-      <Label accessibleRole="BUTTON" layoutX="514.0" layoutY="570.0" onDragDetected="#handleBackButton" text="ย้อนกลับ" underline="true">
-         <font>
-            <Font name="SP Normal" size="28.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
       <TextField layoutX="511.0" layoutY="268.0" prefHeight="39.0" prefWidth="254.0">
          <font>
             <Font size="18.0" />
@@ -71,5 +63,18 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
+      <Button layoutX="504.0" layoutY="556.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-color: #429772;" text="ย้อนกลับ" underline="true">
+         <font>
+            <Font name="SP Normal" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="484.0" layoutY="153.0" text="Register" underline="true">
+         <font>
+            <Font name="SP Normal" size="50.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
