@@ -34,7 +34,7 @@
             <Font name="SP Normal" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="583.0" layoutY="517.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="45.0" prefWidth="119.0" text="ลงชื่อเข้าใช้">
+      <Button layoutX="555.0" layoutY="517.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="52.0" prefWidth="175.0" text="ลงชื่อเข้าใช้">
          <font>
             <Font name="SP Normal" size="25.0" />
          </font>

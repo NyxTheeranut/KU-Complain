@@ -26,6 +26,8 @@ public class ProjectApplication extends Application {
         FXRouter.when("intro", packageStr+"intro.fxml");
         FXRouter.when("login_page", packageStr+"login_page.fxml");
         FXRouter.when("register_page", packageStr+"register_page.fxml");
+        FXRouter.when("about_page", packageStr+"about.fxml");
+        FXRouter.when("tutorial_page", packageStr+"tutorial.fxml");
 
     }
     public static void main(String[] args) {
