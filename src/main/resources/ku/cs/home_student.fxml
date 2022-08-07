@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -10,11 +11,26 @@
    <children>
       <StackPane fx:id="content" layoutX="91.0" layoutY="89.0" prefHeight="720.0" prefWidth="1189.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="730.0" layoutX="-8.0" layoutY="-6.0" stroke="TRANSPARENT" strokeType="INSIDE" width="99.0" />
-      <Button layoutX="23.0" layoutY="36.0" mnemonicParsing="false" onAction="#loadComplaintList" text="Button" />
-      <Button layoutX="23.0" layoutY="115.0" mnemonicParsing="false" onAction="#loadComplaintPost" text="Button" />
-      <Button layoutX="23.0" layoutY="184.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="24.0" layoutY="260.0" mnemonicParsing="false" text="Button" />
-      <Button layoutX="23.0" layoutY="348.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="23.0" layoutY="36.0" mnemonicParsing="false" onAction="#loadComplaintList" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="23.0" layoutY="115.0" mnemonicParsing="false" onAction="#loadComplaintPost" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="23.0" layoutY="184.0" mnemonicParsing="false" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="24.0" layoutY="260.0" mnemonicParsing="false" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="23.0" layoutY="348.0" mnemonicParsing="false" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Line endX="100.0" endY="303.0" layoutX="-9.0" layoutY="419.0" startX="100.0" startY="-418.0" stroke="#146b44" strokeWidth="3.0" />
    </children>
 </AnchorPane>
