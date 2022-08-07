@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EditProfileController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="205.0" layoutX="108.0" layoutY="100.0" stroke="TRANSPARENT" strokeType="INSIDE" width="205.0" />
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="111.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

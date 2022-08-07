@@ -5,12 +5,12 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class IntroController {
+public class ProfilePageController {
     @FXML
-    public void handleIntroButton(ActionEvent actionEvent){
+    public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("login_page");
-        } catch(IOException e){
+            com.github.saacsos.FXRouter.goTo("home_student");
+        } catch (IOException e){
             System.err.println(e);
         }
     }
