@@ -13,14 +13,15 @@ import java.io.IOException;
 
 public class HomeStudentPageController {
     @FXML private StackPane content;
+    //Page
     @FXML private Parent complaintPost;
     @FXML private Parent complaintList;
-    @FXML private AnchorPane menu;
-
-    //instance
     @FXML private Parent profile;
     @FXML private Parent about;
     @FXML private Parent tutorial;
+    @FXML private AnchorPane menu;
+
+    //instance
     private String packageStr = "/ku/cs/";
     private int menuCloseWidth = -180;
 
@@ -43,20 +44,20 @@ public class HomeStudentPageController {
             System.err.println("error loading complaint list page");
         }
 
-        try{
+        try{ //pre load profile page
             profile = FXMLLoader.load(getClass().getResource(packageStr + "profile.fxml"));
         } catch (IOException e){
             System.err.println("error loading profile page");
         }
 
-        try{
-            profile = FXMLLoader.load(getClass().getResource(packageStr + "about.fxml"));
+        try{ //pre load about page
+            about = FXMLLoader.load(getClass().getResource(packageStr + "about.fxml"));
         } catch (IOException e){
             System.err.println("error loading about page");
         }
 
-        try{
-            profile = FXMLLoader.load(getClass().getResource(packageStr + "tutorial.fxml"));
+        try{ //pre load tutorial page
+            tutorial = FXMLLoader.load(getClass().getResource(packageStr + "tutorial.fxml"));
         } catch (IOException e){
             System.err.println("error loading tutorial page");
         }
@@ -68,6 +69,19 @@ public class HomeStudentPageController {
     @FXML protected void loadComplaintPost(){ //load complaint post to stackpane
         content.getChildren().clear();
         content.getChildren().add(complaintPost);
+    }
+    @FXML protected void loadProfile(){ //load profile to stackpane
+        content.getChildren().clear();
+        content.getChildren().add(profile);
+    }
+    @FXML protected void loadAbout(){ //load about to stackpane
+        content.getChildren().clear();
+        content.getChildren().add(about);
+    }
+
+    @FXML protected void loadTutorial(){ //load tutorial to stackpane
+        content.getChildren().clear();
+        content.getChildren().add(tutorial);
     }
     @FXML private void handleOnMouseEnterMenu(){ //open menu
         //menu.setTranslateX(menuCloseWidth);
@@ -90,19 +104,5 @@ public class HomeStudentPageController {
         slide.play();
 
         //menu.setTranslateX(0);
-    }
-    @FXML protected void loadProfile(){
-        content.getChildren().clear();
-        content.getChildren().add(profile);
-    }
-
-    @FXML protected void loadAbout(){
-        content.getChildren().clear();
-        content.getChildren().add(about);
-    }
-
-    @FXML protected void loadTutorial(){
-        content.getChildren().clear();
-        content.getChildren().add(tutorial);
     }
 }

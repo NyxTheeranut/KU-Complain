@@ -12,7 +12,7 @@ public class ComplaintListPageController {
     private ComplaintListHardCodeDataSource dataSource;
     private ComplaintList complaintList;
 
-    public void initialize(){
+    public void initialize(){ //get data from dataSource
         dataSource = new ComplaintListHardCodeDataSource();
         complaintList = dataSource.getComplaintList();
         showListView();
