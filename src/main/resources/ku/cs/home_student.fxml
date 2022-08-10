@@ -12,46 +12,41 @@
    <children>
       <StackPane fx:id="content" layoutX="91.0" layoutY="89.0" prefHeight="720.0" prefWidth="1180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="730.0" layoutX="-8.0" layoutY="-6.0" stroke="TRANSPARENT" strokeType="INSIDE" width="100.0" />
-      <Button layoutX="27.0" layoutY="88.0" mnemonicParsing="false" onAction="#loadComplaintList" prefHeight="40.0" prefWidth="126.0" text="รายการร้องเรียน">
+      <Button layoutX="14.0" layoutY="107.0" mnemonicParsing="false" onAction="#loadComplaintList" prefHeight="40.0" prefWidth="134.0" text="รายการร้องเรียน">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="26.0" layoutY="181.0" mnemonicParsing="false" onAction="#loadComplaintPost" text="แจ้งเรื่องร้องเรียน">
+         </font></Button>
+      <Button layoutX="14.0" layoutY="180.0" mnemonicParsing="false" onAction="#loadComplaintPost" prefHeight="40.0" prefWidth="134.0" text="เสนอเรื่องร้องเรียน">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="26.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleAccountButton" prefHeight="40.0" prefWidth="126.0" text="บัญชี">
+         </font></Button>
+      <Button layoutX="8.0" layoutY="412.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="134.0" text="บัญชี">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="28.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleAboutButton" prefHeight="40.0" prefWidth="126.0" text="เกี่ยวกับ">
+         </font></Button>
+      <Button layoutX="8.0" layoutY="513.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="134.0" text="เกี่ยวกับ">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="26.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleTutorialButton" prefHeight="40.0" prefWidth="126.0" text="วิธีใช้งาน">
+         </font></Button>
+      <Button layoutX="8.0" layoutY="627.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="134.0" text="วิธีใช้งาน">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
+         </font></Button>
       <Line endX="100.0" endY="303.0" layoutX="-9.0" layoutY="419.0" startX="100.0" startY="-418.0" stroke="#146b44" strokeWidth="3.0" />
    </children>
 </AnchorPane>
