@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ProfilePageController">
     <children>
         <Label layoutX="569.0" layoutY="230.0" text="Status">
@@ -46,6 +45,6 @@
             </font>
         </Label>
         <Button layoutX="569.0" layoutY="348.0" mnemonicParsing="false" text="Edit Account" />
-        <Button layoutX="1052.0" layoutY="647.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+        <Button layoutX="1052.0" layoutY="647.0" mnemonicParsing="false" text="Back" />
     </children>
 </AnchorPane>
