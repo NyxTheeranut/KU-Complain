@@ -14,7 +14,7 @@ public class ProjectApplication extends Application {
         FXRouter.bind(this, stage, "KU RongRian Center", 1280,720);
         configRoute();
         loadFonts();
-        FXRouter.goTo("intro");
+        FXRouter.goTo("home_student");
     }
 
     private void loadFonts() {
