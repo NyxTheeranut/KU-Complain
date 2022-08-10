@@ -35,4 +35,5 @@ public class HomeStudentPageController {
         content.getChildren().clear();
         content.getChildren().add(complaintPost);
     }
+
 }

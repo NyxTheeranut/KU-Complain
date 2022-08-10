@@ -6,13 +6,13 @@ import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
 
-public class IntroController {
+public class ProfilePageController {
     @FXML
-    public void handleIntroButton(ActionEvent actionEvent){
+    public void handleBackButton(ActionEvent actionEvent){
         try{
             FXRouter.goTo("login_page");
-        } catch(IOException e){
-            System.err.println(e);
+        } catch (IOException e){
+            System.err.println("Error loading login page");
         }
     }
 }
