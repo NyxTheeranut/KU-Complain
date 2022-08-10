@@ -11,6 +11,9 @@ public class HomeStudentPageController {
     @FXML private StackPane content;
     @FXML private Parent complaintPost;
     @FXML private Parent complaintList;
+    @FXML private Parent profile;
+    @FXML private Parent about;
+    @FXML private Parent tutorial;
     private String packageStr = "/ku/cs/";
 
     @FXML public void initialize(){
@@ -26,6 +29,24 @@ public class HomeStudentPageController {
         } catch (IOException e){
             System.err.println("error loading complaint list page");
         }
+
+        try{
+            profile = FXMLLoader.load(getClass().getResource(packageStr + "profile.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading profile page");
+        }
+
+        try{
+            profile = FXMLLoader.load(getClass().getResource(packageStr + "about.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading about page");
+        }
+
+        try{
+            profile = FXMLLoader.load(getClass().getResource(packageStr + "tutorial.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading tutorial page");
+        }
     }
     @FXML protected void loadComplaintList(){
         content.getChildren().clear();
@@ -34,6 +55,21 @@ public class HomeStudentPageController {
     @FXML protected void loadComplaintPost(){
         content.getChildren().clear();
         content.getChildren().add(complaintPost);
+    }
+
+    @FXML protected void loadProfile(){
+        content.getChildren().clear();
+        content.getChildren().add(profile);
+    }
+
+    @FXML protected void loadAbout(){
+        content.getChildren().clear();
+        content.getChildren().add(about);
+    }
+
+    @FXML protected void loadTutorial(){
+        content.getChildren().clear();
+        content.getChildren().add(tutorial);
     }
 
 }

@@ -28,7 +28,7 @@
             <Font name="SP Normal" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="26.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleAccountButton" prefHeight="40.0" prefWidth="126.0" text="บัญชี">
+      <Button layoutX="26.0" layoutY="272.0" mnemonicParsing="false" onAction="#loadProfile" prefHeight="40.0" prefWidth="126.0" text="บัญชี">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -36,7 +36,7 @@
             <Font name="SP Normal" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="28.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleAboutButton" prefHeight="40.0" prefWidth="126.0" text="เกี่ยวกับ">
+      <Button layoutX="28.0" layoutY="362.0" mnemonicParsing="false" onAction="#loadAbout" prefHeight="40.0" prefWidth="126.0" text="เกี่ยวกับ">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -44,7 +44,7 @@
             <Font name="SP Normal" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="26.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleTutorialButton" prefHeight="40.0" prefWidth="126.0" text="วิธีใช้งาน">
+      <Button layoutX="26.0" layoutY="459.0" mnemonicParsing="false" onAction="#loadTutorial" prefHeight="40.0" prefWidth="126.0" text="วิธีใช้งาน">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

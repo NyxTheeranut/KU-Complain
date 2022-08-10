@@ -14,6 +14,7 @@ public class LoginPageController {
             FXRouter.goTo("home_student");
         } catch (IOException e){
             System.err.println("Error loading student menu page");
+            System.err.println(e);
         }
     }
     @FXML public void handleRegisterButton(ActionEvent actionEvent) {
@@ -24,12 +25,4 @@ public class LoginPageController {
         }
     }
 
-    @FXML
-    public void handleLoginButton(ActionEvent actionEvent) {
-        try {
-            com.github.saacsos.FXRouter.goTo("home_student");
-        } catch (IOException e) {
-            System.err.println(e);
-        }
-    }
 }
