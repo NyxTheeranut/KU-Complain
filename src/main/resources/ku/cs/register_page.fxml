@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Users/NEW%20USER%20EVOLUTION/Downloads/abstract-green-gradient-bs-1280x720.jpg" />
+            <Image url="@image/green_wallpaper.jpg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="459.0" layoutX="484.0" layoutY="176.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" width="317.0" />
