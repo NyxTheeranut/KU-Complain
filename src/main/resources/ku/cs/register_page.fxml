@@ -4,39 +4,47 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.RegisterPageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="435.0" layoutX="484.0" layoutY="200.0" stroke="TRANSPARENT" strokeType="INSIDE" width="317.0" />
-      <Label layoutX="514.0" layoutY="341.0" text="NEW PASSWORD">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/green_wallpaper.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="459.0" layoutX="484.0" layoutY="176.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" width="317.0" />
+      <Label layoutX="505.0" layoutY="371.0" text="รหัสผ่าน" textFill="WHITE">
          <font>
-            <Font name="SP Normal" size="35.0" />
+            <Font name="THSarabunPSK-Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="511.0" layoutY="223.0" text="USERNAME">
+      <Label layoutX="506.0" layoutY="268.0" text="ชื่อบัญชี" textFill="WHITE">
          <font>
-            <Font name="SP Normal" size="40.0" />
+            <Font name="THSarabunPSK-Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="513.0" layoutY="434.0" text="CONFIRM PASSWORD">
+      <Label layoutX="505.0" layoutY="458.0" text="ยืนยันรหัสผ่าน" textFill="WHITE">
          <font>
-            <Font name="SP Normal" size="35.0" />
+            <Font name="THSarabunPSK-Bold" size="38.0" />
          </font>
       </Label>
-      <Button layoutX="658.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="45.0" prefWidth="107.0" text="ลงทะเบียน">
+      <Button layoutX="643.0" layoutY="560.0" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="48.0" prefWidth="121.0" text="ลงทะเบียน">
          <font>
-            <Font name="SP Normal" size="25.0" />
+            <Font name="THSarabunPSK-Bold" size="25.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="484.0" layoutY="61.0" text="KU ร้องเรียน">
+      <Label layoutX="474.0" layoutY="59.0" text="KU ร้องเรียน" textFill="WHITE">
          <font>
-            <Font name="SP Normal" size="100.0" />
+            <Font name="THSarabunPSK-Bold" size="95.0" />
          </font>
       </Label>
       <TextField layoutX="511.0" layoutY="268.0" prefHeight="39.0" prefWidth="254.0">

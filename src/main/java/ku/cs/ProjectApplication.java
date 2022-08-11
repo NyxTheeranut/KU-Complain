@@ -14,7 +14,7 @@ public class ProjectApplication extends Application {
         FXRouter.bind(this, stage, "KU RongRian Center", 1280,720);
         configRoute();
         loadFonts();
-        FXRouter.goTo("intro");
+        FXRouter.goTo("home_student");
     }
 
     private void loadFonts() {
@@ -27,6 +27,8 @@ public class ProjectApplication extends Application {
         FXRouter.when("intro", packageStr+"intro.fxml");
         FXRouter.when("login_page", packageStr+"login_page.fxml");
         FXRouter.when("register_page", packageStr+"register_page.fxml");
+        FXRouter.when("about_page", packageStr+"about.fxml");
+        FXRouter.when("tutorial_page", packageStr+"tutorial.fxml");
 
     }
     public static void main(String[] args) {
