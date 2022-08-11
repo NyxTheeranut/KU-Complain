@@ -16,22 +16,34 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.LoginPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.LoginPageController">
    <children>
-      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@image/green_wallpaper.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="459.0" layoutX="484.0" layoutY="176.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" width="317.0" />
-      <AnchorPane layoutX="174.0" layoutY="223.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="180.0">
+      <AnchorPane layoutX="174.0" layoutY="223.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="320.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="180.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="460.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Line endX="179.0" startX="-138.0" stroke="#fffffffc" strokeWidth="3.0" AnchorPane.bottomAnchor="397.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="380.0" prefWidth="300.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label text="บัญชีผู้ใช้" textFill="WHITE">
+                  <Label text="ลงชื่อเข้าใช้" textFill="WHITE">
                      <font>
-                        <Font name="THSarabunPSK-Bold" size="40.0" />
+                        <Font name="THSarabunPSK-Bold" size="50.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="ชื่อบัญชี" textFill="WHITE">
+                     <font>
+                        <Font name="THSarabunPSK-Bold" size="35.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
                   </Label>
                   <TextField prefHeight="39.0" prefWidth="254.0">
                      <font>
@@ -43,7 +55,7 @@
                   </TextField>
                   <Label text="รหัสผ่าน" textFill="WHITE">
                      <font>
-                        <Font name="THSarabunPSK-Bold" size="40.0" />
+                        <Font name="THSarabunPSK-Bold" size="35.0" />
                      </font>
                   </Label>
                   <PasswordField prefHeight="39.0" prefWidth="254.0">
@@ -54,7 +66,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </PasswordField>
-                  <Button mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="45.0" prefWidth="119.0" text="เข้าสู่ระบบ">
+                  <Button mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="45.0" prefWidth="120.0" text="เข้าสู่ระบบ">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="25.0" />
                      </font>
@@ -62,17 +74,17 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets left="90.0" top="30.0" />
                      </VBox.margin>
                   </Button>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="300.0">
                      <children>
                         <Text fill="WHITE" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ไม่มีบัญชี ?">
                            <font>
                               <Font name="THSarabunPSK-Bold" size="25.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="30.0" top="10.0" />
+                              <Insets left="60.0" top="10.0" />
                            </HBox.margin>
                         </Text>
                         <Button mnemonicParsing="false" onAction="#handleRegisterButton" style="-fx-background-color: 48915;" text="ลงทะเบียนที่นี่" textFill="WHITE" underline="true">
@@ -88,27 +100,16 @@
                         </Button>
                      </children>
                      <VBox.margin>
-                        <Insets top="50.0" />
+                        <Insets top="70.0" />
                      </VBox.margin>
                   </HBox>
                </children>
             </VBox>
          </children>
       </AnchorPane>
-      <Label layoutX="474.0" layoutY="59.0" text="KU ร้องเรียน" textFill="WHITE">
+      <Label layoutX="474.0" layoutY="59.0" text="KU ร้องเรียน" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="544.0" AnchorPane.leftAnchor="474.0" AnchorPane.rightAnchor="474.0" AnchorPane.topAnchor="60.0">
          <font>
             <Font name="THSarabunPSK-Bold" size="95.0" />
-         </font>
-      </Label>
-      <Label layoutX="494.0" layoutY="179.0" text="ลงชื่อเข้าใช้" textFill="WHITE">
-         <font>
-            <Font name="THSarabunPSK-Bold" size="55.0" />
-         </font>
-      </Label>
-      <Line endX="179.0" layoutX="622.0" layoutY="239.0" startX="-138.0" stroke="#fffffffc" strokeWidth="3.0" />
-      <Label layoutX="484.0" layoutY="153.0" text="Login" underline="true">
-         <font>
-            <Font name="SP Normal" size="50.0" />
          </font>
       </Label>
    </children>
