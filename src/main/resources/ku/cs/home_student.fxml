@@ -1,57 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.HomeStudentPageController">
    <children>
       <StackPane fx:id="content" layoutX="91.0" layoutY="89.0" prefHeight="720.0" prefWidth="1180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="730.0" layoutX="-8.0" layoutY="-6.0" stroke="TRANSPARENT" strokeType="INSIDE" width="100.0" />
-      <Button layoutX="27.0" layoutY="88.0" mnemonicParsing="false" onAction="#loadComplaintList" prefHeight="40.0" prefWidth="126.0" text="รายการร้องเรียน">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="26.0" layoutY="181.0" mnemonicParsing="false" onAction="#loadComplaintPost" text="แจ้งเรื่องร้องเรียน">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="26.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleAccountButton" prefHeight="40.0" prefWidth="126.0" text="บัญชี">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="28.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleAboutButton" prefHeight="40.0" prefWidth="126.0" text="เกี่ยวกับ">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="26.0" layoutY="459.0" mnemonicParsing="false" onAction="#handleTutorialButton" prefHeight="40.0" prefWidth="126.0" text="วิธีใช้งาน">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="SP Normal" size="22.0" />
-         </font>
-      </Button>
-      <Line endX="100.0" endY="303.0" layoutX="-9.0" layoutY="419.0" startX="100.0" startY="-418.0" stroke="#146b44" strokeWidth="3.0" />
+      <AnchorPane fx:id="menu" layoutX="33.0" layoutY="33.0" onMouseEntered="#handleOnMouseEnterMenu" onMouseExited="#handleOnMouseExitMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #429772;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1030.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox prefHeight="720.0" prefWidth="70.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="720.0" prefWidth="180.0" spacing="30.0">
+                     <children>
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#loadComplaintList" prefHeight="40.0" prefWidth="200.0" text="รายการร้องเรียน" VBox.vgrow="ALWAYS">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#loadComplaintPost" prefHeight="40.0" prefWidth="200.0" text="เสนอเรื่องร้องเรียน">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#loadProfile" prefHeight="40.0" prefWidth="200.0" text="บัญชี">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#loadTutorial" prefHeight="40.0" prefWidth="200.0" text="วิธีใช้งาน">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#loadAbout" prefHeight="40.0" prefWidth="200.0" text="เกี่ยวกับ">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="100.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="650.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
