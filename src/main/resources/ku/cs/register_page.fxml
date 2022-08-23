@@ -41,10 +41,10 @@
                         <Font name="THSarabunPSK-Bold" size="35.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="10.0" />
+                        <Insets />
                      </VBox.margin>
                   </Label>
-                  <TextField prefHeight="39.0" prefWidth="254.0">
+                  <TextField fx:id="username" prefHeight="39.0" prefWidth="254.0">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>
@@ -57,7 +57,7 @@
                         <Font name="THSarabunPSK-Bold" size="35.0" />
                      </font>
                   </Label>
-                  <PasswordField prefHeight="39.0" prefWidth="254.0">
+                  <PasswordField fx:id="password" prefHeight="39.0" prefWidth="254.0">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <Font name="THSarabunPSK-Bold" size="35.0" />
                      </font>
                   </Label>
-                  <PasswordField prefHeight="39.0" prefWidth="254.0">
+                  <PasswordField fx:id="confirmPassword" prefHeight="39.0" prefWidth="254.0">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>
@@ -78,7 +78,12 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </PasswordField>
-                  <Button mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="45.0" prefWidth="120.0" text="ลงทะเบียน">
+                  <Label fx:id="wrongRegister" textFill="#ffe791">
+                     <font>
+                        <Font name="THSarabunPSK-Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="45.0" prefWidth="120.0" text="ลงทะเบียน">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="25.0" />
                      </font>
@@ -86,7 +91,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <VBox.margin>
-                        <Insets left="90.0" top="20.0" />
+                        <Insets left="90.0" />
                      </VBox.margin>
                   </Button>
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="300.0">
