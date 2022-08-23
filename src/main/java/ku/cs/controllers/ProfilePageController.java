@@ -15,4 +15,12 @@ public class ProfilePageController {
             System.err.println("Error loading login page");
         }
     }
+    @FXML
+    public void handleEditProfileButton(ActionEvent actionEvent){
+        try{
+            FXRouter.goTo("edit_profile");
+        } catch (IOException e){
+            System.err.println("Error loading login page");
+        }
+    }
 }
