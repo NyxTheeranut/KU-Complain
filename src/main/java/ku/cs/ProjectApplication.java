@@ -13,14 +13,8 @@ public class ProjectApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "KU RongRian Center", 1280,720);
         configRoute();
-        loadFonts();
         FXRouter.goTo("login_page");
     }
-
-    private void loadFonts() {
-        Font.loadFont(getClass().getResource("/ku/cs/font/SP-Normal.ttf").toExternalForm(), 12);
-    }
-
     private static void configRoute() {
         String packageStr = "ku/cs/";
         FXRouter.when("home_student", packageStr+"home_student.fxml");
