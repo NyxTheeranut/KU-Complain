@@ -7,6 +7,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.IOException;
 import com.github.saacsos.FXRouter;
+import ku.cs.fontloader.FontLoader;
 
 public class ProjectApplication extends Application {
     @Override
