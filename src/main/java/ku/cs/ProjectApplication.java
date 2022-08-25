@@ -14,6 +14,7 @@ public class ProjectApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "KU RongRian Center", 1280,720);
         configRoute();
+        configFont();
         FXRouter.goTo("login_page");
     }
     private static void configRoute() {
@@ -25,6 +26,13 @@ public class ProjectApplication extends Application {
         FXRouter.when("about_page", packageStr+"about.fxml");
         FXRouter.when("tutorial_page", packageStr+"tutorial.fxml");
 
+    }
+    private static void configFont() {
+        String packageStr = "/ku/cs/fonts/";
+        FontLoader.bind("ths", packageStr+"THSarabun.ttf");
+        FontLoader.bind("ths_b", packageStr+"THSarabunBold.ttf");
+        FontLoader.bind("ths_bi", packageStr+"THSarabunBoldItalic.ttf");
+        FontLoader.bind("ths_i", packageStr+"THSarabunItalic.ttf");
     }
     public static void main(String[] args) {
         launch();

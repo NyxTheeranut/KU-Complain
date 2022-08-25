@@ -2,17 +2,42 @@ package ku.cs.fontloader;
 
 import javafx.scene.text.Font;
 
-public class FontLoader {
+import java.util.AbstractMap;
+import java.util.HashMap;
 
-    private static String packageStr = "/ku/cs/fonts/";
+public final class FontLoader {
 
-    public static Font fontLoad(String name, double size){
-        Font font = Font.loadFont(FontLoader.class.getResource(packageStr+name).toExternalForm()
-                .replaceAll("%20", " "), size);
+    private static AbstractMap<String, RouteFont> routes = new HashMap();
+
+    private FontLoader(){}
+
+    public static void bind(String fontLabel, String fontPath) {
+        RouteFont routeFont = new RouteFont(fontPath);
+        routes.put(fontLabel, routeFont);
+    }
+
+    public static Font font(String fontLabel, double size){
+        RouteFont route = (RouteFont)routes.get(fontLabel);
+        System.out.println(FontLoader.class.getResource(route.fontPath).toExternalForm());
+        Font font = Font.loadFont(FontLoader.class.getResource(route.fontPath).toExternalForm(), size);
+        if (font == null) {
+            System.err.println(
+                    "Load font <" + fontLabel + "> failed.\n" +
+                    "please check font path"
+            );
+            return Font.font("System");
+        }
         return font;
     }
+    private static class RouteFont {
+        private String fontPath;
+        private double fontSize;
 
-    public static Font fontLoad(String name){
-        return fontLoad(name, 10);
+        private RouteFont(String fontPath){
+            this.fontPath = fontPath;
+        }
+
     }
 }
+
+
