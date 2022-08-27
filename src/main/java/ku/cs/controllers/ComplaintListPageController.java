@@ -4,17 +4,19 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import ku.cs.models.Complaint;
 import ku.cs.models.ComplaintList;
+import ku.cs.services.ComplaintListFileDataSource;
 import ku.cs.services.ComplaintListHardCodeDataSource;
 
 public class ComplaintListPageController {
     @FXML private ListView<Complaint> complaintListView;
 
-    private ComplaintListHardCodeDataSource dataSource;
+    //private ComplaintListHardCodeDataSource dataSource;
+    private ComplaintListFileDataSource dataSource;
     private ComplaintList complaintList;
 
     public void initialize(){ //get data from dataSource
-        dataSource = new ComplaintListHardCodeDataSource();
-        complaintList = dataSource.getComplaintList();
+        dataSource = new ComplaintListFileDataSource();
+        complaintList = dataSource.readData();
         showListView();
     }
 
