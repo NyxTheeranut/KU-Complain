@@ -34,6 +34,7 @@ public class ProjectApplication extends Application {
         FontLoader.bind("ths_b", packageStr+"THSarabunBold.ttf");
         FontLoader.bind("ths_bi", packageStr+"THSarabunBoldItalic.ttf");
         FontLoader.bind("ths_i", packageStr+"THSarabunItalic.ttf");
+        FontLoader.bind("fa_wf", packageStr+"fontawesome-webfont.ttf");
     }
     public static void main(String[] args) {
         launch();
