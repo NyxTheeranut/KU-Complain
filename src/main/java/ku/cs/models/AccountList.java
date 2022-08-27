@@ -2,18 +2,30 @@ package ku.cs.models;
 
 import java.util.ArrayList;
 
-public class UserList {
-    private ArrayList<User> users;
+public class AccountList {
+    private ArrayList<Account> accounts;
 
-    public UserList() {
-        users = new ArrayList<>();
+    public AccountList() {
+        accounts = new ArrayList<>();
     }
 
-    public void addUser(User user){
-        users.add(user);
+    public void addAccount(Account account){
+        accounts.add(account);
     }
 
-    public ArrayList<User> getAllUser() {
-        return users;
+    public ArrayList<Account> getAllUser() {
+        return accounts;
     }
+
+    public Account getAccount(String name) {
+
+        for (Account account:accounts) {
+            if (account.getName().equals(name.strip())) {
+                return account;
+            }
+        }
+        return null;
+    }
+
+
 }

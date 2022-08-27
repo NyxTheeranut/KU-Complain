@@ -7,26 +7,38 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import ku.cs.fontloader.FontLoader;
+import ku.cs.models.Account;
+import ku.cs.services.UserListHardCodeDataSource;
 
 import java.io.IOException;
 
 public class LoginPageController {
-        @FXML
-        private Button loginButton;
-        @FXML
-        private TextField username;
-        @FXML
-        private PasswordField password;
-        @FXML
-        private Label wrongLogin;
+    @FXML
+    private Button loginButton;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private Label wrongLogin;
 
     @FXML public void handleLoginButton(ActionEvent actionEvent) throws IOException {
         checkLogin();
     }
 
-    @FXML public void checkLogin() throws IOException {
-        if (username.getText().toString().equals("test") && password.getText().toString().equals("123")) {
+    @FXML public void checkLogin() throws RuntimeException {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        UserListHardCodeDataSource userList = new UserListHardCodeDataSource();
+        Account account = userList.getUserList().getAccount(username);
+
+        if (username.isEmpty() || password.isEmpty()) {
+            wrongLogin.setText("กรุณาระบุชื่อบัญชีและรหัสผ่าน");
+        }
+        else if (account == null) {
+            wrongLogin.setText("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");
+        }
+        else if (account.checkLogin(password)) {
             try{
                 FXRouter.goTo("home_student");
             } catch (IOException e) {
@@ -34,14 +46,10 @@ public class LoginPageController {
                 System.err.println(e);
             }
         }
-
-        else if (username.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
-            wrongLogin.setText("กรุณาระบุชื่อบัญชีและรหัสผ่าน");
-        }
-
         else {
             wrongLogin.setText("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");
         }
+
     }
 
     @FXML public void handleRegisterButton(ActionEvent actionEvent) {

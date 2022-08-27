@@ -1,5 +1,7 @@
 package ku.cs.models;
 
+import java.util.ArrayList;
+
 public class Account {
     private String name;
     private String password;
@@ -7,6 +9,7 @@ public class Account {
     public Account(String name, String password) {
         this.name = name;
         this.password = password;
+
     }
 
     public String getName() {
@@ -17,11 +20,16 @@ public class Account {
         this.name = name;
     }
 
-    public String getPassword() {
+    private String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    private void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public boolean checkLogin(String password) {
+        return this.password.equals(password);
     }
 }
