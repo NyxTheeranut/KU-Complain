@@ -16,12 +16,12 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadComplaintPost" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
+                  <HBox fx:id="complaintPostButton" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadComplaintPost" onMouseEntered="#handleOnMouseEnterComplaintPostButton" onMouseExited="#handleOnMouseExitComplaintPostButton" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #2f3337;">
                      <padding>
                         <Insets left="10.0" top="7.0" />
                      </padding>
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" text="เสนอเรื่องร้องเรียน" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" text="เสนอเรื่องร้องเรียน" textAlignment="CENTER" textFill="#9d9fa1">
                            <font>
                               <Font name="fa-regular" size="32.0" />
                            </font>
@@ -32,7 +32,7 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefWidth="40.0" rotate="270.0" text="" textFill="WHITE">
+                        <Label prefWidth="40.0" rotate="270.0" text="" textFill="#9d9fa1">
                            <font>
                               <Font name="fa-regular" size="36.0" />
                            </font>
@@ -45,12 +45,12 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox fx:id="test3" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
+                  <HBox fx:id="complaintListButton" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadComplaintList" onMouseEntered="#handleOnMouseEnterComplaintListButton" onMouseExited="#handleOnMouseExitComplaintListButton" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #2f3337;">
                      <padding>
                         <Insets left="10.0" top="7.0" />
                      </padding>
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadComplaintList" prefHeight="35.0" prefWidth="220.0" text="รายการร้องเรียน" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" text="รายการร้องเรียน" textAlignment="CENTER" textFill="#9d9fa1">
                            <font>
                               <Font name="fa-regular" size="32.0" />
                            </font>
@@ -61,7 +61,7 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefWidth="40.0" text="" textFill="WHITE">
+                        <Label prefWidth="40.0" text="" textFill="#9d9fa1">
                            <font>
                               <Font name="fa-regular" size="36.0" />
                            </font>
@@ -74,12 +74,12 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox fx:id="test2" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadTutorial" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
+                  <HBox fx:id="tutorialButton" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadTutorial" onMouseEntered="#handleOnMouseEnterTutorialButton" onMouseExited="#handleOnMouseExitTutorialButton" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #2f3337;">
                      <padding>
                         <Insets left="10.0" top="7.0" />
                      </padding>
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" text="วิธีใช้งาน" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" text="วิธีใช้งาน" textAlignment="CENTER" textFill="#9d9fa1">
                            <font>
                               <Font name="fa-regular" size="32.0" />
                            </font>
@@ -90,7 +90,7 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefWidth="40.0" rotate="180.0" text="" textFill="WHITE">
+                        <Label prefWidth="40.0" rotate="180.0" text="" textFill="#9d9fa1">
                            <font>
                               <Font name="fa-regular" size="36.0" />
                            </font>
@@ -106,12 +106,12 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox fx:id="test1" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadAbout" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
+                  <HBox fx:id="aboutButton" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadAbout" onMouseEntered="#handleOnMouseEnterAboutButton" onMouseExited="#handleOnMouseExitAboutButton" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #2f3337;">
                      <padding>
                         <Insets left="10.0" top="7.0" />
                      </padding>
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" text="เกี่ยวกับ" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" text="เกี่ยวกับ" textAlignment="CENTER" textFill="#9d9fa1">
                            <font>
                               <Font name="fa-regular" size="32.0" />
                            </font>
@@ -122,7 +122,7 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefWidth="40.0" rotate="180.0" text="" textFill="WHITE">
+                        <Label prefWidth="40.0" rotate="180.0" text="" textFill="#9d9fa1">
                            <font>
                               <Font name="fa-regular" size="36.0" />
                            </font>
