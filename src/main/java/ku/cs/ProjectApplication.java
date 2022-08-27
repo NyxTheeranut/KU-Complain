@@ -7,20 +7,16 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.IOException;
 import com.github.saacsos.FXRouter;
+import ku.cs.fontloader.FontLoader;
 
 public class ProjectApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXRouter.bind(this, stage, "KU RongRian Center", 1280,720);
         configRoute();
-        loadFonts();
+        configFont();
         FXRouter.goTo("login_page");
     }
-
-    private void loadFonts() {
-        Font.loadFont(getClass().getResource("/ku/cs/font/SP-Normal.ttf").toExternalForm(), 12);
-    }
-
     private static void configRoute() {
         String packageStr = "ku/cs/";
         FXRouter.when("home_student", packageStr+"home_student.fxml");
@@ -32,7 +28,15 @@ public class ProjectApplication extends Application {
         FXRouter.when("edit_profile", packageStr+"editprofile_page.fxml");
 
     }
+    private static void configFont() {
+        String packageStr = "/ku/cs/fonts/";
+        FontLoader.bind("ths", packageStr+"THSarabun.ttf");
+        FontLoader.bind("ths_b", packageStr+"THSarabunBold.ttf");
+        FontLoader.bind("ths_bi", packageStr+"THSarabunBoldItalic.ttf");
+        FontLoader.bind("ths_i", packageStr+"THSarabunItalic.ttf");
+    }
     public static void main(String[] args) {
         launch();
     }
+    //test
 }

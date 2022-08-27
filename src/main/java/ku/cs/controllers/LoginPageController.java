@@ -3,11 +3,19 @@ package ku.cs.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.github.saacsos.FXRouter;
+import javafx.scene.control.Label;
+import ku.cs.fontloader.FontLoader;
 
 
 import java.io.IOException;
 
 public class LoginPageController {
+
+    @FXML Label title;
+
+    @FXML public void initialize(){
+        title.setFont(FontLoader.font("ths_b", 95));
+    }
 
     @FXML public void handleLoginButton(ActionEvent actionEvent){
         try{
