@@ -25,6 +25,7 @@ public class ProjectApplication extends Application {
         FXRouter.when("register_page", packageStr+"register_page.fxml");
         FXRouter.when("about_page", packageStr+"about.fxml");
         FXRouter.when("tutorial_page", packageStr+"tutorial.fxml");
+        FXRouter.when("edit_profile", packageStr+"editprofile_page.fxml");
 
     }
     private static void configFont() {
@@ -33,6 +34,7 @@ public class ProjectApplication extends Application {
         FontLoader.bind("ths_b", packageStr+"THSarabunBold.ttf");
         FontLoader.bind("ths_bi", packageStr+"THSarabunBoldItalic.ttf");
         FontLoader.bind("ths_i", packageStr+"THSarabunItalic.ttf");
+        FontLoader.bind("fa_wf", packageStr+"fontawesome-webfont.ttf");
     }
     public static void main(String[] args) {
         launch();

@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
@@ -13,6 +14,8 @@ import java.io.IOException;
 
 public class HomeStudentPageController {
     @FXML private StackPane content;
+
+    @FXML private HBox test;
     //Page
     @FXML private Parent complaintPost;
     @FXML private Parent complaintList;
@@ -23,7 +26,7 @@ public class HomeStudentPageController {
 
     //instance
     private String packageStr = "/ku/cs/";
-    private int menuCloseWidth = -180;
+    private int menuCloseWidth = -230;
 
 
     private boolean menuState = false;
