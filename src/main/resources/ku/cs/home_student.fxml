@@ -16,7 +16,7 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <HBox fx:id="test4" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadComplaintPost" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
                      <padding>
                         <Insets left="10.0" top="7.0" />
                      </padding>
@@ -50,7 +50,7 @@
                         <Insets left="10.0" top="7.0" />
                      </padding>
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" text="รายการร้องเรียน" textAlignment="CENTER" textFill="WHITE">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadComplaintList" prefHeight="35.0" prefWidth="220.0" text="รายการร้องเรียน" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="fa-regular" size="32.0" />
                            </font>
@@ -74,7 +74,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox fx:id="test2" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
+                  <HBox fx:id="test2" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadTutorial" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
                      <padding>
                         <Insets left="10.0" top="7.0" />
                      </padding>
@@ -106,7 +106,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox fx:id="test1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
+                  <HBox fx:id="test1" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadAbout" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #03a96b;">
                      <padding>
                         <Insets left="10.0" top="7.0" />
                      </padding>
