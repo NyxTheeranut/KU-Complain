@@ -66,6 +66,11 @@ public class HomeStudentPageController {
         }
     }
     @FXML protected void loadComplaintList(){ //load complaint list to stackpane
+        try{ //pre load complaint list page
+            complaintList = FXMLLoader.load(getClass().getResource(packageStr + "complaint_list.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading complaint list page");
+        }
         content.getChildren().clear();
         content.getChildren().add(complaintList);
     }

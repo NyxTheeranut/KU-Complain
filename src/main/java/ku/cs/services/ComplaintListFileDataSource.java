@@ -35,7 +35,27 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
         return complaintList;
     }
 
-    public void writeData(){
-
+    public void writeData(ComplaintList complaintList) {
+        File file = new File("src/main/resources/ku/cs/data/complaint_list.csv");
+        FileWriter writer = null;
+        BufferedWriter buffer = null;
+        try {
+            writer = new FileWriter(file);
+            buffer = new BufferedWriter(writer);
+            for(Complaint complaint:complaintList.getAllComplaints()){
+                String line = complaint.getTopic()+","+complaint.getCategory();
+                buffer.append(line);
+                buffer.newLine();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                buffer.close();
+                writer.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }

@@ -2,6 +2,6 @@ package ku.cs.services;
 
 public interface DataSource<T> {
     T readData();
-    void writeData();
+    void writeData(T t);
     //append()?
 }
