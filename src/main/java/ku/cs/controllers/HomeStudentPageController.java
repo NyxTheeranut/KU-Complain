@@ -51,6 +51,8 @@ public class HomeStudentPageController {
         menu.setTranslateX(menuCloseWidth); //set menu on close state
         loadPage();
         setUpBoxId();
+        loadComplaintList();
+        handleOnMouseClickButton(1);
 
     }
     @FXML protected void loadProfile(){ //load profile to stackpane
