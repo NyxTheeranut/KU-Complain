@@ -49,32 +49,56 @@ public class HomeStudentPageController {
     @FXML public void initialize(){
 
         menu.setTranslateX(menuCloseWidth); //set menu on close state
-        loadPage();
         setUpBoxId();
         loadComplaintList();
         handleOnMouseClickButton(1);
 
     }
     @FXML protected void loadProfile(){ //load profile to stackpane
+        try{ //load profile page
+            profile = FXMLLoader.load(getClass().getResource(packageStr + "profile.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading profile page");
+        }
         content.getChildren().clear();
         content.getChildren().add(profile);
     }
     @FXML protected void loadComplaintPost(){ //load complaint post to stackpane
+        try{ //load complaint post page
+            complaintPost = FXMLLoader.load(getClass().getResource(packageStr + "complaint_post.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading complaint post page");
+        }
         content.getChildren().clear();
         content.getChildren().add(complaintPost);
         handleOnMouseClickButton(0);
     }
     @FXML protected void loadComplaintList() { //load complaint list to stackpane
+        try{ //load complaint list page
+            complaintList = FXMLLoader.load(getClass().getResource(packageStr + "complaint_list.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading complaint list page");
+        }
         content.getChildren().clear();
         content.getChildren().add(complaintList);
         handleOnMouseClickButton(1);
     }
     @FXML protected void loadTutorial(){ //load tutorial to stackpane
+        try{ //load tutorial page
+            tutorial = FXMLLoader.load(getClass().getResource(packageStr + "tutorial.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading tutorial page");
+        }
         content.getChildren().clear();
         content.getChildren().add(tutorial);
         handleOnMouseClickButton(2);
     }
     @FXML protected void loadAbout(){ //load about to stackpane
+        try{ //load about page
+            about = FXMLLoader.load(getClass().getResource(packageStr + "about.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading about page");
+        }
         content.getChildren().clear();
         content.getChildren().add(about);
         handleOnMouseClickButton(3);
@@ -133,7 +157,6 @@ public class HomeStudentPageController {
         box.getChildren().get(1).setStyle("-fx-text-fill: #ffffff");
     }
     @FXML private void handleOnMouseExitButton(HBox box){
-        System.out.println(box.getId());
         if (boxId.get(currentPage).replaceAll("#", "").equals(box.getId())){
             return;
         }
@@ -163,84 +186,5 @@ public class HomeStudentPageController {
         boxId.put(1, "#complaintListButton");
         boxId.put(2, "#tutorialButton");
         boxId.put(3, "#aboutButton");
-    }
-    @FXML private void loadPage(){
-        try{ //pre load complaint post page
-            complaintPost = FXMLLoader.load(getClass().getResource(packageStr + "complaint_post.fxml"));
-        } catch (IOException e){
-            System.err.println("error loading complaint post page");
-        }
-
-        try{ //pre load complaint list page
-            complaintList = FXMLLoader.load(getClass().getResource(packageStr + "complaint_list.fxml"));
-        } catch (IOException e){
-            System.err.println("error loading complaint list page");
-        }
-
-        try{ //pre load profile page
-            profile = FXMLLoader.load(getClass().getResource(packageStr + "profile.fxml"));
-        } catch (IOException e){
-            System.err.println("error loading profile page");
-        }
-
-        try{ //pre load about page
-            about = FXMLLoader.load(getClass().getResource(packageStr + "about.fxml"));
-        } catch (IOException e){
-            System.err.println("error loading about page");
-        }
-
-        try{ //pre load tutorial page
-            tutorial = FXMLLoader.load(getClass().getResource(packageStr + "tutorial.fxml"));
-        } catch (IOException e){
-            System.err.println("error loading tutorial page");
-        }
-    }
-    @FXML protected void loadComplaintList(){ //load complaint list to stackpane
-        try{ //pre load complaint list page
-            complaintList = FXMLLoader.load(getClass().getResource(packageStr + "complaint_list.fxml"));
-        } catch (IOException e){
-            System.err.println("error loading complaint list page");
-        }
-        content.getChildren().clear();
-        content.getChildren().add(complaintList);
-    }
-    @FXML protected void loadComplaintPost(){ //load complaint post to stackpane
-        content.getChildren().clear();
-        content.getChildren().add(complaintPost);
-    }
-    @FXML protected void loadProfile(){ //load profile to stackpane
-        content.getChildren().clear();
-        content.getChildren().add(profile);
-    }
-    @FXML protected void loadAbout(){ //load about to stackpane
-        content.getChildren().clear();
-        content.getChildren().add(about);
-    }
-
-    @FXML protected void loadTutorial(){ //load tutorial to stackpane
-        content.getChildren().clear();
-        content.getChildren().add(tutorial);
-    }
-    @FXML private void handleOnMouseEnterMenu(){ //open menu
-        //menu.setTranslateX(menuCloseWidth);
-        TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.2));
-        slide.setNode(menu);
-
-        slide.setToX(0);
-        slide.play();
-
-        //menu.setTranslateX(menuCloseWidth);
-    }
-    @FXML private void handleOnMouseExitMenu(){ //close menu
-        //menu.setTranslateX(0);
-        TranslateTransition slide = new TranslateTransition();
-        slide.setDuration(Duration.seconds(0.2));
-        slide.setNode(menu);
-
-        slide.setToX(menuCloseWidth);
-        slide.play();
-
-        //menu.setTranslateX(0);
     }
 }
