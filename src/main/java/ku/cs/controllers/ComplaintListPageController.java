@@ -6,12 +6,13 @@ import ku.cs.models.Complaint;
 import ku.cs.models.ComplaintList;
 import ku.cs.services.ComplaintListFileDataSource;
 import ku.cs.services.ComplaintListHardCodeDataSource;
+import ku.cs.services.DataSource;
 
 public class ComplaintListPageController {
     @FXML private ListView<Complaint> complaintListView;
 
     //private ComplaintListHardCodeDataSource dataSource;
-    private ComplaintListFileDataSource dataSource;
+    private DataSource<ComplaintList> dataSource;
     private ComplaintList complaintList;
 
     public void initialize(){ //get data from dataSource

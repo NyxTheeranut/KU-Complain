@@ -17,4 +17,12 @@ public class Complaint {
     public String toString() {
         return  topic + " (" + category + ')';
     }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public String getCategory() {
+        return category;
+    }
 }

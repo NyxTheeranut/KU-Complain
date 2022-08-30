@@ -12,12 +12,12 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="1066.0" layoutY="656.0" mnemonicParsing="false" text="Button">
+      <Button layoutX="437.0" layoutY="347.0" mnemonicParsing="false" onAction="#addComplaint" text="เพิ่มเรื่องและบวกหน้ามัน">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField layoutX="418.0" layoutY="115.0" />
-      <TextField layoutX="405.0" layoutY="243.0" />
+      <TextField fx:id="topicField" layoutX="418.0" layoutY="115.0" />
+      <TextField fx:id="categoryField" layoutX="405.0" layoutY="243.0" />
    </children>
 </AnchorPane>

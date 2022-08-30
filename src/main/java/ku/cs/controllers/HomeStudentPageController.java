@@ -195,4 +195,52 @@ public class HomeStudentPageController {
             System.err.println("error loading tutorial page");
         }
     }
+    @FXML protected void loadComplaintList(){ //load complaint list to stackpane
+        try{ //pre load complaint list page
+            complaintList = FXMLLoader.load(getClass().getResource(packageStr + "complaint_list.fxml"));
+        } catch (IOException e){
+            System.err.println("error loading complaint list page");
+        }
+        content.getChildren().clear();
+        content.getChildren().add(complaintList);
+    }
+    @FXML protected void loadComplaintPost(){ //load complaint post to stackpane
+        content.getChildren().clear();
+        content.getChildren().add(complaintPost);
+    }
+    @FXML protected void loadProfile(){ //load profile to stackpane
+        content.getChildren().clear();
+        content.getChildren().add(profile);
+    }
+    @FXML protected void loadAbout(){ //load about to stackpane
+        content.getChildren().clear();
+        content.getChildren().add(about);
+    }
+
+    @FXML protected void loadTutorial(){ //load tutorial to stackpane
+        content.getChildren().clear();
+        content.getChildren().add(tutorial);
+    }
+    @FXML private void handleOnMouseEnterMenu(){ //open menu
+        //menu.setTranslateX(menuCloseWidth);
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.2));
+        slide.setNode(menu);
+
+        slide.setToX(0);
+        slide.play();
+
+        //menu.setTranslateX(menuCloseWidth);
+    }
+    @FXML private void handleOnMouseExitMenu(){ //close menu
+        //menu.setTranslateX(0);
+        TranslateTransition slide = new TranslateTransition();
+        slide.setDuration(Duration.seconds(0.2));
+        slide.setNode(menu);
+
+        slide.setToX(menuCloseWidth);
+        slide.play();
+
+        //menu.setTranslateX(0);
+    }
 }
