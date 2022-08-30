@@ -45,7 +45,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="username" prefHeight="39.0" prefWidth="254.0">
+                  <TextField fx:id="usernameField" prefHeight="39.0" prefWidth="254.0">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <Font name="THSarabunPSK-Bold" size="35.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="password" prefHeight="39.0" prefWidth="254.0">
+                  <PasswordField fx:id="passwordField" prefHeight="39.0" prefWidth="254.0">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>

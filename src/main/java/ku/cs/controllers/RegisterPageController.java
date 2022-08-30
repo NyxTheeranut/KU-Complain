@@ -7,11 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import ku.cs.models.User;
 
 import java.io.IOException;
 
 public class RegisterPageController {
 
+    private User userData;
     @FXML Button registerButton;
     @FXML TextField username;
     @FXML PasswordField password;
@@ -27,18 +29,26 @@ public class RegisterPageController {
         }
     }
 
-    @FXML public void handleRegisterButton(ActionEvent actionEvent){
+    @FXML public void handleRegisterButton(ActionEvent actionEvent) {
         checkRegister();
     }
 
-    @FXML public void checkRegister() throws IOException {
-        if () {}
-        else if (username.getText().toString().isEmpty() && password.getText().toString().isEmpty() && confirmPassword.getText().toString().isEmpty()) {
+    @FXML public void checkRegister() throws RuntimeException {
+        if (username.getText().isEmpty() && password.getText().isEmpty() && confirmPassword.getText().isEmpty()) {
             wrongRegister.setText("กรุณาระบุชื่อบัญชีและรหัสผ่าน");
         }
-
+        else if (! username.getText().isEmpty()) {
+                String pass = password.getText();
+                String conPass = confirmPassword.getText();
+                if (! pass.equals(conPass)) {
+                    wrongRegister.setText("รหัสผ่านไม่ตรงกัน ลองใหม่อีกครั้ง");
+                }
+                else {
+                    User userData = new User(username.getText(), password.getText());
+            }
+        }
         else {
-            wrongRegister.setText("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");
+            wrongRegister.setText("กรุณาระบุชื่อบัญชีและรหัสผ่าน");
         }
     }
 }
