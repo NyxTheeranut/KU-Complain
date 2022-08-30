@@ -30,8 +30,7 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Button layoutX="1057.0" layoutY="639.0" mnemonicParsing="false" onAction="#handleBackButton" text="back" />
-      <TextField layoutX="602.0" layoutY="300.0" />
+      <TextField fx:id="reNameTextField" layoutX="602.0" layoutY="300.0" />
       <Label layoutX="602.0" layoutY="262.0" prefHeight="27.0" prefWidth="139.0" text="New Username">
          <font>
             <Font size="18.0" />
@@ -42,5 +41,6 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button layoutX="318.0" layoutY="413.0" mnemonicParsing="false" text="แก้ไขรูป" />
    </children>
 </AnchorPane>

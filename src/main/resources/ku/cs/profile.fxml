@@ -10,22 +10,20 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ProfilePageController">
     <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="59.0" layoutX="494.0" layoutY="50.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="35.0" layoutX="553.0" layoutY="280.0" stroke="TRANSPARENT" strokeType="INSIDE" width="65.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="35.0" layoutX="552.0" layoutY="226.0" stroke="TRANSPARENT" strokeType="INSIDE" width="83.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="35.0" layoutX="551.0" layoutY="169.0" stroke="TRANSPARENT" strokeType="INSIDE" width="106.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="558.0" layoutY="285.0" stroke="TRANSPARENT" strokeType="INSIDE" width="55.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="557.0" layoutY="231.0" stroke="TRANSPARENT" strokeType="INSIDE" width="73.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="502.0" layoutY="59.0" stroke="TRANSPARENT" strokeType="INSIDE" width="185.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="556.0" layoutY="174.0" stroke="TRANSPARENT" strokeType="INSIDE" width="96.0" />
-      <Circle fill="WHITE" layoutX="630.0" layoutY="75.0" radius="59.0" stroke="#429772" strokeType="INSIDE" strokeWidth="10.0" />
-      <Circle fill="WHITE" layoutX="631.0" layoutY="75.0" radius="37.0" stroke="#429772" strokeType="INSIDE" strokeWidth="10.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="43.0" layoutX="432.0" layoutY="54.0" stroke="#ffffff00" strokeType="INSIDE" width="172.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="441.0" layoutY="63.0" stroke="TRANSPARENT" strokeType="INSIDE" width="166.0" />
         <Label layoutX="568.0" layoutY="230.0" text="Status">
             <font>
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="521.0" layoutY="48.0" prefHeight="53.0" prefWidth="138.0" text="Account">
+        <Label layoutX="526.0" layoutY="53.0" prefHeight="53.0" prefWidth="138.0" text="Account">
             <font>
                 <Font size="36.0" />
             </font>
@@ -57,7 +55,6 @@
             </font>
         </Label>
         <Button layoutX="569.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleEditProfileButton" text="Edit Account" />
-        <Button layoutX="1052.0" layoutY="647.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
       <Circle fill="#429772" layoutX="665.0" layoutY="180.0" radius="4.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#429772" layoutX="665.0" layoutY="195.0" radius="4.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Circle fill="#429772" layoutX="645.0" layoutY="237.0" radius="4.0" stroke="TRANSPARENT" strokeType="INSIDE" />

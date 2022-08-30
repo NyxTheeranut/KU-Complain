@@ -2,10 +2,13 @@ package ku.cs.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
 public class EditProfileController {
+
+    @FXML private TextField reNameTextField;
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
@@ -14,4 +17,5 @@ public class EditProfileController {
             System.err.println("Error loading login page");
         }
     }
+
 }
