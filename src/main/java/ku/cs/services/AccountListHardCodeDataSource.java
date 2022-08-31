@@ -3,10 +3,10 @@ package ku.cs.services;
 import ku.cs.models.User;
 import ku.cs.models.AccountList;
 
-public class UserListHardCodeDataSource {
+public class AccountListHardCodeDataSource {
     private AccountList userList;
 
-    public UserListHardCodeDataSource() {
+    public AccountListHardCodeDataSource() {
         userList = new AccountList();
         readData();
     }

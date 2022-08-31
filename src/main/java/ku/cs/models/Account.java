@@ -1,7 +1,5 @@
 package ku.cs.models;
 
-import java.util.ArrayList;
-
 public class Account {
     private String name;
     private String password;
@@ -20,7 +18,7 @@ public class Account {
         this.name = name;
     }
 
-    private String getPassword() {
+    public String getPassword() {
         return password;
     }
 

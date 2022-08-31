@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.models.Account;
-import ku.cs.services.UserListHardCodeDataSource;
+import ku.cs.services.AccountListHardCodeDataSource;
 
 import java.io.IOException;
 
@@ -29,7 +29,7 @@ public class LoginPageController {
     @FXML public void checkLogin() throws RuntimeException {
         String username = usernameField.getText();
         String password = passwordField.getText();
-        UserListHardCodeDataSource userList = new UserListHardCodeDataSource();
+        AccountListHardCodeDataSource userList = new AccountListHardCodeDataSource();
         Account account = userList.getUserList().getAccount(username);
 
         if (username.isEmpty() || password.isEmpty()) {
