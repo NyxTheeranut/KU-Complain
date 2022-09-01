@@ -1,4 +1,4 @@
-package ku.cs.models;
+package ku.cs.models.accounts;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ public class AccountList {
         accounts.add(account);
     }
 
-    public ArrayList<Account> getAllUser() {
+    public ArrayList<Account> getAllAccount() {
         return accounts;
     }
 

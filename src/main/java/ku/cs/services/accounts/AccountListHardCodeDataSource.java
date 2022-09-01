@@ -1,7 +1,7 @@
-package ku.cs.services;
+package ku.cs.services.accounts;
 
-import ku.cs.models.User;
-import ku.cs.models.AccountList;
+import ku.cs.models.accounts.User;
+import ku.cs.models.accounts.AccountList;
 
 public class AccountListHardCodeDataSource {
     private AccountList userList;

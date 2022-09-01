@@ -1,15 +1,18 @@
-package ku.cs.services;
+package ku.cs.services.complaints;
 
-import ku.cs.models.Complaint;
-import ku.cs.models.ComplaintList;
+import ku.cs.models.complaints.Complaint;
+import ku.cs.models.complaints.ComplaintList;
+import ku.cs.services.DataSource;
 
 import java.io.*;
 
 public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
+    private final String directoryName = "src/main/resources/ku/cs/data/";
+    private final String fileName = "complaint_list.csv";
 
     public ComplaintList readData(){
         ComplaintList complaintList = new ComplaintList();
-        File file = new File("src/main/resources/ku/cs/data/complaint_list.csv");
+        File file = new File(directoryName + fileName);
         FileReader reader = null;
         BufferedReader buffer = null;
         try {
@@ -36,14 +39,14 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
     }
 
     public void writeData(ComplaintList complaintList) {
-        File file = new File("src/main/resources/ku/cs/data/complaint_list.csv");
+        File file = new File(directoryName + fileName);
         FileWriter writer = null;
         BufferedWriter buffer = null;
         try {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
-            for(Complaint complaint:complaintList.getAllComplaints()){
-                String line = complaint.getTopic()+","+complaint.getCategory();
+            for(Complaint complaint : complaintList.getAllComplaints()){
+                String line = complaint.getTopic() + "," + complaint.getCategory();
                 buffer.append(line);
                 buffer.newLine();
             }

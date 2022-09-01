@@ -1,4 +1,4 @@
-package ku.cs.models;
+package ku.cs.models.accounts;
 
 public class Account {
     private String name;

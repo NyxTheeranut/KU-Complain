@@ -2,10 +2,9 @@ package ku.cs.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import ku.cs.models.Complaint;
-import ku.cs.models.ComplaintList;
-import ku.cs.services.ComplaintListFileDataSource;
-import ku.cs.services.ComplaintListHardCodeDataSource;
+import ku.cs.models.complaints.Complaint;
+import ku.cs.models.complaints.ComplaintList;
+import ku.cs.services.complaints.ComplaintListFileDataSource;
 import ku.cs.services.DataSource;
 
 public class ComplaintListPageController {

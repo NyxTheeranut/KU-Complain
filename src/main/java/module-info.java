@@ -9,7 +9,15 @@ module cs.ku {
     opens ku.cs.controllers to javafx.fxml;
     exports ku.cs.services;
     opens ku.cs.services to javafx.fxml;
-    exports ku.cs.models;
-    opens ku.cs.models to javafx.fxml;
+    exports ku.cs.models.accounts;
+    opens ku.cs.models.accounts to javafx.fxml;
+    exports ku.cs.models.complaints;
+    opens ku.cs.models.complaints to javafx.fxml;
+    exports ku.cs.models.components;
+    opens ku.cs.models.components to javafx.fxml;
+    exports ku.cs.services.accounts;
+    opens ku.cs.services.accounts to javafx.fxml;
+    exports ku.cs.services.complaints;
+    opens ku.cs.services.complaints to javafx.fxml;
 
 }

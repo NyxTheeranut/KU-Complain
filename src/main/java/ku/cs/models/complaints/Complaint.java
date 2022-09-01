@@ -1,4 +1,4 @@
-package ku.cs.models;
+package ku.cs.models.complaints;
 
 public class Complaint {
     private String topic;
