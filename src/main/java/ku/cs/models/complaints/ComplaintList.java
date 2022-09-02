@@ -1,4 +1,4 @@
-package ku.cs.models;
+package ku.cs.models.complaints;
 
 import java.util.ArrayList;
 

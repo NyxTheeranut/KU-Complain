@@ -1,7 +1,7 @@
-package ku.cs.services;
+package ku.cs.services.complaints;
 
-import ku.cs.models.Component;
-import ku.cs.models.ComponentList;
+import ku.cs.models.components.Component;
+import ku.cs.models.components.ComponentList;
 
 public class ComponentListHardCodeDataSource {
     private ComponentList componentList;

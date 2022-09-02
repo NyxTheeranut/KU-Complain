@@ -1,6 +1,4 @@
-package ku.cs.models;
-
-import java.util.ArrayList;
+package ku.cs.models.accounts;
 
 public class Account {
     private String name;
@@ -20,7 +18,7 @@ public class Account {
         this.name = name;
     }
 
-    private String getPassword() {
+    public String getPassword() {
         return password;
     }
 

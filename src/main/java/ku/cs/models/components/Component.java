@@ -1,4 +1,4 @@
-package ku.cs.models;
+package ku.cs.models.components;
 
 import java.util.ArrayList;
 

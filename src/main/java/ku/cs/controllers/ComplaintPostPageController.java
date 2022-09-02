@@ -2,15 +2,10 @@ package ku.cs.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import ku.cs.models.Complaint;
-import ku.cs.models.ComplaintList;
-import ku.cs.services.ComplaintListFileDataSource;
+import ku.cs.models.complaints.Complaint;
+import ku.cs.models.complaints.ComplaintList;
+import ku.cs.services.complaints.ComplaintListFileDataSource;
 import ku.cs.services.DataSource;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class ComplaintPostPageController {
     @FXML private TextField topicField;
