@@ -36,13 +36,13 @@ public class RegisterPageController {
 
     @FXML public void checkRegister() throws RuntimeException {
         String nameText = usernameField.getText();
-        String passwordText = usernameField.getText();
-        String confirmText = usernameField.getText();
+        String passwordText = passwordField.getText();
+        String confirmText = confirmPasswordField.getText();
         if (nameText.isEmpty() || passwordText.isEmpty() || confirmText.isEmpty()) {
             wrongRegister.setText("กรุณาข้อมูลให้ครบถ้วน");
         }
         else if (passwordText.equals(confirmText)) {
-            Account user = new User(usernameField.getText(), passwordField.getText());
+            Account user = new User(passwordText, confirmText);
             register(user);
             try {
                 FXRouter.goTo("login_page");

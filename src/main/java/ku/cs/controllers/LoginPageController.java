@@ -36,22 +36,23 @@ public class LoginPageController {
         if (username.isEmpty() || password.isEmpty()) {
             wrongLogin.setText("กรุณาระบุชื่อบัญชีและรหัสผ่าน");
         }
-
-        DataSource<AccountList> dataSource = new AccountListFileDataSource();
-        AccountList accountlist = dataSource.readData();
-        for (Account account : accountlist.getAllAccount()) {
-            if (account.getName().equals(username)){
-                if (account.getPassword().equals(password)) {
-                    try {
-                        FXRouter.goTo("home_student");
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
+        else {
+            DataSource<AccountList> dataSource = new AccountListFileDataSource();
+            AccountList accountlist = dataSource.readData();
+            for (Account account : accountlist.getAllAccount()) {
+                if (account.getName().equals(username)) {
+                    if (account.getPassword().equals(password)) {
+                        try {
+                            FXRouter.goTo("home_student");
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
+                    break;
                 }
-                break;
             }
+            wrongLogin.setText("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");
         }
-        wrongLogin.setText("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");
     }
 
     @FXML public void handleRegisterButton(ActionEvent actionEvent) {
