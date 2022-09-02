@@ -20,13 +20,16 @@ import java.util.HashMap;
 
 import java.io.IOException;
 
+import com.github.saacsos.FXRouter;
+import ku.cs.models.accounts.Account;
 
 
 public class HomeStudentPageController {
     @FXML private StackPane content;
     HashMap<Integer, String> boxId = new HashMap<Integer, String>();
-    Integer currentPage = 1;
+    Integer currentPage = 2;
     //Hbox
+    @FXML private HBox accountButton;
     @FXML private HBox complaintPostButton;
     @FXML private HBox complaintListButton;
     @FXML private HBox tutorialButton;
@@ -43,10 +46,11 @@ public class HomeStudentPageController {
     private String packageStr = "/ku/cs/";
     private int menuCloseWidth = -230;
 
-
-    private boolean menuState = false;
+    private Account account;
 
     @FXML public void initialize(){
+
+        account =  (Account)FXRouter.getData();
 
         menu.setTranslateX(menuCloseWidth); //set menu on close state
         setUpBoxId();
@@ -62,6 +66,7 @@ public class HomeStudentPageController {
         }
         content.getChildren().clear();
         content.getChildren().add(profile);
+        handleOnMouseClickButton(0);
     }
     @FXML protected void loadComplaintPost(){ //load complaint post to stackpane
         try{ //load complaint post page
@@ -71,7 +76,7 @@ public class HomeStudentPageController {
         }
         content.getChildren().clear();
         content.getChildren().add(complaintPost);
-        handleOnMouseClickButton(0);
+        handleOnMouseClickButton(1);
     }
     @FXML protected void loadComplaintList() { //load complaint list to stackpane
         try{ //load complaint list page
@@ -81,7 +86,7 @@ public class HomeStudentPageController {
         }
         content.getChildren().clear();
         content.getChildren().add(complaintList);
-        handleOnMouseClickButton(1);
+        handleOnMouseClickButton(2);
     }
     @FXML protected void loadTutorial(){ //load tutorial to stackpane
         try{ //load tutorial page
@@ -91,7 +96,7 @@ public class HomeStudentPageController {
         }
         content.getChildren().clear();
         content.getChildren().add(tutorial);
-        handleOnMouseClickButton(2);
+        handleOnMouseClickButton(3);
     }
     @FXML protected void loadAbout(){ //load about to stackpane
         try{ //load about page
@@ -101,7 +106,7 @@ public class HomeStudentPageController {
         }
         content.getChildren().clear();
         content.getChildren().add(about);
-        handleOnMouseClickButton(3);
+        handleOnMouseClickButton(4);
     }
 
 
@@ -128,6 +133,9 @@ public class HomeStudentPageController {
         //menu.setTranslateX(0);
     }
 
+    @FXML private void handleOnMouseEnterAccountButton(){
+        handleOnMouseEnterButton(accountButton);
+    }
     @FXML private void handleOnMouseEnterComplaintPostButton(){
         handleOnMouseEnterButton(complaintPostButton);
     }
@@ -139,6 +147,9 @@ public class HomeStudentPageController {
     }
     @FXML private void handleOnMouseEnterAboutButton(){
         handleOnMouseEnterButton(aboutButton);
+    }
+    @FXML private void handleOnMouseExitAccountButton(){
+        handleOnMouseExitButton(accountButton);
     }
     @FXML private void handleOnMouseExitComplaintPostButton(){
         handleOnMouseExitButton(complaintPostButton);
@@ -182,9 +193,10 @@ public class HomeStudentPageController {
     }
 
     @FXML private void setUpBoxId(){
-        boxId.put(0, "#complaintPostButton");
-        boxId.put(1, "#complaintListButton");
-        boxId.put(2, "#tutorialButton");
-        boxId.put(3, "#aboutButton");
+        boxId.put(0, "#accountButton");
+        boxId.put(1, "#complaintPostButton");
+        boxId.put(2, "#complaintListButton");
+        boxId.put(3, "#tutorialButton");
+        boxId.put(4, "#aboutButton");
     }
 }

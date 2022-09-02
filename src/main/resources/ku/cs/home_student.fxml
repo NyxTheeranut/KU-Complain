@@ -7,15 +7,36 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.HomeStudentPageController">
    <children>
       <StackPane fx:id="content" layoutX="81.0" layoutY="-2.0" prefHeight="720.0" prefWidth="1180.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="-2.0" />
-      <AnchorPane fx:id="menu" layoutX="33.0" layoutY="33.0" onMouseEntered="#handleOnMouseEnterMenu" onMouseExited="#handleOnMouseExitMenu" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2f3337;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="980.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="menu" layoutX="33.0" layoutY="33.0" onMouseEntered="#handleOnMouseEnterMenu" onMouseExited="#handleOnMouseExitMenu" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #2f3337;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="980.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
+                  <HBox fx:id="accountButton" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadProfile" onMouseEntered="#handleOnMouseEnterAccountButton" onMouseExited="#handleOnMouseExitAccountButton" prefHeight="70.0" prefWidth="300.0">
+                     <children>
+                        <Label text="เสนอเรื่องร้องเรียน" textFill="#9d9fa1">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="2.0" />
+                           </padding>
+                        </Label>
+                        <Circle fill="DODGERBLUE" radius="32.5" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets right="3.0" />
+                           </HBox.margin>
+                        </Circle>
+                     </children>
+                  </HBox>
                   <HBox fx:id="complaintPostButton" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadComplaintPost" onMouseEntered="#handleOnMouseEnterComplaintPostButton" onMouseExited="#handleOnMouseExitComplaintPostButton" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #2f3337;">
                      <padding>
                         <Insets left="10.0" top="7.0" />
@@ -139,9 +160,6 @@
                      </children>
                   </HBox>
                </children>
-               <padding>
-                  <Insets top="100.0" />
-               </padding>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

@@ -15,7 +15,7 @@ public class ProjectApplication extends Application {
         FXRouter.bind(this, stage, "KU RongRian Center", 1280,720);
         configRoute();
         configFont();
-        FXRouter.goTo("login_page");
+        FXRouter.goTo("home_student");
     }
     private static void configRoute() {
         String packageStr = "ku/cs/";

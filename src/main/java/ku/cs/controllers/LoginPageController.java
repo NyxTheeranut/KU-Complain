@@ -43,7 +43,7 @@ public class LoginPageController {
                 if (account.getName().equals(username)) {
                     if (account.getPassword().equals(password)) {
                         try {
-                            FXRouter.goTo("home_student");
+                            FXRouter.goTo("home_student", account);
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
