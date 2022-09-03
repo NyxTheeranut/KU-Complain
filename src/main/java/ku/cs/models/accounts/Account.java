@@ -1,12 +1,15 @@
 package ku.cs.models.accounts;
 
 public class Account {
+
+    private String imagePath;
     private String name;
     private String password;
 
     public Account(String name, String password) {
         this.name = name;
         this.password = password;
+        this.imagePath = "src\\main\\resources\\ku\\cs\\image";
 
     }
 
@@ -26,8 +29,9 @@ public class Account {
         this.password = password;
     }
 
-
     public boolean checkLogin(String password) {
         return this.password.equals(password);
     }
+
+
 }
