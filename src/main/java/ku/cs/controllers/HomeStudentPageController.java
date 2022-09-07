@@ -9,13 +9,17 @@ import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
-
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.util.HashMap;
 
 import java.io.IOException;
@@ -45,7 +49,8 @@ public class HomeStudentPageController {
     @FXML private Parent about;
     @FXML private Parent tutorial;
     @FXML private AnchorPane menu;
-
+    @FXML private Circle circle;
+    @FXML private ImageView img;
     //instance
     private String packageStr = "/ku/cs/";
     private int menuCloseWidth = -230;
@@ -55,7 +60,9 @@ public class HomeStudentPageController {
     @FXML public void initialize(){
 
         account =  (Account)FXRouter.getData();
-
+        String url = getClass().getResource(packageStr+"image/"+account.getImagePath()).toExternalForm();
+        Image image =  new Image(url,false);
+        circle.setFill(new ImagePattern(image));
         menu.setTranslateX(menuCloseWidth); //set menu on close state
         setUpBoxId();
         setUpIcon();

@@ -12,9 +12,9 @@ public class AccountListHardCodeDataSource {
     }
 
     public void readData() {
-        userList.addAccount(new User("dujrawee", "dujduj"));
+        /*userList.addAccount(new User("dujrawee", "dujduj"));
         userList.addAccount(new User("kan", "shokun"));
-        userList.addAccount(new User("thanaphat", "zonzon"));
+        userList.addAccount(new User("thanaphat", "zonzon"));*/
     }
 
 

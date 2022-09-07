@@ -21,7 +21,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             String line = "";
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
-                accountList.addAccount(new Account(data[0], data[1]));
+                accountList.addAccount(new Account(data[0], data[1], data[2]));
             }
         }catch (FileNotFoundException e){
             throw new RuntimeException(e);
@@ -46,7 +46,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             for(Account account : accountList.getAllAccount()) {
-                String line = account.getName() + "," + account.getPassword();
+                String line = account.getName() + "," + account.getPassword() + "," + account.getImagePath();
                 buffer.append(line);
                 buffer.newLine();
             }

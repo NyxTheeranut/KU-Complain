@@ -30,7 +30,7 @@
                               <Insets right="2.0" />
                            </padding>
                         </Label>
-                        <Circle fill="DODGERBLUE" radius="32.5" stroke="BLACK" strokeType="INSIDE">
+                        <Circle fx:id="circle" fill="DODGERBLUE" radius="32.5" stroke="BLACK" strokeType="INSIDE">
                            <HBox.margin>
                               <Insets right="3.0" />
                            </HBox.margin>
