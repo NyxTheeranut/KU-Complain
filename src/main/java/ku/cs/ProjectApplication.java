@@ -15,7 +15,7 @@ public class ProjectApplication extends Application {
         FXRouter.bind(this, stage, "KU RongRian Center", 1280,720);
         configRoute();
         configFont();
-        FXRouter.goTo("home_student");
+        FXRouter.goTo("login_page");
     }
     private static void configRoute() {
         String packageStr = "ku/cs/";
@@ -35,6 +35,7 @@ public class ProjectApplication extends Application {
         FontLoader.bind("ths_bi", packageStr+"THSarabunBoldItalic.ttf");
         FontLoader.bind("ths_i", packageStr+"THSarabunItalic.ttf");
         FontLoader.bind("fa_wf", packageStr+"fontawesome-webfont.ttf");
+        FontLoader.bind("fa_r", packageStr+"fa-regular.ttf");
     }
     public static void main(String[] args) {
         launch();

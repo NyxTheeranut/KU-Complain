@@ -23,6 +23,10 @@ import java.io.IOException;
 import com.github.saacsos.FXRouter;
 import ku.cs.models.accounts.Account;
 
+import ku.cs.fontloader.FontLoader;
+
+import static ku.cs.fontloader.FontLoader.font;
+
 
 public class HomeStudentPageController {
     @FXML private StackPane content;
@@ -54,8 +58,10 @@ public class HomeStudentPageController {
 
         menu.setTranslateX(menuCloseWidth); //set menu on close state
         setUpBoxId();
+        setUpIcon();
         loadComplaintList();
         handleOnMouseClickButton(1);
+
 
     }
     @FXML protected void loadProfile(){ //load profile to stackpane
@@ -198,5 +204,18 @@ public class HomeStudentPageController {
         boxId.put(2, "#complaintListButton");
         boxId.put(3, "#tutorialButton");
         boxId.put(4, "#aboutButton");
+    }
+
+    @FXML private void setUpIcon(){
+        Label complaintPostIcon = (Label)complaintPostButton.getChildren().get(1);
+        Label complaintListIcon = (Label)complaintListButton.getChildren().get(1);
+        Label tutorialIcon = (Label)tutorialButton.getChildren().get(1);
+        Label aboutIcon = (Label)aboutButton.getChildren().get(1);
+
+        complaintPostIcon.setFont(font("fa_r", 36));
+        complaintListIcon.setFont(font("fa_r", 36));
+        tutorialIcon.setFont(font("fa_r", 36));
+        aboutIcon.setFont(font("fa_r", 36));
+
     }
 }
