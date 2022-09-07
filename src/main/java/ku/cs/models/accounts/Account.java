@@ -6,10 +6,10 @@ public class Account {
     private String name;
     private String password;
 
-    public Account(String name, String password) {
+    public Account(String name, String password, String imagePath) {
         this.name = name;
         this.password = password;
-        this.imagePath = "src\\main\\resources\\ku\\cs\\image";
+        this.imagePath = imagePath; //ku/cs/image/default.png
 
     }
 
@@ -24,6 +24,7 @@ public class Account {
     public String getPassword() {
         return password;
     }
+    public String getImagePath() { return  imagePath; }
 
     private void setPassword(String password) {
         this.password = password;
