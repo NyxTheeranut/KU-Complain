@@ -23,7 +23,7 @@ public class ProfilePageController {
         try{
             FXRouter.goTo("edit_profile");
         } catch (IOException e){
-            System.err.println("Error loading login page");
+            System.err.println("Error loading edit profile page");
         }
     }
 

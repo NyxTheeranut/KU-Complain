@@ -30,7 +30,7 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField fx:id="reNameField" layoutX="602.0" layoutY="300.0" />
+      <TextField fx:id="renameField" layoutX="602.0" layoutY="300.0" />
       <Label layoutX="602.0" layoutY="262.0" prefHeight="27.0" prefWidth="139.0" text="New Username">
          <font>
             <Font size="18.0" />
@@ -42,7 +42,7 @@
          </font>
       </Label>
       <Button layoutX="318.0" layoutY="413.0" mnemonicParsing="false" onAction="#handleProfilePicture" text="แก้ไขรูป" />
-      <Button fx:id="renameButton" layoutX="602.0" layoutY="342.0" mnemonicParsing="false" onAction="#handleRenameButton" text="submit" />
+      <Button fx:id="renameButton" layoutX="602.0" layoutY="342.0" mnemonicParsing="false" text="submit" />
       <Label fx:id="wrongRename" layoutX="602.0" layoutY="375.0" prefHeight="17.0" prefWidth="149.0" />
    </children>
 </AnchorPane>

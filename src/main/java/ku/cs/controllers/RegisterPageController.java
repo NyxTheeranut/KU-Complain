@@ -42,7 +42,7 @@ public class RegisterPageController {
             wrongRegister.setText("กรุณาข้อมูลให้ครบถ้วน");
         }
         else if (passwordText.equals(confirmText)) {
-            Account user = new User(passwordText, confirmText,"default.png");
+            Account user = new User(nameText, confirmText,"default.png");
             register(user);
             try {
                 FXRouter.goTo("login_page");
