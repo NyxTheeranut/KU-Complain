@@ -14,16 +14,16 @@ public class ProfilePageController {
     Account account;
     @FXML
     public void initialize(){
-        account =  (Account)FXRouter.getData();
-        String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
-        image.setImage(new Image(url));
+        //account =  (Account)FXRouter.getData();
+        //String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
+        //image.setImage(new Image(url));
     }
     @FXML
     public void handleEditProfileButton(ActionEvent actionEvent){
         try{
             FXRouter.goTo("edit_profile");
         } catch (IOException e){
-            System.err.println("Error loading login page");
+            System.err.println("Error loading edit profile page");
         }
     }
 

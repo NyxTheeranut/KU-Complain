@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox fx:id="button" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handleOnMouseClickButton" onMouseEntered="#handleOnMouseEnterButton" onMouseExited="#handleOnMouseExitButton" prefHeight="70.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.button.ProfileButtonController">
+    <children>
+        <Label text="เสนอเรื่องร้องเรียน" textFill="#9d9fa1">
+            <font>
+                <Font size="32.0" />
+            </font>
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+            <padding>
+                <Insets right="2.0" />
+            </padding>
+        </Label>
+        <Circle fx:id="circle" fill="DODGERBLUE" radius="32.5" stroke="BLACK" strokeType="INSIDE">
+            <HBox.margin>
+                <Insets right="3.0" />
+            </HBox.margin>
+        </Circle>
+    </children>
+</HBox>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox fx:id="button" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#handleOnMouseClickButton" onMouseEntered="#handleOnMouseEnterButton" onMouseExited="#handleOnMouseExitButton" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #2f3337;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.button.TutorialButtonController">
+    <padding>
+        <Insets left="10.0" top="7.0" />
+    </padding>
+    <children>
+        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" text="วิธีใช้งาน" textAlignment="CENTER" textFill="#9d9fa1">
+            <font>
+                <Font name="fa-regular" size="32.0" />
+            </font>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+        </Label>
+        <Label prefWidth="40.0" rotate="180.0" text="" textFill="#9d9fa1">
+            <font>
+                <Font name="fa-regular" size="36.0" />
+            </font>
+            <padding>
+                <Insets top="5.0" />
+            </padding>
+            <HBox.margin>
+                <Insets left="15.0" />
+            </HBox.margin>
+            <rotationAxis>
+                <Point3D x="90.0" z="1.0" />
+            </rotationAxis>
+        </Label>
+    </children>
+</HBox>
