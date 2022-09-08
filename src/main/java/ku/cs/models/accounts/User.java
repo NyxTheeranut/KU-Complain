@@ -4,7 +4,7 @@ import ku.cs.models.accounts.Account;
 
 public class User extends Account {
     public User(String name, String password, String imagePath) {
-        super(name, password, imagePath);
+        super("user", name, password, imagePath);
     }
 
 }

@@ -18,7 +18,7 @@ public final class FontLoader {
 
     public static Font font(String fontLabel, double size){
         RouteFont route = (RouteFont)routes.get(fontLabel);
-        System.out.println(FontLoader.class.getResource(route.fontPath).toExternalForm());
+        //System.out.println(FontLoader.class.getResource(route.fontPath).toExternalForm());
         Font font = Font.loadFont(FontLoader.class.getResource(route.fontPath).toExternalForm(), size);
         if (font == null) {
             System.err.println(

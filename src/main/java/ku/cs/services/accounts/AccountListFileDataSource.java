@@ -1,7 +1,6 @@
 package ku.cs.services.accounts;
 
-import ku.cs.models.accounts.Account;
-import ku.cs.models.accounts.AccountList;
+import ku.cs.models.accounts.*;
 import ku.cs.services.DataSource;
 
 import java.io.*;
@@ -12,16 +11,28 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
 
     public AccountList readData() {
         AccountList accountList = new AccountList();
-        File file = new File(directoryName + fileName);
+        File file = new File(directoryName + fileName); //file path
         FileReader reader = null;
         BufferedReader buffer = null;
+
+        Account account = null;
+
         try {
-            reader = new FileReader(file);
+            reader = new FileReader(file); //open file reader
             buffer = new BufferedReader(reader);
             String line = "";
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
-                accountList.addAccount(new Account(data[0], data[1], data[2]));
+                if (data[0].equals("admin")){
+                    account = new Admin(data[1], data[2]);
+                }
+                else if (data[0].equals("mod")){
+                    account = new Moderator(data[1], data[2], data[3]);
+                }
+                else if (data[0].equals("user")){
+                    account = new User(data[1], data[2], data[3]);
+                }
+                accountList.addAccount(account); //add account to account list
             }
         }catch (FileNotFoundException e){
             throw new RuntimeException(e);
@@ -46,7 +57,12 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             for(Account account : accountList.getAllAccount()) {
-                String line = account.getName() + "," + account.getPassword() + "," + account.getImagePath();
+                //role,name,password,imagepath
+                String line = account.getRole() + ","
+                        + account.getName() + ","
+                        + account.getPassword() + ","
+                        + account.getImagePath();
+
                 buffer.append(line);
                 buffer.newLine();
             }
