@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import ku.cs.objectcollector.ObjectCollector;
 import ku.cs.services.Button;
 
 import java.io.IOException;
@@ -23,7 +24,7 @@ public class HomeController {
 
     private ButtonList buttonList;
 
-    private final String packageStr = "/ku/cs/button/";
+    private final String packageStr = ObjectCollector.find("packagestr") + "button/";
     private final int menuCloseWidth = -230;
 
     @FXML
