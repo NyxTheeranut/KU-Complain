@@ -11,15 +11,12 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
 
     public AccountList readData() {
         AccountList accountList = new AccountList();
-        File file = new File(directoryName + fileName); //file path
-        FileReader reader = null;
         BufferedReader buffer = null;
-
         Account account = null;
 
         try {
-            reader = new FileReader(file); //open file reader
-            buffer = new BufferedReader(reader);
+            InputStream inputStream = getClass().getResourceAsStream("/ku/cs/data/account_list.csv");
+            buffer = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
@@ -41,7 +38,6 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
         }finally {
             try {
                 buffer.close();
-                reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

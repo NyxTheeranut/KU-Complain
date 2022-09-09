@@ -5,6 +5,7 @@ import ku.cs.models.complaints.ComplaintList;
 import ku.cs.services.DataSource;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
     private final String directoryName = "src/main/resources/ku/cs/data/";
@@ -12,16 +13,16 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
 
     public ComplaintList readData(){
         ComplaintList complaintList = new ComplaintList();
-        File file = new File(directoryName + fileName);
-        FileReader reader = null;
         BufferedReader buffer = null;
         try {
-            reader = new FileReader(file);
-            buffer = new BufferedReader(reader);
+            InputStream inputStream = getClass().getResourceAsStream("/ku/cs/data/complaint_list.csv");
+            buffer = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
-                complaintList.addComplaint(new Complaint(data[0],data[1]));
+
+                complaintList.addComplaint(new Complaint(new String(data[0].getBytes("UTF8"),"UTF8"),
+                                                        new String(data[0].getBytes("UTF8"),"UTF8")));
             }
         }catch (FileNotFoundException e){
             throw new RuntimeException(e);
@@ -30,7 +31,6 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
         }finally {
             try {
                 buffer.close();
-                reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
