@@ -46,32 +46,18 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
     }
 
     public void writeData(AccountList accountList) {
-        File file = new File("src/main/resources/ku/cs/data/account_list.csv");
-        FileWriter writer = null;
-        BufferedWriter buffer = null;
         try {
-            writer = new FileWriter(file);
-            buffer = new BufferedWriter(writer);
-            for(Account account : accountList.getAllAccount()) {
-                //role,name,password,imagepath
-                String line = account.getRole() + ","
-                        + account.getName() + ","
-                        + account.getPassword() + ","
-                        + account.getImagePath();
+            OutputStream outputStream = new FileOutputStream("/ku/cs/data/account_list.csv");
+        } catch (FileNotFoundException e) {
+            System.err.println("Invalid file path");
+        }
 
-                buffer.append(line);
-                buffer.newLine();
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }finally {
-            try {
-                buffer.close();
-                writer.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        for(Account account : accountList.getAllAccount()) {
+            //role,name,password,imagepath
+            String line = account.getRole() + ","
+                    + account.getName() + ","
+                    + account.getPassword() + ","
+                    + account.getImagePath();
         }
     }
-
 }

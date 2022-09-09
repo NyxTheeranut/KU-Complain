@@ -10,7 +10,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import ku.cs.objectcollector.ObjectCollector;
-import ku.cs.services.Button;
 
 import java.io.IOException;
 import java.util.ArrayList;

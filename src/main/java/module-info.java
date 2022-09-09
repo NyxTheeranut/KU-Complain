@@ -12,6 +12,8 @@ module cs.ku {
     opens ku.cs.controllers.button to javafx.fxml;
     exports ku.cs.services;
     opens ku.cs.services to javafx.fxml;
+    exports ku.cs.models;
+    opens ku.cs.models to javafx.fxml;
     exports ku.cs.models.accounts;
     opens ku.cs.models.accounts to javafx.fxml;
     exports ku.cs.models.complaints;

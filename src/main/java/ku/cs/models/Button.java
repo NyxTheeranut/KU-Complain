@@ -1,44 +1,51 @@
-package ku.cs.controllers.button;
+package ku.cs.models;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 import ku.cs.controllers.HomeController;
-import ku.cs.models.Button;
-import ku.cs.models.accounts.Account;
+import ku.cs.fontloader.FontLoader;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
-import ku.cs.objectcollector.ObjectCollector;
+public class Button {
+    @FXML
+    protected HBox button;
+    @FXML
+    private Parent page = null;
 
-public class ProfileButtonController extends Button {
-    private Account account = (Account) ObjectCollector.find("account");
+    protected String pageName;
+    protected final String packageStr = "/ku/cs/";
+    
+    public void setupFont() {
+        ((Label)button.getChildren().get(1)).setFont(FontLoader.font("fa_r", 32));
+    }
+    public void loadPage() {
 
-    @FXML public void initialize(){
-        String url = getClass().getResource(packageStr+"image/"+account.getImagePath()).toExternalForm();
-        Image image =  new Image(url,false);
-        ((Circle)button.getChildren().get(1)).setFill(new ImagePattern(image));
-        ((Label)button.getChildren().get(0)).setText(account.getName());
-
-        pageName = "profile.fxml";
+        try{ //load complaint list page
+            page = FXMLLoader.load(getClass().getResource(packageStr + "page/" + pageName));
+        } catch (IOException e){
+            System.err.println("error loading page");
+        }
+        HomeController.loadPage(page);
     }
 
-    @Override
+    @FXML
     public void handleOnMouseEnterButton() {
         button.getChildren().get(0).setStyle("-fx-text-fill: #ffffff");
+        button.getChildren().get(1).setStyle("-fx-text-fill: #ffffff");
     }
 
-    @Override
     public void handleOnMouseExitButton() {
         if (button.getStyle().equals("-fx-background-color: #03a96b")) return;
         button.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1");
+        button.getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1");
     }
 
-    @Override
     public void handleOnMouseClickButton() {
         button.setStyle("-fx-background-color: #03a96b");
         loadPage();
