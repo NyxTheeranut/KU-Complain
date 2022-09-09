@@ -34,20 +34,23 @@ public class RegisterPageController {
         checkRegister();
     }
 
-    @FXML public void checkRegister() throws RuntimeException {
-        String nameText = usernameField.getText();
-        String passwordText = passwordField.getText();
-        String confirmText = confirmPasswordField.getText();
-        if (nameText.isEmpty() || passwordText.isEmpty() || confirmText.isEmpty()) {
+    @FXML public void checkRegister() {
+        String nameText = usernameField.getText(); //get content from username field
+        String passwordText = passwordField.getText(); //get content from password field
+        String confirmText = confirmPasswordField.getText(); //get content from confirm password field
+        if (nameText.isEmpty() || passwordText.isEmpty() || confirmText.isEmpty()) { //missing infomation
             wrongRegister.setText("กรุณาข้อมูลให้ครบถ้วน");
         }
+        else if (passwordText.length() < 8) {
+            wrongRegister.setText("รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร");
+        }
         else if (passwordText.equals(confirmText)) {
-            Account user = new User(nameText, passwordText,"default.png");
-            register(user);
+            Account user = new User(nameText, passwordText,"default.png"); //creating new user object
+            register(user); //add user object to datasource
             try {
                 FXRouter.goTo("login_page");
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.err.println("Error loading login page");
             }
         }
         else {

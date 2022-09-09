@@ -25,7 +25,7 @@ public class LoginPageController {
     @FXML
     private Label wrongLogin;
 
-    @FXML public void handleLoginButton(ActionEvent actionEvent) throws IOException {
+    @FXML public void handleLoginButton(ActionEvent actionEvent) {
         checkLogin();
     }
 
@@ -43,7 +43,6 @@ public class LoginPageController {
                 if (account.getName().equals(username)) {
                     if (account.getPassword().equals(password)) {
                         try {
-                            System.out.println(account.getImagePath());
                             FXRouter.goTo("home_student", account);
                         } catch (IOException e) {
                             throw new RuntimeException(e);
