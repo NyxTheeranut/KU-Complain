@@ -52,7 +52,7 @@ public class HomeStudentPageController {
     @FXML private Circle circle;
     @FXML private ImageView img;
     //instance
-    private String packageStr = "/ku/cs/";
+    private final String packageStr = "/ku/cs/";
     private int menuCloseWidth = -230;
 
     private Account account;
@@ -68,6 +68,11 @@ public class HomeStudentPageController {
         setUpIcon();
         loadComplaintList();
         handleOnMouseClickButton(1);
+        /*try {
+            ((VBox)menu.getChildren().get(0)).getChildren().add(FXMLLoader.load(getClass().getResource(packageStr + "button/complaintlistbutton.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }*/
 
 
     }
@@ -186,6 +191,7 @@ public class HomeStudentPageController {
         }
         box.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1");
         box.getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1");
+
     }
     @FXML private void handleOnMouseClickButton(Integer id){
         //System.out.println(boxId.get(id));

@@ -7,8 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
+import ku.cs.objectcollector.ObjectCollector;
 import ku.cs.services.DataSource;
 import ku.cs.services.accounts.AccountListFileDataSource;
 import ku.cs.services.accounts.AccountListHardCodeDataSource;
@@ -43,7 +45,8 @@ public class LoginPageController {
                 if (account.getName().equals(username)) {
                     if (account.getPassword().equals(password)) {
                         try {
-                            FXRouter.goTo("home_student", account);
+                            ObjectCollector.add("account", account);
+                            FXRouter.goTo("home");
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
