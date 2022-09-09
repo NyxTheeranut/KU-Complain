@@ -21,7 +21,7 @@ public class AboutButtonController implements Button {
     public void loadPage() {
 
         try{ //load complaint list page
-            page = FXMLLoader.load(getClass().getResource(packageStr + "about.fxml"));
+            page = FXMLLoader.load(getClass().getResource(packageStr + "page/" + "about.fxml"));
         } catch (IOException e){
             System.err.println("error loading about page");
         }

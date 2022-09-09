@@ -20,7 +20,7 @@ public class TutorialButtonController implements Button {
     @Override
     public void loadPage() {
         try{ //load complaint list page
-            page = FXMLLoader.load(getClass().getResource(packageStr + "tutorial.fxml"));
+            page = FXMLLoader.load(getClass().getResource(packageStr + "page/" + "tutorial.fxml"));
         } catch (IOException e){
             System.err.println("error loading tutorial page");
         }

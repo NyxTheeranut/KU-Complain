@@ -35,7 +35,7 @@ public class ProfileButtonController implements Button {
     @Override
     public void loadPage() {
         try{ //load complaint list page
-            page = FXMLLoader.load(getClass().getResource(packageStr + "profile.fxml"));
+            page = FXMLLoader.load(getClass().getResource(packageStr + "page/" + "profile.fxml"));
         } catch (IOException e){
             System.err.println("error loading profile page");
         }

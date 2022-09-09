@@ -20,7 +20,7 @@ public class ProjectApplication extends Application {
         FXRouter.goTo("login_page");
     }
     private static void configRoute() {
-        String packageStr = "ku/cs/";
+        String packageStr = "ku/cs/page/";
 
         FXRouter.when("home", packageStr+"home.fxml");
 

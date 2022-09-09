@@ -19,7 +19,7 @@ public class ComplaintListButtonController implements Button {
     @Override
     public void loadPage() {
         try{ //load complaint list page
-            page = FXMLLoader.load(getClass().getResource(packageStr + "complaint_list.fxml"));
+            page = FXMLLoader.load(getClass().getResource(packageStr + "page/" + "complaint_list.fxml"));
         } catch (IOException e){
             System.err.println("error loading complaint list page");
         }
