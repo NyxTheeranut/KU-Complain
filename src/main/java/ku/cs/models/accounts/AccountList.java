@@ -1,5 +1,8 @@
 package ku.cs.models.accounts;
 
+import ku.cs.objectcollector.DataSource;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AccountList {
@@ -15,6 +18,18 @@ public class AccountList {
 
     public ArrayList<Account> getAllAccount() {
         return accounts;
+    }
+
+    public Account checkLogin(String username, String password) {
+        for (Account account : getAllAccount()) {
+            if (account.getName().equals(username)) {
+                if (account.getPassword().equals(password)) {
+                    return account;
+                }
+                break;
+            }
+        }
+        return null;
     }
 
     public Account getAccount(String name) {

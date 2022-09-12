@@ -2,14 +2,17 @@ package ku.cs.models.accounts;
 
 public class Account {
 
-    private String imagePath;
-    private String name;
-    private String password;
+    private String id;
     private String role;
+    private String username;
+    private String password;
+    private String name;
+    private String surname;
+    private String imagePath;
 
     public Account(String role, String name, String password, String imagePath) {
         this.role = role;
-        this.name = name;
+        this.username = name;
         this.password = password;
         this.imagePath = imagePath; //ku/cs/image/default.png
 
@@ -19,7 +22,7 @@ public class Account {
         return role;
     }
     public String getName() {
-        return name;
+        return username;
     }
     public String getPassword() {
         return password;
@@ -27,7 +30,7 @@ public class Account {
     public String getImagePath() { return  imagePath; }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
     private void setPassword(String password) {
         this.password = password;

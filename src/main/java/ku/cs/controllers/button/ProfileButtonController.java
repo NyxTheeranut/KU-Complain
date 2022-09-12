@@ -16,14 +16,14 @@ import ku.cs.services.Button;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import ku.cs.objectcollector.ObjectCollector;
+import ku.cs.objectcollector.DataSource;
 
 public class ProfileButtonController implements Button {
     @FXML
     private HBox button;
     @FXML
     Parent page = null;
-    private Account account = (Account) ObjectCollector.find("account");
+    private Account account = DataSource.account;
 
     @FXML public void initialize(){
         String url = getClass().getResource(packageStr+"image/"+account.getImagePath()).toExternalForm();

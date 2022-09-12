@@ -1,14 +1,11 @@
 package ku.cs;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.IOException;
 import com.github.saacsos.FXRouter;
 import ku.cs.fontloader.FontLoader;
-import ku.cs.objectcollector.ObjectCollector;
+import ku.cs.objectcollector.DataSource;
 
 public class ProjectApplication extends Application {
     @Override
@@ -44,7 +41,7 @@ public class ProjectApplication extends Application {
     }
 
     private static void configObject(){
-        ObjectCollector.add("packagestr", "/ku/cs/");
+        DataSource.add("packagestr", "/ku/cs/");
     }
     public static void main(String[] args) {
         launch();

@@ -9,8 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-import ku.cs.objectcollector.ObjectCollector;
-import ku.cs.services.Button;
+import ku.cs.objectcollector.DataSource;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,9 +21,7 @@ public class HomeController {
     @FXML private static StackPane content;
     @FXML private static VBox box = null;
 
-    private ButtonList buttonList;
-
-    private final String packageStr = ObjectCollector.find("packagestr") + "button/";
+    private final String packageStr = "/ku/cs/button/";
     private final int menuCloseWidth = -230;
 
     @FXML
@@ -34,14 +31,19 @@ public class HomeController {
 
         content = (StackPane) home.getChildren().get(0);
 
-        buttonList = new ButtonList();
-        buttonList.loadButton();
         loadUserButton();
+
     }
 
-    public void loadUserButton() {
-        for (Node button: buttonList.buttonList) {
-            box.getChildren().add(button);
+    public void loadUserButton(){
+        try {
+            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStr+"profilebutton.fxml")));
+            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStr+"complaintlistbutton.fxml")));
+            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStr+"complaintpostbutton.fxml")));
+            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStr+"tutorialbutton.fxml")));
+            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStr+"aboutbutton.fxml")));
+        } catch (IOException e) {
+            System.err.println("Error loading user button");
         }
     }
 
@@ -79,28 +81,6 @@ public class HomeController {
         slide.play();
 
         //menu.setTranslateX(0);
-    }
-
-    public class ButtonList {
-        ArrayList<String> buttonPathList =
-                new ArrayList<>(Arrays.asList(
-                        "profilebutton.fxml",
-                        "complaintpostbutton.fxml",
-                        "complaintlistbutton.fxml",
-                        "tutorialbutton.fxml",
-                        "aboutbutton.fxml"
-                ));
-        ArrayList<Node> buttonList = new ArrayList<>();
-
-        public void loadButton() {
-            for (String i: buttonPathList) {
-                try {
-                    buttonList.add(FXMLLoader.load(getClass().getResource(packageStr + i)));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
     }
 
 }

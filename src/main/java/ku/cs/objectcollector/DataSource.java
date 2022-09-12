@@ -1,14 +1,13 @@
 package ku.cs.objectcollector;
 
-import javafx.scene.text.Font;
-import ku.cs.fontloader.FontLoader;
+import ku.cs.models.accounts.Account;
 
 import java.util.*;
 
-public final class ObjectCollector {
+public final class DataSource {
     static AbstractMap<String, Object> map = new HashMap<>();
-
-    private ObjectCollector(){};
+    public static Account account;
+    private DataSource(){};
 
     public static void add(String objectKey, Object object) {
         map.put(objectKey, object);
