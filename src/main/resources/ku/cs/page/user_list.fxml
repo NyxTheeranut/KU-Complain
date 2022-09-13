@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UserListPageController">
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.page.UserListPageController">
    <children>
       <ListView layoutX="126.0" layoutY="107.0" prefHeight="506.0" prefWidth="360.0" />
       <Label layoutX="126.0" layoutY="66.0" prefHeight="18.0" prefWidth="153.0" text="รายชื่อผู้ใช้">
@@ -28,7 +28,7 @@
          </font>
       </Label>
       <Button layoutX="785.0" layoutY="294.0" mnemonicParsing="false" text="Account ban" />
-      <Label layoutX="785.0" layoutY="179.0" text="Last login :">
+      <Label layoutX="785.0" layoutY="168.0" text="Last login :">
          <font>
             <Font size="23.0" />
          </font>
@@ -38,10 +38,11 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="905.0" layoutY="179.0" prefHeight="34.0" prefWidth="202.0" text="LoginTimeLabel">
+      <Label layoutX="905.0" layoutY="168.0" prefHeight="34.0" prefWidth="202.0" text="LoginTimeLabel">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
+      <Button layoutX="905.0" layoutY="294.0" mnemonicParsing="false" text="Account Unban" />
    </children>
 </AnchorPane>
