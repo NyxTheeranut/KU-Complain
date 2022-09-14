@@ -6,17 +6,18 @@ import ku.cs.services.DataSource;
 import java.io.*;
 
 public class AccountListFileDataSource implements DataSource<AccountList> {
-    private final String directoryName = "src/main/resources/ku/cs/data/";
+    private final String directoryName = "data";
     private final String fileName = "account_list.csv";
 
     public AccountList readData() {
         AccountList accountList = new AccountList();
+        File file = new File(directoryName+File.separator+fileName);
+        FileReader reader = null;
         BufferedReader buffer = null;
         Account account = null;
-
         try {
-            InputStream inputStream = getClass().getResourceAsStream("/ku/cs/data/account_list.csv");
-            buffer = new BufferedReader(new InputStreamReader(inputStream));
+            reader = new FileReader(file);
+            buffer = new BufferedReader(reader);
             String line = "";
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
@@ -38,6 +39,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
         }finally {
             try {
                 buffer.close();
+                reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -46,18 +48,34 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
     }
 
     public void writeData(AccountList accountList) {
+        File file = new File(directoryName + File.separator + fileName);
+        FileWriter writer = null;
+        BufferedWriter buffer = null;
         try {
-            OutputStream outputStream = new FileOutputStream("/ku/cs/data/account_list.csv");
+            writer = new FileWriter(file);
+            buffer = new BufferedWriter(writer);
+            for(Account account : accountList.getAllAccount()) {
+                //role,name,password,imagepath
+                String line = account.getRole() + ","
+                        + account.getName() + ","
+                        + account.getPassword() + ","
+                        + account.getImagePath();
+                buffer.append(line);
+                buffer.newLine();
+            }
         } catch (FileNotFoundException e) {
             System.err.println("Invalid file path");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                buffer.close();
+                writer.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
-        for(Account account : accountList.getAllAccount()) {
-            //role,name,password,imagepath
-            String line = account.getRole() + ","
-                    + account.getName() + ","
-                    + account.getPassword() + ","
-                    + account.getImagePath();
-        }
+
     }
 }
