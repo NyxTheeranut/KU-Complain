@@ -6,8 +6,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import ku.cs.controllers.HomeController;
 import ku.cs.fontloader.FontLoader;
+import ku.cs.objectcollector.DataSource;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +19,6 @@ public class Button {
     protected HBox button;
     @FXML
     private Parent page = null;
-
     protected String pageName;
     protected final String packageStr = "/ku/cs/";
     
@@ -31,7 +32,9 @@ public class Button {
         } catch (IOException e){
             System.err.println("error loading page");
         }
-        HomeController.loadPage(page);
+        StackPane content = (StackPane) DataSource.find("content");
+        content.getChildren().clear();
+        content.getChildren().add(page);
     }
 
     @FXML
@@ -49,7 +52,7 @@ public class Button {
     public void handleOnMouseClickButton() {
         button.setStyle("-fx-background-color: #03a96b");
         loadPage();
-        ArrayList<Node> buttonList = HomeController.getAllButton();
+        /*ArrayList<Node> buttonList = homeController.getAllButton();
         for(Node i: buttonList){
             i.setStyle("-fx-background-color: #2f3337");
             ((HBox)i).getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1");
@@ -57,5 +60,6 @@ public class Button {
         }
         button.setStyle("-fx-background-color: #03a96b");
         handleOnMouseEnterButton();
+         */
     }
 }

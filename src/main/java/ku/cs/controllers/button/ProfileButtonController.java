@@ -44,7 +44,8 @@ public class ProfileButtonController extends Button {
     public void handleOnMouseClickButton() {
         button.setStyle("-fx-background-color: #03a96b");
         loadPage();
-        ArrayList<Node> buttonList = HomeController.getAllButton();
+        /*
+        ArrayList<Node> buttonList = homeController.getAllButton();
         for(Node i: buttonList){
             i.setStyle("-fx-background-color: #2f3337");
             ((HBox)i).getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1");
@@ -52,5 +53,7 @@ public class ProfileButtonController extends Button {
         }
         button.setStyle("-fx-background-color: #03a96b");
         handleOnMouseEnterButton();
+
+         */
     }
 }

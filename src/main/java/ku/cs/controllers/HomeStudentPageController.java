@@ -28,6 +28,7 @@ import com.github.saacsos.FXRouter;
 import ku.cs.models.accounts.Account;
 
 import ku.cs.fontloader.FontLoader;
+import ku.cs.objectcollector.DataSource;
 
 import static ku.cs.fontloader.FontLoader.font;
 
@@ -52,27 +53,26 @@ public class HomeStudentPageController {
     @FXML private Circle circle;
     @FXML private ImageView img;
     //instance
-    private final String packageStr = "/ku/cs/";
+    private final String packageStr = "/ku/cs/page/";
     private int menuCloseWidth = -230;
 
     private Account account;
 
     @FXML public void initialize(){
 
-        account =  (Account)FXRouter.getData();
-        String url = getClass().getResource(packageStr+"image/"+account.getImagePath()).toExternalForm();
+        account = DataSource.account;
+        String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
+
         Image image =  new Image(url,false);
         circle.setFill(new ImagePattern(image));
+
         menu.setTranslateX(menuCloseWidth); //set menu on close state
         setUpBoxId();
         setUpIcon();
+
         loadComplaintList();
+        System.out.println("x");
         handleOnMouseClickButton(1);
-        /*try {
-            ((VBox)menu.getChildren().get(0)).getChildren().add(FXMLLoader.load(getClass().getResource(packageStr + "button/complaintlistbutton.fxml")));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }*/
 
 
     }

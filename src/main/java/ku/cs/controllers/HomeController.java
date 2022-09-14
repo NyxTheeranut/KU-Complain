@@ -18,24 +18,26 @@ import java.util.Arrays;
 public class HomeController {
     @FXML private AnchorPane home;
     @FXML private AnchorPane menu;
-    @FXML private static StackPane content;
-    @FXML private static VBox box = null;
+    @FXML private StackPane content;
 
     private final String packageStr = "/ku/cs/button/";
     private final int menuCloseWidth = -230;
 
     @FXML
     public void initialize() {
-        box = (VBox)menu.getChildren().get(0); //get VBox
         menu.setTranslateX(menuCloseWidth); //set menu on close state
 
         content = (StackPane) home.getChildren().get(0);
 
         loadUserButton();
 
+        DataSource.add("content", content);
+        DataSource.add("menu", menu);
+
     }
 
     public void loadUserButton(){
+        VBox box = (VBox) menu.getChildren().get(0);
         try {
             box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStr+"profilebutton.fxml")));
             box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStr+"complaintlistbutton.fxml")));
@@ -47,14 +49,14 @@ public class HomeController {
         }
     }
 
-    public static void loadPage(Parent page) {
+    public void loadPage(Parent page) {
         content.getChildren().clear();
         content.getChildren().add(page);
     }
 
-    public static ArrayList<Node> getAllButton() {
+    public ArrayList<Node> getAllButton() {
         ArrayList<Node> buttonList = new ArrayList<>();
-        for (Node i: box.getChildren()) {
+        for (Node i: ((VBox) menu.getChildren().get(0)).getChildren()) {
             buttonList.add(i);
         }
         return buttonList;

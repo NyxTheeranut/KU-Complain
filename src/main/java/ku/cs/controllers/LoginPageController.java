@@ -42,7 +42,7 @@ public class LoginPageController {
             if (account != null) {
                 DataSource.account = account;
                 try {
-                    FXRouter.goTo("home");
+                    FXRouter.goTo("home_user");
                 } catch (IOException e) {
                     System.err.println("Error loading home page");
                 }
