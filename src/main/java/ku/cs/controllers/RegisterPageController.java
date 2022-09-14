@@ -31,10 +31,6 @@ public class RegisterPageController {
     }
 
     @FXML public void handleRegisterButton(ActionEvent actionEvent) {
-        checkRegister();
-    }
-
-    @FXML public void checkRegister() {
         String nameText = usernameField.getText(); //get content from username field
         String passwordText = passwordField.getText(); //get content from password field
         String confirmText = confirmPasswordField.getText(); //get content from confirm password field
@@ -45,17 +41,15 @@ public class RegisterPageController {
             wrongRegister.setText("รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร");
         }
         else if (passwordText.equals(confirmText)) {
-            Account user = new User(nameText, passwordText,"default.png"); //creating new user object
-            register(user); //add user object to datasource
-            try {
-                FXRouter.goTo("login_page");
-            } catch (IOException e) {
-                System.err.println("Error loading login page");
-            }
         }
         else {
             wrongRegister.setText("รหัสผ่านไม่ตรงกัน ลองใหม่อีกครั้ง");
         }
+    }
+
+    @FXML public void checkRegister() {
+
+
     }
 
     private void register(Account account){

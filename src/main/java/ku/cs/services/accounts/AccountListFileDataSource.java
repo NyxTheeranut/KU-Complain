@@ -23,14 +23,17 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             String line = "";
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
+                Boolean isBanned;
+                if (data[7].equals("0")) isBanned = false;
+                else isBanned = true;
                 if (data[0].equals("admin")){
-                    account = new Admin(data[1], data[2]);
+                    account = new Admin(data[1], data[2], data[3], data[4], data[5], data[6], isBanned);
                 }
                 else if (data[0].equals("mod")){
-                    account = new Moderator(data[1], data[2], data[3]);
+                    account = new Moderator(data[1], data[2], data[3], data[4], data[5], data[6], isBanned);
                 }
                 else if (data[0].equals("user")){
-                    account = new User(data[1], data[2], data[3]);
+                    account = new User(data[1], data[2], data[3], data[4], data[5], data[6], isBanned);
                 }
                 accountList.addAccount(account); //add account to account list
             }

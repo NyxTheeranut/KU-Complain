@@ -32,10 +32,27 @@ public class AccountList {
         return null;
     }
 
-    public Account getAccount(String name) {
+    public Account getAccount(String data) {
+        Account account = null;
+        account = getAccountByUsername(data);
+        if (account != null) return account;
+        account = getAccountById(data);
+        if (account != null) return account;
+        return null;
+    }
 
+    public Account getAccountByUsername(String username) {
         for (Account account:accounts) {
-            if (account.getName().equals(name.strip())) {
+            if (account.getName().equals(username.strip())) {
+                return account;
+            }
+        }
+        return null;
+    }
+
+    public Account getAccountById(String id) {
+        for (Account account:accounts) {
+            if (account.getId().equals(id.strip())) {
                 return account;
             }
         }

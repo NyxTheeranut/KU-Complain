@@ -2,13 +2,14 @@ package ku.cs.models.accounts;
 
 public class Account {
 
-    private String id;
     private String role;
+    private String id;
     private String username;
     private String password;
     private String name;
     private String surname;
-    private String imagePath;
+    protected String imagePath;
+    protected boolean isBanned;
 
     public Account(String role, String name, String password, String imagePath) {
         this.role = role;
@@ -18,28 +19,46 @@ public class Account {
 
     }
 
+    public boolean checkLogin(String password) {
+        return this.password.equals(password);
+    }
+
+    //getter
     public String getRole(){
         return role;
     }
-    public String getName() {
+    public String getId() {
+        return id;
+    }
+    public String getUsername() {
         return username;
     }
     public String getPassword() {
         return password;
     }
-    public String getImagePath() { return  imagePath; }
-
-    public void setName(String name) {
-        this.username = name;
+    public String getName() {
+        return name;
     }
-    private void setPassword(String password) {
+    public String getSurname() {
+        return surname;
+    }
+    public String getImagePath() { return  imagePath; }
+    public boolean getIsBanned() {
+        return isBanned;
+    }
+
+    //setter
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public void setPassword(String password) {
         this.password = password;
     }
-
-
-    public boolean checkLogin(String password) {
-        return this.password.equals(password);
+    public void setName(String name) {
+        this.name = name;
     }
-
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 
 }
