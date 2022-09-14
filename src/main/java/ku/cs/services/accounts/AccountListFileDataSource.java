@@ -11,15 +11,12 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
 
     public AccountList readData() {
         AccountList accountList = new AccountList();
-        File file = new File(directoryName + fileName); //file path
-        FileReader reader = null;
         BufferedReader buffer = null;
-
         Account account = null;
 
         try {
-            reader = new FileReader(file); //open file reader
-            buffer = new BufferedReader(reader);
+            InputStream inputStream = getClass().getResourceAsStream("/ku/cs/data/account_list.csv");
+            buffer = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
@@ -44,7 +41,6 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
         }finally {
             try {
                 buffer.close();
-                reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -53,32 +49,18 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
     }
 
     public void writeData(AccountList accountList) {
-        File file = new File("src/main/resources/ku/cs/data/account_list.csv");
-        FileWriter writer = null;
-        BufferedWriter buffer = null;
         try {
-            writer = new FileWriter(file);
-            buffer = new BufferedWriter(writer);
-            for(Account account : accountList.getAllAccount()) {
-                //role,name,password,imagepath
-                String line = account.getRole() + ","
-                        + account.getName() + ","
-                        + account.getPassword() + ","
-                        + account.getImagePath();
+            OutputStream outputStream = new FileOutputStream("/ku/cs/data/account_list.csv");
+        } catch (FileNotFoundException e) {
+            System.err.println("Invalid file path");
+        }
 
-                buffer.append(line);
-                buffer.newLine();
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }finally {
-            try {
-                buffer.close();
-                writer.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        for(Account account : accountList.getAllAccount()) {
+            //role,name,password,imagepath
+            String line = account.getRole() + ","
+                    + account.getName() + ","
+                    + account.getPassword() + ","
+                    + account.getImagePath();
         }
     }
-
 }
