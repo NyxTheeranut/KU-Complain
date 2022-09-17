@@ -1,5 +1,8 @@
 package ku.cs.models.accounts;
 
+import ku.cs.objectcollector.DataSource;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AccountList {
@@ -17,10 +20,48 @@ public class AccountList {
         return accounts;
     }
 
-    public Account getAccount(String name) {
+    public Account checkLogin(String username, String password) {
+        for (Account account : getAllAccount()) {
+            if (account.getUsername().equals(username)) {
+                if (account.getPassword().equals(password)) {
+                    return account;
+                }
+                break;
+            }
+        }
+        return null;
+    }
 
+    public Boolean checkRegister(String username) {
+        for (Account account: accounts) {
+            if (username.equals(account.getName())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public Account getAccount(String data) {
+        Account account = null;
+        account = getAccountByUsername(data);
+        if (account != null) return account;
+        account = getAccountById(data);
+        if (account != null) return account;
+        return null;
+    }
+
+    public Account getAccountByUsername(String username) {
         for (Account account:accounts) {
-            if (account.getName().equals(name.strip())) {
+            if (account.getName().equals(username.strip())) {
+                return account;
+            }
+        }
+        return null;
+    }
+
+    public Account getAccountById(String id) {
+        for (Account account:accounts) {
+            if (account.getId().equals(id.strip())) {
                 return account;
             }
         }

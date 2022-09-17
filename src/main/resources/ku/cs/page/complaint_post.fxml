@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ComplaintPostPageController">
+   <children>
+      <Button layoutX="499.0" layoutY="429.0" mnemonicParsing="false" onAction="#addComplaint" text="เพิ่มเรื่องร้องเรียน">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="topicField" layoutX="235.0" layoutY="195.0" promptText="กรุณาเขียนหัวข้อ" />
+      <TextField fx:id="categoryField" layoutX="235.0" layoutY="259.0" prefHeight="136.0" prefWidth="366.0" promptText="เนื้อหา" />
+      <Label layoutX="235.0" layoutY="160.0" prefHeight="35.0" prefWidth="149.0" text="หัวเรื่อง">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="235.0" layoutY="224.0" prefHeight="31.0" prefWidth="59.0" text="เนื้อหา">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="459.0" layoutY="55.0" text="เรื่องร้องเรียน">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <Label layoutX="682.0" layoutY="154.0" text="รูปประกอบ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="202.0" fitWidth="200.0" layoutX="679.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="889.0" layoutY="372.0" mnemonicParsing="false" text="เพิ่มรูป">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,27 +1,39 @@
 package ku.cs.services.accounts;
 
-import ku.cs.models.accounts.Account;
-import ku.cs.models.accounts.AccountList;
+import ku.cs.models.accounts.*;
 import ku.cs.services.DataSource;
 
 import java.io.*;
 
 public class AccountListFileDataSource implements DataSource<AccountList> {
-    private final String directoryName = "src/main/resources/ku/cs/data/";
+    private final String directoryName = "data";
     private final String fileName = "account_list.csv";
 
     public AccountList readData() {
         AccountList accountList = new AccountList();
-        File file = new File(directoryName + fileName);
+        File file = new File(directoryName+File.separator+fileName);
         FileReader reader = null;
         BufferedReader buffer = null;
+        Account account = null;
         try {
             reader = new FileReader(file);
             buffer = new BufferedReader(reader);
             String line = "";
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
-                accountList.addAccount(new Account(data[0], data[1], data[2]));
+                Boolean isBanned;
+                if (data[7].equals("0")) isBanned = false;
+                else isBanned = true;
+                if (data[0].equals("admin")){
+                    account = new Admin(data[1], data[2], data[3], data[4], data[5], data[6], isBanned);
+                }
+                else if (data[0].equals("mod")){
+                    account = new Moderator(data[1], data[2], data[3], data[4], data[5], data[6], isBanned);
+                }
+                else if (data[0].equals("user")){
+                    account = new User(data[1], data[2], data[3], data[4], data[5], data[6], isBanned);
+                }
+                accountList.addAccount(account); //add account to account list
             }
         }catch (FileNotFoundException e){
             throw new RuntimeException(e);
@@ -39,17 +51,30 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
     }
 
     public void writeData(AccountList accountList) {
-        File file = new File("src/main/resources/ku/cs/data/account_list.csv");
+        File file = new File(directoryName + File.separator + fileName);
         FileWriter writer = null;
         BufferedWriter buffer = null;
         try {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             for(Account account : accountList.getAllAccount()) {
-                String line = account.getName() + "," + account.getPassword() + "," + account.getImagePath();
+                String isBanned;
+                if (account.getIsBanned())  isBanned = "1";
+                else isBanned = "0";
+                //role,name,password,imagepath
+                String line = account.getRole() + ","
+                        + account.getId() + ","
+                        + account.getUsername() + ","
+                        + account.getPassword() + ","
+                        + account.getName() + ","
+                        + account.getSurname() + ","
+                        + account.getImagePath() + ","
+                        + isBanned;
                 buffer.append(line);
                 buffer.newLine();
             }
+        } catch (FileNotFoundException e) {
+            System.err.println("Invalid file path");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }finally {
@@ -60,6 +85,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                 throw new RuntimeException(e);
             }
         }
-    }
 
+
+    }
 }

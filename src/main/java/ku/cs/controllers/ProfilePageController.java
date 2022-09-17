@@ -6,15 +6,15 @@ import com.github.saacsos.FXRouter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.models.accounts.Account;
+import ku.cs.objectcollector.DataSource;
 
 import java.io.IOException;
 
 public class ProfilePageController {
     @FXML private ImageView image;
-    Account account;
+    Account account = DataSource.account;
     @FXML
     public void initialize(){
-        account =  (Account)FXRouter.getData();
         String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
         image.setImage(new Image(url));
     }

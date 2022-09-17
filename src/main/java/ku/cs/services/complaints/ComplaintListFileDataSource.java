@@ -5,19 +5,20 @@ import ku.cs.models.complaints.ComplaintList;
 import ku.cs.services.DataSource;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
-    private final String directoryName = "src/main/resources/ku/cs/data/";
+    private final String directoryName = "data";
     private final String fileName = "complaint_list.csv";
 
     public ComplaintList readData(){
         ComplaintList complaintList = new ComplaintList();
-        File file = new File(directoryName + fileName);
-        FileReader reader = null;
+        File file = new File(directoryName+File.separator+fileName);
+        FileReader fileReader = null;
         BufferedReader buffer = null;
         try {
-            reader = new FileReader(file);
-            buffer = new BufferedReader(reader);
+            fileReader = new FileReader(file);
+            buffer = new BufferedReader(fileReader);
             String line = "";
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
@@ -30,7 +31,6 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
         }finally {
             try {
                 buffer.close();
-                reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -39,15 +39,17 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
     }
 
     public void writeData(ComplaintList complaintList) {
-        File file = new File(directoryName + fileName);
+        File file = new File(directoryName + File.separator + fileName);
         FileWriter writer = null;
         BufferedWriter buffer = null;
         try {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             for(Complaint complaint : complaintList.getAllComplaints()){
-                String line = complaint.getTopic() + "," + complaint.getCategory();
-                buffer.append(line);
+                String line = complaint.getTopic()+","+complaint.getCategory();
+                byte[] bytes = line.getBytes(StandardCharsets.UTF_8);
+                String encodedLine = new String(bytes,StandardCharsets.UTF_8);
+                buffer.append(encodedLine);
                 buffer.newLine();
             }
         } catch (IOException e) {

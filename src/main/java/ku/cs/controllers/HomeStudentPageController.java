@@ -28,6 +28,7 @@ import com.github.saacsos.FXRouter;
 import ku.cs.models.accounts.Account;
 
 import ku.cs.fontloader.FontLoader;
+import ku.cs.objectcollector.DataSource;
 
 import static ku.cs.fontloader.FontLoader.font;
 
@@ -52,22 +53,31 @@ public class HomeStudentPageController {
     @FXML private Circle circle;
     @FXML private Label accountNameLabel;
     //instance
-    private String packageStr = "/ku/cs/";
+    private final String packageStr = "/ku/cs/page/";
     private int menuCloseWidth = -230;
 
     private Account account;
 
     @FXML public void initialize(){
 
-        account =  (Account)FXRouter.getData();
-        String url = getClass().getResource(packageStr+"image/"+account.getImagePath()).toExternalForm();
-        Image image =  new Image(url,false);
+        account = DataSource.account;
+
+        String url;
+        try {
+            url = getClass().getResource("/ku/cs/image/" + account.getImagePath()).toExternalForm();
+        } catch (NullPointerException e){
+            url = getClass().getResource("/ku/cs/image/default.png").toExternalForm();
+        }
+
+        Image image = new Image(url, false);
         circle.setFill(new ImagePattern(image));
         accountNameLabel.setText(account.getName());
         menu.setTranslateX(menuCloseWidth); //set menu on close state
         setUpBoxId();
         setUpIcon();
+
         loadComplaintList();
+        System.out.println("x");
         handleOnMouseClickButton(1);
 
 
@@ -187,6 +197,7 @@ public class HomeStudentPageController {
         }
         box.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1");
         box.getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1");
+
     }
     @FXML private void handleOnMouseClickButton(Integer id){
         //System.out.println(boxId.get(id));

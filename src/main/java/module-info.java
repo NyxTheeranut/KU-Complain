@@ -8,8 +8,12 @@ module cs.ku {
     exports ku.cs;
     exports ku.cs.controllers;
     opens ku.cs.controllers to javafx.fxml;
+    exports ku.cs.controllers.button;
+    opens ku.cs.controllers.button to javafx.fxml;
     exports ku.cs.services;
     opens ku.cs.services to javafx.fxml;
+    exports ku.cs.models;
+    opens ku.cs.models to javafx.fxml;
     exports ku.cs.models.accounts;
     opens ku.cs.models.accounts to javafx.fxml;
     exports ku.cs.models.complaints;
@@ -20,5 +24,4 @@ module cs.ku {
     opens ku.cs.services.accounts to javafx.fxml;
     exports ku.cs.services.complaints;
     opens ku.cs.services.complaints to javafx.fxml;
-
 }

@@ -9,9 +9,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
-import ku.cs.services.DataSource;
+import ku.cs.objectcollector.DataSource;
 import ku.cs.services.accounts.AccountListFileDataSource;
-import ku.cs.services.accounts.AccountListHardCodeDataSource;
 
 import java.io.IOException;
 
@@ -25,7 +24,7 @@ public class LoginPageController {
     @FXML
     private Label wrongLogin;
 
-    @FXML public void handleLoginButton(ActionEvent actionEvent) throws IOException {
+    @FXML public void handleLoginButton(ActionEvent actionEvent) {
         checkLogin();
     }
 
@@ -37,19 +36,15 @@ public class LoginPageController {
             wrongLogin.setText("กรุณาระบุชื่อบัญชีและรหัสผ่าน");
         }
         else {
-            DataSource<AccountList> dataSource = new AccountListFileDataSource();
-            AccountList accountlist = dataSource.readData();
-            for (Account account : accountlist.getAllAccount()) {
-                if (account.getName().equals(username)) {
-                    if (account.getPassword().equals(password)) {
-                        try {
-                            System.out.println(account.getImagePath());
-                            FXRouter.goTo("home_student", account);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                    break;
+            ku.cs.services.DataSource<AccountList> dataSource = new AccountListFileDataSource();
+            AccountList accountList = dataSource.readData();
+            Account account = accountList.checkLogin(username, password);
+            if (account != null) {
+                DataSource.account = account;
+                try {
+                    FXRouter.goTo("home_user");
+                } catch (IOException e) {
+                    System.err.println("Error loading home page");
                 }
             }
             wrongLogin.setText("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");

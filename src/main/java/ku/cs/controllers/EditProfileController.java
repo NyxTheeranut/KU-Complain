@@ -14,7 +14,7 @@ import java.nio.file.*;
 
 public class EditProfileController {
 
-    @FXML private TextField renameField;
+    @FXML private TextField renameTextField;
     @FXML private ImageView profilePicture;
 
     @FXML public void handleProfilePicture(ActionEvent actionEvent) throws IOException {
