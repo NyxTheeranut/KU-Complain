@@ -61,9 +61,15 @@ public class HomeStudentPageController {
     @FXML public void initialize(){
 
         account = DataSource.account;
-        String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
 
-        Image image =  new Image(url,false);
+        String url;
+        try {
+            url = getClass().getResource("/ku/cs/image/" + account.getImagePath()).toExternalForm();
+        } catch (NullPointerException e){
+            url = getClass().getResource("/ku/cs/image/default.png").toExternalForm();
+        }
+
+        Image image = new Image(url, false);
         circle.setFill(new ImagePattern(image));
 
         menu.setTranslateX(menuCloseWidth); //set menu on close state

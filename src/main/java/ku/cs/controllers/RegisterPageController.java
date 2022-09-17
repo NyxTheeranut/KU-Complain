@@ -31,31 +31,34 @@ public class RegisterPageController {
     }
 
     @FXML public void handleRegisterButton(ActionEvent actionEvent) {
-        String nameText = usernameField.getText(); //get content from username field
+        String usernameText = usernameField.getText(); //get content from username field
         String passwordText = passwordField.getText(); //get content from password field
         String confirmText = confirmPasswordField.getText(); //get content from confirm password field
-        if (nameText.isEmpty() || passwordText.isEmpty() || confirmText.isEmpty()) { //missing infomation
+        if (usernameText.isEmpty() || passwordText.isEmpty() || confirmText.isEmpty()) { //missing infomation
             wrongRegister.setText("กรุณาข้อมูลให้ครบถ้วน");
         }
         else if (passwordText.length() < 8) {
             wrongRegister.setText("รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร");
         }
         else if (passwordText.equals(confirmText)) {
+            register(usernameText, passwordText);
         }
         else {
             wrongRegister.setText("รหัสผ่านไม่ตรงกัน ลองใหม่อีกครั้ง");
         }
     }
 
-    @FXML public void checkRegister() {
-
-
-    }
-
-    private void register(Account account){
+    private void register(String username, String password){
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
-        accountList.addAccount(account);
-        dataSource.writeData(accountList);
+        if (accountList.checkRegister(username)){
+            Account account = new User(""+(accountList.getAllAccount().size()+1)
+                    , username
+                    , password
+            );
+            accountList.addAccount(account);
+            dataSource.writeData(accountList);
+        }
+
     }
 }

@@ -11,12 +11,22 @@ public class Account {
     protected String imagePath;
     protected boolean isBanned;
 
+    public Account(String role, String id, String username, String password, String name, String surname, String imagePath, boolean isBanned) {
+        this.role = role;
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.imagePath = imagePath;
+        this.isBanned = isBanned;
+    }
+
     public Account(String role, String name, String password, String imagePath) {
         this.role = role;
         this.username = name;
         this.password = password;
         this.imagePath = imagePath; //ku/cs/image/default.png
-
     }
 
     public boolean checkLogin(String password) {

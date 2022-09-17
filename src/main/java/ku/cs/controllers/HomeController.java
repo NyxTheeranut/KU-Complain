@@ -1,11 +1,14 @@
 package ku.cs.controllers;
 
 import javafx.animation.TranslateTransition;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -13,7 +16,6 @@ import ku.cs.objectcollector.DataSource;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class HomeController {
     @FXML private AnchorPane home;
@@ -49,9 +51,16 @@ public class HomeController {
         }
     }
 
-    public void loadPage(Parent page) {
+    public EventHandler<? super MouseEvent> loadPage(String pageName) {
+        Parent page = null;
+        try {
+            page = FXMLLoader.load(getClass().getResource(packageStr+pageName));
+        } catch (IOException e) {
+            System.err.println("error loading "+pageName);
+        }
         content.getChildren().clear();
         content.getChildren().add(page);
+        return null;
     }
 
     public ArrayList<Node> getAllButton() {

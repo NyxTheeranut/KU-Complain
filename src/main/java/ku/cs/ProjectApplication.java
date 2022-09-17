@@ -28,6 +28,7 @@ public class ProjectApplication extends Application {
         FXRouter.when("about_page", packageStr+"about.fxml");
         FXRouter.when("tutorial_page", packageStr+"tutorial.fxml");
         FXRouter.when("edit_profile", packageStr+"edit_profile.fxml");
+        FXRouter.when("profile", packageStr+"profile.fxml");
 
     }
     private static void configFont() {

@@ -58,11 +58,18 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             for(Account account : accountList.getAllAccount()) {
+                String isBanned;
+                if (account.getIsBanned())  isBanned = "1";
+                else isBanned = "0";
                 //role,name,password,imagepath
                 String line = account.getRole() + ","
-                        + account.getName() + ","
+                        + account.getId() + ","
+                        + account.getUsername() + ","
                         + account.getPassword() + ","
-                        + account.getImagePath();
+                        + account.getName() + ","
+                        + account.getSurname() + ","
+                        + account.getImagePath() + ","
+                        + isBanned;
                 buffer.append(line);
                 buffer.newLine();
             }

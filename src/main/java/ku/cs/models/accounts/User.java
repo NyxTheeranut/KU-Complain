@@ -13,7 +13,11 @@ public class User extends Account {
         imagePath = url;
     }
     public User(String id, String username, String password, String name, String surname, String imagePath, Boolean isBanned) {
-        super("user", name, password, imagePath);
+        super("user", id, username, password, name, surname, imagePath, isBanned);
+    }
+
+    public User(String id, String username, String password) {
+        this(id, username, password, "", "", "default.png", false);
     }
 
 }

@@ -22,7 +22,7 @@ public class AccountList {
 
     public Account checkLogin(String username, String password) {
         for (Account account : getAllAccount()) {
-            if (account.getName().equals(username)) {
+            if (account.getUsername().equals(username)) {
                 if (account.getPassword().equals(password)) {
                     return account;
                 }
@@ -30,6 +30,15 @@ public class AccountList {
             }
         }
         return null;
+    }
+
+    public Boolean checkRegister(String username) {
+        for (Account account: accounts) {
+            if (username.equals(account.getName())) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public Account getAccount(String data) {
