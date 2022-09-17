@@ -25,4 +25,8 @@ public class Complaint {
     public String getCategory() {
         return category;
     }
+
+    public String getDetail() {
+        return detail;
+    }
 }

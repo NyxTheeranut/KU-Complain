@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import com.github.saacsos.FXRouter;
 import ku.cs.fontloader.FontLoader;
-import ku.cs.objectcollector.DataSource;
+import ku.cs.objectcollector.DataBank;
 
 public class ProjectApplication extends Application {
     @Override
@@ -29,6 +29,7 @@ public class ProjectApplication extends Application {
         FXRouter.when("tutorial_page", packageStr+"tutorial.fxml");
         FXRouter.when("edit_profile", packageStr+"edit_profile.fxml");
         FXRouter.when("profile", packageStr+"profile.fxml");
+        FXRouter.when("complaint", packageStr+"complaint.fxml");
 
     }
     private static void configFont() {
@@ -42,7 +43,7 @@ public class ProjectApplication extends Application {
     }
 
     private static void configObject(){
-        DataSource.add("packagestr", "/ku/cs/");
+        DataBank.add("packagestr", "/ku/cs/");
     }
     public static void main(String[] args) {
         launch();

@@ -1,13 +1,15 @@
 package ku.cs.objectcollector;
 
 import ku.cs.models.accounts.Account;
+import ku.cs.models.complaints.Complaint;
 
 import java.util.*;
 
-public final class DataSource {
+public final class DataBank {
     static AbstractMap<String, Object> map = new HashMap<>();
     public static Account account;
-    private DataSource(){};
+    public static Complaint complaint;
+    private DataBank(){};
 
     public static void add(String objectKey, Object object) {
         map.put(objectKey, object);

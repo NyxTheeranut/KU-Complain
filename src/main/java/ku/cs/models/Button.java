@@ -1,18 +1,9 @@
 package ku.cs.models;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import ku.cs.controllers.HomeController;
 import ku.cs.fontloader.FontLoader;
-import ku.cs.objectcollector.DataSource;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class Button {
     @FXML

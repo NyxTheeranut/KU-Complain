@@ -1,24 +1,20 @@
 package ku.cs.controllers.button;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import ku.cs.controllers.HomeController;
 import ku.cs.models.Button;
 import ku.cs.models.accounts.Account;
 
-import java.util.ArrayList;
-
-import ku.cs.objectcollector.DataSource;
+import ku.cs.objectcollector.DataBank;
 
 public class ProfileButtonController extends Button {
     @FXML
     private HBox button;
-    private Account account = DataSource.account;
+    private Account account = DataBank.account;
 
     @FXML public void initialize(){
         String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();

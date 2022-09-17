@@ -1,8 +1,5 @@
 package ku.cs.models.accounts;
 
-import ku.cs.objectcollector.DataSource;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class AccountList {
