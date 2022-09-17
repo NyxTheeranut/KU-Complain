@@ -21,12 +21,10 @@ public class ProfileButtonController extends Button {
     private Account account = DataSource.account;
 
     @FXML public void initialize(){
-        String url = getClass().getResource(packageStr+"image/"+account.getImagePath()).toExternalForm();
+        String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
         Image image =  new Image(url,false);
         ((Circle)button.getChildren().get(1)).setFill(new ImagePattern(image));
         ((Label)button.getChildren().get(0)).setText(account.getName());
-
-        pageName = "profile.fxml";
     }
 
     @Override
@@ -38,22 +36,5 @@ public class ProfileButtonController extends Button {
     public void handleOnMouseExitButton() {
         if (button.getStyle().equals("-fx-background-color: #03a96b")) return;
         button.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1");
-    }
-
-    @Override
-    public void handleOnMouseClickButton() {
-        button.setStyle("-fx-background-color: #03a96b");
-        loadPage();
-        /*
-        ArrayList<Node> buttonList = homeController.getAllButton();
-        for(Node i: buttonList){
-            i.setStyle("-fx-background-color: #2f3337");
-            ((HBox)i).getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1");
-            ((HBox)i).getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1");
-        }
-        button.setStyle("-fx-background-color: #03a96b");
-        handleOnMouseEnterButton();
-
-         */
     }
 }

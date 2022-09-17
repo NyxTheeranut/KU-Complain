@@ -6,7 +6,6 @@ import ku.cs.models.Button;
 public class TutorialButtonController extends Button {
     @FXML
     public void initialize(){
-        pageName = "tutorial.fxml";
         setupFont();
     }
 }

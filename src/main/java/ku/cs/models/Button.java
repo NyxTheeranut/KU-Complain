@@ -17,24 +17,9 @@ import java.util.ArrayList;
 public class Button {
     @FXML
     protected HBox button;
-    @FXML
-    private Parent page = null;
-    protected String pageName;
-    protected final String packageStr = "/ku/cs/";
     
     public void setupFont() {
         ((Label)button.getChildren().get(1)).setFont(FontLoader.font("fa_r", 32));
-    }
-    public void loadPage() {
-
-        try{ //load complaint list page
-            page = FXMLLoader.load(getClass().getResource(packageStr + "page/" + pageName));
-        } catch (IOException e){
-            System.err.println("error loading page");
-        }
-        StackPane content = (StackPane) DataSource.find("content");
-        content.getChildren().clear();
-        content.getChildren().add(page);
     }
 
     @FXML
@@ -50,16 +35,5 @@ public class Button {
     }
 
     public void handleOnMouseClickButton() {
-        button.setStyle("-fx-background-color: #03a96b");
-        loadPage();
-        /*ArrayList<Node> buttonList = homeController.getAllButton();
-        for(Node i: buttonList){
-            i.setStyle("-fx-background-color: #2f3337");
-            ((HBox)i).getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1");
-            ((HBox)i).getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1");
-        }
-        button.setStyle("-fx-background-color: #03a96b");
-        handleOnMouseEnterButton();
-         */
     }
 }

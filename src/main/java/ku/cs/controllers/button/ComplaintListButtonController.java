@@ -6,7 +6,6 @@ import ku.cs.models.Button;
 public class ComplaintListButtonController extends Button {
     @FXML
     public void initialize(){
-        pageName = "complaint_list.fxml";
         setupFont();
     }
 }
