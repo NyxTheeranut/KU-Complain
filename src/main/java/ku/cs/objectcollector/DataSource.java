@@ -7,6 +7,7 @@ import java.util.*;
 public final class DataSource {
     static AbstractMap<String, Object> map = new HashMap<>();
     public static Account account;
+    public static Account reporter;
     private DataSource(){};
 
     public static void add(String objectKey, Object object) {

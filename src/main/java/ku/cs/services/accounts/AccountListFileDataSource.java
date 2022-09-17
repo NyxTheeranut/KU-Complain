@@ -11,7 +11,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
 
     public AccountList readData() {
         AccountList accountList = new AccountList();
-        File file = new File(directoryName+File.separator+fileName);
+        File file = new File(directoryName +File.separator+ fileName);
         FileReader reader = null;
         BufferedReader buffer = null;
         Account account = null;
