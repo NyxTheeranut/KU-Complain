@@ -4,8 +4,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
+import ku.cs.models.category.Category;
+import ku.cs.models.category.CategoryList;
 import ku.cs.services.complaints.ComplaintListFileDataSource;
 import ku.cs.services.DataSource;
+import ku.cs.services.categorytlists.CategoryListHardCodeDataSource;
 
 public class ComplaintPostPageController {
     @FXML private TextField topicField;
@@ -34,7 +37,9 @@ public class ComplaintPostPageController {
         }*/
         DataSource<ComplaintList> dataSource = new ComplaintListFileDataSource();
         ComplaintList complaintList = dataSource.readData();
-        complaintList.addComplaint(new Complaint(topicField.getText(),categoryField.getText()));
+        CategoryList componentList = new CategoryListHardCodeDataSource().readData();
+        Category component = componentList.search(categoryField.getText());
+        complaintList.addComplaint(new Complaint(topicField.getText(),component));
         dataSource.writeData(complaintList);
     }
 

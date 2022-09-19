@@ -9,7 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
-import ku.cs.objectcollector.DataBank;
+import ku.cs.services.Utility;
 import ku.cs.services.accounts.AccountListFileDataSource;
 
 import java.io.IOException;
@@ -40,7 +40,7 @@ public class LoginPageController {
             AccountList accountList = dataSource.readData();
             Account account = accountList.checkLogin(username, password);
             if (account != null) {
-                DataBank.account = account;
+                Utility.account = account;
                 try {
                     FXRouter.goTo("home");
                 } catch (IOException e) {

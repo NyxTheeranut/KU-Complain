@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
-import ku.cs.objectcollector.DataBank;
+import ku.cs.services.Utility;
 import ku.cs.services.complaints.ComplaintListFileDataSource;
 import ku.cs.services.DataSource;
 import com.github.saacsos.FXRouter;
@@ -46,7 +46,7 @@ public class ComplaintListPageController {
     }
 
     private void showSelectedComplaint(Complaint complaint) {
-        DataBank.complaint = complaint;
+        Utility.complaint = complaint;
         try {
             FXRouter.goTo("complaint");
         } catch (IOException e) {

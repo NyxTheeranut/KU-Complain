@@ -18,10 +18,12 @@ module cs.ku {
     opens ku.cs.models.accounts to javafx.fxml;
     exports ku.cs.models.complaints;
     opens ku.cs.models.complaints to javafx.fxml;
-    exports ku.cs.models.components;
-    opens ku.cs.models.components to javafx.fxml;
+    exports ku.cs.models.category;
+    opens ku.cs.models.category to javafx.fxml;
     exports ku.cs.services.accounts;
     opens ku.cs.services.accounts to javafx.fxml;
     exports ku.cs.services.complaints;
     opens ku.cs.services.complaints to javafx.fxml;
+    exports ku.cs.services.categorytlists;
+    opens ku.cs.services.categorytlists to javafx.fxml;
 }

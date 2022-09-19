@@ -22,9 +22,9 @@ import java.io.IOException;
 
 import ku.cs.models.accounts.Account;
 
-import ku.cs.objectcollector.DataBank;
+import ku.cs.services.Utility;
 
-import static ku.cs.fontloader.FontLoader.font;
+import static ku.cs.services.FontLoader.font;
 
 
 public class HomeStudentPageController {
@@ -54,7 +54,7 @@ public class HomeStudentPageController {
 
     @FXML public void initialize(){
 
-        account = DataBank.account;
+        account = Utility.account;
 
         String url;
         try {

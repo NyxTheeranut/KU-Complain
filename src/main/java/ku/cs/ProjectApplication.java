@@ -4,8 +4,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import java.io.IOException;
 import com.github.saacsos.FXRouter;
-import ku.cs.fontloader.FontLoader;
-import ku.cs.objectcollector.DataBank;
+import ku.cs.services.FontLoader;
+import ku.cs.services.Utility;
 
 public class ProjectApplication extends Application {
     @Override
@@ -43,7 +43,7 @@ public class ProjectApplication extends Application {
     }
 
     private static void configObject(){
-        DataBank.add("packagestr", "/ku/cs/");
+        Utility.add("packagestr", "/ku/cs/");
     }
     public static void main(String[] args) {
         launch();

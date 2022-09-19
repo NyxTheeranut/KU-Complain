@@ -9,12 +9,12 @@ import javafx.scene.shape.Circle;
 import ku.cs.models.Button;
 import ku.cs.models.accounts.Account;
 
-import ku.cs.objectcollector.DataBank;
+import ku.cs.services.Utility;
 
 public class ProfileButtonController extends Button {
     @FXML
     private HBox button;
-    private Account account = DataBank.account;
+    private Account account = Utility.account;
 
     @FXML public void initialize(){
         String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
