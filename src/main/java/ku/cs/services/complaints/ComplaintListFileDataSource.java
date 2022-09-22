@@ -1,14 +1,23 @@
 package ku.cs.services.complaints;
 
+import ku.cs.models.accounts.Account;
+import ku.cs.models.accounts.AccountList;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
 import ku.cs.services.DataSource;
+import ku.cs.services.Utility;
+import ku.cs.services.accounts.AccountListFileDataSource;
+import ku.cs.services.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.categorytlists.CategoryListHardCodeDataSource;
+import ku.cs.services.searcher.SearchAccountById;
+import ku.cs.services.searcher.SearchCategoryByName;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
@@ -24,20 +33,43 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
             fileReader = new FileReader(file);
             buffer = new BufferedReader(fileReader);
             String line = "";
-            CategoryListHardCodeDataSource dataSource = new CategoryListHardCodeDataSource();
-            CategoryList componentList = dataSource.readData();
-            System.out.println(componentList.getAllCategory().get(0).getName());
+
+            //Get Account list
+            AccountListFileDataSource accountDataSource = new AccountListFileDataSource();
+            AccountList accountList = accountDataSource.readData();
+
+            //Get category list
+            CategoryListFileDataSource categoryDataSource = new CategoryListFileDataSource();
+            CategoryList categoryList = categoryDataSource.readData();
+
             while((line = buffer.readLine()) != null){
-                //topic,category,
+                //id,authorid,topic,category,datepost,moderatorid,solving detail,field
                 String[] data = line.split(",");
-                Category category = componentList.search(data[1]);
+
+                //Get account object
+                Account author = Utility.search(data[1], accountList.getAllAccount(), new SearchAccountById());
+
+                //Get category object
+                Category category = Utility.search(data[3], categoryList.getAllCategory(), new SearchCategoryByName());
                 ArrayList<String> fields = new ArrayList<>();
 
-                for(int i=2; i<data.length ;i++){
+                //Get local date time object
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                LocalDateTime datePosted = LocalDateTime.parse(data[4], formatter);
+
+                //Get moderator
+                Account moderator = Utility.search(data[5], accountList.getAllAccount(), new SearchAccountById());
+
+                if (data[6].equals("-")) {
+                    data[6] = "";
+                }
+
+                for(int i=7; i<data.length ;i++){
                     fields.add(data[i]);
                 }
 
-                complaintList.addComplaint(new Complaint(data[0],category, fields));
+                complaintList.addComplaint(new Complaint(data[0], author, data[2], category, datePosted, moderator, data[6], fields));
+
             }
 
         }catch (FileNotFoundException e){
@@ -62,7 +94,29 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             for(Complaint complaint : complaintList.getAllComplaints()){
-                String line = complaint.getTopic()+","+complaint.getCategory();
+                //id,authorid,topic,category,datepost,moderator,solvingdetail,field
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+
+                String line = complaint.getId() + "," +
+                        complaint.getAuthor().getId() + "," +
+                        complaint.getTopic() + "," +
+                        complaint.getCategory().getName() + "," +
+                        complaint.getDatePosted().format(formatter) + ",";
+                if (complaint.getModerator() == null) {
+                    line += "-,";
+                }
+                else {
+                    line += complaint.getModerator().getId() + ",";
+                }
+                if (complaint.getSolvingDetail().equals("")) {
+                    line += "-";
+                }
+                line += complaint.getSolvingDetail() + "," +
+                        String.join(",", complaint.getFields());
+
+
                 byte[] bytes = line.getBytes(StandardCharsets.UTF_8);
                 String encodedLine = new String(bytes,StandardCharsets.UTF_8);
                 buffer.append(encodedLine);

@@ -9,18 +9,11 @@ public class CategoryList {
         categories = new ArrayList<>();
     }
 
-    public void addComponent(Category category){
+    public void addCategory(Category category){
         categories.add(category);
     }
 
     public ArrayList<Category> getAllCategory() {
         return categories;
-    }
-    public Category search(String name) {
-        for (Category category : categories) {
-            if (category.getName().equals(name))
-                return category;
-        }
-        return null;
     }
 }

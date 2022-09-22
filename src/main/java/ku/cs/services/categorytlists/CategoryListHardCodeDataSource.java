@@ -12,10 +12,10 @@ public class CategoryListHardCodeDataSource {
     }
 
     public CategoryList readData(){
-        componentList.addComponent(new Category("defective building"));
+        componentList.addCategory(new Category("defective building"));
         componentList.getAllCategory().get(0).addField("text", "test1");
         componentList.getAllCategory().get(0).addField("text", "test2");
-        System.out.println(componentList.getAllCategory().get(0).getFields().size());
+        //System.out.println(componentList.getAllCategory().get(0).getFields().size());
         //componentList.getAllCategory().get(0).addField("text", "test3");
         //componentList.getAllCategory().get(0).addField("text", "test4");
         //componentList.addComponent(new Category("inappropriate event"));

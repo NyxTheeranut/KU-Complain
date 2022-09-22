@@ -20,7 +20,7 @@ public class ProfileButtonController extends Button {
         String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
         Image image =  new Image(url,false);
         ((Circle)button.getChildren().get(1)).setFill(new ImagePattern(image));
-        ((Label)button.getChildren().get(0)).setText(account.getName());
+        ((Label)button.getChildren().get(0)).setText(account.getUsername());
     }
 
     @Override
