@@ -1,6 +1,7 @@
 package ku.cs;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import java.io.IOException;
 import com.github.saacsos.FXRouter;
@@ -30,6 +31,7 @@ public class ProjectApplication extends Application {
         FXRouter.when("edit_profile", packageStr+"edit_profile.fxml");
         FXRouter.when("profile", packageStr+"profile.fxml");
         FXRouter.when("complaint", packageStr+"complaint.fxml");
+        FXRouter.when("account_list",packageStr+"account_list.fxml");
 
     }
     private static void configFont() {
