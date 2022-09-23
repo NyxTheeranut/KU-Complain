@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -56,7 +57,10 @@ public class HomeController {
         for(String buttonData:buttonDataList){
             String[] data = buttonData.split(",");
             HBox button = Util.createButton(data[0],data[1]);
-            button.setOnMouseClicked(event -> loadPage(data[2]));
+            //button.setOnMouseClicked(event -> loadPage(data[2]));
+            button.setOnMouseClicked(event -> handleOnMouseClickedButton(box,button,data[2]));
+            button.setOnMouseEntered(event -> handleOnMouseEnterButton(button));
+            button.setOnMouseExited(event -> handleOnMouseExitButton(button));
             box.getChildren().add(button);
         }
     }
@@ -94,7 +98,23 @@ public class HomeController {
 
         //menu.setTranslateX(0);
     }
-
+    @FXML
+    public void handleOnMouseEnterButton(HBox button){
+        button.getChildren().get(0).setStyle("-fx-text-fill: #ffffff");
+        button.getChildren().get(1).setStyle("-fx-text-fill: #ffffff");
+    }
+    @FXML
+    public void handleOnMouseExitButton(HBox button){
+        if (button.getStyle().equals("-fx-background-color: #03a96b")) return;
+        button.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+        button.getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+    }
+    @FXML
+    public void handleOnMouseClickedButton(VBox menu,HBox button,String pagePath){
+        for(Node b:menu.getChildren()) b.setStyle("-fx-background-color: #2f3337");
+        button.setStyle("-fx-background-color: #03a96b");
+        loadPage(pagePath);
+    }
 }
 
 

@@ -95,14 +95,14 @@ public final class Util {
     }
 
     public static HBox createButton(String buttonName,String element){
-        HBox button = new HBox(7);
+        HBox button = new HBox(15);
         button.setPrefSize(300,60);
         button.setAlignment(Pos.CENTER_RIGHT);
-        button.setPadding(new Insets(0,20,0,0));
+        button.setPadding(new Insets(0,10,0,0));
 
         Label name = new Label(buttonName);
         name.setFont(FontLoader.font("ths",48));
-        name.setTextFill(Color.web("#0076a3"));
+        name.setTextFill(Color.web("#9d9fa1"));
         button.getChildren().add(name);
 
         if(element.contains(".")){
@@ -113,7 +113,7 @@ public final class Util {
         else{
             Label symbol = new Label(element);
             symbol.setFont(FontLoader.font("fa_wf",48));
-            symbol.setTextFill(Color.web("#0076a3"));
+            symbol.setTextFill(Color.web("#9d9fa1"));
             button.getChildren().add(symbol);
         }
 
