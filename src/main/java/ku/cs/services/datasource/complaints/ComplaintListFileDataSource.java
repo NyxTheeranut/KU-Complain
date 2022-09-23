@@ -1,4 +1,4 @@
-package ku.cs.services.complaints;
+package ku.cs.services.datasource.complaints;
 
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
@@ -6,11 +6,10 @@ import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
-import ku.cs.services.DataSource;
-import ku.cs.services.Utility;
-import ku.cs.services.accounts.AccountListFileDataSource;
-import ku.cs.services.categorytlists.CategoryListFileDataSource;
-import ku.cs.services.categorytlists.CategoryListHardCodeDataSource;
+import ku.cs.services.datasource.DataSource;
+import ku.cs.util.Util;
+import ku.cs.services.datasource.accounts.AccountListFileDataSource;
+import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.searcher.SearchAccountById;
 import ku.cs.services.searcher.SearchCategoryByName;
 
@@ -47,10 +46,10 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 String[] data = line.split(",");
 
                 //Get account object
-                Account author = Utility.search(data[1], accountList.getAllAccount(), new SearchAccountById());
+                Account author = Util.search(data[1], accountList.getAllAccount(), new SearchAccountById());
 
                 //Get category object
-                Category category = Utility.search(data[3], categoryList.getAllCategory(), new SearchCategoryByName());
+                Category category = Util.search(data[3], categoryList.getAllCategory(), new SearchCategoryByName());
                 ArrayList<String> fields = new ArrayList<>();
 
                 //Get local date time object
@@ -58,7 +57,7 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 LocalDateTime datePosted = LocalDateTime.parse(data[4], formatter);
 
                 //Get moderator
-                Account moderator = Utility.search(data[5], accountList.getAllAccount(), new SearchAccountById());
+                Account moderator = Util.search(data[5], accountList.getAllAccount(), new SearchAccountById());
 
                 if (data[6].equals("-")) {
                     data[6] = "";

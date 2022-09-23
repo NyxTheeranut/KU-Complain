@@ -3,7 +3,7 @@ package ku.cs.models;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import ku.cs.services.FontLoader;
+import ku.cs.util.FontLoader;
 
 public class Button {
     @FXML

@@ -10,8 +10,8 @@ module cs.ku {
     opens ku.cs.controllers to javafx.fxml;
     exports ku.cs.controllers.button;
     opens ku.cs.controllers.button to javafx.fxml;
-    exports ku.cs.services;
-    opens ku.cs.services to javafx.fxml;
+//    exports ku.cs.services;
+//    opens ku.cs.services to javafx.fxml;
     exports ku.cs.models;
     opens ku.cs.models to javafx.fxml;
     exports ku.cs.models.accounts;
@@ -20,10 +20,14 @@ module cs.ku {
     opens ku.cs.models.complaints to javafx.fxml;
     exports ku.cs.models.category;
     opens ku.cs.models.category to javafx.fxml;
-    exports ku.cs.services.accounts;
-    opens ku.cs.services.accounts to javafx.fxml;
-    exports ku.cs.services.complaints;
-    opens ku.cs.services.complaints to javafx.fxml;
-    exports ku.cs.services.categorytlists;
-    opens ku.cs.services.categorytlists to javafx.fxml;
+    exports ku.cs.services.datasource.accounts;
+    opens ku.cs.services.datasource.accounts to javafx.fxml;
+    exports ku.cs.services.datasource.complaints;
+    opens ku.cs.services.datasource.complaints to javafx.fxml;
+    exports ku.cs.services.datasource.categorytlists;
+    opens ku.cs.services.datasource.categorytlists to javafx.fxml;
+    exports ku.cs.services.datasource;
+    opens ku.cs.services.datasource to javafx.fxml;
+    exports ku.cs.util;
+    opens ku.cs.util to javafx.fxml;
 }

@@ -5,14 +5,14 @@ import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
 import ku.cs.models.complaints.Complaint;
-import ku.cs.services.Utility;
+import ku.cs.util.Util;
 import com.github.saacsos.FXRouter;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class ComplaintPageController {
-    Complaint complaint = Utility.complaint;
+    Complaint complaint = Util.complaint;
 
     @FXML
     private Text topic;

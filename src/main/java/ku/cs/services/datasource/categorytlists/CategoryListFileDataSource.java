@@ -1,13 +1,11 @@
-package ku.cs.services.categorytlists;
+package ku.cs.services.datasource.categorytlists;
 
 import javafx.util.Pair;
-import ku.cs.models.accounts.*;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
-import ku.cs.services.DataSource;
+import ku.cs.services.datasource.DataSource;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;

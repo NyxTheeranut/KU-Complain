@@ -1,4 +1,4 @@
-package ku.cs.services.categorytlists;
+package ku.cs.services.datasource.categorytlists;
 
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;

@@ -1,6 +1,5 @@
-package ku.cs.services.complaints;
+package ku.cs.services.datasource.complaints;
 
-import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 
 public class ComplaintListHardCodeDataSource {

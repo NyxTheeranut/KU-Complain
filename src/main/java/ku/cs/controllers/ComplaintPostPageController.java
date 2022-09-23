@@ -8,25 +8,22 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.FileChooser;
+import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import javafx.util.Pair;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
-import ku.cs.services.Utility;
-import ku.cs.services.categorytlists.CategoryListFileDataSource;
-import ku.cs.services.complaints.ComplaintListFileDataSource;
-import ku.cs.services.DataSource;
-import ku.cs.services.categorytlists.CategoryListHardCodeDataSource;
+import ku.cs.util.Util;
+import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
+import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
+import ku.cs.services.datasource.DataSource;
 
-import java.awt.event.ActionEvent;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -52,18 +49,20 @@ public class ComplaintPostPageController {
         ObservableList<Node> child = fieldArea.getChildren();
         for(int i=0; i<child.size(); i++){
             HBox hBox = (HBox) child.get(i);
-            if (categoryComboBox.getValue().getFields().get(i).getKey().equals("text")) {
+            if (categoryComboBox.getValue().getFields().get(i).getKey().equals("text")) { //text
                 fields.add(( (TextField) hBox.getChildren().get(1)).getText());
             }
-            else if (categoryComboBox.getValue().getFields().get(i).getKey().equals("pic")) {
-                fields.add(( (Label) hBox.getChildren().get(2)).getText());
+            else if (categoryComboBox.getValue().getFields().get(i).getKey().equals("pic")) { //pic
+                Image image = ((ImageView)((VBox) hBox.getChildren().get(2)).getChildren().get(1)).getImage();
+                if (image == null) System.out.printf("X");
+                fields.add(Util.saveImage(image, "complaint"));
             }
         }
 
         complaintList.addComplaint(
                 new Complaint(
                         complaintList.getAllComplaints().size()+1+"",
-                        Utility.account,
+                        Util.account,
                         topicField.getText(),
                         categoryComboBox.getValue(),
                         LocalDateTime.now(),
@@ -100,18 +99,41 @@ public class ComplaintPostPageController {
                 button.setText("Upload รูปภาพ");
                 button.setAlignment(Pos.CENTER);
 
+                VBox vBox = new VBox();
+                ImageView previewImageView = new ImageView();
                 Label imagePathLabel = new Label();
                 imagePathLabel.setPrefSize(820, 30);
 
-                button.setOnAction(event -> {
+                vBox.getChildren().add(imagePathLabel);
+                vBox.getChildren().add(previewImageView);
+
+                button.setOnAction(event -> { //set on action method for button
                     try {
-                        imagePathLabel.setText(selectPicture());
+                        Image image = Util.selectImage();
+                        imagePathLabel.setText(image.getUrl());
+
+                        double imageWidth = 200;
+                        double imageHeight = 200/image.getWidth() * image.getHeight();
+
+                        if (previewImageView.getImage()!=null) { //reset size of flowpane
+                            fieldArea.setPrefHeight(fieldArea.getPrefHeight() -
+                                    (200/previewImageView.getImage().getWidth() * previewImageView.getImage().getHeight()));
+                        }
+                        fieldArea.setPrefHeight(fieldArea.getPrefHeight()+imageHeight); //adjust flowpane size
+
+                        previewImageView.setImage(image);
+                        previewImageView.setFitWidth(200);
+                        previewImageView.setFitHeight(200/image.getWidth() * image.getHeight());
+
+
+
                     } catch (IOException e) {
                         System.err.println(e);
                     }
                 });
+
                 hBox.getChildren().add(button);
-                hBox.getChildren().add(imagePathLabel);
+                hBox.getChildren().add(vBox); //Add vbox to hbox
             }
 
             fieldName.setText(i.getValue()); //Set name label
@@ -126,27 +148,6 @@ public class ComplaintPostPageController {
     @FXML
     private void handleSendComplaintButton(){
         addComplaint();
-    }
-
-    @FXML
-    private String selectPicture() throws IOException {
-
-        FileChooser fileChooser = new FileChooser();
-
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files",
-                "*.png",
-                "*.jpg"));
-
-        File selectedFile = fileChooser.showOpenDialog(null);
-        Image image = new Image(selectedFile.toURI().toString());
-        Path from = Paths.get(selectedFile.toURI());
-//        Path to = Paths.get("D:\\lab 211\\project211-araikordai\\src\\main\\resources\\ku\\cs\\image\\" + selectedFile.getName());
-//        CopyOption[] options = new CopyOption[]{
-//                StandardCopyOption.REPLACE_EXISTING,
-//                StandardCopyOption.COPY_ATTRIBUTES};
-//        Files.copy(from.toFile().toPath(), to.toFile().toPath(),options);
-        return selectedFile.toURI().toString();
-
     }
 
     private void setupComboBox(){

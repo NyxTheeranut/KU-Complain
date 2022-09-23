@@ -1,7 +1,7 @@
-package ku.cs.services.accounts;
+package ku.cs.services.datasource.accounts;
 
 import ku.cs.models.accounts.*;
-import ku.cs.services.DataSource;
+import ku.cs.services.datasource.DataSource;
 
 import java.io.*;
 

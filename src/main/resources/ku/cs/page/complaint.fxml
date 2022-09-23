@@ -1,25 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ComplaintPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ComplaintPageController">
    <children>
-      <Text fx:id="topic" layoutX="42.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Header">
-         <font>
-            <Font name="THSarabunPSK-Bold" size="40.0" />
-         </font>
-      </Text>
-      <ListView fx:id="data" layoutX="42.0" layoutY="138.0" prefHeight="200.0" prefWidth="200.0" />
+      <VBox prefHeight="200.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1180.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="เรื่องร้องเรียน">
+                     <font>
+                        <Font name="THSarabunPSK-Bold" size="70.0" />
+                     </font>
+                  </Text>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="520.0" prefWidth="1280.0">
+               <children>
+                  <ScrollPane prefHeight="200.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="1270.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="1270.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="1270.0">
+                                       <children>
+                                          <Label fx:id="Topic" text="Topic">
+                                             <font>
+                                                <Font name="THSarabunPSK-Bold" size="50.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fx:id="category" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="30.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets left="70.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                                 <FlowPane.margin>
+                                    <Insets />
+                                 </FlowPane.margin>
+                              </HBox>
+                           </children>
+                        </FlowPane>
+                     </content>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </ScrollPane>
+                  <ListView fx:id="data" layoutX="84.0" layoutY="184.0" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
+            <HBox prefHeight="100.0" prefWidth="1180.0" />
+         </children>
+      </VBox>
       <Button layoutX="477.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleBackButton" text="Button" />
-      <Text fx:id="category" layoutX="42.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Header">
-         <font>
-            <Font name="THSarabunPSK" size="20.0" />
-         </font>
-      </Text>
    </children>
 </AnchorPane>

@@ -1,6 +1,6 @@
 package ku.cs.models.accounts;
 
-import ku.cs.services.Utility;
+import ku.cs.util.Util;
 import ku.cs.services.searcher.SearchAccountByUserName;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class AccountList {
 
     public Account checkLogin(String username, String password) {
 
-        Account account = Utility.search(username, getAllAccount(), new SearchAccountByUserName());
+        Account account = Util.search(username, getAllAccount(), new SearchAccountByUserName());
         if (account.getPassword().equals(password)) {
             return account;
         }
@@ -30,7 +30,7 @@ public class AccountList {
     }
 
     public Boolean checkRegister(String username) {
-        if (Utility.search(username, accounts, new SearchAccountByUserName()) != null) {
+        if (Util.search(username, accounts, new SearchAccountByUserName()) != null) {
             return true;
         }
         return false;
