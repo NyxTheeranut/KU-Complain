@@ -1,11 +1,8 @@
 package ku.cs.controllers;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -13,6 +10,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import javafx.stage.Modality;
 import javafx.util.Pair;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.util.FontLoader;
@@ -25,6 +24,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 public class ComplaintPageController {
     Complaint complaint;
 
@@ -138,6 +141,18 @@ public class ComplaintPageController {
 //        fieldArea.getChildren().add(hBox);
 //        fieldArea.setPrefHeight(fieldArea.getPrefHeight() + 50);
     }
+
+    public void handleReportButton() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/ku/cs/page/report.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Report");
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 
     public void handleBackButton() {
         try {

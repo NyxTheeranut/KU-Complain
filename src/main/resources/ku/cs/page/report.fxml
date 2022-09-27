@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.page.ReportPageController">
+<AnchorPane prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ReportPageController">
    <children>
-      <Label layoutX="85.0" layoutY="60.0" text="รายงาน">
+      <Label layoutX="85.0" layoutY="50.0" text="รายงาน">
          <font>
             <Font name="THSarabunPSK-Bold" size="80.0" />
          </font>
@@ -36,12 +36,12 @@
             <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="395.0" layoutY="180.0" text="หัวข้อการรายงาน*">
+      <Label layoutX="350.0" layoutY="180.0" text="หัวข้อการรายงาน*">
          <font>
             <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="570.0" layoutY="190.0" prefHeight="16.0" prefWidth="315.0">
+      <TextField fx:id="topicTextField" layoutX="505.0" layoutY="190.0" prefHeight="30.0" prefWidth="380.0">
          <font>
             <Font name="TH SarabunPSK" size="16.0" />
          </font>
@@ -49,17 +49,17 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label layoutX="440.0" layoutY="284.0" text="รายละเอียด*">
+      <Label layoutX="395.0" layoutY="284.0" text="รายละเอียด*">
          <font>
             <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="570.0" layoutY="290.0" prefHeight="200.0" prefWidth="315.0">
+      <TextField fx:id="detailTextField" layoutX="505.0" layoutY="290.0" prefHeight="200.0" prefWidth="380.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button layoutX="680.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-color: 48915;" text="ย้อนกลับ" underline="true">
+      <Button fx:id="backButton" layoutX="680.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-color: 48915;" text="ยกเลิก" underline="true">
          <font>
             <Font name="THSarabunPSK-Bold" size="25.0" />
          </font>
@@ -67,7 +67,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="handleReportButton" layoutX="774.0" layoutY="600.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="96.0" text="ยืนยัน">
+      <Button fx:id="reportButton" layoutX="776.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleReportButton" prefHeight="48.0" prefWidth="96.0" text="ยืนยัน">
          <font>
             <Font name="THSarabunPSK-Bold" size="25.0" />
          </font>

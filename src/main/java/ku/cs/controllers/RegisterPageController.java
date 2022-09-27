@@ -52,10 +52,7 @@ public class RegisterPageController {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
         if (accountList.checkRegister(username)){
-            Account account = new User(""+(accountList.getAllAccount().size()+1)
-                    , username
-                    , password
-            );
+            Account account = new User(""+(accountList.getAllAccount().size()+1), username, password);
             accountList.addAccount(account);
             dataSource.writeData(accountList);
         }
