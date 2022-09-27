@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.page.ReportPageController">
+   <children>
+      <Label layoutX="85.0" layoutY="60.0" text="รายงาน">
+         <font>
+            <Font name="THSarabunPSK-Bold" size="80.0" />
+         </font>
+      </Label>
+      <RadioButton layoutX="100.0" layoutY="250.0" mnemonicParsing="false" text="เรื่องร้องเรียนนี้">
+         <font>
+            <Font name="TH SarabunPSK" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <RadioButton layoutX="100.0" layoutY="330.0" mnemonicParsing="false" text="บัญชีที่ร้องเรียนเรื่องนี้">
+         <font>
+            <Font name="TH SarabunPSK" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+      <Label layoutX="90.0" layoutY="180.0" text="ประเภทที่ต้องการรายงาน*">
+         <font>
+            <Font name="TH SarabunPSK" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="395.0" layoutY="180.0" text="หัวข้อการรายงาน*">
+         <font>
+            <Font name="TH SarabunPSK" size="30.0" />
+         </font>
+      </Label>
+      <TextField layoutX="570.0" layoutY="190.0" prefHeight="16.0" prefWidth="315.0">
+         <font>
+            <Font name="TH SarabunPSK" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="440.0" layoutY="284.0" text="รายละเอียด*">
+         <font>
+            <Font name="TH SarabunPSK" size="30.0" />
+         </font>
+      </Label>
+      <TextField layoutX="570.0" layoutY="290.0" prefHeight="200.0" prefWidth="315.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Button layoutX="680.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-color: 48915;" text="ย้อนกลับ" underline="true">
+         <font>
+            <Font name="THSarabunPSK-Bold" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="handleReportButton" layoutX="774.0" layoutY="600.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="96.0" text="ยืนยัน">
+         <font>
+            <Font name="THSarabunPSK-Bold" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

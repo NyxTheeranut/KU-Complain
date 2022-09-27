@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ComplaintPostPageController">
    <children>
-      <Button layoutX="499.0" layoutY="429.0" mnemonicParsing="false" onAction="#addComplaint" text="เพิ่มเรื่องและบวกหน้ามัน">
+      <Button layoutX="499.0" layoutY="429.0" mnemonicParsing="false" onAction="#addComplaint" text="เพิ่มเรื่องร้องเรียน">
          <font>
             <Font size="20.0" />
          </font>

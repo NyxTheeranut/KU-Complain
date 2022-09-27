@@ -51,7 +51,7 @@ public class HomeStudentPageController {
     @FXML private Parent tutorial;
     @FXML private AnchorPane menu;
     @FXML private Circle circle;
-    @FXML private ImageView img;
+    @FXML private Label accountNameLabel;
     //instance
     private final String packageStr = "/ku/cs/page/";
     private int menuCloseWidth = -230;
@@ -71,7 +71,7 @@ public class HomeStudentPageController {
 
         Image image = new Image(url, false);
         circle.setFill(new ImagePattern(image));
-
+        accountNameLabel.setText(account.getName());
         menu.setTranslateX(menuCloseWidth); //set menu on close state
         setUpBoxId();
         setUpIcon();

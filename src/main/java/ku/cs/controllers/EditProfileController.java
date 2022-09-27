@@ -25,6 +25,7 @@ public class EditProfileController {
         /* String url = getClass().getResource("" + imagePath).toExternalForm();
         profilePicture.setImage(new Image(url));*/
     }
+
     public void selectPicture() throws IOException {
 
         FileChooser fileChooser = new FileChooser();
@@ -33,7 +34,7 @@ public class EditProfileController {
         Image image = new Image(selectedFile.toURI().toString());
         profilePicture.setImage(image);
         Path from = Paths.get(selectedFile.toURI());
-        Path to = Paths.get("D:\\lab 211\\project211-araikordai\\src\\main\\resources\\ku\\cs\\image\\" + selectedFile.getName());
+        Path to = Paths.get("src\\main\\resources\\ku\\cs\\image\\" + selectedFile.getName());
         CopyOption[] options = new CopyOption[]{
                 StandardCopyOption.REPLACE_EXISTING,
                 StandardCopyOption.COPY_ATTRIBUTES};

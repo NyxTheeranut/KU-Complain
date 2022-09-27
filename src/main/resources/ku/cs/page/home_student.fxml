@@ -19,7 +19,7 @@
                <children>
                   <HBox fx:id="accountButton" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#loadProfile" onMouseEntered="#handleOnMouseEnterAccountButton" onMouseExited="#handleOnMouseExitAccountButton" prefHeight="70.0" prefWidth="300.0">
                      <children>
-                        <Label text="เสนอเรื่องร้องเรียน" textFill="#9d9fa1">
+                        <Label fx:id="accountNameLabel" text="เสนอเรื่องร้องเรียน" textFill="#9d9fa1">
                            <font>
                               <Font size="32.0" />
                            </font>
