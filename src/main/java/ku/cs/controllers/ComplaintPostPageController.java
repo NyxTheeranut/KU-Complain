@@ -94,9 +94,8 @@ public class ComplaintPostPageController {
             }
             else if (i.getKey().equals("pic")){
 
-                Button button = new Button();
+                Button button = new Button("Upload รูปภาพ");
                 button.setPrefSize(100, 30);
-                button.setText("Upload รูปภาพ");
                 button.setAlignment(Pos.CENTER);
 
                 VBox vBox = new VBox();
@@ -113,17 +112,17 @@ public class ComplaintPostPageController {
                         imagePathLabel.setText(image.getUrl());
 
                         double imageWidth = 200;
-                        double imageHeight = 200/image.getWidth() * image.getHeight();
+                        double imageHeight = imageWidth/image.getWidth() * image.getHeight();
 
                         if (previewImageView.getImage()!=null) { //reset size of flowpane
                             fieldArea.setPrefHeight(fieldArea.getPrefHeight() -
-                                    (200/previewImageView.getImage().getWidth() * previewImageView.getImage().getHeight()));
+                                    (imageWidth/previewImageView.getImage().getWidth() * previewImageView.getImage().getHeight()));
                         }
                         fieldArea.setPrefHeight(fieldArea.getPrefHeight()+imageHeight); //adjust flowpane size
 
                         previewImageView.setImage(image);
-                        previewImageView.setFitWidth(200);
-                        previewImageView.setFitHeight(200/image.getWidth() * image.getHeight());
+                        previewImageView.setFitWidth(imageWidth);
+                        previewImageView.setFitHeight(imageWidth/image.getWidth() * image.getHeight());
 
 
 

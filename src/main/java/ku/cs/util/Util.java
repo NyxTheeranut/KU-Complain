@@ -53,12 +53,7 @@ public final class Util {
         File selectedFile = fileChooser.showOpenDialog(null);
         Image image = new Image(selectedFile.toURI().toString());
 
-        Path from = Paths.get(selectedFile.toURI());
-//        Path to = Paths.get("D:\\lab 211\\project211-araikordai\\src\\main\\resources\\ku\\cs\\image\\" + selectedFile.getName());
-//        CopyOption[] options = new CopyOption[]{
-//                StandardCopyOption.REPLACE_EXISTING,
-//                StandardCopyOption.COPY_ATTRIBUTES};
-//        Files.copy(from.toFile().toPath(), to.toFile().toPath(),options);
+        //Path from = Paths.get(selectedFile.toURI());
         return image;
 
     }

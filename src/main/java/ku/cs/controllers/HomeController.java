@@ -28,6 +28,8 @@ public class HomeController {
     public void initialize() {
         menu.setTranslateX(menuCloseWidth); //set menu on close state
 
+        loadPage("complaint_list.fxml");
+
         loadUserButton();
     }
 
