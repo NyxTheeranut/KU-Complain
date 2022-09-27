@@ -30,6 +30,7 @@ public class ProjectApplication extends Application {
         FXRouter.when("edit_profile", packageStr+"edit_profile.fxml");
         FXRouter.when("profile", packageStr+"profile.fxml");
         FXRouter.when("complaint", packageStr+"complaint.fxml");
+        FXRouter.when("user_list", packageStr+"user_list.fxml");
 
     }
     private static void configFont() {

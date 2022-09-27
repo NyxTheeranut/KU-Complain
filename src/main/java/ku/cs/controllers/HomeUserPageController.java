@@ -27,7 +27,7 @@ import ku.cs.util.Util;
 import static ku.cs.util.FontLoader.font;
 
 
-public class HomeStudentPageController {
+public class HomeUserPageController {
     @FXML private StackPane content;
     HashMap<Integer, String> boxId = new HashMap<Integer, String>();
     Integer currentPage = 2;
