@@ -1,8 +1,8 @@
 package ku.cs.models.accounts;
 
-import ku.cs.objectcollector.DataSource;
+import ku.cs.util.Util;
+import ku.cs.services.searcher.SearchAccountByUserName;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class AccountList {
@@ -21,51 +21,19 @@ public class AccountList {
     }
 
     public Account checkLogin(String username, String password) {
-        for (Account account : getAllAccount()) {
-            if (account.getUsername().equals(username)) {
-                if (account.getPassword().equals(password)) {
-                    return account;
-                }
-                break;
-            }
+
+        Account account = Util.search(username, getAllAccount(), new SearchAccountByUserName());
+        if (account.getPassword().equals(password)) {
+            return account;
         }
         return null;
     }
 
     public Boolean checkRegister(String username) {
-        for (Account account: accounts) {
-            if (username.equals(account.getName())) {
-                return false;
-            }
+        if (Util.search(username, accounts, new SearchAccountByUserName()) != null) {
+            return true;
         }
-        return true;
-    }
-
-    public Account getAccount(String data) {
-        Account account = null;
-        account = getAccountByUsername(data);
-        if (account != null) return account;
-        account = getAccountById(data);
-        if (account != null) return account;
-        return null;
-    }
-
-    public Account getAccountByUsername(String username) {
-        for (Account account:accounts) {
-            if (account.getName().equals(username.strip())) {
-                return account;
-            }
-        }
-        return null;
-    }
-
-    public Account getAccountById(String id) {
-        for (Account account:accounts) {
-            if (account.getId().equals(id.strip())) {
-                return account;
-            }
-        }
-        return null;
+        return false;
     }
 
 

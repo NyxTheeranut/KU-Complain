@@ -1,4 +1,4 @@
-package ku.cs.fontloader;
+package ku.cs.util;
 
 import javafx.scene.text.Font;
 

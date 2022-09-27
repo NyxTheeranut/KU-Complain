@@ -2,8 +2,6 @@ package ku.cs.controllers;
 
 import javafx.animation.TranslateTransition;
 
-import javafx.event.ActionEvent;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
@@ -12,25 +10,21 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
-import java.awt.*;
 import java.util.HashMap;
 
 import java.io.IOException;
 
-import com.github.saacsos.FXRouter;
 import ku.cs.models.accounts.Account;
 
-import ku.cs.fontloader.FontLoader;
-import ku.cs.objectcollector.DataSource;
+import ku.cs.util.Util;
 
-import static ku.cs.fontloader.FontLoader.font;
+import static ku.cs.util.FontLoader.font;
 
 
 public class HomeStudentPageController {
@@ -60,7 +54,7 @@ public class HomeStudentPageController {
 
     @FXML public void initialize(){
 
-        account = DataSource.account;
+        account = Util.account;
 
         String url;
         try {

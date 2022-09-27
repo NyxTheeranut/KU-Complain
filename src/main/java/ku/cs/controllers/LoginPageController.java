@@ -9,8 +9,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
-import ku.cs.objectcollector.DataSource;
-import ku.cs.services.accounts.AccountListFileDataSource;
+import ku.cs.util.Util;
+import ku.cs.services.datasource.DataSource;
+import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 
 import java.io.IOException;
 
@@ -36,11 +37,11 @@ public class LoginPageController {
             wrongLogin.setText("กรุณาระบุชื่อบัญชีและรหัสผ่าน");
         }
         else {
-            ku.cs.services.DataSource<AccountList> dataSource = new AccountListFileDataSource();
+            DataSource<AccountList> dataSource = new AccountListFileDataSource();
             AccountList accountList = dataSource.readData();
             Account account = accountList.checkLogin(username, password);
             if (account != null) {
-                DataSource.account = account;
+                Util.account = account;
                 try {
                     FXRouter.goTo("home");
                 } catch (IOException e) {

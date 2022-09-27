@@ -1,4 +1,4 @@
-package ku.cs.services;
+package ku.cs.services.datasource;
 
 public interface DataSource<T> {
     T readData();

@@ -1,6 +1,5 @@
-package ku.cs.services.accounts;
+package ku.cs.services.datasource.accounts;
 
-import ku.cs.models.accounts.User;
 import ku.cs.models.accounts.AccountList;
 
 public class AccountListHardCodeDataSource {

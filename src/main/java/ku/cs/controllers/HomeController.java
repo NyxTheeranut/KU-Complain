@@ -3,14 +3,12 @@ package ku.cs.controllers;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-import ku.cs.objectcollector.DataSource;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +27,8 @@ public class HomeController {
     @FXML
     public void initialize() {
         menu.setTranslateX(menuCloseWidth); //set menu on close state
+
+        loadPage("complaint_list.fxml");
 
         loadUserButton();
     }
