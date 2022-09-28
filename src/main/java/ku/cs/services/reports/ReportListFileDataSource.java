@@ -25,7 +25,7 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
             String line = "";
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                Report report = new Report(data[0], data[1], data[2], data[3]);
+                Report report = new Report(data[0], data[1], data[2]);
                 reportList.addReport(report);
             }
         } catch (FileNotFoundException e) {
@@ -58,8 +58,7 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
             buffer = new BufferedWriter(writer);
 
             for (Report report : reportList.getAllReport()) {
-                String line = report.getReporter() + ","
-                        + report.getType() + ","
+                String line = report.getType() + ","
                         + report.getTopic() + ","
                         + report.getDescription();
                 buffer.append(line);

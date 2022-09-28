@@ -3,21 +3,18 @@ package ku.cs.models.reports;
 import ku.cs.models.accounts.User;
 
 public class Report {
-    private String reporter;
+
     private String type;
     private String topic;
     private String description;
 
-    public Report(String reporter, String type, String topic, String description) {
-        this.reporter = reporter;
+    public Report(String type, String topic, String description) {
+
         this.type = type;
         this.topic = topic;
         this.description = description;
     }
 
-    public String getReporter() {
-            return reporter;
-    }
     public String getType() {
         return type;
     }
@@ -28,9 +25,6 @@ public class Report {
         return description;
     }
 
-    public void setReporter(String reporter) {
-        this.reporter = reporter;
-    }
     public void setType(String type) {
         this.type = type;
     }

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -15,15 +16,18 @@
             <Font name="THSarabunPSK-Bold" size="80.0" />
          </font>
       </Label>
-      <RadioButton layoutX="100.0" layoutY="250.0" mnemonicParsing="false" text="เรื่องร้องเรียนนี้">
+      <RadioButton fx:id="ComplaintReportButton" layoutX="100.0" layoutY="250.0" mnemonicParsing="false" onAction="#radioButtonSelected" text="เรื่องร้องเรียนนี้">
          <font>
             <Font name="TH SarabunPSK" size="25.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <toggleGroup>
+            <ToggleGroup fx:id="report" />
+         </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="100.0" layoutY="330.0" mnemonicParsing="false" text="บัญชีที่ร้องเรียนเรื่องนี้">
+      <RadioButton fx:id="AccountReportButton" layoutX="100.0" layoutY="330.0" mnemonicParsing="false" onAction="#radioButtonSelected" text="บัญชีที่ร้องเรียนเรื่องนี้" toggleGroup="$report">
          <font>
             <Font name="TH SarabunPSK" size="25.0" />
          </font>
