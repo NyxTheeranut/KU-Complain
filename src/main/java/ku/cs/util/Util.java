@@ -1,13 +1,14 @@
 package ku.cs.util;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
 import javafx.stage.FileChooser;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.complaints.Complaint;
-import ku.cs.services.searcher.Searcher;
+import ku.cs.services.filter.ComplaintCategoryFilter;
+import ku.cs.services.filter.ComplaintIdFilter;
+import ku.cs.services.filter.ComplaintTopicFilter;
+import ku.cs.services.filter.Filterer;
 
-import javax.xml.transform.Source;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
@@ -18,6 +19,13 @@ public final class Util {
     static AbstractMap<String, Object> map = new HashMap<>();
     public static Account account;
     public static Complaint complaint;
+
+    public final static ArrayList<Filterer> complaintFilter = new ArrayList<>(Arrays.asList(
+            new ComplaintCategoryFilter(),
+            new ComplaintIdFilter(),
+            new ComplaintTopicFilter()
+    ));
+
     private Util(){};
     public static void add(String objectKey, Object object) {
         map.put(objectKey, object);
@@ -33,15 +41,26 @@ public final class Util {
         }
         return object;
     }
-    public static <T> T search(String id, ArrayList<T> objects, Searcher<T> searcher){
+    public static <T> T search(String id, ArrayList<T> objects, Filterer<T> filterer){
         for(T i : objects){
             //System.out.println(((Account)i).getName());
-            if (searcher.found(i, id)){
+            if (filterer.found(i, id)){
                 return i;
             }
         }
         return null;
     }
+    public static <T> ArrayList<T> filter(String filter, ArrayList<T> objects, Filterer<T> filterer) {
+        ArrayList<T> result = new ArrayList<>();
+        for(T i : objects){
+            //System.out.println(((Account)i).getName());
+            if (filterer.found(i, filter)){
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
     public static Image selectImage() throws IOException {
 
         FileChooser fileChooser = new FileChooser();

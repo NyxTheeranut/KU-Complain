@@ -107,6 +107,7 @@ public class ComplaintPageController {
                             File.separator+ fields.get(i));
                 } catch (FileNotFoundException e) {
                     System.err.println("Cannot open image");
+                    System.err.println(e);
                 }
 
                 Image image = new Image(fileInputStream);

@@ -1,15 +1,20 @@
 package ku.cs.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.util.Callback;
+import ku.cs.models.category.Category;
+import ku.cs.models.category.CategoryList;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
+import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
+import ku.cs.services.filter.Filterer;
 import ku.cs.util.FontLoader;
 import ku.cs.util.Util;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
@@ -19,12 +24,15 @@ import com.github.saacsos.FXRouter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 public class ComplaintListPageController {
     @FXML
     private FlowPane complaintArea;
-
-    //private ComplaintListHardCodeDataSource dataSource;
+    @FXML
+    private ComboBox<Filterer> filterComboBox;
+    @FXML
+    private TextField searchTextField;
     private DataSource<ComplaintList> dataSource;
     private ComplaintList complaintList;
 
@@ -39,9 +47,13 @@ public class ComplaintListPageController {
         complaintList = dataSource.readData();
 
         setupComplaintArea(complaintList);
+        setupFilterComboBox();
     }
 
     private void setupComplaintArea(ComplaintList complaintList){
+
+        complaintArea.getChildren().clear();
+
         for(Complaint i : complaintList.getAllComplaints()){
             //setup hBox
             HBox hBox = new HBox();
@@ -119,11 +131,42 @@ public class ComplaintListPageController {
     private void showSelectedComplaint(Complaint complaint) {
         Util.complaint = complaint;
         try {
-            System.out.println("x");
             FXRouter.goTo("complaint");
         } catch (IOException e) {
             System.err.println("Error loading complaint page");
             System.err.println(e);
         }
+    }
+
+    private void setupFilterComboBox() {
+
+        Callback<ListView<Filterer>, ListCell<Filterer>> factory = lv -> new ListCell<Filterer>() {
+            @Override
+            protected void updateItem(Filterer item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.getName());
+            }
+        };
+
+        filterComboBox.setCellFactory(factory);
+        filterComboBox.setButtonCell(factory.call(null));
+
+        //filterComboBox.setOnAction(event -> handleSelectedCategoryComboBox());
+        filterComboBox.setItems(FXCollections.observableArrayList(Util.complaintFilter));
+    }
+
+    public void handleSearchButton() {
+        ComplaintList filteredComplaintList = new ComplaintList();
+
+        Filterer filterer = filterComboBox.getValue();
+
+        ArrayList<Complaint> filteredComplaintArrayList = new ArrayList<>();
+        filteredComplaintArrayList = Util.filter(searchTextField.getText(), complaintList.getAllComplaints(), filterer);
+
+        for(Complaint i : filteredComplaintArrayList) {
+            filteredComplaintList.addComplaint(i);
+        }
+
+        setupComplaintArea(filteredComplaintList);
     }
 }

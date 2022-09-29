@@ -10,8 +10,8 @@ import ku.cs.services.datasource.DataSource;
 import ku.cs.util.Util;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
-import ku.cs.services.searcher.SearchAccountById;
-import ku.cs.services.searcher.SearchCategoryByName;
+import ku.cs.services.filter.AccountIdFilter;
+import ku.cs.services.filter.CategoryNameFilter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -46,10 +46,10 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 String[] data = line.split(",");
 
                 //Get account object
-                Account author = Util.search(data[1], accountList.getAllAccount(), new SearchAccountById());
+                Account author = Util.search(data[1], accountList.getAllAccount(), new AccountIdFilter());
 
                 //Get category object
-                Category category = Util.search(data[3], categoryList.getAllCategory(), new SearchCategoryByName());
+                Category category = Util.search(data[3], categoryList.getAllCategory(), new CategoryNameFilter());
                 ArrayList<String> fields = new ArrayList<>();
 
                 //Get local date time object
@@ -57,7 +57,7 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 LocalDateTime datePosted = LocalDateTime.parse(data[4], formatter);
 
                 //Get moderator
-                Account moderator = Util.search(data[5], accountList.getAllAccount(), new SearchAccountById());
+                Account moderator = Util.search(data[5], accountList.getAllAccount(), new AccountIdFilter());
 
                 if (data[6].equals("-")) {
                     data[6] = "";
