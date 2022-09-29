@@ -54,6 +54,7 @@ public class RegisterPageController {
         if (accountList.checkRegister(username)){
             Account account = new User(""+(accountList.getAllAccount().size()+1), username, password);
             accountList.addAccount(account);
+
             dataSource.writeData(accountList);
         }
 

@@ -30,9 +30,10 @@ public class AccountList {
     }
 
     public Boolean checkRegister(String username) {
-        if (Util.search(username, accounts, new SearchAccountByUserName()) != null) {
+        if (Util.search(username, accounts, new SearchAccountByUserName()) == null) {
             return true;
         }
+        System.out.println(Util.search(username, accounts, new SearchAccountByUserName()).getName());
         return false;
     }
 

@@ -119,6 +119,7 @@ public class ComplaintListPageController {
     private void showSelectedComplaint(Complaint complaint) {
         Util.complaint = complaint;
         try {
+            System.out.println("x");
             FXRouter.goTo("complaint");
         } catch (IOException e) {
             System.err.println("Error loading complaint page");

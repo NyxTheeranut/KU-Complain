@@ -16,7 +16,7 @@
             <Font name="THSarabunPSK-Bold" size="80.0" />
          </font>
       </Label>
-      <RadioButton fx:id="ComplaintReportButton" layoutX="100.0" layoutY="250.0" mnemonicParsing="false" onAction="#radioButtonSelected" text="เรื่องร้องเรียนนี้">
+      <RadioButton fx:id="ComplaintReportButton" layoutX="100.0" layoutY="250.0" mnemonicParsing="false" text="เรื่องร้องเรียนนี้">
          <font>
             <Font name="TH SarabunPSK" size="25.0" />
          </font>
@@ -27,7 +27,7 @@
             <ToggleGroup fx:id="report" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="AccountReportButton" layoutX="100.0" layoutY="330.0" mnemonicParsing="false" onAction="#radioButtonSelected" text="บัญชีที่ร้องเรียนเรื่องนี้" toggleGroup="$report">
+      <RadioButton fx:id="AccountReportButton" layoutX="100.0" layoutY="330.0" mnemonicParsing="false" text="บัญชีที่ร้องเรียนเรื่องนี้" toggleGroup="$report">
          <font>
             <Font name="TH SarabunPSK" size="25.0" />
          </font>
@@ -58,7 +58,7 @@
             <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="detailTextField" layoutX="505.0" layoutY="290.0" prefHeight="200.0" prefWidth="380.0">
+      <TextField fx:id="detailTextField" alignment="TOP_LEFT" layoutX="505.0" layoutY="290.0" prefHeight="200.0" prefWidth="380.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>

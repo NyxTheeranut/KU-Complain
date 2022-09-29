@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import ku.cs.models.reports.Report;
 import ku.cs.models.reports.ReportList;
 import ku.cs.services.reports.ReportListFileDataSource;
+import ku.cs.util.Util;
 
 import javax.swing.*;
 
@@ -28,26 +29,33 @@ public class ReportPageController {
     @FXML RadioButton ComplaintReportButton;
     @FXML RadioButton AccountReportButton;
 
-    @FXML public void handleReportButton(ActionEvent actionEvent) {
+
+    public void handleReportButton() {
         String topic = topicTextField.getText();
         String detail = detailTextField.getText();
-        report(topic, detail);
+        String id;
+        String type;
 
+        if(ComplaintReportButton.isSelected()) {
+            type = "Complaint";
+            id = Util.complaint.getId();
+        }
+        else {
+            type = "Account";
+            id = Util.complaint.getAuthor().getId();
+        }
+        report(type, id, topic, detail);
+
+        Stage stage = (Stage) reportButton.getScene().getWindow();
+        stage.close();
     }
 
-    @FXML public void radioButtonSelected(ActionEvent actionEvent) {
-        if (ComplaintReportButton.isSelected()) {
-            report.setType("Complaint");
-        }
-        if (AccountReportButton.isSelected()) {
-            report.setType("Account");
-        }
-    }
+    //user,1,topic,detail
 
-    private void report(String topic, String detail) {
+    private void report(String type,String id, String topic, String detail) {
         DataSource<ReportList> dataSource = new ReportListFileDataSource();
         ReportList reportList = dataSource.readData();
-        Report report = new Report(,topic, detail);
+        Report report = new Report(type,id,topic, detail);
         reportList.addReport(report);
         dataSource.writeData(reportList);
     }
