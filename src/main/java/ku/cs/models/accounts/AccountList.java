@@ -35,6 +35,24 @@ public class AccountList {
         }
         return false;
     }
+    
+    public void changePassword(Account account, String password){
+        for(Account i : accounts){
+            if (i.getName().equals(account.getName())){
+                i.setPassword(password);
+                return;
+            }
 
+        }
 
-}
+    }
+    public void changePicture(Account account, String picture){
+        for(Account i : accounts){
+            if (i.getName().equals(account.getName())){
+                i.setImagePath(picture);
+                return;
+            }
+
+        }
+
+}}

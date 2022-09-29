@@ -71,4 +71,7 @@ public class Account {
         this.surname = surname;
     }
 
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 }
