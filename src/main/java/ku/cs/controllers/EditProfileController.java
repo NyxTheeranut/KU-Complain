@@ -6,11 +6,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import ku.cs.models.accounts.User;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.*;
+import java.util.regex.Pattern;
 
 public class EditProfileController {
 
@@ -19,6 +21,9 @@ public class EditProfileController {
 
     @FXML public void handleProfilePicture(ActionEvent actionEvent) throws IOException {
         selectPicture();
+    }
+    @FXML public void handleProfileName(ActionEvent actionEvent) throws IOException {
+        rename();
     }
 
     @FXML public void initialize(){
@@ -41,5 +46,12 @@ public class EditProfileController {
         Files.copy(from.toFile().toPath(), to.toFile().toPath(),options);
 
     }
-
+    public void rename() throws IOException {
+        String name =renameTextField.getText();
+        final Path yourPath = Paths.get("src\\main\\resources\\ku\\cs\\data\\account_list.csv");
+        byte[] buff = Files.readAllBytes(yourPath);
+        String Name = new String(buff, Charset.defaultCharset());
+        Name = Name.replace(Pattern.quote("dujrawee"),name);
+        Files.write(yourPath, Name.getBytes());
+    }
 }
