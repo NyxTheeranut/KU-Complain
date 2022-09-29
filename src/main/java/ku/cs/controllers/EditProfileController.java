@@ -52,6 +52,7 @@ public class EditProfileController extends AccountList {
         profilePicture.setImage(image);
         Path from = Paths.get(selectedFile.toURI());
         Path to = Paths.get("data\\image\\profileImage\\" + selectedFile.getName());
+        String pictureName = selectedFile.getName();
         CopyOption[] options = new CopyOption[]{
                 StandardCopyOption.REPLACE_EXISTING,
                 StandardCopyOption.COPY_ATTRIBUTES};
@@ -59,8 +60,8 @@ public class EditProfileController extends AccountList {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
         Account account = Util.search(Util.account.getName(),accountList.getAllAccount(),new SearchAccountByUserName());
-        accountList.changePicture(Util.account, selectedFile.getName());
-        account.setImagePath(selectedFile.getName());
+        accountList.changePicture(Util.account, pictureName);
+        dataSource.writeData(accountList);
 
     }
     public void changePassword(){
