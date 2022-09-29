@@ -12,7 +12,7 @@ import ku.cs.models.accounts.AccountList;
 import ku.cs.models.accounts.User;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
-import ku.cs.services.searcher.SearchAccountByUserName;
+import ku.cs.services.filter.AccountUsernameFilter;
 import ku.cs.util.Util;
 
 
@@ -58,7 +58,7 @@ public class EditProfileController extends AccountList {
         Files.copy(from.toFile().toPath(), to.toFile().toPath(),options);
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
-        Account account = Util.search(Util.account.getName(),accountList.getAllAccount(),new SearchAccountByUserName());
+        Account account = Util.search(Util.account.getName(),accountList.getAllAccount(),new AccountUsernameFilter());
         accountList.changePicture(Util.account, selectedFile.getName());
         account.setImagePath(selectedFile.getName());
 
@@ -66,7 +66,7 @@ public class EditProfileController extends AccountList {
     public void changePassword(){
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
-        Account account = Util.search(Util.account.getName(),accountList.getAllAccount(),new SearchAccountByUserName());
+        Account account = Util.search(Util.account.getName(),accountList.getAllAccount(),new AccountUsernameFilter());
         String newName = rePasswordTextField.getText();
         accountList.changePassword(Util.account, newName);
         dataSource.writeData(accountList);
