@@ -38,11 +38,6 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="674.0" layoutY="173.0" prefHeight="27.0" prefWidth="200.0" text="UsernameLabel">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
         <Label layoutX="674.0" layoutY="230.0" prefHeight="27.0" prefWidth="200.0" text="StatusLabel">
             <font>
                 <Font size="18.0" />
@@ -54,5 +49,10 @@
             </font>
         </Label>
         <Button layoutX="569.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleEditProfileButton" text="Edit Account" />
+        <Label fx:id="nameLabel" layoutX="674.0" layoutY="173.0" prefHeight="27.0" prefWidth="200.0" text="UsernameLabel">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
