@@ -57,7 +57,6 @@ public class HomeController {
         for(String buttonData:buttonDataList){
             String[] data = buttonData.split(",");
             HBox button = Util.createButton(data[0],data[1]);
-            //button.setOnMouseClicked(event -> loadPage(data[2]));
             button.setOnMouseClicked(event -> handleOnMouseClickedButton(box,button,data[2]));
             button.setOnMouseEntered(event -> handleOnMouseEnterButton(button));
             button.setOnMouseExited(event -> handleOnMouseExitButton(button));
