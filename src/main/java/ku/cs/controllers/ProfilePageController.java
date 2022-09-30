@@ -9,10 +9,15 @@ import javafx.scene.image.ImageView;
 import ku.cs.models.accounts.Account;
 import ku.cs.util.Util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Objects;
 
 public class ProfilePageController {
 
+    @FXML private Label roleLabel;
     @FXML private Label nameLabel;
     @FXML private ImageView image;
     Account account = Util.account;
@@ -20,9 +25,18 @@ public class ProfilePageController {
 
     @FXML
     public void initialize(){
-        String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
-        image.setImage(new Image(url));
+        FileInputStream profileIMage = null;
+        try {
+            profileIMage = new FileInputStream("data" +
+                    File.separator+ "image" +
+                    File.separator+ "profileImage" +
+                    File.separator+ account.getImagePath());
+        } catch (FileNotFoundException e) {
+            System.err.println("Cannot open image");
+        }
+        image.setImage(new Image(profileIMage));
         nameLabel.setText(account.getName());
+        roleLabel.setText(account.getRole());
     }
     @FXML
     public void handleEditProfileButton(ActionEvent actionEvent){

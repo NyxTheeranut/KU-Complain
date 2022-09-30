@@ -27,8 +27,8 @@ import java.util.regex.Pattern;
 
 public class EditProfileController extends AccountList {
 
+    @FXML private Label passwordLabel;
     @FXML private Label usernameLabel;
-
     @FXML private TextField rePasswordTextField;
     @FXML private ImageView profilePicture;
 
@@ -41,6 +41,7 @@ public class EditProfileController extends AccountList {
 
     @FXML public void initialize(){
         usernameLabel.setText(Util.account.getName());
+        passwordLabel.setText(Util.account.getPassword());
     }
 
     public void selectPicture() throws IOException {
@@ -62,6 +63,8 @@ public class EditProfileController extends AccountList {
         Account account = Util.search(Util.account.getName(),accountList.getAllAccount(),new SearchAccountByUserName());
         accountList.changePicture(Util.account, pictureName);
         dataSource.writeData(accountList);
+        Util.account.setImagePath(pictureName);
+
 
     }
     public void changePassword(){
@@ -69,13 +72,14 @@ public class EditProfileController extends AccountList {
         AccountList accountList = dataSource.readData();
         Account account = Util.search(Util.account.getName(),accountList.getAllAccount(),new SearchAccountByUserName());
         String newName = rePasswordTextField.getText();
+        Util.account.setPassword(newName);
         accountList.changePassword(Util.account, newName);
         dataSource.writeData(accountList);
     }
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("profile");
+            com.github.saacsos.FXRouter.goTo("home");
         } catch (IOException e){
             System.err.println("Error loading profile page");
         }

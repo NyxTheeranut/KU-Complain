@@ -11,15 +11,28 @@ import ku.cs.models.accounts.Account;
 
 import ku.cs.util.Util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class ProfileButtonController extends Button {
     @FXML
     private HBox button;
     private Account account = Util.account;
 
     @FXML public void initialize(){
-        String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
-        Image image =  new Image(url,false);
-        ((Circle)button.getChildren().get(1)).setFill(new ImagePattern(image));
+        FileInputStream profileImage = null;
+        try {
+            profileImage = new FileInputStream("data" +
+                    File.separator+ "image" +
+                    File.separator+ "profileImage" +
+                    File.separator+ account.getImagePath());
+        } catch (FileNotFoundException e) {
+            System.err.println("Cannot open image");
+        }
+        /*System.out.println(profileIMage.toString());
+        Image image =  new Image(url,false);*/
+        ((Circle)button.getChildren().get(1)).setFill(new ImagePattern(new Image(profileImage)));
         ((Label)button.getChildren().get(0)).setText(account.getUsername());
     }
 
