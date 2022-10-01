@@ -14,17 +14,18 @@ public class Complaint {
     private Category category;
     private ArrayList<String> fields;
     private LocalDateTime datePosted;
-
+    private Status status;
     private Account moderator;
     private String solvingDetail;
 
-    public Complaint(String id, Account author, String topic, Category category, LocalDateTime datePosted,
+    public Complaint(String id, Account author, String topic, Category category, LocalDateTime datePosted, Status status,
                      Account moderator, String solvingDetail, ArrayList<String> fields) {
         this.id            = id;
         this.author        = author;
         this.topic         = topic;
         this.category      = category;
         this.datePosted    = datePosted;
+        this.status        = status;
         this.moderator     = moderator;
         this.solvingDetail = solvingDetail;
         this.fields        = fields;
@@ -32,7 +33,7 @@ public class Complaint {
 
     public Complaint(String id, Account author, String topic, Category category, LocalDateTime datePosted,
                      ArrayList<String> fields) {
-        this(id, author, topic, category, datePosted, null, "", fields);
+        this(id, author, topic, category, datePosted, null, null, "", fields);
     }
 
     //Getter
@@ -51,6 +52,9 @@ public class Complaint {
     public LocalDateTime getDatePosted() {
         return datePosted;
     }
+    public Status getStatus() {
+        return status;
+    }
     public Account getModerator() {
         return moderator;
     }
@@ -63,6 +67,16 @@ public class Complaint {
 
     @Override
     public String toString() {
-        return  topic + " (" + category.getName() + ')';
+        return "Complaint{" +
+                "id='" + id + '\'' +
+                ", author=" + author.getUsername() +
+                ", topic='" + topic + '\'' +
+                ", category=" + category.getName() +
+                ", fields=" + fields +
+                ", datePosted=" + datePosted +
+                ", status=" + status +
+                ", moderator=" + moderator.getUsername() +
+                ", solvingDetail='" + solvingDetail + '\'' +
+                '}';
     }
 }

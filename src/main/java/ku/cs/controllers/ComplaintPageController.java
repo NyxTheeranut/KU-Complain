@@ -41,13 +41,11 @@ public class ComplaintPageController {
     public void initialize() {
         complaint = Util.complaint;
 
-        scrollPane.setVvalue(0.0);
-
         topic.setText(complaint.getTopic());
         topic.setWrapText(true);
         topic.setMaxWidth(1110);
 
-        setupFieldArea();
+        //setupFieldArea();
 
         scrollPane.setVvalue(0.0);
     }

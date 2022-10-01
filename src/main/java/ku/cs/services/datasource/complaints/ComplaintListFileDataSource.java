@@ -6,6 +6,7 @@ import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
+import ku.cs.models.complaints.Status;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.util.Util;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
@@ -42,7 +43,8 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
             CategoryList categoryList = categoryDataSource.readData();
 
             while((line = buffer.readLine()) != null){
-                //id,authorid,topic,category,datepost,moderatorid,solving detail,field
+                // 0    1       2       3      4            5         6           7            8
+                //id,authorid,topic,category,datepost,enumstatus,moderatorid,solving detail,field
                 String[] data = line.split(",");
 
                 //Get account object
@@ -57,17 +59,20 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 LocalDateTime datePosted = LocalDateTime.parse(data[4], formatter);
 
                 //Get moderator
-                Account moderator = Util.search(data[5], accountList.getAllAccount(), new AccountIdFilter());
+                Account moderator = Util.search(data[6], accountList.getAllAccount(), new AccountIdFilter());
 
-                if (data[6].equals("-")) {
-                    data[6] = "";
+                if (data[7].equals("-")) {
+                    data[7] = "";
                 }
 
-                for(int i=7; i<data.length ;i++){
+                for(int i=8; i<data.length ;i++){
                     fields.add(data[i]);
                 }
 
-                complaintList.addComplaint(new Complaint(data[0], author, data[2], category, datePosted, moderator, data[6], fields));
+                System.out.println(data[5]);
+
+                complaintList.addComplaint(new Complaint(data[0], author, data[2],
+                        category, datePosted, Status.valueOf(data[5]), moderator, data[7], fields));
 
             }
 
