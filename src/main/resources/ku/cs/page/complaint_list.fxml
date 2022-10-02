@@ -26,7 +26,7 @@
             </Label>
          </children>
       </HBox>
-      <ScrollPane maxWidth="-Infinity" prefHeight="200.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="100.0">
+      <ScrollPane maxWidth="-Infinity" prefHeight="200.0" prefWidth="1000.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="100.0">
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="1000.0">
                <children>

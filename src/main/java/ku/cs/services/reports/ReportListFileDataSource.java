@@ -1,10 +1,11 @@
 package ku.cs.services.reports;
 
 import ku.cs.models.accounts.User;
+import ku.cs.models.reports.AccountReport;
+import ku.cs.models.reports.ComplaintReport;
 import ku.cs.models.reports.Report;
 import ku.cs.models.reports.ReportList;
 import ku.cs.services.datasource.DataSource;
-import ku.cs.util.Util ;
 
 import java.io.*;
 import java.nio.Buffer;
@@ -19,6 +20,7 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
         File file = new File(directoryName + File.separator + fileName);
         FileReader reader = null;
         BufferedReader buffer = null;
+        Report report = null;
 
         try {
             reader = new FileReader(file);
@@ -26,7 +28,12 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
             String line = "";
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                Report report = new Report(data[0], data[1], data[2], data[3]);
+                if (data[0].equals("Account")) {
+                    report = new AccountReport(data[0] ,data[1] ,data[2], data[3]);
+                }
+                if (data[0].equals("Complaint")) {
+                    report = new ComplaintReport(data[0] ,data[1],data[2], data[3]);
+                }
                 reportList.addReport(report);
             }
         } catch (FileNotFoundException e) {
@@ -59,8 +66,8 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
             buffer = new BufferedWriter(writer);
 
             for (Report report : reportList.getAllReport()) {
-                String line = report.getReporter() + ","
-                        + report.getType() + ","
+                String line = report.getType() + ","
+                        + report.getId() + ","
                         + report.getTopic() + ","
                         + report.getDescription();
                 buffer.append(line);

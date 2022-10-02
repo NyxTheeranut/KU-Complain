@@ -1,9 +1,11 @@
 package ku.cs.models.accounts;
 
+import java.util.UUID;
+
 public class Account {
 
     private String role;
-    private String id;
+    private UUID id;
     private String username;
     private String password;
     private String name;
@@ -11,7 +13,7 @@ public class Account {
     protected String imagePath;
     protected boolean isBanned;
 
-    public Account(String role, String id, String username, String password, String name, String surname, String imagePath, boolean isBanned) {
+    public Account(String role, UUID id, String username, String password, String name, String surname, String imagePath, boolean isBanned) {
         this.role = role;
         this.id = id;
         this.username = username;
@@ -22,13 +24,6 @@ public class Account {
         this.isBanned = isBanned;
     }
 
-    public Account(String role, String name, String password, String imagePath) {
-        this.role = role;
-        this.username = name;
-        this.password = password;
-        this.imagePath = imagePath; //ku/cs/image/default.png
-    }
-
     public boolean checkLogin(String password) {
         return this.password.equals(password);
     }
@@ -37,7 +32,7 @@ public class Account {
     public String getRole(){
         return role;
     }
-    public String getId() {
+    public UUID getId() {
         return id;
     }
     public String getUsername() {
@@ -71,4 +66,7 @@ public class Account {
         this.surname = surname;
     }
 
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 }

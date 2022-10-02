@@ -1,11 +1,9 @@
 package ku.cs.controllers;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -13,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import javafx.stage.Modality;
 import javafx.util.Pair;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.util.FontLoader;
@@ -25,15 +25,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 public class ComplaintPageController {
     Complaint complaint;
-
     @FXML
     private Label topic;
     @FXML
     private Label category;
-    @FXML
-    private ScrollPane scrollPane;
     @FXML
     private FlowPane fieldArea;
 
@@ -41,101 +42,101 @@ public class ComplaintPageController {
     public void initialize() {
         complaint = Util.complaint;
 
+        System.out.println(complaint.getId().toString());
+
         topic.setText(complaint.getTopic());
         topic.setWrapText(true);
-        topic.setMaxWidth(1110);
 
-        //setupFieldArea();
-
-        scrollPane.setVvalue(0.0);
+        setupFieldArea();
     }
 
     private void setupFieldArea() {
-        final double textHeight = 40;
-        final double fontSize = 25;
 
-        fieldArea.setOrientation(Orientation.VERTICAL);
-        fieldArea.setVgap(5);
-
-        category.setText(complaint.getCategory().getName());
-
-        ArrayList<Pair<String, String>> field = complaint.getCategory().getFields();
         ArrayList<String> fields = complaint.getFields();
+        ArrayList<Pair<String, String>> categoryFields = complaint.getCategory().getFields();
 
         for (int i=0; i<fields.size(); i++) {
-
-            Label fieldName = new Label(field.get(i).getValue());
-            fieldName.setPrefSize(100, 0);
-            fieldName.setMinWidth(100);
-            fieldName.setFont(FontLoader.font("ths", fontSize));
-
-            if (field.get(i).getKey().equals("text")) {
-
-                HBox hBox = new HBox();
-                hBox.setSpacing(20);
-                hBox.setPrefSize(0, 0);
-                hBox.setPadding(new Insets(0,0,0,70));
-
-                Label fieldLabel = new Label(fields.get(i));
-                fieldLabel.setPrefSize(930, 0);
-                fieldLabel.setFont(FontLoader.font("ths", fontSize));
-
-                hBox.getChildren().add(fieldName);
-                hBox.getChildren().add(fieldLabel);
-
-                fieldArea.setPrefHeight(fieldArea.getPrefHeight() + textHeight);
-                fieldArea.getChildren().add(hBox);
+            if (categoryFields.get(i).getKey().equals("text")) {
+                fieldArea.getChildren().add(setupTextField(categoryFields.get(i).getValue(), fields.get(i)));
             }
-            else if (field.get(i).getKey().equals("pic")) {
-
-                VBox vBox = new VBox();
-                vBox.setSpacing(0);
-                vBox.setPrefSize(0,0);
-                vBox.setPadding( new Insets(10,0,20,425));
-                vBox.getChildren().add(fieldName);
-
-                FileInputStream fileInputStream = null;
-                try {
-                    fileInputStream = new FileInputStream("data" +
-                            File.separator+ "image" +
-                            File.separator+ "complaint" +
-                            File.separator+ fields.get(i));
-                } catch (FileNotFoundException e) {
-                    System.err.println("Cannot open image");
-                }
-
-                Image image = new Image(fileInputStream);
-
-                double imageWidth = 400;
-                double imageHeight = imageWidth/image.getWidth() * image.getHeight();
-
-                ImageView fieldImageView = new ImageView();
-                fieldImageView.setImage(image);
-                vBox.getChildren().add(fieldImageView);
-                fieldImageView.setFitWidth(imageWidth);
-                fieldImageView.setFitHeight(imageHeight);
-
-                fieldArea.setPrefHeight(fieldArea.getPrefHeight()+imageHeight+textHeight+30);
-                fieldArea.getChildren().add(vBox);
-
+            if (categoryFields.get(i).getKey().equals("pic")) {
+                fieldArea.getChildren().add(setupPictureField(categoryFields.get(i).getValue(), fields.get(i)));
             }
-
         }
-
-//        HBox hBox = new HBox();
-//        hBox.setPrefSize(1280, 50);
-//
-//        Button backButton = new Button();
-//        backButton.setText("Back");
-//        backButton.setOnAction(event -> handleBackButton());
-//
-//        hBox.getChildren().add(backButton);
-//        hBox.setPadding(new Insets(0,50,0,0));
-//        hBox.setAlignment(Pos.CENTER_RIGHT);
-//
-//        fieldArea.getChildren().add(hBox);
-//        fieldArea.setPrefHeight(fieldArea.getPrefHeight() + 50);
     }
+
+    private HBox setupTextField(String fieldName, String fieldDetail){
+        //setup hBox
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER_LEFT);
+        hBox.setPadding(new Insets(0, 0, 0, 10));
+        hBox.setPrefSize(1000, 30);
+
+        //setup fieldNameLabel
+        Label fieldNameLabel = new Label();
+        fieldNameLabel.setText(fieldName + " : ");
+        fieldNameLabel.setFont(FontLoader.font("ths", 20));
+        fieldNameLabel.setAlignment(Pos.CENTER_LEFT);
+
+        //setup fieldDetailLabel
+        Label fieldDetailLabel = new Label();
+        fieldDetailLabel.setText(fieldDetail);
+        fieldDetailLabel.setFont(FontLoader.font("ths", 20));
+
+        hBox.getChildren().add(fieldNameLabel);
+        hBox.getChildren().add(fieldDetailLabel);
+
+        return hBox;
+    }
+
+    private VBox setupPictureField(String fieldName, String imagePath) {
+        //setup hBox
+        VBox vBox = new VBox();
+        vBox.setAlignment(Pos.TOP_CENTER);
+        vBox.setPadding(new Insets(0, 0, 0, 10));
+        vBox.setPrefSize(1000, 500);
+
+        //setup fieldNameLabel
+        Label fieldNameLabel = new Label();
+        fieldNameLabel.setText(fieldName + " : ");
+        fieldNameLabel.setFont(FontLoader.font("ths", 20));
+
+        //setup image
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream("data" +
+                    File.separator+ "image" +
+                    File.separator+ "complaint" +
+                    File.separator+ imagePath);
+        } catch (FileNotFoundException e) {
+            System.err.println("Cannot open image");
+            System.err.println(e);
+        }
+        Image image = new Image(fileInputStream);
+
+        //setup ImageView
+        ImageView fieldImageView = new ImageView();
+        fieldImageView.setImage(image);
+        fieldImageView.setFitWidth(475/image.getHeight() * image.getWidth());
+        fieldImageView.setFitHeight(475);
+
+        vBox.getChildren().add(fieldNameLabel);
+        vBox.getChildren().add(fieldImageView);
+
+        return vBox;
+    }
+
+    public void handleReportButton() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/ku/cs/page/report.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Report");
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 
     public void handleBackButton() {
         try {

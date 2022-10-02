@@ -6,9 +6,10 @@ import ku.cs.models.category.Category;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Complaint {
-    private String id;
+    private UUID id;
     private Account author; //Store account id
     private String topic;
     private Category category;
@@ -18,7 +19,7 @@ public class Complaint {
     private Account moderator;
     private String solvingDetail;
 
-    public Complaint(String id, Account author, String topic, Category category, LocalDateTime datePosted, Status status,
+    public Complaint(UUID id, Account author, String topic, Category category, LocalDateTime datePosted, Status status,
                      Account moderator, String solvingDetail, ArrayList<String> fields) {
         this.id            = id;
         this.author        = author;
@@ -31,13 +32,23 @@ public class Complaint {
         this.fields        = fields;
     }
 
-    public Complaint(String id, Account author, String topic, Category category, LocalDateTime datePosted,
+    public Complaint(UUID id, Account author, String topic, Category category, LocalDateTime datePosted,
                      ArrayList<String> fields) {
-        this(id, author, topic, category, datePosted, null, null, "", fields);
+        this(id, author, topic, category, datePosted, Status.NOTSTARTED, null, "", fields);
+    }
+    //Setter
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+    public void setModerator(Account moderator) {
+        this.moderator = moderator;
+    }
+    public void setSolvingDetail(String solvingDetail) {
+        this.solvingDetail = solvingDetail;
     }
 
     //Getter
-    public String getId() {
+    public UUID getId() {
         return id;
     }
     public Account getAuthor() {

@@ -26,6 +26,7 @@ import ku.cs.services.datasource.DataSource;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ComplaintPostPageController {
     @FXML private TextField topicField;
@@ -61,7 +62,7 @@ public class ComplaintPostPageController {
 
         complaintList.addComplaint(
                 new Complaint(
-                        complaintList.getAllComplaints().size()+1+"",
+                        UUID.randomUUID(),
                         Util.account,
                         topicField.getText(),
                         categoryComboBox.getValue(),

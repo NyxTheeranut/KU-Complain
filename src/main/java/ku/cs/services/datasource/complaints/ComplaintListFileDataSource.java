@@ -19,6 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
     private final String directoryName = "data";
@@ -69,9 +70,7 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                     fields.add(data[i]);
                 }
 
-                System.out.println(data[5]);
-
-                complaintList.addComplaint(new Complaint(data[0], author, data[2],
+                complaintList.addComplaint(new Complaint(UUID.fromString(data[0]), author, data[2],
                         category, datePosted, Status.valueOf(data[5]), moderator, data[7], fields));
 
             }
@@ -103,11 +102,13 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
 
-                String line = complaint.getId() + "," +
+                String line = complaint.getId().toString() + "," +
                         complaint.getAuthor().getId() + "," +
                         complaint.getTopic() + "," +
                         complaint.getCategory().getName() + "," +
-                        complaint.getDatePosted().format(formatter) + ",";
+                        complaint.getDatePosted().format(formatter) + "," +
+                        complaint.getStatus().name() + ",";
+                        ;
                 if (complaint.getModerator() == null) {
                     line += "-,";
                 }

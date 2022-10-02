@@ -4,6 +4,7 @@ import ku.cs.models.accounts.*;
 import ku.cs.services.datasource.DataSource;
 
 import java.io.*;
+import java.util.UUID;
 
 public class AccountListFileDataSource implements DataSource<AccountList> {
     private final String directoryName = "data";
@@ -25,13 +26,13 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                 if (data[7].equals("0")) isBanned = false;
                 else isBanned = true;
                 if (data[0].equals("admin")){
-                    account = new Admin(data[1], data[2], data[3], data[4], data[5], data[6], isBanned);
+                    account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned);
                 }
                 else if (data[0].equals("mod")){
-                    account = new Moderator(data[1], data[2], data[3], data[4], data[5], data[6], isBanned);
+                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned);
                 }
                 else if (data[0].equals("user")){
-                    account = new User(data[1], data[2], data[3], data[4], data[5], data[6], isBanned);
+                    account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned);
                 }
                 accountList.addAccount(account); //add account to account list
             }
@@ -63,7 +64,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                 else isBanned = "0";
                 //role,name,password,imagepath
                 String line = account.getRole() + ","
-                        + account.getId() + ","
+                        + account.getId().toString() + ","
                         + account.getUsername() + ","
                         + account.getPassword() + ","
                         + account.getName() + ","

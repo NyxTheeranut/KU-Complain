@@ -3,13 +3,22 @@ package ku.cs.controllers;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
+import ku.cs.util.FontLoader;
+import ku.cs.util.Util;
 
+import javax.swing.text.LabelView;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -35,19 +44,26 @@ public class HomeController {
 
     public void loadUserButton(){
         VBox box = (VBox) menu.getChildren().get(0);
-        try {
-            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStrButton+"profilebutton.fxml")));
-            box.getChildren().get(0).setOnMouseClicked(event -> loadPage("profile.fxml"));
-            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStrButton+"complaintlistbutton.fxml")));
-            box.getChildren().get(1).setOnMouseClicked(event -> loadPage("complaint_list.fxml"));
-            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStrButton+"complaintpostbutton.fxml")));
-            box.getChildren().get(2).setOnMouseClicked(event -> loadPage("complaint_post.fxml"));
-            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStrButton+"tutorialbutton.fxml")));
-            box.getChildren().get(3).setOnMouseClicked(event -> loadPage("tutorial.fxml"));
-            box.getChildren().add(FXMLLoader.load(getClass().getResource(packageStrButton+"aboutbutton.fxml")));
-            box.getChildren().get(4).setOnMouseClicked(event -> loadPage("about.fxml"));
-        } catch (IOException e) {
-            System.err.println("Error loading user button");
+        String[] buttonDataList = {};
+        String[] user = {Util.account.getUsername()+",default.png,profile.fxml","รายการร้องเรียน,\uF0AD,complaint_list.fxml",
+                                    "เสนอเรื่องร้องเรียน,\uF0AD,complaint_post.fxml","วิธีใช้งาน,\uF0AD,tutorial.fxml","เกี่ยวกับ,\uF0AD,about.fxml"};
+        String[] mod = {Util.account.getUsername()+",default.png,profile.fxml","รายการร้องเรียน,\uF0AD,manage_complaint.fxml",
+                        "วิธีใช้งาน,\uF0AD,tutorial.fxml","เกี่ยวกับ,\uF0AD,about.fxml"};
+        String[] admin = {Util.account.getUsername()+",default.png,profile.fxml","รายชื่อบัญชี,\uF0AD,account_list.fxml","รายงานจากผู้ใช้,\uF0AD,report_list.fxml",
+                        "เพิ่มเจ้าหน้าที่,\uF0AD,create_moderator.fxml","จัดการหน่วยงาน,\uF0AD,unit_manage.fxml","วิธีใช้งาน,\uF0AD,tutorial.fxml","เกี่ยวกับ,\uF0AD,about.fxml"};
+
+        if(Util.account.getRole() == "user") buttonDataList = user;
+        else if(Util.account.getRole() == "mod") buttonDataList = mod;
+        else if(Util.account.getRole() == "admin") buttonDataList = admin;
+
+        for(String buttonData:buttonDataList){
+            String[] data = buttonData.split(",");
+            HBox button = Util.createButton(data[0],data[1]);
+            //button.setOnMouseClicked(event -> loadPage(data[2]));
+            button.setOnMouseClicked(event -> handleOnMouseClickedButton(box,button,data[2]));
+            button.setOnMouseEntered(event -> handleOnMouseEnterButton(button));
+            button.setOnMouseExited(event -> handleOnMouseExitButton(button));
+            box.getChildren().add(button);
         }
     }
 
@@ -84,7 +100,23 @@ public class HomeController {
 
         //menu.setTranslateX(0);
     }
-
+    @FXML
+    public void handleOnMouseEnterButton(HBox button){
+        button.getChildren().get(0).setStyle("-fx-text-fill: #ffffff");
+        button.getChildren().get(1).setStyle("-fx-text-fill: #ffffff");
+    }
+    @FXML
+    public void handleOnMouseExitButton(HBox button){
+        if (button.getStyle().equals("-fx-background-color: #03a96b")) return;
+        button.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+        button.getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+    }
+    @FXML
+    public void handleOnMouseClickedButton(VBox menu,HBox button,String pagePath){
+        for(Node b:menu.getChildren()) b.setStyle("-fx-background-color: #2f3337");
+        button.setStyle("-fx-background-color: #03a96b");
+        loadPage(pagePath);
+    }
 }
 
 

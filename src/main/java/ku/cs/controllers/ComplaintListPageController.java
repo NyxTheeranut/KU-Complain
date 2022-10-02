@@ -40,6 +40,7 @@ public class ComplaintListPageController {
     private final Font topicFont = FontLoader.font("ths", 30);
     private final Font categoryFont = FontLoader.font("ths", 20);
     private final Font datePostFont = FontLoader.font("ths", 20);
+    private final Font statusFont = FontLoader.font("ths", 20);
 
     public void initialize(){
         //get complaint list from dataSource
@@ -96,6 +97,7 @@ public class ComplaintListPageController {
 
             //setup dataPostLabel
             Label datePostLabel = new Label();
+            datePostLabel.setPrefWidth(645);
             LocalDateTime postTime = i.getDatePosted();
 
             Long yearsBetween = ChronoUnit.YEARS.between(postTime, LocalDateTime.now());
@@ -113,6 +115,27 @@ public class ComplaintListPageController {
 
             datePostLabel.setFont(datePostFont);
             complaintDetailHBox.getChildren().add(datePostLabel);
+
+            //setup status hBox
+            HBox statusHBox = new HBox();
+            statusHBox.setAlignment(Pos.CENTER_LEFT);
+            statusHBox.setSpacing(5);
+            statusHBox.setPrefSize(125, 30);
+
+            //System.out.println(i.getStatus().name());
+
+            //setup status Label
+            Label status = new Label("Status");
+            status.setFont(statusFont);
+            Label statusLabel = new Label();
+            statusLabel.setFont(statusFont);
+            statusLabel.setText(i.getStatus().name());
+
+            //add Status label to hBox
+            statusHBox.getChildren().add(status);
+            statusHBox.getChildren().add(statusLabel);
+
+            complaintDetailHBox.getChildren().add(statusHBox);
 
             //add complaint detail to vBox
             vBox.getChildren().add(complaintDetailHBox);

@@ -1,8 +1,11 @@
 package ku.cs;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.UUID;
+
 import com.github.saacsos.FXRouter;
 import ku.cs.util.FontLoader;
 import ku.cs.util.Util;
@@ -30,7 +33,7 @@ public class ProjectApplication extends Application {
         FXRouter.when("edit_profile", packageStr+"edit_profile.fxml");
         FXRouter.when("profile", packageStr+"profile.fxml");
         FXRouter.when("complaint", packageStr+"complaint.fxml");
-        FXRouter.when("user_list", packageStr+"user_list.fxml");
+        FXRouter.when("account_list",packageStr+"account_list.fxml");
 
     }
     private static void configFont() {

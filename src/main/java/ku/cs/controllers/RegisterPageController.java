@@ -14,6 +14,7 @@ import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class RegisterPageController {
     @FXML Button registerButton;
@@ -52,11 +53,9 @@ public class RegisterPageController {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
         if (accountList.checkRegister(username)){
-            Account account = new User(""+(accountList.getAllAccount().size()+1)
-                    , username
-                    , password
-            );
+            Account account = new User(UUID.randomUUID(), username, password);
             accountList.addAccount(account);
+
             dataSource.writeData(accountList);
         }
 
