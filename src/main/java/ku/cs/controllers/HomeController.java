@@ -71,7 +71,6 @@ public class HomeController {
             //button.setOnMouseClicked(event -> handleOnMouseClickedButton(box,button,data[2]));
             //button.setOnMouseEntered(event -> handleOnMouseEnterButton(button));
             //button.setOnMouseExited(event -> handleOnMouseExitButton(button));
-
             box.getChildren().add(button);
         }
     }
