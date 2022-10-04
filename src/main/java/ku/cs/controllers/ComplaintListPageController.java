@@ -9,12 +9,20 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.util.Callback;
+import javafx.util.Pair;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
+import ku.cs.services.comparator.CompareComplaintByDatePost;
+import ku.cs.services.comparator.CompareComplaintByDownVote;
+import ku.cs.services.comparator.CompareComplaintByName;
+import ku.cs.services.comparator.CompareComplaintByUpVote;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
+import ku.cs.services.filter.ComplaintCategoryFilter;
+import ku.cs.services.filter.ComplaintTopicFilter;
 import ku.cs.services.filter.Filterer;
+import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
 import ku.cs.util.Util;
@@ -26,16 +34,24 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ComplaintListPageController {
     @FXML
     private FlowPane complaintArea;
     @FXML
-    private ComboBox<Filterer> filterComboBox;
+    private ComboBox<Category> categoryComboBox;
+    @FXML
+    private ComboBox<Pair<Comparator, String>> sortComboBox;
     @FXML
     private TextField searchTextField;
     private DataSource<ComplaintList> dataSource;
     private ComplaintList complaintList;
+
+    private ComplaintList searchedComplaintList;
+    private ComplaintList filteredComplaintList;
 
     //constant
     private final Font topicFont = FontLoader.font("ths", 30);
@@ -47,10 +63,14 @@ public class ComplaintListPageController {
         //get complaint list from dataSource
         dataSource = new ComplaintListFileDataSource();
         complaintList = dataSource.readData();
-
+        searchedComplaintList = new ComplaintList();
+        searchedComplaintList.setComplaints(complaintList.getAllComplaints());
+        filteredComplaintList = new ComplaintList();
+        filteredComplaintList.setComplaints(complaintList.getAllComplaints());
 
         setupComplaintArea(complaintList);
-        setupFilterComboBox();
+        setupCategoryComboBox();
+        setupSortComboBox();
     }
 
     private void setupComplaintArea(ComplaintList complaintList){
@@ -159,35 +179,72 @@ public class ComplaintListPageController {
         ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("complaint.fxml");
     }
 
-    private void setupFilterComboBox() {
+    private void setupCategoryComboBox() {
+        DataSource<CategoryList> dataSource = new CategoryListFileDataSource();
+        CategoryList categoryList = dataSource.readData();
 
-        Callback<ListView<Filterer>, ListCell<Filterer>> factory = lv -> new ListCell<Filterer>() {
+        Callback<ListView<Category>, ListCell<Category>> factory = lv -> new ListCell<Category>() {
             @Override
-            protected void updateItem(Filterer item, boolean empty) {
+            protected void updateItem(Category item, boolean empty) {
                 super.updateItem(item, empty);
                 setText(empty ? "" : item.getName());
             }
         };
 
-        filterComboBox.setCellFactory(factory);
-        filterComboBox.setButtonCell(factory.call(null));
+        categoryComboBox.setCellFactory(factory);
+        categoryComboBox.setButtonCell(factory.call(null));
 
-        //filterComboBox.setOnAction(event -> handleSelectedCategoryComboBox());
-        filterComboBox.setItems(FXCollections.observableArrayList(Util.complaintFilter));
+        categoryComboBox.setOnAction(event -> handleSelectedCategoryComboBox());
+        categoryComboBox.setItems(FXCollections.observableArrayList(categoryList.getAllCategory()));
     }
+    private void setupSortComboBox() {
+        Callback<ListView<Pair<Comparator, String>>, ListCell<Pair<Comparator, String>>> factory = lv -> new ListCell<>() {
+            @Override
+            protected void updateItem(Pair<Comparator, String> item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.getValue());
+            }
+        };
 
-    public void handleSearchButton() {
-        ComplaintList filteredComplaintList = new ComplaintList();
+        sortComboBox.setCellFactory(factory);
+        sortComboBox.setButtonCell(factory.call(null));
 
-        Filterer filterer = filterComboBox.getValue();
+        sortComboBox.setOnAction(event -> handleSelectedSortComboBox());
 
-        ArrayList<Complaint> filteredComplaintArrayList = new ArrayList<>();
-        filteredComplaintArrayList = Util.filter(searchTextField.getText(), complaintList.getAllComplaints(), filterer);
+        ArrayList<Pair<Comparator, String>> comparatorList = new ArrayList<>();
+        comparatorList.add(new Pair(new CompareComplaintByName(), "Name"));
+        comparatorList.add(new Pair(new CompareComplaintByDatePost(), "Date posted"));
+        comparatorList.add(new Pair(new CompareComplaintByUpVote(), "Up vote"));
+        comparatorList.add(new Pair(new CompareComplaintByDownVote(), "Down vote"));
+
+        sortComboBox.setItems(FXCollections.observableArrayList(comparatorList));
+    }
+    private void handleSelectedCategoryComboBox() {
+        Category category = categoryComboBox.getValue();
+        filteredComplaintList = new ComplaintList();
+        ArrayList<Complaint> filteredComplaintArrayList = Data.filter(category.getName(), searchedComplaintList.getAllComplaints(), new ComplaintCategoryFilter());
 
         for(Complaint i : filteredComplaintArrayList) {
             filteredComplaintList.addComplaint(i);
         }
+    }
+    private void handleSelectedSortComboBox() {
+        try {
+            Comparator comparator = sortComboBox.getValue().getKey();
+            Collections.sort(filteredComplaintList.getAllComplaints(), comparator);
+            setupComplaintArea(filteredComplaintList);
+        }catch (NullPointerException e){
 
+        }
+    }
+    public void handleSearchButton() {
+        searchedComplaintList.setComplaints(Data.filter(searchTextField.getText(), complaintList.getAllComplaints(), new ComplaintTopicFilter()));
+        filteredComplaintList.setComplaints(searchedComplaintList.getAllComplaints());
         setupComplaintArea(filteredComplaintList);
+    }
+    public void handleResetButton() {
+        searchedComplaintList.setComplaints(complaintList.getAllComplaints());
+        filteredComplaintList.setComplaints(complaintList.getAllComplaints());
+        setupComplaintArea(complaintList);
     }
 }

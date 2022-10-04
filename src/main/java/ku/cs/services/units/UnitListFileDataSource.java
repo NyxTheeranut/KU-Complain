@@ -6,6 +6,7 @@ import ku.cs.models.units.UnitList;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.AccountIdFilter;
+import ku.cs.util.Data;
 import ku.cs.util.Util;
 
 import java.io.*;
@@ -29,7 +30,7 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
             while((line = buffer.readLine()) != null){
                 String[] data = line.split(",");
                 Unit unit = new Unit(data[0]);
-                for(int i=1;i<data.length;i++) unit.addModerator((Moderator) Util.search(data[i],accountList.getAllAccount(),new AccountIdFilter()));
+                for(int i=1;i<data.length;i++) unit.addModerator((Moderator) Data.search(data[i],accountList.getAllAccount(),new AccountIdFilter()));
                 unitList.addUnit(unit);
             }
         }catch (FileNotFoundException e){

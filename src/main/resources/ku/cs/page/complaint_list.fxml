@@ -30,25 +30,41 @@
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="1000.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="1000.0" spacing="20.0">
+                  <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="1000.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" spacing="5.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="900.0" spacing="20.0">
                            <children>
-                              <TextField fx:id="searchTextField" prefWidth="300.0" promptText="ค้นหา" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" spacing="5.0">
+                                 <children>
+                                    <TextField fx:id="searchTextField" prefHeight="30.0" prefWidth="200.0" promptText="ค้นหา">
+                                       <font>
+                                          <Font name="THSarabunPSK" size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="30.0" text="Search">
+                                       <font>
+                                          <Font name="THSarabunPSK" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <ComboBox fx:id="categoryComboBox" prefHeight="30.0" promptText="Category">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="60.0" />
+                                 </padding>
+                              </HBox>
+                              <ComboBox fx:id="sortComboBox" prefHeight="30.0" promptText="Sort" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" spacing="5.0">
-                           <children>
-                              <ComboBox fx:id="filterComboBox" prefWidth="150.0" promptText="Filter" />
-                           </children>
-                        </HBox>
-                        <Button mnemonicParsing="false" onAction="#handleSearchButton" text="Search" />
-                        <Button mnemonicParsing="false" text="Reset" />
-                        <Button mnemonicParsing="false" text="Sort" />
+                        <Button mnemonicParsing="false" onAction="#handleResetButton" text="Reset">
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
-                     <padding>
-                        <Insets left="60.0" />
-                     </padding>
                   </HBox>
                   <FlowPane fx:id="complaintArea" maxWidth="-Infinity" prefHeight="0.0" prefWidth="1000.0">
                      <children>

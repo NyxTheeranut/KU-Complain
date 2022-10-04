@@ -9,6 +9,7 @@ import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
 import ku.cs.models.complaints.Status;
 import ku.cs.services.datasource.DataSource;
+import ku.cs.util.Data;
 import ku.cs.util.Util;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
@@ -53,17 +54,17 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 String[] data = line.split(","); //get line data
 
                 //account
-                Account author = Util.search(data[1], accountList.getAllAccount(), new AccountIdFilter());
+                Account author = Data.search(data[1], accountList.getAllAccount(), new AccountIdFilter());
 
                 //category
-                Category category = Util.search(data[3], categoryList.getAllCategory(), new CategoryNameFilter());
+                Category category = Data.search(data[3], categoryList.getAllCategory(), new CategoryNameFilter());
 
                 //time post
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 LocalDateTime datePosted = LocalDateTime.parse(data[4], formatter);
 
                 //moderator
-                Account moderator = Util.search(data[6], accountList.getAllAccount(), new AccountIdFilter());
+                Account moderator = Data.search(data[6], accountList.getAllAccount(), new AccountIdFilter());
 
                 //fields
                 ArrayList<String> fields = new ArrayList<>(Arrays.asList(data[8].split("-")));

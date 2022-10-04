@@ -14,6 +14,7 @@ import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.AccountUsernameFilter;
 import ku.cs.services.units.UnitListFileDataSource;
+import ku.cs.util.Data;
 import ku.cs.util.Util;
 
 import java.io.IOException;
@@ -55,7 +56,7 @@ public class CreateModeratorController {
             errorLabel.setText("Password doesn't match"); //wrong password alert
             return;
         }
-        if(Util.search(userField.getText(),accountList.getAllAccount(),new AccountUsernameFilter()) != null){
+        if(Data.search(userField.getText(),accountList.getAllAccount(),new AccountUsernameFilter()) != null){
             errorLabel.setText("This username is already used"); //duplicate username alert
             return;
         }

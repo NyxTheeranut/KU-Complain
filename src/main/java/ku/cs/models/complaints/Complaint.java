@@ -63,6 +63,7 @@ public class Complaint {
         this.solvingDetail = solvingDetail;
     }
 
+
     //Getter
     public UUID getId() {
         return id;
@@ -111,17 +112,18 @@ public class Complaint {
 
     @Override
     public String toString() {
-        return "Complaint{" +
-                "id=" + id +
-                ", author=" + author +
-                ", topic='" + topic + '\'' +
-                ", category=" + category +
-                ", fields=" + fields +
-                ", datePosted=" + datePosted +
-                ", status=" + status +
-                ", moderator=" + moderator +
-                ", solvingDetail='" + solvingDetail + '\'' +
-                ", votes=" + votes +
-                '}';
+        return topic;
+//        return "Complaint{" +
+//                "id=" + id +
+//                ", author=" + author +
+//                ", topic='" + topic + '\'' +
+//                ", category=" + category +
+//                ", fields=" + fields +
+//                ", datePosted=" + datePosted +
+//                ", status=" + status +
+//                ", moderator=" + moderator +
+//                ", solvingDetail='" + solvingDetail + '\'' +
+//                ", votes=" + votes +
+//                '}';
     }
 }

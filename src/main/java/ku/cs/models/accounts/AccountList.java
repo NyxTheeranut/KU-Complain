@@ -1,5 +1,6 @@
 package ku.cs.models.accounts;
 
+import ku.cs.util.Data;
 import ku.cs.util.Util;
 import ku.cs.services.filter.AccountUsernameFilter;
 
@@ -22,7 +23,7 @@ public class AccountList {
 
     public Account checkLogin(String username, String password) {
 
-        Account account = Util.search(username, getAllAccount(), new AccountUsernameFilter());
+        Account account = Data.search(username, getAllAccount(), new AccountUsernameFilter());
         if (account.getPassword().equals(password)) {
             return account;
         }
@@ -30,7 +31,7 @@ public class AccountList {
     }
 
     public Boolean checkRegister(String username) {
-        if (Util.search(username, accounts, new AccountUsernameFilter()) == null) {
+        if (Data.search(username, accounts, new AccountUsernameFilter()) == null) {
             return true;
         }
         return false;
