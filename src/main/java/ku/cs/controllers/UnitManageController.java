@@ -32,8 +32,6 @@ public class UnitManageController {
     public void showList(){
         list.getItems().addAll(unitList.getAllUnits());
         list.refresh();
-        stackPane.getChildren().add(new Button("kppp"));
-        stackPane.getChildren().add(new Button("2"));
     }
     public void handleAddButton(ActionEvent actionEvent){
         //anchorPane.getChildren().add();

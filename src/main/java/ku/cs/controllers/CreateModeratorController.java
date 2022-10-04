@@ -59,8 +59,8 @@ public class CreateModeratorController {
             errorLabel.setText("This username is already used"); //duplicate username alert
             return;
         }
-        accountList.addAccount(new Moderator(UUID.randomUUID() ,userField.getText(),passwordField.getText(),
-                                nameField.getText(),surnameField.getText(),Util.saveImage(imageView.getImage(),"profile"),false));
+        accountList.addAccount(new Moderator(UUID.randomUUID() ,userField.getText(),passwordField.getText(),nameField.getText(),surnameField.getText()
+                                ,Util.saveImage(imageView.getImage(),"account"),false,unitListField.getValue().getUnitName()));
         dataSource.writeData(accountList);
         errorLabel.setText("");
         userField.clear();
