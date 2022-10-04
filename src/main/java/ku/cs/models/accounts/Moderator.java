@@ -9,5 +9,6 @@ public class Moderator extends Account {
         this.affiliation = affiliation;
     }
 
+    public String getAffiliation(){ return affiliation; }
 
 }
