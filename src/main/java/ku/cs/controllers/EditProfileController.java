@@ -28,8 +28,8 @@ import java.util.regex.Pattern;
 
 public class EditProfileController extends AccountList {
 
+    @FXML private Label passwordLabel;
     @FXML private Label usernameLabel;
-
     @FXML private TextField rePasswordTextField;
     @FXML private ImageView profilePicture;
 
@@ -53,6 +53,7 @@ public class EditProfileController extends AccountList {
         profilePicture.setImage(image);
         Path from = Paths.get(selectedFile.toURI());
         Path to = Paths.get("data\\image\\profileImage\\" + selectedFile.getName());
+        String pictureName = selectedFile.getName();
         CopyOption[] options = new CopyOption[]{
                 StandardCopyOption.REPLACE_EXISTING,
                 StandardCopyOption.COPY_ATTRIBUTES};
@@ -75,7 +76,7 @@ public class EditProfileController extends AccountList {
     @FXML
     public void handleBackButton(ActionEvent actionEvent){
         try{
-            com.github.saacsos.FXRouter.goTo("profile");
+            com.github.saacsos.FXRouter.goTo("home");
         } catch (IOException e){
             System.err.println("Error loading profile page");
         }
