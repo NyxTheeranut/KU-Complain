@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
+import ku.cs.util.ObjectStorage;
 import ku.cs.util.Util;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
@@ -41,9 +42,9 @@ public class LoginPageController {
             AccountList accountList = dataSource.readData();
             Account account = accountList.checkLogin(username, password);
             if (account != null) {
-                Util.account = account;
+                ((ObjectStorage) FXRouter.getData()).setAccount(account);
                 try {
-                    FXRouter.goTo("home");
+                    FXRouter.goTo("home", FXRouter.getData());
                 } catch (IOException e) {
                     System.err.println("Error loading home page");
                 }

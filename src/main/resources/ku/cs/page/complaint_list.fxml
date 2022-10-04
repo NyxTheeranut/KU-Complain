@@ -50,7 +50,53 @@
                         <Insets left="60.0" />
                      </padding>
                   </HBox>
-                  <FlowPane fx:id="complaintArea" maxWidth="-Infinity" prefHeight="0.0" prefWidth="1000.0" />
+                  <FlowPane fx:id="complaintArea" maxWidth="-Infinity" prefHeight="0.0" prefWidth="1000.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1000.0">
+                           <children>
+                              <VBox prefHeight="100.0" prefWidth="1000.0">
+                                 <children>
+                                    <Label alignment="TOP_LEFT" prefHeight="70.0" text="Test Topic">
+                                       <font>
+                                          <Font name="THSarabunPSK" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="960.0" spacing="20.0">
+                                       <children>
+                                          <Label prefWidth="150.0" text="Test category">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefWidth="645.0" text="test time">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="125.0" spacing="5.0">
+                                             <children>
+                                                <Label text="Status">
+                                                   <font>
+                                                      <Font name="THSarabunPSK" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="NOT STARTED">
+                                                   <font>
+                                                      <Font name="THSarabunPSK" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="40.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children></FlowPane>
                </children>
                <padding>
                   <Insets top="30.0" />
@@ -61,35 +107,5 @@
             <Insets left="5.0" />
          </padding>
       </ScrollPane>
-      <HBox alignment="CENTER" opacity="0.0" prefHeight="100.0" prefWidth="1000.0">
-         <children>
-            <VBox prefHeight="100.0" prefWidth="1000.0">
-               <children>
-                  <Label alignment="TOP_LEFT" prefHeight="70.0" text="Test Topic">
-                     <font>
-                        <Font name="THSarabunPSK" size="30.0" />
-                     </font>
-                  </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="960.0" spacing="20.0">
-                     <children>
-                        <Label prefWidth="150.0" text="Test category">
-                           <font>
-                              <Font name="THSarabunPSK" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label text="test time">
-                           <font>
-                              <Font name="THSarabunPSK" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets left="40.0" />
-               </padding>
-            </VBox>
-         </children>
-      </HBox>
    </children>
 </AnchorPane>

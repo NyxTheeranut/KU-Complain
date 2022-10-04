@@ -13,6 +13,7 @@ import ku.cs.models.accounts.User;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.AccountUsernameFilter;
+import ku.cs.util.ObjectStorage;
 import ku.cs.util.Util;
 
 
@@ -40,7 +41,7 @@ public class EditProfileController extends AccountList {
     }
 
     @FXML public void initialize(){
-        usernameLabel.setText(Util.account.getName());
+        usernameLabel.setText(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount().getName());
     }
 
     public void selectPicture() throws IOException {
@@ -58,17 +59,17 @@ public class EditProfileController extends AccountList {
         Files.copy(from.toFile().toPath(), to.toFile().toPath(),options);
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
-        Account account = Util.search(Util.account.getName(),accountList.getAllAccount(),new AccountUsernameFilter());
-        accountList.changePicture(Util.account, selectedFile.getName());
+        Account account = Util.search(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount().getName(),accountList.getAllAccount(),new AccountUsernameFilter());
+        accountList.changePicture(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount(), selectedFile.getName());
         account.setImagePath(selectedFile.getName());
 
     }
     public void changePassword(){
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
-        Account account = Util.search(Util.account.getName(),accountList.getAllAccount(),new AccountUsernameFilter());
+        Account account = Util.search(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount().getName(),accountList.getAllAccount(),new AccountUsernameFilter());
         String newName = rePasswordTextField.getText();
-        accountList.changePassword(Util.account, newName);
+        accountList.changePassword(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount(), newName);
         dataSource.writeData(accountList);
     }
     @FXML

@@ -14,10 +14,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import javafx.util.Pair;
+import ku.cs.models.accounts.Account;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
+import ku.cs.util.ObjectStorage;
 import ku.cs.util.Util;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
@@ -32,8 +34,10 @@ public class ComplaintPostPageController {
     @FXML private TextField topicField;
     @FXML private ComboBox<Category> categoryComboBox;
     @FXML private FlowPane fieldArea;
+    @FXML private Account account;
 
     public void initialize(){
+        account = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount();
         fieldArea.setOrientation(Orientation.VERTICAL);
         fieldArea.setVgap(10);
         setupComboBox();
@@ -63,7 +67,7 @@ public class ComplaintPostPageController {
         complaintList.addComplaint(
                 new Complaint(
                         UUID.randomUUID(),
-                        Util.account,
+                        account,
                         topicField.getText(),
                         categoryComboBox.getValue(),
                         LocalDateTime.now(),

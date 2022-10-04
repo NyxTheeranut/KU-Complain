@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import ku.cs.models.accounts.Account;
 
+import ku.cs.util.ObjectStorage;
 import ku.cs.util.Util;
 
 import static ku.cs.util.FontLoader.font;
@@ -54,7 +55,7 @@ public class HomeUserPageController {
 
     @FXML public void initialize(){
 
-        account = Util.account;
+        account = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount();
 
         String url;
         try {

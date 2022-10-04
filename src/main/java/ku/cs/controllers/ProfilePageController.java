@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ku.cs.models.accounts.Account;
+import ku.cs.util.ObjectStorage;
 import ku.cs.util.Util;
 
 import java.io.IOException;
@@ -15,13 +16,14 @@ public class ProfilePageController {
 
     @FXML private Label nameLabel;
     @FXML private ImageView image;
-    Account account = Util.account;
+    Account account;
 
 
     @FXML
     public void initialize(){
-        String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
-        image.setImage(new Image(url));
+        account = ((ObjectStorage)FXRouter.getData()).getAccount();
+
+        image.setImage(account.getImage());
         nameLabel.setText(account.getName());
     }
     @FXML

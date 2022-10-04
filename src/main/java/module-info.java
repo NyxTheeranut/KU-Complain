@@ -8,8 +8,6 @@ module cs.ku {
     exports ku.cs;
     exports ku.cs.controllers;
     opens ku.cs.controllers to javafx.fxml;
-    exports ku.cs.controllers.button;
-    opens ku.cs.controllers.button to javafx.fxml;
 //    exports ku.cs.services;
 //    opens ku.cs.services to javafx.fxml;
     exports ku.cs.models;

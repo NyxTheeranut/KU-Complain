@@ -1,5 +1,10 @@
 package ku.cs.models.accounts;
 
+import javafx.scene.image.Image;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.UUID;
 
 public class Account {
@@ -51,7 +56,20 @@ public class Account {
     public boolean getIsBanned() {
         return isBanned;
     }
-
+    public Image getImage() {
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream("data" +
+                    File.separator+ "image" +
+                    File.separator+ "account" +
+                    File.separator+ imagePath);
+        } catch (FileNotFoundException e) {
+            System.err.println("Cannot open image");
+            System.err.println(e);
+        }
+        Image image = new Image(fileInputStream);
+        return image;
+    }
     //setter
     public void setUsername(String username) {
         this.username = username;
@@ -65,8 +83,21 @@ public class Account {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "role='" + role + '\'' +
+                ", id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                ", isBanned=" + isBanned +
+                '}';
     }
 }

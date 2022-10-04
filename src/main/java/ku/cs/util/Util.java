@@ -22,32 +22,12 @@ import java.nio.file.*;
 import java.util.*;
 
 public final class Util {
-    //Object Storage
-    static AbstractMap<String, Object> map = new HashMap<>();
-    public static Account account;
-    public static Complaint complaint;
 
     public final static ArrayList<Filterer> complaintFilter = new ArrayList<>(Arrays.asList(
             new ComplaintCategoryFilter(),
             new ComplaintIdFilter(),
             new ComplaintTopicFilter()
     ));
-
-    private Util(){};
-    public static void add(String objectKey, Object object) {
-        map.put(objectKey, object);
-    }
-    public static Object find(String objectKey){
-        Object object = map.get(objectKey);
-        if (object == null) {
-            System.err.println(
-                    "Load object <" + objectKey + "> failed.\n" +
-                            "please check object key"
-            );
-            return null;
-        }
-        return object;
-    }
     public static <T> T search(String id, ArrayList<T> objects, Filterer<T> filterer){
         for(T i : objects){
             //System.out.println(((Account)i).getName());

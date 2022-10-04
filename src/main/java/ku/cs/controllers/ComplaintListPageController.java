@@ -16,6 +16,7 @@ import ku.cs.models.complaints.ComplaintList;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.filter.Filterer;
 import ku.cs.util.FontLoader;
+import ku.cs.util.ObjectStorage;
 import ku.cs.util.Util;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
 import ku.cs.services.datasource.DataSource;
@@ -47,6 +48,7 @@ public class ComplaintListPageController {
         dataSource = new ComplaintListFileDataSource();
         complaintList = dataSource.readData();
 
+
         setupComplaintArea(complaintList);
         setupFilterComboBox();
     }
@@ -56,6 +58,7 @@ public class ComplaintListPageController {
         complaintArea.getChildren().clear();
 
         for(Complaint i : complaintList.getAllComplaints()){
+            //System.out.println(i);
             //setup hBox
             HBox hBox = new HBox();
             hBox.setAlignment(Pos.CENTER);
@@ -152,13 +155,8 @@ public class ComplaintListPageController {
     }
 
     private void showSelectedComplaint(Complaint complaint) {
-        Util.complaint = complaint;
-        try {
-            FXRouter.goTo("complaint");
-        } catch (IOException e) {
-            System.err.println("Error loading complaint page");
-            System.err.println(e);
-        }
+        ((ObjectStorage) FXRouter.getData()).setComplaint(complaint);
+        ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("complaint.fxml");
     }
 
     private void setupFilterComboBox() {

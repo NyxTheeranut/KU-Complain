@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import ku.cs.models.reports.Report;
 import ku.cs.models.reports.ReportList;
 import ku.cs.services.reports.ReportListFileDataSource;
+import ku.cs.util.ObjectStorage;
 import ku.cs.util.Util;
 
 import javax.swing.*;
@@ -39,7 +40,7 @@ public class ReportPageController {
 
         if(ComplaintReportButton.isSelected()) {
             type = "Complaint";
-            id = Util.complaint.getId();
+            id = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getComplaint().getId();
         }
         else {
             type = "Account";

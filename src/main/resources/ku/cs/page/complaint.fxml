@@ -45,7 +45,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1180.0">
          <children>
-            <VBox prefHeight="100.0" prefWidth="1000.0">
+            <VBox prefHeight="100.0" prefWidth="960.0">
                <children>
                   <Label fx:id="topic" alignment="CENTER" text="Topic เรื่องร้องเรียน">
                      <font>
@@ -62,11 +62,49 @@
                   <Insets left="10.0" />
                </padding>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="180.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="220.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Report">
+                  <HBox prefHeight="100.0" prefWidth="145.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="70.0" spacing="3.0">
+                           <children>
+                              <Label fx:id="upVoteButton" onMouseClicked="#handleUpVoteButton" text="">
+                                 <font>
+                                    <Font name="FontAwesome" size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="upVoteLabel" text="0">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="70.0" spacing="3.0">
+                           <children>
+                              <Label fx:id="downVoteButton" onMouseClicked="#handleDownVoteButton" text="">
+                                 <font>
+                                    <Font name="FontAwesome" size="30.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="downVoteLabel" text="0">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <Button mnemonicParsing="false" onAction="#handleReportButton" prefHeight="40.0" prefWidth="70.0" text="Report">
                      <font>
-                        <Font name="THSarabunPSK-Bold" size="25.0" />
+                        <Font name="THSarabunPSK-Bold" size="20.0" />
                      </font>
                   </Button>
                </children>

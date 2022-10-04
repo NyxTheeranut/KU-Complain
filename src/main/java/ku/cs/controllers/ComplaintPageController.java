@@ -2,10 +2,8 @@ package ku.cs.controllers;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
@@ -14,9 +12,15 @@ import javafx.scene.layout.VBox;
 
 import javafx.stage.Modality;
 import javafx.util.Pair;
+import ku.cs.models.Button;
+import ku.cs.models.accounts.Account;
 import ku.cs.models.complaints.Complaint;
+import ku.cs.models.complaints.ComplaintList;
+import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
+import ku.cs.services.filter.ComplaintIdFilter;
+import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
-import ku.cs.util.Util;
+import ku.cs.util.ObjectStorage;
 import com.github.saacsos.FXRouter;
 
 import java.io.File;
@@ -29,27 +33,40 @@ import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 public class ComplaintPageController {
+    Account account;
     Complaint complaint;
     @FXML
     private Label topic;
     @FXML
     private Label category;
     @FXML
+    private Label upVoteLabel;
+    @FXML
+    private Label downVoteLabel;
+    @FXML
+    private Label upVoteButton;
+    @FXML
+    private Label downVoteButton;
+    @FXML
     private FlowPane fieldArea;
 
 
     public void initialize() {
-        complaint = Util.complaint;
+        account = ((ObjectStorage) FXRouter.getData()).getAccount();
+        complaint = ((ObjectStorage) FXRouter.getData()).getComplaint();
 
-        System.out.println(complaint.getId().toString());
+
 
         topic.setText(complaint.getTopic());
         topic.setWrapText(true);
 
-        setupFieldArea();
-    }
+        category.setText(complaint.getCategory().getName());
 
+        setupFieldArea();
+        updateVote();
+    }
     private void setupFieldArea() {
 
         ArrayList<String> fields = complaint.getFields();
@@ -64,7 +81,6 @@ public class ComplaintPageController {
             }
         }
     }
-
     private HBox setupTextField(String fieldName, String fieldDetail){
         //setup hBox
         HBox hBox = new HBox();
@@ -88,7 +104,6 @@ public class ComplaintPageController {
 
         return hBox;
     }
-
     private VBox setupPictureField(String fieldName, String imagePath) {
         //setup hBox
         VBox vBox = new VBox();
@@ -125,7 +140,6 @@ public class ComplaintPageController {
 
         return vBox;
     }
-
     public void handleReportButton() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/ku/cs/page/report.fxml"));
         Scene scene = new Scene(root);
@@ -134,15 +148,24 @@ public class ComplaintPageController {
         stage.setTitle("Report");
         stage.setScene(scene);
         stage.show();
-
+    }
+    public void handleUpVoteButton() {
+        vote(true);
+    }
+    public void handleDownVoteButton() {
+        vote(false);
+    }
+    private void vote(Boolean vote) {
+        ComplaintListFileDataSource dataSource = new ComplaintListFileDataSource();
+        ComplaintList complaints = dataSource.readData();
+        Data.search(complaint.getId().toString(), complaints.getAllComplaints(), new ComplaintIdFilter()).addVote(account, vote);
+        complaint.addVote(account, vote);
+        dataSource.writeData(complaints);
+        updateVote();
     }
 
-
-    public void handleBackButton() {
-        try {
-            FXRouter.goTo("home");
-        } catch (IOException e) {
-            System.err.println("Error loading home page");
-        }
+    private void updateVote() {
+        upVoteLabel.setText(complaint.getUpVote()+"");
+        downVoteLabel.setText(complaint.getDownVote()+"");
     }
 }

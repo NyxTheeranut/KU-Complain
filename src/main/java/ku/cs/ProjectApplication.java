@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import com.github.saacsos.FXRouter;
 import ku.cs.util.FontLoader;
+import ku.cs.util.ObjectStorage;
 import ku.cs.util.Util;
 
 public class ProjectApplication extends Application {
@@ -16,8 +17,7 @@ public class ProjectApplication extends Application {
         FXRouter.bind(this, stage, "KU RongRian Center", 1280,720);
         configRoute();
         configFont();
-        configObject();
-        FXRouter.goTo("login_page");
+        FXRouter.goTo("login_page", new ObjectStorage());
     }
     private static void configRoute() {
         String packageStr = "ku/cs/page/";
@@ -44,10 +44,6 @@ public class ProjectApplication extends Application {
         FontLoader.bind("ths_i", packageStr+"THSarabunItalic.ttf");
         FontLoader.bind("fa_wf", packageStr+"fontawesome-webfont.ttf");
         FontLoader.bind("fa_r", packageStr+"fa-regular.ttf");
-    }
-
-    private static void configObject(){
-        Util.add("packagestr", "/ku/cs/");
     }
     public static void main(String[] args) {
         launch();

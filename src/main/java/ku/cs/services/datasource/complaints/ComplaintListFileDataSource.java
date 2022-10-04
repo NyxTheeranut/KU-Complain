@@ -1,5 +1,6 @@
 package ku.cs.services.datasource.complaints;
 
+import javafx.util.Pair;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
 import ku.cs.models.complaints.Complaint;
@@ -19,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
@@ -44,34 +46,39 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
             CategoryList categoryList = categoryDataSource.readData();
 
             while((line = buffer.readLine()) != null){
-                // 0    1       2       3      4            5         6           7            8
-                //id,authorid,topic,category,datepost,enumstatus,moderatorid,solving detail,field
-                String[] data = line.split(",");
+                // 0    1       2       3      4            5         6           7
+                //id,authorid,topic,category,datepost,enumstatus,moderatorid,solving detail,
+                //       8            9
+                // field1-field2,voterUuid:vote/voterUuid:vote-vote2
+                String[] data = line.split(","); //get line data
 
-                //Get account object
+                //account
                 Account author = Util.search(data[1], accountList.getAllAccount(), new AccountIdFilter());
 
-                //Get category object
+                //category
                 Category category = Util.search(data[3], categoryList.getAllCategory(), new CategoryNameFilter());
-                ArrayList<String> fields = new ArrayList<>();
 
-                //Get local date time object
+                //time post
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 LocalDateTime datePosted = LocalDateTime.parse(data[4], formatter);
 
-                //Get moderator
+                //moderator
                 Account moderator = Util.search(data[6], accountList.getAllAccount(), new AccountIdFilter());
 
-                if (data[7].equals("-")) {
-                    data[7] = "";
+                //fields
+                ArrayList<String> fields = new ArrayList<>(Arrays.asList(data[8].split("-")));
+                //votes
+                ArrayList<Pair<UUID, Boolean>> votes = new ArrayList<>();
+                if (data.length>9) {
+                    for (String i : data[9].split("/")) {
+                        String vote[] = i.split(":");
+                        votes.add(new Pair<>(UUID.fromString(vote[0]), Boolean.parseBoolean(vote[1])));
+                    }
                 }
 
-                for(int i=8; i<data.length ;i++){
-                    fields.add(data[i]);
-                }
 
                 complaintList.addComplaint(new Complaint(UUID.fromString(data[0]), author, data[2],
-                        category, datePosted, Status.valueOf(data[5]), moderator, data[7], fields));
+                        category, datePosted, Status.valueOf(data[5]), moderator, data[7], fields, votes));
 
             }
 
@@ -97,7 +104,8 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             for(Complaint complaint : complaintList.getAllComplaints()){
-                //id,authorid,topic,category,datepost,moderator,solvingdetail,field
+                //id,authorid,topic,category,datepost,moderator,solvingdetail
+                //field1-field2,voterUuid:vote/voterUuid:vote-vote2
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
@@ -108,18 +116,21 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                         complaint.getCategory().getName() + "," +
                         complaint.getDatePosted().format(formatter) + "," +
                         complaint.getStatus().name() + ",";
-                        ;
-                if (complaint.getModerator() == null) {
-                    line += "-,";
-                }
-                else {
+
+                try {
                     line += complaint.getModerator().getId() + ",";
+                }catch (NullPointerException e){
+                    line += ",";
                 }
-                if (complaint.getSolvingDetail().equals("")) {
-                    line += "-";
-                }
+
                 line += complaint.getSolvingDetail() + "," +
-                        String.join(",", complaint.getFields());
+                        String.join("-", complaint.getFields());
+
+                ArrayList<String> votes = new ArrayList<>();
+                for (Pair<UUID, Boolean> i:complaint.getVotes()) {
+                    votes.add(i.getKey()+":"+i.getValue());
+                }
+                line += ","+String.join("/", votes);
 
 
                 byte[] bytes = line.getBytes(StandardCharsets.UTF_8);
