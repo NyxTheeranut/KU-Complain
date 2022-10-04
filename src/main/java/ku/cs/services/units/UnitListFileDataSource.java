@@ -30,6 +30,7 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
                 String[] data = line.split(",");
                 Unit unit = new Unit(data[0]);
                 for(int i=1;i<data.length;i++) unit.addModerator((Moderator) Util.search(data[i],accountList.getAllAccount(),new SearchAccountById()));
+                unitList.addUnit(unit);
             }
         }catch (FileNotFoundException e){
             throw new RuntimeException(e);

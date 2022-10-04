@@ -15,7 +15,7 @@ public class ProfilePageController {
     Account account = Util.account;
     @FXML
     public void initialize(){
-        String url = getClass().getResource("/ku/cs/image/"+account.getImagePath()).toExternalForm();
+        String url = "file:data/image/profile/"+account.getImagePath();
         image.setImage(new Image(url));
     }
     @FXML

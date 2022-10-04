@@ -29,4 +29,6 @@ public class Unit {
     public ArrayList<Moderator> getModeratorList() {
         return moderatorList;
     }
+
+    public String toString() { return unitName; }
 }
