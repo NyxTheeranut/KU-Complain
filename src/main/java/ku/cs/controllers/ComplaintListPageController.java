@@ -227,6 +227,7 @@ public class ComplaintListPageController {
         for(Complaint i : filteredComplaintArrayList) {
             filteredComplaintList.addComplaint(i);
         }
+        setupComplaintArea(filteredComplaintList);
     }
     private void handleSelectedSortComboBox() {
         try {
