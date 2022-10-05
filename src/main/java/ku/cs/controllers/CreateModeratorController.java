@@ -28,13 +28,16 @@ public class CreateModeratorController {
     @FXML private ComboBox<Unit> unitListField;
     @FXML private ImageView imageView;
     @FXML private Label errorLabel;
+
+    private DataSource<UnitList> dataSource;
+    private UnitList unitList;
     public void initialize(){
         setUnitListField();
     }
 
     public void setUnitListField(){
-        DataSource<UnitList> dataSource = new UnitListFileDataSource();
-        UnitList unitList = dataSource.readData();
+        dataSource = new UnitListFileDataSource();
+        unitList = dataSource.readData();
         unitListField.getItems().addAll(unitList.getAllUnits());
     }
 
@@ -44,8 +47,12 @@ public class CreateModeratorController {
     }
 
     public void handleCreateModeratorButton(){
-        AccountListFileDataSource dataSource = new AccountListFileDataSource();
-        AccountList accountList = dataSource.readData();
+        AccountListFileDataSource accountListFileDataSource = new AccountListFileDataSource();
+        AccountList accountList = accountListFileDataSource.readData();
+
+        UnitListFileDataSource unitListFileDataSource = new UnitListFileDataSource();
+        UnitList unitList = unitListFileDataSource.readData();
+
         if(userField.getText().isEmpty() || passwordField.getText().isEmpty() || passwordConfirmField.getText().isEmpty() || nameField.getText().isEmpty() ||
          surnameField.getText().isEmpty() || unitListField.getValue() == null || imageView.getImage() == null || imageView.getImage().isError()){
             errorLabel.setText("Insufficient information"); //Empty Alert
@@ -59,9 +66,16 @@ public class CreateModeratorController {
             errorLabel.setText("This username is already used"); //duplicate username alert
             return;
         }
-        accountList.addAccount(new Moderator(UUID.randomUUID() ,userField.getText(),passwordField.getText(),nameField.getText(),surnameField.getText()
-                                ,Util.saveImage(imageView.getImage(),"account"),false,unitListField.getValue().getUnitName()));
-        dataSource.writeData(accountList);
+        Moderator mod = new Moderator(UUID.randomUUID() ,userField.getText(),passwordField.getText(),nameField.getText(),surnameField.getText()
+                                    ,Util.saveImage(imageView.getImage(),"account"),false,unitListField.getValue().getUnitName());
+        accountList.addAccount(mod);
+        accountListFileDataSource.writeData(accountList);
+
+        //
+        unitList.addModerator(unitListField.getValue().getUnitName(),mod.getId());
+        unitListFileDataSource.writeData(unitList);
+        //
+
         errorLabel.setText("");
         userField.clear();
         passwordField.clear();
