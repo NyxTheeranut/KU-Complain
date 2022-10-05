@@ -1,0 +1,18 @@
+.label {
+    -fx-text-fill: #FFFFFF;
+}
+
+.primary-color {
+    -fx-background-color: #2F3337;
+}
+
+.secondary-color {
+    -fx-background-color: #303030;
+}
+
+/*
+black 18, 28, 38 dark grey
+grey  58, B8, D8, E8, F8 white
+-----
+Add Stylesheets in scene builder
+*/
