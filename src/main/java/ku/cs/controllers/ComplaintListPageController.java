@@ -202,7 +202,7 @@ public class ComplaintListPageController {
         ArrayList<Pair<Comparator, String>> comparatorList = new ArrayList<>();
         comparatorList.add(new Pair(new CompareComplaintByName(), "Name"));
         comparatorList.add(new Pair(new CompareComplaintByDatePost(), "Date posted"));
-        comparatorList.add(new Pair(new CompareComplaintByVote(), "Up vote"));
+        comparatorList.add(new Pair(new CompareComplaintByVote(), "Vote"));
 
         sortComboBox.setItems(FXCollections.observableArrayList(comparatorList));
     }

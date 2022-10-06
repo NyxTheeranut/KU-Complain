@@ -37,7 +37,7 @@
                   </Label>
                   <TextField fx:id="topicField" maxWidth="-Infinity" prefHeight="50.0" prefWidth="1100.0" promptText="กรุณาเขียนหัวข้อ">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="THSarabunPSK" size="21.0" />
                      </font>
                   </TextField>
                   <HBox maxWidth="-Infinity" prefHeight="50.0" prefWidth="1100.0" spacing="20.0">
@@ -60,16 +60,12 @@
                         <Insets top="20.0" />
                      </padding>
                   </HBox>
-                  <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="370.0" prefWidth="1100.0">
+                  <ScrollPane maxWidth="-Infinity" prefHeight="370.0" prefWidth="1100.0">
                      <content>
-                        <FlowPane fx:id="fieldArea" maxHeight="-Infinity" maxWidth="1050.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="1090.0">
-                           <padding>
-                              <Insets left="20.0" />
-                           </padding>
-                        </FlowPane>
+                        <FlowPane fx:id="fieldArea" maxWidth="1090.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1050.0" vgap="10.0" />
                      </content>
                      <padding>
-                        <Insets left="5.0" top="5.0" />
+                        <Insets left="25.0" top="5.0" />
                      </padding>
                   </ScrollPane>
                </children>
@@ -83,7 +79,7 @@
          <children>
             <Button maxHeight="-Infinity" mnemonicParsing="false" onAction="#handleSendComplaintButton" prefHeight="45.0" text="ส่งเรื่องร้องเรียน">
                <font>
-                  <Font size="20.0" />
+                  <Font name="THSarabunPSK" size="24.0" />
                </font>
                <HBox.margin>
                   <Insets right="10.0" />

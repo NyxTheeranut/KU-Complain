@@ -39,7 +39,7 @@
                                     <Font name="THSarabunPSK" size="15.0" />
                                  </font>
                               </TextField>
-                              <ComboBox fx:id="sortComboBox" prefHeight="30.0" promptText="Sort">
+                              <ComboBox fx:id="sortComboBox" prefHeight="30.0" promptText="Sort by">
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin></ComboBox>

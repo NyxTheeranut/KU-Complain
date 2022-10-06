@@ -38,8 +38,6 @@ public class ComplaintPostPageController {
 
     public void initialize(){
         account = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount();
-        fieldArea.setOrientation(Orientation.VERTICAL);
-        fieldArea.setVgap(10);
         setupComboBox();
     }
 
@@ -62,6 +60,9 @@ public class ComplaintPostPageController {
                 if (image == null) System.out.printf("X");
                 fields.add(Util.saveImage(image, "complaint"));
             }
+            else if (categoryComboBox.getValue().getFields().get(i).getKey().equals("detail")) {
+                fields.add(( (TextArea) hBox.getChildren().get(1)).getText());
+            }
         }
 
         complaintList.addComplaint(
@@ -77,9 +78,7 @@ public class ComplaintPostPageController {
     }
     @FXML
     private void handleSelectedCategoryComboBox(){
-
         fieldArea.getChildren().clear(); //Reset flowpane
-        fieldArea.setPrefHeight(0);
 
         Category category = categoryComboBox.getValue(); //Get category
         for (Pair<String, String> i : category.getFields()) {
@@ -119,12 +118,6 @@ public class ComplaintPostPageController {
                         double imageWidth = 200;
                         double imageHeight = imageWidth/image.getWidth() * image.getHeight();
 
-                        if (previewImageView.getImage()!=null) { //reset size of flowpane
-                            fieldArea.setPrefHeight(fieldArea.getPrefHeight() -
-                                    (imageWidth/previewImageView.getImage().getWidth() * previewImageView.getImage().getHeight()));
-                        }
-                        fieldArea.setPrefHeight(fieldArea.getPrefHeight()+imageHeight); //adjust flowpane size
-
                         previewImageView.setImage(image);
                         previewImageView.setFitWidth(imageWidth);
                         previewImageView.setFitHeight(imageWidth/image.getWidth() * image.getHeight());
@@ -139,13 +132,17 @@ public class ComplaintPostPageController {
                 hBox.getChildren().add(button);
                 hBox.getChildren().add(vBox); //Add vbox to hbox
             }
+            else if (i.getKey().equals("detail")) {
+                TextArea field = new TextArea(); //Textfield
+                field.setPrefSize(930, 256);
+                field.setMaxSize(930, 256);
+                field.setWrapText(true);
+                hBox.getChildren().add(field);
+            }
+
+            fieldArea.getChildren().add(hBox);
 
             fieldName.setText(i.getValue()); //Set name label
-
-
-
-            fieldArea.setPrefHeight(fieldArea.getPrefHeight()+40); //Increase flowpane height
-            fieldArea.getChildren().add(hBox); //add HBox to flowpane
         }
     }
 

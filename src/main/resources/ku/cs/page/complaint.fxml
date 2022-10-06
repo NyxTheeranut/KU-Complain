@@ -96,10 +96,10 @@
       </HBox>
       <ScrollPane maxWidth="-Infinity" prefHeight="200.0" prefWidth="1000.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="100.0">
          <padding>
-            <Insets left="5.0" />
+            <Insets left="25.0" />
          </padding>
          <content>
-            <FlowPane fx:id="fieldArea" maxWidth="-Infinity" prefHeight="0.0" prefWidth="1000.0" />
+            <FlowPane fx:id="fieldArea" maxWidth="-Infinity" prefWidth="950.0" />
          </content>
       </ScrollPane>
    </children>
