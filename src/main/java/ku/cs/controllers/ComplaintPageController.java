@@ -12,7 +12,6 @@ import javafx.scene.layout.VBox;
 
 import javafx.stage.Modality;
 import javafx.util.Pair;
-import ku.cs.models.Button;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
@@ -42,13 +41,9 @@ public class ComplaintPageController {
     @FXML
     private Label category;
     @FXML
-    private Label upVoteLabel;
+    private Label voteLabel;
     @FXML
-    private Label downVoteLabel;
-    @FXML
-    private Label upVoteButton;
-    @FXML
-    private Label downVoteButton;
+    private Label voteButton;
     @FXML
     private FlowPane fieldArea;
 
@@ -149,23 +144,17 @@ public class ComplaintPageController {
         stage.setScene(scene);
         stage.show();
     }
-    public void handleUpVoteButton() {
-        vote(true);
-    }
-    public void handleDownVoteButton() {
-        vote(false);
-    }
-    private void vote(Boolean vote) {
+    public void handleVoteButton() {vote();}
+    private void vote() {
         ComplaintListFileDataSource dataSource = new ComplaintListFileDataSource();
         ComplaintList complaints = dataSource.readData();
-        Data.search(complaint.getId().toString(), complaints.getAllComplaints(), new ComplaintIdFilter()).addVote(account, vote);
-        complaint.addVote(account, vote);
+        Data.search(complaint.getId().toString(), complaints.getAllComplaints(), new ComplaintIdFilter()).addVote(account);
+        complaint.addVote(account);
         dataSource.writeData(complaints);
         updateVote();
     }
 
     private void updateVote() {
-        upVoteLabel.setText(complaint.getUpVote()+"");
-        downVoteLabel.setText(complaint.getDownVote()+"");
+        voteLabel.setText(complaint.getVote()+"");
     }
 }

@@ -6,7 +6,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.util.Callback;
 import javafx.util.Pair;
@@ -15,26 +14,22 @@ import ku.cs.models.category.CategoryList;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.services.comparator.CompareComplaintByDatePost;
-import ku.cs.services.comparator.CompareComplaintByDownVote;
 import ku.cs.services.comparator.CompareComplaintByName;
-import ku.cs.services.comparator.CompareComplaintByUpVote;
+import ku.cs.services.comparator.CompareComplaintByVote;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.filter.ComplaintCategoryFilter;
 import ku.cs.services.filter.ComplaintTopicFilter;
-import ku.cs.services.filter.Filterer;
+import ku.cs.services.filter.ComplaintVoteFilter;
 import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
-import ku.cs.util.Util;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
 import ku.cs.services.datasource.DataSource;
 import com.github.saacsos.FXRouter;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -47,11 +42,12 @@ public class ComplaintListPageController {
     private ComboBox<Pair<Comparator, String>> sortComboBox;
     @FXML
     private TextField searchTextField;
+    @FXML
+    private TextField fromVoteTextField;
+    @FXML
+    private TextField toVoteTextField;
     private DataSource<ComplaintList> dataSource;
-    private ComplaintList complaintList;
-
-    private ComplaintList searchedComplaintList;
-    private ComplaintList filteredComplaintList;
+    private ArrayList<Complaint> complaints;
 
     //constant
     private final Font topicFont = FontLoader.font("ths", 30);
@@ -62,22 +58,18 @@ public class ComplaintListPageController {
     public void initialize(){
         //get complaint list from dataSource
         dataSource = new ComplaintListFileDataSource();
-        complaintList = dataSource.readData();
-        searchedComplaintList = new ComplaintList();
-        searchedComplaintList.setComplaints(complaintList.getAllComplaints());
-        filteredComplaintList = new ComplaintList();
-        filteredComplaintList.setComplaints(complaintList.getAllComplaints());
+        complaints = dataSource.readData().getAllComplaints();
 
-        setupComplaintArea(complaintList);
+        setupComplaintArea(complaints);
         setupCategoryComboBox();
         setupSortComboBox();
     }
 
-    private void setupComplaintArea(ComplaintList complaintList){
+    private void setupComplaintArea(ArrayList<Complaint> complaints){
 
         complaintArea.getChildren().clear();
 
-        for(Complaint i : complaintList.getAllComplaints()){
+        for(Complaint i : complaints){
             //System.out.println(i);
             //setup hBox
             HBox hBox = new HBox();
@@ -193,8 +185,6 @@ public class ComplaintListPageController {
 
         categoryComboBox.setCellFactory(factory);
         categoryComboBox.setButtonCell(factory.call(null));
-
-        categoryComboBox.setOnAction(event -> handleSelectedCategoryComboBox());
         categoryComboBox.setItems(FXCollections.observableArrayList(categoryList.getAllCategory()));
     }
     private void setupSortComboBox() {
@@ -209,43 +199,41 @@ public class ComplaintListPageController {
         sortComboBox.setCellFactory(factory);
         sortComboBox.setButtonCell(factory.call(null));
 
-        sortComboBox.setOnAction(event -> handleSelectedSortComboBox());
-
         ArrayList<Pair<Comparator, String>> comparatorList = new ArrayList<>();
         comparatorList.add(new Pair(new CompareComplaintByName(), "Name"));
         comparatorList.add(new Pair(new CompareComplaintByDatePost(), "Date posted"));
-        comparatorList.add(new Pair(new CompareComplaintByUpVote(), "Up vote"));
-        comparatorList.add(new Pair(new CompareComplaintByDownVote(), "Down vote"));
+        comparatorList.add(new Pair(new CompareComplaintByVote(), "Up vote"));
 
         sortComboBox.setItems(FXCollections.observableArrayList(comparatorList));
     }
-    private void handleSelectedCategoryComboBox() {
+
+    private void filterComplaint() {
+        String topic = searchTextField.getText();
         Category category = categoryComboBox.getValue();
-        filteredComplaintList = new ComplaintList();
-        ArrayList<Complaint> filteredComplaintArrayList = Data.filter(category.getName(), searchedComplaintList.getAllComplaints(), new ComplaintCategoryFilter());
-
-        for(Complaint i : filteredComplaintArrayList) {
-            filteredComplaintList.addComplaint(i);
-        }
-        setupComplaintArea(filteredComplaintList);
-    }
-    private void handleSelectedSortComboBox() {
+        Comparator comparator;
         try {
-            Comparator comparator = sortComboBox.getValue().getKey();
-            Collections.sort(filteredComplaintList.getAllComplaints(), comparator);
-            setupComplaintArea(filteredComplaintList);
-        }catch (NullPointerException e){
-
+            comparator = sortComboBox.getValue().getKey();
+        } catch (NullPointerException e) {
+            comparator = null;
         }
+        String voteRange = fromVoteTextField.getText() + "," + toVoteTextField.getText();
+
+        ArrayList<Complaint> filteredComplaintList;
+
+        filteredComplaintList = Data.filter(topic, complaints, new ComplaintTopicFilter());
+        if (category != null)
+            filteredComplaintList = Data.filter(category.getName(), filteredComplaintList, new ComplaintCategoryFilter());
+        if (comparator != null)
+            Collections.sort(filteredComplaintList, comparator);
+        filteredComplaintList = Data.filter(voteRange, filteredComplaintList, new ComplaintVoteFilter());
+
+
+        setupComplaintArea(filteredComplaintList);
     }
     public void handleSearchButton() {
-        searchedComplaintList.setComplaints(Data.filter(searchTextField.getText(), complaintList.getAllComplaints(), new ComplaintTopicFilter()));
-        filteredComplaintList.setComplaints(searchedComplaintList.getAllComplaints());
-        setupComplaintArea(filteredComplaintList);
+        filterComplaint();
     }
     public void handleResetButton() {
-        searchedComplaintList.setComplaints(complaintList.getAllComplaints());
-        filteredComplaintList.setComplaints(complaintList.getAllComplaints());
-        setupComplaintArea(complaintList);
+        ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("complaint_list.fxml");
     }
 }

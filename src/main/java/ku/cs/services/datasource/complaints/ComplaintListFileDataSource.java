@@ -69,11 +69,10 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 //fields
                 ArrayList<String> fields = new ArrayList<>(Arrays.asList(data[8].split("-")));
                 //votes
-                ArrayList<Pair<UUID, Boolean>> votes = new ArrayList<>();
+                ArrayList<UUID> votes = new ArrayList<>();
                 if (data.length>9) {
                     for (String i : data[9].split("/")) {
-                        String vote[] = i.split(":");
-                        votes.add(new Pair<>(UUID.fromString(vote[0]), Boolean.parseBoolean(vote[1])));
+                        votes.add(UUID.fromString(i));
                     }
                 }
 
@@ -128,8 +127,8 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                         String.join("-", complaint.getFields());
 
                 ArrayList<String> votes = new ArrayList<>();
-                for (Pair<UUID, Boolean> i:complaint.getVotes()) {
-                    votes.add(i.getKey()+":"+i.getValue());
+                for (UUID i:complaint.getVotes()) {
+                    votes.add(i.toString());
                 }
                 line += ","+String.join("/", votes);
 

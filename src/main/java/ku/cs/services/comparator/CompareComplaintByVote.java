@@ -4,10 +4,10 @@ import ku.cs.models.complaints.Complaint;
 
 import java.util.Comparator;
 
-public class CompareComplaintByDownVote implements Comparator<Complaint> {
+public class CompareComplaintByVote implements Comparator<Complaint> {
     @Override
     public int compare(Complaint o1, Complaint o2) {
-        return o2.getDownVote() - o1.getDownVote();
+        return o2.getVote() - o1.getVote();
     }
 
     @Override

@@ -64,11 +64,11 @@
             </VBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="220.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="145.0">
+                  <HBox prefHeight="100.0" prefWidth="70.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="70.0" spacing="3.0">
                            <children>
-                              <Label fx:id="upVoteButton" onMouseClicked="#handleUpVoteButton" text="">
+                              <Label fx:id="voteButton" onMouseClicked="#handleVoteButton" text="">
                                  <font>
                                     <Font name="FontAwesome" size="30.0" />
                                  </font>
@@ -76,24 +76,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="upVoteLabel" text="0">
-                                 <font>
-                                    <Font name="THSarabunPSK" size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="70.0" spacing="3.0">
-                           <children>
-                              <Label fx:id="downVoteButton" onMouseClicked="#handleDownVoteButton" text="">
-                                 <font>
-                                    <Font name="FontAwesome" size="30.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Label>
-                              <Label fx:id="downVoteLabel" text="0">
+                              <Label fx:id="voteLabel" text="0">
                                  <font>
                                     <Font name="THSarabunPSK" size="20.0" />
                                  </font>

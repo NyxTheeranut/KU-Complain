@@ -2,7 +2,6 @@ package ku.cs.models.complaints;
 
 import javafx.util.Pair;
 import ku.cs.models.accounts.Account;
-import ku.cs.models.accounts.Moderator;
 import ku.cs.models.category.Category;
 
 import java.time.LocalDateTime;
@@ -19,10 +18,10 @@ public class Complaint {
     private Status status;
     private Account moderator;
     private String solvingDetail;
-    private ArrayList<Pair<UUID, Boolean>> votes;
+    private ArrayList<UUID> votes;
 
     public Complaint(UUID id, Account author, String topic, Category category, LocalDateTime datePosted, Status status,
-                     Account moderator, String solvingDetail, ArrayList<String> fields, ArrayList<Pair<UUID, Boolean>> votes) {
+                     Account moderator, String solvingDetail, ArrayList<String> fields, ArrayList<UUID> votes) {
         this.id            = id;
         this.author        = author;
         this.topic         = topic;
@@ -39,16 +38,16 @@ public class Complaint {
                      ArrayList<String> fields) {
         this(id, author, topic, category, datePosted, Status.NOTSTARTED, null, "", fields, new ArrayList<>());
     }
-    public Boolean addVote(Account account, Boolean vote) {
+    public Boolean addVote(Account account) {
         if (checkVote(account)) {
-            votes.add(new Pair<>(account.getId(), vote));
+            votes.add(account.getId());
             return true;
         }
         return false;
     }
     public boolean checkVote(Account account) {
-        for (Pair<UUID, Boolean> i:votes) {
-            if (i.getKey().equals(account.getId())) return false;
+        for (UUID i:votes) {
+            if (i.equals(account.getId())) return false;
         }
         return true;
     }
@@ -92,20 +91,13 @@ public class Complaint {
     public ArrayList<String> getFields() {
         return fields;
     }
-    public ArrayList<Pair<UUID, Boolean>> getVotes() {
+    public ArrayList<UUID> getVotes() {
         return votes;
     }
-    public int getUpVote() {
+    public int getVote() {
         int co=0;
-        for (Pair<UUID, Boolean> i: votes) {
-            if (i.getValue()) co++;
-        }
-        return co;
-    }
-    public int getDownVote() {
-        int co=0;
-        for (Pair<UUID, Boolean> i: votes) {
-            if (!i.getValue()) co++;
+        for (UUID i: votes) {
+            co++;
         }
         return co;
     }
