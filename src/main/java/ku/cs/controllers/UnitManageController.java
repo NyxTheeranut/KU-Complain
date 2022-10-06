@@ -22,6 +22,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
+import com.github.saacsos.FXRouter;
+import ku.cs.util.ObjectStorage;
+import ku.cs.util.Util;
+
 public class UnitManageController {
     @FXML
     private AnchorPane anchorPane;
@@ -29,7 +33,7 @@ public class UnitManageController {
     @FXML private StackPane stackPane;
     @FXML private Label unitLabel;
     @FXML private ListView modListView;
-
+    private Unit selectedUnit;
     private DataSource<UnitList> dataSource;
     private UnitList unitList;
     public void initialize(){
@@ -63,6 +67,7 @@ public class UnitManageController {
     }
 
     public void showSelectedUnit(Unit unit){
+        selectedUnit = unit;
         modListView.getItems().clear();
         unitLabel.setText(unit.getUnitName());
         modListView.getItems().addAll(unit.getModeratorList());
@@ -79,4 +84,19 @@ public class UnitManageController {
         updateUnitList();
 
     }
+
+    public void handleRenameUnitButton() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/ku/cs/page/rename_unit.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Rename unit");
+        stage.setScene(scene);
+        ((ObjectStorage)FXRouter.getData()).setUnit(selectedUnit);
+        stage.showAndWait();
+        updateUnitList();
+        //showSelectedUnit((Unit) unitListView.getSelectionModel().getSelectedItem());
+        showSelectedUnit(((ObjectStorage) FXRouter.getData()).getUnit());
+    }
+
 }
