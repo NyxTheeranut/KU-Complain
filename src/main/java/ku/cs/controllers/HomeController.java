@@ -22,6 +22,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 import ku.cs.models.accounts.Account;
+import ku.cs.services.styles.Theme;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
 
@@ -51,6 +52,11 @@ public class HomeController {
         if (account.getRole().equals("user")) loadUserButton();
         //else if (account.getRole().equals("mod")) loadModButton();
         //else if (account.getRole().equals("admin")) loadAdminButton();
+    }
+
+    public void test() {
+        //here naka <<<<<-----
+        Theme.setTheme(home);
     }
 
     public void loadUserButton(){
