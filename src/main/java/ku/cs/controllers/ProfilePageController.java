@@ -41,4 +41,13 @@ public class ProfilePageController {
         }
     }
 
+    @FXML
+    public void handleLogOutButton(ActionEvent actionEvent){
+        try{
+            FXRouter.goTo("login_page");
+        } catch (IOException e){
+            System.err.println("Error Logging out");
+        }
+    }
+
 }
