@@ -68,9 +68,10 @@ public class EditProfileController extends AccountList {
         Files.copy(from.toFile().toPath(), to.toFile().toPath(),options);
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
-        Account account = Util.search(((ObjectStorage) FXRouter.getData()).getAccount().getName(),accountList.getAllAccount(),new AccountUsernameFilter());
-        accountList.changePicture(((ObjectStorage) FXRouter.getData()).getAccount(), selectedFile.getName());
-        account.setImagePath(selectedFile.getName());
+        //Account account = Util.search(((ObjectStorage) FXRouter.getData()).getAccount().getName(),accountList.getAllAccount(),new AccountUsernameFilter());
+        accountList.changePicture(((ObjectStorage) FXRouter.getData()).getAccount(), pictureName);
+        //account.setImagePath(selectedFile.getName());
+        ((ObjectStorage) FXRouter.getData()).getAccount().setImagePath(pictureName);
 
     }
     public void changePassword(){
