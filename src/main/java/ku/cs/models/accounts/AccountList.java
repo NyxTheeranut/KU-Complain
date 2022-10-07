@@ -1,9 +1,12 @@
 package ku.cs.models.accounts;
 
+import ku.cs.services.datasource.DataSource;
+import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.util.Data;
 import ku.cs.util.Util;
 import ku.cs.services.filter.AccountUsernameFilter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class AccountList {
@@ -25,6 +28,9 @@ public class AccountList {
 
         Account account = Data.search(username, getAllAccount(), new AccountUsernameFilter());
         if (account.getPassword().equals(password)) {
+            account.setLastLogin(LocalDateTime.now());
+            DataSource<AccountList> dataSource = new AccountListFileDataSource();
+            dataSource.writeData(this);
             return account;
         }
         return null;

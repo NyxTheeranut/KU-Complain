@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Account {
@@ -17,8 +18,9 @@ public class Account {
     private String surname;
     protected String imagePath;
     protected boolean isBanned;
+    private LocalDateTime lastLogin;
 
-    public Account(String role, UUID id, String username, String password, String name, String surname, String imagePath, boolean isBanned) {
+    public Account(String role, UUID id, String username, String password, String name, String surname, String imagePath, boolean isBanned, LocalDateTime lastLogin) {
         this.role = role;
         this.id = id;
         this.username = username;
@@ -27,12 +29,8 @@ public class Account {
         this.surname = surname;
         this.imagePath = imagePath;
         this.isBanned = isBanned;
+        this.lastLogin = lastLogin;
     }
-
-    public boolean checkLogin(String password) {
-        return this.password.equals(password);
-    }
-
     //getter
     public String getRole(){
         return role;
@@ -70,6 +68,9 @@ public class Account {
         Image image = new Image(fileInputStream);
         return image;
     }
+    public LocalDateTime getLastLogin() {
+        return this.lastLogin;
+    }
     //setter
     public void setUsername(String username) {
         this.username = username;
@@ -85,6 +86,9 @@ public class Account {
     }
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+    public void setLastLogin(LocalDateTime lastLogin) {
+        this.lastLogin = lastLogin;
     }
 
     @Override

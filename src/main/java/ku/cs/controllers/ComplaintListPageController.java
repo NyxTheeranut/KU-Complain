@@ -74,7 +74,7 @@ public class ComplaintListPageController {
             //setup hBox
             HBox hBox = new HBox();
             hBox.setAlignment(Pos.CENTER);
-            hBox.setPrefSize(1000, 100);
+            hBox.setPrefSize(980, 100);
 
 //            Test hBox
 //            hBox.setStyle("-fx-background-color: #2969c0");
@@ -84,7 +84,7 @@ public class ComplaintListPageController {
             VBox vBox = new VBox();
             vBox.setAlignment(Pos.TOP_LEFT);
             vBox.setPadding(new Insets(0, 0, 0, 40));
-            vBox.setPrefSize(1000, 100);
+            vBox.setPrefSize(980, 100);
 
 //            Test vBox
 //            vBox.setStyle("-fx-background-color: #2969c0");
@@ -112,7 +112,7 @@ public class ComplaintListPageController {
 
             //setup dataPostLabel
             Label datePostLabel = new Label();
-            datePostLabel.setPrefWidth(645);
+            datePostLabel.setPrefWidth(600);
             LocalDateTime postTime = i.getDatePosted();
 
             Long yearsBetween = ChronoUnit.YEARS.between(postTime, LocalDateTime.now());

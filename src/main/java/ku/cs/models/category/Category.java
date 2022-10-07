@@ -10,7 +10,7 @@ public class Category {
     private ArrayList<Pair<String, String>> fields = new ArrayList<>();
     // text-fieldName1
     // pic-fieldName2
-    // text-fieldName3
+    // detail-fieldName3
 
     public Category(String category) {
         this.name = category;

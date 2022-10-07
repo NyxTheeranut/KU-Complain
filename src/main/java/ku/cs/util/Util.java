@@ -48,11 +48,13 @@ public final class Util {
                 .replaceAll("\"", File.separator)
                 .replaceAll("%20", " "));
         File directory = new File("data" +File.separator+ "image" +File.separator+ directoryName);
-
+        System.out.println(from);
         String name = directory.list().length + "";
 
         Path to = Paths.get((""+directory.toURI())
-                .replaceAll("file:/", "") +File.separator+ name + ".jpg");
+                .replaceAll("file:/", "")
+                .replaceAll("\"", File.separator)
+                .replaceAll("%20", " ")+File.separator+ name + ".jpg");
 
         CopyOption[] options = new CopyOption[]{
                 StandardCopyOption.REPLACE_EXISTING,
@@ -60,7 +62,7 @@ public final class Util {
         try {
             Files.copy(from.toFile().toPath(), to.toFile().toPath(),options);
         } catch (IOException e) {
-            System.out.println(e);
+            System.err.println(e);
             System.out.println("Error saving image");
         }
         return name+".jpg";

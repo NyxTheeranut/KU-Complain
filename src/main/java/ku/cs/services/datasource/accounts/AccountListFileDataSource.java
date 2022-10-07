@@ -4,6 +4,8 @@ import ku.cs.models.accounts.*;
 import ku.cs.services.datasource.DataSource;
 
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class AccountListFileDataSource implements DataSource<AccountList> {
@@ -21,18 +23,22 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             buffer = new BufferedReader(reader);
             String line = "";
             while((line = buffer.readLine()) != null){
+                //role,id,username,password,name,surname,default.png,isBan,lastLogin
                 String[] data = line.split(",");
                 Boolean isBanned;
                 if (data[7].equals("0")) isBanned = false;
                 else isBanned = true;
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MMM-dd");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                LocalDateTime lastLogin = LocalDateTime.parse(data[8], formatter);
                 if (data[0].equals("admin")){
-                    account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned);
+                    account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, lastLogin);
                 }
                 else if (data[0].equals("mod")){
-                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned);
+                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, lastLogin, data[9]);
                 }
                 else if (data[0].equals("user")){
-                    account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned);
+                    account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, lastLogin);
                 }
                 accountList.addAccount(account); //add account to account list
             }
@@ -62,6 +68,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                 String isBanned;
                 if (account.getIsBanned())  isBanned = "1";
                 else isBanned = "0";
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 //role,name,password,imagepath
                 String line = account.getRole() + ","
                         + account.getId().toString() + ","
@@ -70,7 +77,10 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                         + account.getName() + ","
                         + account.getSurname() + ","
                         + account.getImagePath() + ","
-                        + isBanned;
+                        + isBanned + ","
+                        + account.getLastLogin().format(formatter)
+                        ;
+                if(account.getRole()=="mod") line += ","+((Moderator)account).getAffiliation();
                 buffer.append(line);
                 buffer.newLine();
             }

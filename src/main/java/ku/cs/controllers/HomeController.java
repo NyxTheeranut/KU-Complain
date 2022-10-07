@@ -49,8 +49,8 @@ public class HomeController {
         account = ((ObjectStorage) FXRouter.getData()).getAccount();
 
         if (account.getRole().equals("user")) loadUserButton();
-        //else if (account.getRole().equals("mod")) loadModButton();
-        //else if (account.getRole().equals("admin")) loadAdminButton();
+        else if (account.getRole().equals("mod")) loadModButton();
+        else if (account.getRole().equals("admin")) loadAdminButton();
     }
 
     public void loadUserButton(){
@@ -71,6 +71,44 @@ public class HomeController {
             //button.setOnMouseClicked(event -> handleOnMouseClickedButton(box,button,data[2]));
             //button.setOnMouseEntered(event -> handleOnMouseEnterButton(button));
             //button.setOnMouseExited(event -> handleOnMouseExitButton(button));
+            box.getChildren().add(button);
+        }
+    }
+
+    public void loadAdminButton(){
+        VBox box = (VBox) menu.getChildren().get(0);
+        box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+
+        String buttonDataList[] = {
+                "รายชื่อบัญชี,\uF0AD,account_list.fxml",
+                "รายงานจากผู้ใช้,\uF0AD,report_list.fxml",
+                "เพิ่มเจ้าหน้าที่,\uF0AD,create_moderator.fxml",
+                "จัดการหน่วยงาน,\uF0AD,unit_manage.fxml",
+                "จัดการหมวดหมู่,\uF0AD,add_category.fxml",
+                "วิธีใช้งาน,\uF0AD,tutorial.fxml",
+                "เกี่ยวกับ,\uF0AD,about.fxml"
+        };
+
+        for(String buttonData:buttonDataList){
+            String[] data = buttonData.split(",");
+            HBox button = newButton(data[0],data[1],data[2]);
+            box.getChildren().add(button);
+        }
+    }
+
+    public void loadModButton(){
+        VBox box = (VBox) menu.getChildren().get(0);
+        box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+
+        String buttonDataList[] = {
+                "รายการร้องเรียน,\uF0AD,manage_complaint.fxml",
+                "วิธีใช้งาน,\uF0AD,tutorial.fxml",
+                "เกี่ยวกับ,\uF0AD,about.fxml"
+        };
+
+        for(String buttonData:buttonDataList){
+            String[] data = buttonData.split(",");
+            HBox button = newButton(data[0],data[1],data[2]);
             box.getChildren().add(button);
         }
     }

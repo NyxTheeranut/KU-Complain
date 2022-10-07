@@ -28,9 +28,9 @@
       </HBox>
       <ScrollPane maxWidth="-Infinity" prefHeight="200.0" prefWidth="1000.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="100.0">
          <content>
-            <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="1000.0">
+            <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="980.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="1000.0">
+                  <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="980.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="900.0" spacing="5.0">
                            <children>
@@ -86,11 +86,11 @@
                         </Button>
                      </children>
                   </HBox>
-                  <FlowPane fx:id="complaintArea" maxWidth="-Infinity" prefHeight="0.0" prefWidth="1000.0">
+                  <FlowPane fx:id="complaintArea" alignment="CENTER" maxWidth="-Infinity" prefHeight="0.0" prefWidth="980.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1000.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="980.0">
                            <children>
-                              <VBox prefHeight="100.0" prefWidth="1000.0">
+                              <VBox prefHeight="100.0" prefWidth="980.0">
                                  <children>
                                     <Label alignment="TOP_LEFT" prefHeight="70.0" text="Test Topic">
                                        <font>
@@ -140,7 +140,7 @@
             </VBox>
          </content>
          <padding>
-            <Insets left="5.0" />
+            <Insets left="15.0" />
          </padding>
       </ScrollPane>
    </children>

@@ -4,6 +4,7 @@ import javafx.scene.layout.StackPane;
 import ku.cs.controllers.HomeController;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.complaints.Complaint;
+import ku.cs.models.units.Unit;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ public class ObjectStorage {
     private Account account;
     private Complaint complaint;
     private HomeController homeController;
+    private Unit unit;
 
     /**
      *
@@ -57,5 +59,13 @@ public class ObjectStorage {
     }
     public void setHomeController(HomeController homeController) {
         this.homeController = homeController;
+    }
+
+    public Unit getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Unit unit) {
+        this.unit = unit;
     }
 }
