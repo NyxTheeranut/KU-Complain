@@ -63,7 +63,7 @@
       </Label>
       <TextField fx:id="nameTextField" layoutX="611.0" layoutY="287.0" promptText="new name" />
       <TextField fx:id="surnameTextField" layoutX="611.0" layoutY="324.0" promptText="new surname" />
-      <Button layoutX="809.0" layoutY="287.0" mnemonicParsing="false" text="submit" />
+      <Button layoutX="809.0" layoutY="287.0" mnemonicParsing="false" onAction="#handleName" text="submit" />
       <Label fx:id="surnameLabel" layoutX="705.0" layoutY="248.0" text="นามสกุล">
          <font>
             <Font size="18.0" />
