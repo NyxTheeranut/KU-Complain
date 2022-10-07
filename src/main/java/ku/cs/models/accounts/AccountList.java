@@ -46,6 +46,27 @@ public class AccountList {
         }
 
     }
+
+    public void changeName(Account account, String name){
+        for(Account i : accounts){
+            if (i.getName().equals(account.getName())){
+                i.setName(name);
+                return;
+            }
+
+        }
+
+    }
+    public void changeSurname(Account account, String surname){
+        for(Account i : accounts){
+            if (i.getName().equals(account.getName())){
+                i.setSurname(surname);
+                return;
+            }
+
+        }
+
+    }
     public void changePicture(Account account, String picture){
         for(Account i : accounts){
             if (i.getName().equals(account.getName())){

@@ -11,8 +11,8 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.EditProfileController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="267.0" layoutX="582.0" layoutY="185.0" stroke="TRANSPARENT" strokeType="INSIDE" width="339.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="237.0" layoutX="599.0" layoutY="200.0" stroke="TRANSPARENT" strokeType="INSIDE" width="307.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="373.0" layoutX="582.0" layoutY="185.0" stroke="TRANSPARENT" strokeType="INSIDE" width="339.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="342.0" layoutX="599.0" layoutY="200.0" stroke="TRANSPARENT" strokeType="INSIDE" width="307.0" />
       <Circle fill="#429772" layoutX="782.0" layoutY="92.0" radius="52.0" stroke="TRANSPARENT" strokeType="INSIDE" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="104.0" layoutX="399.0" layoutY="40.0" stroke="TRANSPARENT" strokeType="INSIDE" width="383.0" />
       <Circle fill="WHITE" layoutX="782.0" layoutY="92.0" radius="38.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -26,34 +26,49 @@
             <Font size="72.0" />
          </font>
       </Label>
-      <Label layoutX="612.0" layoutY="213.0" prefHeight="27.0" prefWidth="103.0" text="Username">
+      <Label layoutX="612.0" layoutY="213.0" prefHeight="27.0" prefWidth="103.0" text="Name">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField fx:id="rePasswordTextField" layoutX="612.0" layoutY="348.0" />
-      <Label layoutX="612.0" layoutY="312.0" prefHeight="27.0" prefWidth="139.0" text="New Password">
+      <TextField fx:id="rePasswordTextField" layoutX="612.0" layoutY="459.0" promptText="new password" />
+      <Label layoutX="612.0" layoutY="389.0" prefHeight="27.0" prefWidth="139.0" text="New Password">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button layoutX="328.0" layoutY="413.0" mnemonicParsing="false" onAction="#handleProfilePicture" text="แก้ไขรูป" />
-      <Button fx:id="renameButton" layoutX="612.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleRePassword" text="submit" />
+      <Button fx:id="renameButton" layoutX="612.0" layoutY="496.0" mnemonicParsing="false" onAction="#handleRePassword" text="submit" />
       <Label fx:id="wrongRename" layoutX="612.0" layoutY="375.0" prefHeight="17.0" prefWidth="149.0" />
       <Button fx:id="back" layoutX="1080.0" layoutY="643.0" mnemonicParsing="false" onAction="#handleBackButton" text="Button" />
-      <Label fx:id="usernameLabel" layoutX="730.0" layoutY="213.0" prefHeight="27.0" prefWidth="131.0" text="UsernameLabel">
+      <Label fx:id="nameLabel" layoutX="704.0" layoutY="213.0" prefHeight="27.0" prefWidth="131.0" text="ชื่อจริง">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="612.0" layoutY="256.0" text="Password">
+      <Label layoutX="610.0" layoutY="358.0" text="Password">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="passwordLabel" layoutX="730.0" layoutY="256.0" text="PasswordLabel">
+      <Label fx:id="passwordLabel" layoutX="711.0" layoutY="358.0" text="PasswordLabel">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <TextField fx:id="oldPasswordTextField" layoutX="612.0" layoutY="426.0" promptText="old password" />
+      <Label layoutX="612.0" layoutY="248.0" text="Surname">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" layoutX="611.0" layoutY="287.0" promptText="new name" />
+      <TextField fx:id="surnameTextField" layoutX="611.0" layoutY="324.0" promptText="new surname" />
+      <Button layoutX="809.0" layoutY="287.0" mnemonicParsing="false" text="submit" />
+      <Label fx:id="surnameLabel" layoutX="705.0" layoutY="248.0" text="นามสกุล">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="809.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleSurname" text="submit" />
    </children>
 </AnchorPane>
