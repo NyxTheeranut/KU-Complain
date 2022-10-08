@@ -1,7 +1,9 @@
 package ku.cs.models.units;
 
 import ku.cs.models.accounts.Account;
+import ku.cs.models.accounts.AccountList;
 import ku.cs.models.accounts.Moderator;
+import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 
 import java.util.ArrayList;
 
@@ -23,7 +25,13 @@ public class Unit {
     }
 
     public void setUnitName(String unitName) {
+        AccountListFileDataSource dataSource = new AccountListFileDataSource();
+        AccountList accountList = dataSource.readData();
+        accountList.changeUnit(this.unitName, unitName);
+        dataSource.writeData(accountList);
+
         this.unitName = unitName;
+        for(Moderator m: moderatorList) m.setAffiliation(unitName);
     }
 
     public ArrayList<Moderator> getModeratorList() {

@@ -55,14 +55,9 @@ public class UnitManageController {
     public void handleSelectedListView() {
 
         unitListView.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Unit>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Unit>
-                                                observable,
-                                       Unit oldValue, Unit newValue) {
-                        System.out.println(newValue.getUnitName() + " is selected");
-                        showSelectedUnit(newValue);
-                    }
+                (ChangeListener<Unit>) (observable, oldValue, newValue) -> {
+                    System.out.println(newValue.getUnitName() + " is selected");
+                    showSelectedUnit(newValue);
                 });
     }
 

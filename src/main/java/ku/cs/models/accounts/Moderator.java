@@ -10,6 +10,11 @@ public class Moderator extends Account {
     }
 
     public String getAffiliation(){ return affiliation; }
+
+    public void setAffiliation(String affiliation) {
+        this.affiliation = affiliation;
+    }
+
     public String toString() { return this.getName()+" "+this.getSurname()+" ("+affiliation+")"; }
 
 }
