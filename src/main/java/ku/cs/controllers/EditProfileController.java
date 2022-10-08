@@ -87,6 +87,8 @@ public class EditProfileController extends AccountList {
             //account.setPassword(newPassword);
             ((ObjectStorage) FXRouter.getData()).getAccount().setPassword(newPassword);
             passwordLabel.setText(newPassword);
+            rePasswordTextField.setText("");
+            oldPasswordTextField.setText("");
             rePasswordTextField.setPromptText("new password");
             oldPasswordTextField.setPromptText("old password");
         }
@@ -108,7 +110,8 @@ public class EditProfileController extends AccountList {
             //account.setName(name);
             ((ObjectStorage) FXRouter.getData()).getAccount().setName(name);
             nameLabel.setText(name);
-            nameTextField.setPromptText("name");
+            nameTextField.setText("");
+            nameTextField.setPromptText("please input name");
         }
     }
 
@@ -126,7 +129,8 @@ public class EditProfileController extends AccountList {
             //((ObjectStorage) FXRouter.getData()).setAccount(account);
             //account.setSurname(surname);
             surnameLabel.setText(surname);
-            surnameTextField.setPromptText("name");
+            surnameLabel.setText("");
+            surnameTextField.setPromptText("please input surname");
         }
     }
     @FXML
