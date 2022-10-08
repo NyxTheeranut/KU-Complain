@@ -33,6 +33,7 @@ public class UnitManageController {
     @FXML private StackPane stackPane;
     @FXML private Label unitLabel;
     @FXML private ListView modListView;
+    @FXML private ListView categoryListView;
     private Unit selectedUnit;
     private DataSource<UnitList> dataSource;
     private UnitList unitList;
@@ -64,8 +65,10 @@ public class UnitManageController {
     public void showSelectedUnit(Unit unit){
         selectedUnit = unit;
         modListView.getItems().clear();
+        categoryListView.getItems().clear();
         unitLabel.setText(unit.getUnitName());
         modListView.getItems().addAll(unit.getModeratorList());
+        categoryListView.getItems().addAll(unit.getCategoryList());
     }
 
     public void handleCreateUnitButton() throws IOException {
@@ -77,7 +80,6 @@ public class UnitManageController {
         stage.setScene(scene);
         stage.showAndWait();
         updateUnitList();
-
     }
 
     public void handleRenameUnitButton() throws IOException {

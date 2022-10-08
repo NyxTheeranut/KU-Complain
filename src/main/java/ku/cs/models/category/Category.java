@@ -25,4 +25,6 @@ public class Category {
     public ArrayList<Pair<String, String>> getFields() {
         return fields;
     }
+
+    public String toString() { return name; }
 }
