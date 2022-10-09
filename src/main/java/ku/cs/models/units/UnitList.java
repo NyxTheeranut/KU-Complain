@@ -4,9 +4,7 @@ import ku.cs.models.accounts.Moderator;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.AccountIdFilter;
 import ku.cs.util.Data;
-import ku.cs.util.Util;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.UUID;
 

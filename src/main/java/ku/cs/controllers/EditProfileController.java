@@ -9,22 +9,15 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
-import ku.cs.models.accounts.User;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.AccountUsernameFilter;
 import ku.cs.util.Data;
 import ku.cs.util.ObjectStorage;
-import ku.cs.util.Util;
 
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.regex.Pattern;
 
 
 public class EditProfileController extends AccountList {

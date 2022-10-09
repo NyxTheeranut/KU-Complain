@@ -1,7 +1,6 @@
 package ku.cs.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,7 +11,6 @@ import ku.cs.services.filter.UnitNameFilter;
 import ku.cs.services.units.UnitListFileDataSource;
 import ku.cs.util.Data;
 import ku.cs.util.ObjectStorage;
-import ku.cs.util.Util;
 
 import com.github.saacsos.FXRouter;
 public class RenameUnitController {

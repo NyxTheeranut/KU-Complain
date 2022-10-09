@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -11,7 +12,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AccountListController">
    <children>
@@ -35,17 +35,18 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="900.0" spacing="5.0">
                            <children>
-                              <TextField fx:id="searchTextField" prefHeight="30.0" prefWidth="200.0" promptText="ค้นหา">
+                              <TextField fx:id="searchTextField" prefHeight="30.0" prefWidth="200.0" promptText="username">
                                  <font>
                                     <Font name="THSarabunPSK" size="15.0" />
                                  </font>
                               </TextField>
+                              <ComboBox fx:id="roleComboBox" prefHeight="30.0" promptText="Role" />
                               <Button mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="30.0" text="Search">
                                  <font>
                                     <Font name="THSarabunPSK" size="15.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" text="">
+                              <Button fx:id="reverseButton" mnemonicParsing="false" onAction="#handleReverseButton" prefHeight="30.0" prefWidth="30.0" text="">
                                  <font>
                                     <Font name="FontAwesome" size="15.0" />
                                  </font>

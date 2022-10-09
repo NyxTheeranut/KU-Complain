@@ -46,8 +46,12 @@ public class ComplaintListPageController {
     private TextField fromVoteTextField;
     @FXML
     private TextField toVoteTextField;
+    @FXML
+    private Button reverseButton;
+
     private DataSource<ComplaintList> dataSource;
     private ArrayList<Complaint> complaints;
+    private ArrayList<Complaint> filteredComplaintList;
 
     //constant
     private final Font topicFont = FontLoader.font("ths", 30);
@@ -59,10 +63,13 @@ public class ComplaintListPageController {
         //get complaint list from dataSource
         dataSource = new ComplaintListFileDataSource();
         complaints = dataSource.readData().getAllComplaints();
+        filteredComplaintList = complaints;
 
         setupComplaintArea(complaints);
         setupCategoryComboBox();
         setupSortComboBox();
+
+        reverseButton.setFont(FontLoader.font("fa_wf", 15));
     }
 
     private void setupComplaintArea(ArrayList<Complaint> complaints){
@@ -218,8 +225,6 @@ public class ComplaintListPageController {
         }
         String voteRange = fromVoteTextField.getText() + "," + toVoteTextField.getText();
 
-        ArrayList<Complaint> filteredComplaintList;
-
         filteredComplaintList = Data.filter(topic, complaints, new ComplaintTopicFilter());
         if (category != null)
             filteredComplaintList = Data.filter(category.getName(), filteredComplaintList, new ComplaintCategoryFilter());
@@ -235,5 +240,11 @@ public class ComplaintListPageController {
     }
     public void handleResetButton() {
         ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("complaint_list.fxml");
+    }
+    public void handleReverseButton() {
+        if ((reverseButton.getText().equals("\uF0D8"))) reverseButton.setText("\uF0D7");
+        else reverseButton.setText("\uF0D8");
+        Collections.reverse(filteredComplaintList);
+        setupComplaintArea(filteredComplaintList);
     }
 }

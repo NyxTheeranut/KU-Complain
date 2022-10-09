@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -23,7 +22,6 @@ import java.io.IOException;
 import ku.cs.models.accounts.Account;
 
 import ku.cs.util.ObjectStorage;
-import ku.cs.util.Util;
 
 import static ku.cs.util.FontLoader.font;
 

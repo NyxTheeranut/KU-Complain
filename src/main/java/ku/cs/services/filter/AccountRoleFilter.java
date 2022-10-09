@@ -2,16 +2,18 @@ package ku.cs.services.filter;
 
 import ku.cs.models.accounts.Account;
 
-public class AccountUsernameFilter implements Filterer<Account> {
+import java.util.UUID;
 
+public class AccountRoleFilter implements Filterer<Account>{
     @Override
     public boolean found(Account obj, String filter) {
-        if (obj.getUsername().contains(filter)) return true;
+        if (filter.equals("")) return false;
+        if (obj.getRole().equals(filter)) return true;
         return false;
     }
 
     @Override
     public String getName() {
-        return "username";
+        return "role";
     }
 }

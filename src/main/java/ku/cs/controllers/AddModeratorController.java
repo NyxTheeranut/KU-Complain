@@ -15,13 +15,16 @@ import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.AccountUsernameFilter;
 import ku.cs.services.units.UnitListFileDataSource;
 import ku.cs.util.Data;
-import ku.cs.util.Util;
+import ku.cs.util.ImageManager;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class CreateModeratorController {
+public class AddModeratorController {
     @FXML private TextField userField;
     @FXML private TextField passwordField;
     @FXML private TextField passwordConfirmField;
@@ -34,6 +37,18 @@ public class CreateModeratorController {
     private DataSource<UnitList> dataSource;
     private UnitList unitList;
     public void initialize(){
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream("data" +
+                    File.separator+ "image" +
+                    File.separator+ "account" +
+                    File.separator+ "default.png");
+        } catch (FileNotFoundException e) {
+            System.err.println("Cannot open image");
+            System.err.println(e);
+        }
+        Image image = new Image(fileInputStream);
+        imageView.setImage(image);
         setUnitListField();
     }
 
@@ -44,11 +59,11 @@ public class CreateModeratorController {
     }
 
     public void handleSelectPictureButton() throws IOException {
-        Image image = Util.selectImage();
+        Image image = ImageManager.selectImage();
         imageView.setImage(image);
     }
 
-    public void handleCreateModeratorButton(){
+    public void handleAddModeratorButton(){
         AccountListFileDataSource accountListFileDataSource = new AccountListFileDataSource();
         AccountList accountList = accountListFileDataSource.readData();
 
@@ -69,7 +84,7 @@ public class CreateModeratorController {
             return;
         }
         Moderator mod = new Moderator(UUID.randomUUID() ,userField.getText(),passwordField.getText(),nameField.getText(),surnameField.getText()
-                                    ,Util.saveImage(imageView.getImage(),"account"),false,LocalDateTime.now(),unitListField.getValue().getUnitName());
+                                    , ImageManager.saveImage(imageView.getImage(),"account"),false,LocalDateTime.now(),unitListField.getValue().getUnitName());
         accountList.addAccount(mod);
         accountListFileDataSource.writeData(accountList);
 

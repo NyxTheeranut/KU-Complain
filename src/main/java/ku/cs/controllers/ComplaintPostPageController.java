@@ -3,7 +3,6 @@ package ku.cs.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -20,7 +19,7 @@ import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
 import ku.cs.util.ObjectStorage;
-import ku.cs.util.Util;
+import ku.cs.util.ImageManager;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
 import ku.cs.services.datasource.DataSource;
@@ -58,7 +57,7 @@ public class ComplaintPostPageController {
             else if (categoryComboBox.getValue().getFields().get(i).getKey().equals("pic")) { //pic
                 Image image = ((ImageView)((VBox) hBox.getChildren().get(2)).getChildren().get(1)).getImage();
                 if (image == null) System.out.printf("X");
-                fields.add(Util.saveImage(image, "complaint"));
+                fields.add(ImageManager.saveImage(image, "complaint"));
             }
             else if (categoryComboBox.getValue().getFields().get(i).getKey().equals("detail")) {
                 fields.add(( (TextArea) hBox.getChildren().get(1)).getText());
@@ -112,7 +111,7 @@ public class ComplaintPostPageController {
 
                 button.setOnAction(event -> { //set on action method for button
                     try {
-                        Image image = Util.selectImage();
+                        Image image = ImageManager.selectImage();
                         imagePathLabel.setText(image.getUrl());
 
                         double imageWidth = 200;

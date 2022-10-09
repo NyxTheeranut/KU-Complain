@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AddModeratorController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="100.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label text="username">
+                           <font>
+                              <Font name="THSarabunPSK" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="userField">
+                           <font>
+                              <Font name="THSarabunPSK" size="20.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label text="password" />
+                        <PasswordField fx:id="passwordField">
+                           <font>
+                              <Font name="THSarabunPSK" size="20.0" />
+                           </font>
+                        </PasswordField>
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <Label text="confirm password">
+                           <font>
+                              <Font name="THSarabunPSK" size="20.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="passwordConfirmField">
+                           <font>
+                              <Font name="THSarabunPSK" size="20.0" />
+                           </font>
+                        </PasswordField>
+                     </children>
+                  </VBox>
+                  <HBox spacing="1.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="ชื่อ">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nameField">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Label text="นามสกุล">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="surnameField">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox alignment="TOP_CENTER">
+                     <children>
+                        <Label text="หน่วยงาน" />
+                        <ComboBox fx:id="unitListField" prefWidth="150.0" />
+                        <Label fx:id="errorLabel" text="Label">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <Button layoutX="317.0" layoutY="414.0" mnemonicParsing="false" onAction="#handleSelectPictureButton" text="เลือกรูป">
+               <font>
+                  <Font name="THSarabunPSK" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="620.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="90.0" text="สร้างบัญชีสำหรับเจ้าหน้าที่">
+               <font>
+                  <Font name="THSarabunPSK-Bold" size="70.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" prefHeight="60.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="660.0">
+         <children>
+            <Button maxHeight="-Infinity" mnemonicParsing="false" onAction="#handleAddModeratorButton" prefHeight="45.0" text="สร้างบัญชี">
+               <font>
+                  <Font name="THSarabunPSK" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

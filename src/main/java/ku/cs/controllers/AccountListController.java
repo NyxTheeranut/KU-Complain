@@ -1,8 +1,12 @@
 package ku.cs.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -12,21 +16,35 @@ import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
+import ku.cs.services.filter.*;
+import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
+import ku.cs.util.ObjectStorage;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class AccountListController {
     @FXML
     private FlowPane accountArea;
+    @FXML
+    private TextField searchTextField;
+    @FXML
+    private ComboBox<String> roleComboBox;
+    @FXML
+    private Button reverseButton;
+
     private ArrayList<Account> accounts;
+    private ArrayList<Account> filteredAccountList;
     public void initialize() {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         accounts = dataSource.readData().getAllAccount();
+        filteredAccountList = accounts;
 
         setupAccountArea(accounts);
+        setupRoleComboBox();
 
     }
 
@@ -129,10 +147,34 @@ public class AccountListController {
 
         }
     }
-
+    private void setupRoleComboBox() {
+        roleComboBox.setItems(FXCollections.observableArrayList(
+                "user",
+                "moderator",
+                "admin"
+        ));
+    }
     public void handleSearchButton(){
+        filterAccount();
+    }
+    public void handleReverseButton(){
+        if ((reverseButton.getText().equals("\uF0D8"))) reverseButton.setText("\uF0D7");
+        else reverseButton.setText("\uF0D8");
+        Collections.reverse(filteredAccountList);
+        setupAccountArea(filteredAccountList);
+    }
+    private void filterAccount() {
+        String username = searchTextField.getText();
+        String role = roleComboBox.getValue();
 
+        filteredAccountList = Data.filter(username, accounts, new AccountUsernameFilter());
+        if (role != null)
+            filteredAccountList = Data.filter(role, filteredAccountList, new AccountRoleFilter());
+
+        setupAccountArea(filteredAccountList);
     }
 
-    public void handleResetButton(){}
+    public void handleResetButton(){
+        ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getHomeController().loadPage("account_list.fxml");
+    }
 }

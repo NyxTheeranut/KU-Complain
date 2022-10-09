@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
@@ -18,13 +17,10 @@ import ku.cs.models.units.UnitList;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.units.UnitListFileDataSource;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 import com.github.saacsos.FXRouter;
 import ku.cs.util.ObjectStorage;
-import ku.cs.util.Util;
 
 public class UnitManageController {
     @FXML

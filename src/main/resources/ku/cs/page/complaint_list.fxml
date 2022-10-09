@@ -77,6 +77,14 @@
                                     <Font name="THSarabunPSK" size="15.0" />
                                  </font>
                               </Button>
+                              <Button fx:id="reverseButton" mnemonicParsing="false" onAction="#handleReverseButton" prefHeight="30.0" prefWidth="30.0" text="">
+                                 <font>
+                                    <Font name="FontAwesome" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
                            </children>
                         </HBox>
                         <Button mnemonicParsing="false" onAction="#handleResetButton" text="Reset">

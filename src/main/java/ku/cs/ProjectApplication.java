@@ -1,15 +1,12 @@
 package ku.cs;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.UUID;
 
 import com.github.saacsos.FXRouter;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
-import ku.cs.util.Util;
 
 public class ProjectApplication extends Application {
     @Override

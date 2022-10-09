@@ -80,13 +80,13 @@ public class HomeController {
         box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
 
         String buttonDataList[] = {
-                "รายชื่อบัญชี,\uF0AD,account_list.fxml",
-                "รายงานจากผู้ใช้,\uF0AD,report_list.fxml",
-                "เพิ่มเจ้าหน้าที่,\uF0AD,create_moderator.fxml",
-                "จัดการหน่วยงาน,\uF0AD,unit_manage.fxml",
-                "จัดการหมวดหมู่,\uF0AD,add_category.fxml",
+                "รายชื่อบัญชี,\uF00B,account_list.fxml",
+                "รายงานจากผู้ใช้,\uF02F,report_list.fxml",
+                "เพิ่มเจ้าหน้าที่,\uF007,add_moderator.fxml",
+                "จัดการหน่วยงาน,\uF044,unit_manage.fxml",
+                "จัดการหมวดหมู่,\uF040,add_category.fxml",
                 "วิธีใช้งาน,\uF0AD,tutorial.fxml",
-                "เกี่ยวกับ,\uF0AD,about.fxml"
+                "เกี่ยวกับ,\uF0C0,about.fxml"
         };
 
         for(String buttonData:buttonDataList){
