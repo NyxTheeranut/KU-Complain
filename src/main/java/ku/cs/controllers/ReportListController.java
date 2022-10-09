@@ -48,6 +48,9 @@ public class ReportListController {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
 
+        DataSource<ReportList> dataSource1 = new ReportListFileDataSource();
+        ReportList reportList = dataSource1.readData();
+
         for(Report i : reports){
 
             HBox hBox = new HBox();
@@ -131,6 +134,12 @@ public class ReportListController {
                     ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getComplaint().getAuthor().setBanned(true);
 
                 }
+            });
+
+            dismissButton.setOnAction(actionEvent -> {
+                    reports.remove(i);
+                    dataSource1.writeData(reportList);
+
             });
         }
 
