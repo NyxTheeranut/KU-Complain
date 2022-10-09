@@ -38,8 +38,8 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
                 String[] data = line.split(",");
                 //System.out.println(data.length);
                 Unit unit = new Unit(data[0]);
-                if(data.length > 1) for(String moderatorID: data[1].split(":")) unit.addModerator((Moderator) Util.search(moderatorID,accountList.getAllAccount(),new AccountIdFilter()));
-                if(data.length > 2) for(String categoryName : data[2].split(":")) unit.addCategory((Category) Util.search(categoryName,categoryList.getAllCategory(),new CategoryNameFilter()));
+                if(data.length > 1 && !data[1].equals("")) for(String moderatorID: data[1].split(":")) unit.addModerator((Moderator) Util.search(moderatorID,accountList.getAllAccount(),new AccountIdFilter()));
+                if(data.length > 2 && !data[2].equals("")) for(String categoryName : data[2].split(":")) unit.addCategory((Category) Util.search(categoryName,categoryList.getAllCategory(),new CategoryNameFilter()));
                 unitList.addUnit(unit);
             }
         }catch (FileNotFoundException e){
@@ -68,15 +68,18 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
             for(Unit unit:unitList.getAllUnits()) {
                 String line = unit.getUnitName();
                 line += ",";
+                //System.out.println(1);
                 for(int i=0; i < unit.getModeratorList().size(); i++ ) {
                     if(i>0) line += ":";
                     line += unit.getModeratorList().get(i).getId();
                 }
+                //System.out.println(2);
                 line += ",";
                 for(int i=0; i < unit.getCategoryList().size(); i++ ) {
                     if(i>0) line += ":";
                     line += unit.getCategoryList().get(i).getName();
                 }
+                System.out.println(3);
                 buffer.append(line);
                 buffer.newLine();
             }
