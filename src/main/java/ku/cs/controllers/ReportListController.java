@@ -1,5 +1,7 @@
 package ku.cs.controllers;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -8,17 +10,21 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import ku.cs.models.accounts.Account;
+import ku.cs.models.accounts.AccountList;
 import ku.cs.models.reports.Report;
 import ku.cs.models.reports.ReportList;
 import ku.cs.services.datasource.DataSource;
+import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.reports.ReportListFileDataSource;
 import ku.cs.util.FontLoader;
+import ku.cs.util.ObjectStorage;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import java.beans.EventHandler;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReportListController {
     @FXML
@@ -38,6 +44,9 @@ public class ReportListController {
 
     private void setupReportListArea(ArrayList<Report> reports){
         reportListArea.getChildren().clear();
+
+        DataSource<AccountList> dataSource = new AccountListFileDataSource();
+        AccountList accountList = dataSource.readData();
 
         for(Report i : reports){
 
@@ -114,8 +123,15 @@ public class ReportListController {
 
             reportListArea.getChildren().add(hBox);
 
-            banButton.setOnAction();
+            banButton.setOnAction(actionEvent -> {
+                if(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getComplaint().getAuthor().getId().equals(i.getId())){
+                    accountList.getBaned(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getComplaint().getAuthor(), true);
+                    dataSource.writeData(accountList);
 
+                    ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getComplaint().getAuthor().setBanned(true);
+
+                }
+            });
         }
 
     }

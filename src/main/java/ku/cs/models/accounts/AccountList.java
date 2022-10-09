@@ -16,7 +16,7 @@ public class AccountList {
         accounts = new ArrayList<>();
     }
 
-    public void addAccount(Account account){
+    public void addAccount(Account account) {
         accounts.add(account);
     }
 
@@ -42,10 +42,10 @@ public class AccountList {
         }
         return false;
     }
-    
-    public void changePassword(Account account, String password){
-        for(Account i : accounts){
-            if (i.getName().equals(account.getName())){
+
+    public void changePassword(Account account, String password) {
+        for (Account i : accounts) {
+            if (i.getName().equals(account.getName())) {
                 i.setPassword(password);
                 return;
             }
@@ -53,13 +53,23 @@ public class AccountList {
         }
 
     }
-    public void changePicture(Account account, String picture){
-        for(Account i : accounts){
-            if (i.getName().equals(account.getName())){
+
+    public void changePicture(Account account, String picture) {
+        for (Account i : accounts) {
+            if (i.getName().equals(account.getName())) {
                 i.setImagePath(picture);
                 return;
             }
 
         }
+    }
 
-}}
+    public void getBaned(Account account, Boolean ban){
+        for (Account i : accounts) {
+            if (i.getName().equals(account.getName())) {
+                i.setBanned(ban);
+                return;
+            }
+        }
+    }
+}
