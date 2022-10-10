@@ -34,6 +34,7 @@ import com.github.saacsos.FXRouter;
 public class HomeController {
     @FXML private AnchorPane home;
     @FXML private AnchorPane menu;
+    @FXML private VBox buttonVBox;
     @FXML private StackPane content;
     private final String packageStrPage = "/ku/cs/page/";
     private final int menuCloseWidth = -230;
@@ -60,7 +61,6 @@ public class HomeController {
     }
 
     public void loadUserButton(){
-        VBox box = (VBox) menu.getChildren().get(0);
 
         String buttonDataList[] = {
                 "รายการร้องเรียน,\uF00B,complaint_list.fxml",
@@ -69,7 +69,7 @@ public class HomeController {
                 "เกี่ยวกับ,\uF0C0,about.fxml"
         };
 
-        box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+        buttonVBox.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
 
         for(String buttonData:buttonDataList){
             String[] data = buttonData.split(",");
@@ -77,7 +77,7 @@ public class HomeController {
             //button.setOnMouseClicked(event -> handleOnMouseClickedButton(box,button,data[2]));
             //button.setOnMouseEntered(event -> handleOnMouseEnterButton(button));
             //button.setOnMouseExited(event -> handleOnMouseExitButton(button));
-            box.getChildren().add(button);
+            buttonVBox.getChildren().add(button);
         }
     }
 
@@ -193,7 +193,7 @@ public class HomeController {
     @FXML
     public void handleOnMouseClickedButton(VBox menu,HBox button,String pagePath){
         button.setStyle("-fx-background-color: #03a96b");
-        for(Node b:menu.getChildren()) {
+        for(Node b:buttonVBox.getChildren()) {
             if (button == b) continue;
             HBox hBox = (HBox)b;
             b.setStyle("-fx-background-color: #2f3337");

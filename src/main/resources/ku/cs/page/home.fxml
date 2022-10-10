@@ -11,14 +11,12 @@
       <StackPane fx:id="content" layoutX="81.0" layoutY="-2.0" prefHeight="720.0" prefWidth="1180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane fx:id="menu" layoutX="33.0" layoutY="33.0" onMouseEntered="#handleOnMouseEnterMenu" onMouseExited="#handleOnMouseExitMenu" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #2f3337;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="980.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="720.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="buttonVBox" alignment="TOP_CENTER" prefHeight="720.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-               <children>
-                  <Button mnemonicParsing="false" onAction="#test" text="Click here to change theme" />
-               </children>
             </VBox>
+            <Button mnemonicParsing="false" onAction="#test" text="Click here to change theme" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="menu1" layoutX="43.0" layoutY="43.0" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #2f3337;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
