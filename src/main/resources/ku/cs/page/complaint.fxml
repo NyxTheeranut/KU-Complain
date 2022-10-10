@@ -23,26 +23,6 @@
             <ImageView fitHeight="475.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
-      <HBox alignment="CENTER_LEFT" opacity="0.0" prefHeight="30.0" prefWidth="1000.0">
-         <children>
-            <Label text="Test field name : ">
-               <font>
-                  <Font name="THSarabunPSK" size="20.0" />
-               </font>
-            </Label>
-            <Label text="Test field detail">
-               <font>
-                  <Font name="THSarabunPSK" size="20.0" />
-               </font>
-            </Label>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-      </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1180.0">
          <children>
             <VBox prefHeight="100.0" prefWidth="960.0">
@@ -99,7 +79,67 @@
             <Insets left="25.0" />
          </padding>
          <content>
-            <FlowPane fx:id="fieldArea" maxWidth="-Infinity" prefWidth="950.0" />
+            <FlowPane fx:id="fieldArea" maxWidth="-Infinity" prefWidth="950.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1000.0">
+                     <children>
+                        <Label text="Test field name : ">
+                           <font>
+                              <Font name="THSarabunPSK" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label text="Test field detail">
+                           <font>
+                              <Font name="THSarabunPSK" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+                  <VBox prefHeight="0.0" prefWidth="940.0">
+                     <children>
+                        <HBox prefHeight="0.0" prefWidth="940.0">
+                           <children>
+                              <Label text="ผู้จัดการ : ">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label text="โอซวย">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <children>
+                              <Label text="รายละเอียดการแก้ไข : ">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefWidth="800.0">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children></FlowPane>
          </content>
       </ScrollPane>
    </children>

@@ -2,6 +2,7 @@ package ku.cs.models.complaints;
 
 import javafx.util.Pair;
 import ku.cs.models.accounts.Account;
+import ku.cs.models.accounts.Moderator;
 import ku.cs.models.category.Category;
 
 import java.time.LocalDateTime;
@@ -16,12 +17,12 @@ public class Complaint {
     private ArrayList<String> fields;
     private LocalDateTime datePosted;
     private Status status;
-    private Account moderator;
+    private Moderator moderator;
     private String solvingDetail;
     private ArrayList<UUID> votes;
 
     public Complaint(UUID id, Account author, String topic, Category category, LocalDateTime datePosted, Status status,
-                     Account moderator, String solvingDetail, ArrayList<String> fields, ArrayList<UUID> votes) {
+                     Moderator moderator, String solvingDetail, ArrayList<String> fields, ArrayList<UUID> votes) {
         this.id            = id;
         this.author        = author;
         this.topic         = topic;
@@ -55,7 +56,7 @@ public class Complaint {
     public void setStatus(Status status) {
         this.status = status;
     }
-    public void setModerator(Account moderator) {
+    public void setModerator(Moderator moderator) {
         this.moderator = moderator;
     }
     public void setSolvingDetail(String solvingDetail) {
@@ -82,7 +83,7 @@ public class Complaint {
     public Status getStatus() {
         return status;
     }
-    public Account getModerator() {
+    public Moderator getModerator() {
         return moderator;
     }
     public String getSolvingDetail() {

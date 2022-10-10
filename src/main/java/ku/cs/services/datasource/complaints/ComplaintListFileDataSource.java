@@ -2,6 +2,7 @@ package ku.cs.services.datasource.complaints;
 
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
+import ku.cs.models.accounts.Moderator;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
@@ -62,7 +63,7 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 LocalDateTime datePosted = LocalDateTime.parse(data[4], formatter);
 
                 //moderator
-                Account moderator = Data.search(data[6], accountList.getAllAccount(), new AccountIdFilter());
+                Moderator moderator = (Moderator) Data.search(data[6], accountList.getAllAccount(), new AccountIdFilter());
 
                 //fields
                 ArrayList<String> fields = new ArrayList<>(Arrays.asList(data[8].split("-")));

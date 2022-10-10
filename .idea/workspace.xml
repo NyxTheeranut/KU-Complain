@@ -5,36 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77806d16-a86b-4cf7-8e1b-b5942fb2b5f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintListController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/moderator_complaint.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/moderator_complaint_list.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/filter/ComplaintStatusFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/account_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/account_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/unit_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/unit_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddModeratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddModeratorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/CreateUnitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/CreateUnitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeAdminPageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeModPageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeUserPageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/RenameUnitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/RenameUnitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UnitManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UnitManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/AccountList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/AccountList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/category/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/category/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/category/CategoryList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/category/CategoryList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/UnitList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/UnitList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/services/units/UnitListFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/units/UnitListFileDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/button/aboutbutton.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/button/complaintlistbutton.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/button/complaintpostbutton.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/button/profilebutton.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/button/tutorialbutton.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/category_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/category_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/complaint_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/complaint_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintListPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintListPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ManageComplaintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ManageComplaintController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/Complaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/Complaint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/complaints/ComplaintListFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/complaints/ComplaintListFileDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/complaint.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/complaint.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/complaint_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/complaint_list.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/unit_manage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/unit_manage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/manage_complaint.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/manage_complaint.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/moderator_complaint_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/moderator_complaint_list.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,14 +54,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ProjectApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ku.cs.ProjectApplication" />

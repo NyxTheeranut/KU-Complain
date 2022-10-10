@@ -15,6 +15,7 @@ import javafx.util.Pair;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
+import ku.cs.models.complaints.Status;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
 import ku.cs.services.filter.ComplaintIdFilter;
 import ku.cs.util.Data;
@@ -52,15 +53,14 @@ public class ComplaintPageController {
         account = ((ObjectStorage) FXRouter.getData()).getAccount();
         complaint = ((ObjectStorage) FXRouter.getData()).getComplaint();
 
-
-
-        topic.setText(complaint.getTopic());
+        topic.setText(complaint.getTopic() + " Status : " + complaint.getStatus().toString());
         topic.setWrapText(true);
 
         category.setText(complaint.getCategory().getName());
 
         setupFieldArea();
         updateVote();
+        if (complaint.getStatus() != Status.NOTSTARTED) fieldArea.getChildren().add(setupSolvingDetail());
     }
     private void setupFieldArea() {
 
@@ -154,7 +154,6 @@ public class ComplaintPageController {
         //setup fieldDetailLabel
         Label fieldDetailLabel = new Label();
         fieldDetailLabel.setWrapText(true);
-        fieldDetailLabel.setPrefWidth(850);
         fieldDetailLabel.setMaxWidth(850);
         fieldDetailLabel.setText(fieldDetail);
         fieldDetailLabel.setFont(FontLoader.font("ths", 20));
@@ -163,6 +162,40 @@ public class ComplaintPageController {
         hBox.getChildren().add(fieldDetailLabel);
 
         return hBox;
+    }
+    private VBox setupSolvingDetail() {
+        VBox vBox = new VBox();
+        vBox.setPrefWidth(940);
+        vBox.setAlignment(Pos.TOP_LEFT);
+
+        HBox hBox1 = new HBox();
+        hBox1.setPrefWidth(940);
+        hBox1.setPadding(new Insets(0,0,0,10));
+
+        Label moderatorLabel = new Label();
+        moderatorLabel.setText("หน่วยงาน : " + complaint.getModerator().getAffiliation());
+        moderatorLabel.setFont(FontLoader.font("ths", 20));
+        hBox1.getChildren().add(moderatorLabel);
+
+        HBox hBox2 = new HBox();
+        hBox2.setPrefWidth(940);
+        hBox2.setPadding(new Insets(0,0,0,10));
+
+        Label detailLabel = new Label("รายละเอียดการแก้ไข : ");
+        detailLabel.setFont(FontLoader.font("ths", 20));
+        hBox2.getChildren().add(detailLabel);
+
+        Label detailTextField = new Label();
+        detailTextField.setWrapText(true);
+        detailTextField.setMaxWidth(800);
+        detailTextField.setText(complaint.getSolvingDetail());
+        detailTextField.setFont(FontLoader.font("ths", 20));
+        hBox2.getChildren().add(detailTextField);
+
+        vBox.getChildren().add(hBox1);
+        vBox.getChildren().add(hBox2);
+
+        return vBox;
     }
     public void handleReportButton() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/ku/cs/page/report.fxml"));

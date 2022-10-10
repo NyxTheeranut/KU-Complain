@@ -49,6 +49,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </ComboBox>
+                              <ComboBox fx:id="statusComboBox" prefHeight="30.0" promptText="Status" />
                               <Button mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="30.0" text="Search">
                                  <font>
                                     <Font name="THSarabunPSK" size="15.0" />

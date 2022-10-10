@@ -13,11 +13,13 @@ import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
+import ku.cs.models.complaints.Status;
 import ku.cs.services.comparator.CompareComplaintByDatePost;
 import ku.cs.services.comparator.CompareComplaintByName;
 import ku.cs.services.comparator.CompareComplaintByVote;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.filter.ComplaintCategoryFilter;
+import ku.cs.services.filter.ComplaintStatusFilter;
 import ku.cs.services.filter.ComplaintTopicFilter;
 import ku.cs.services.filter.ComplaintVoteFilter;
 import ku.cs.util.Data;
@@ -40,6 +42,8 @@ public class ComplaintListPageController {
     private ComboBox<Category> categoryComboBox;
     @FXML
     private ComboBox<Pair<Comparator, String>> sortComboBox;
+    @FXML
+    private ComboBox<String> statusComboBox;
     @FXML
     private TextField searchTextField;
     @FXML
@@ -68,6 +72,7 @@ public class ComplaintListPageController {
         setupComplaintArea(complaints);
         setupCategoryComboBox();
         setupSortComboBox();
+        setupStatusComboBox();
 
         reverseButton.setFont(FontLoader.font("fa_wf", 15));
     }
@@ -213,11 +218,19 @@ public class ComplaintListPageController {
 
         sortComboBox.setItems(FXCollections.observableArrayList(comparatorList));
     }
+    private void setupStatusComboBox() {
+        statusComboBox.setItems(FXCollections.observableArrayList(
+                "NOTSTARTED",
+                "INPROGRESS",
+                "DONE"
+        ));
+    }
 
     private void filterComplaint() {
         String topic = searchTextField.getText();
         Category category = categoryComboBox.getValue();
         Comparator comparator;
+        String status = statusComboBox.getValue();
         try {
             comparator = sortComboBox.getValue().getKey();
         } catch (NullPointerException e) {
@@ -230,6 +243,9 @@ public class ComplaintListPageController {
             filteredComplaintList = Data.filter(category.getName(), filteredComplaintList, new ComplaintCategoryFilter());
         if (comparator != null)
             Collections.sort(filteredComplaintList, comparator);
+        if (status != null)
+            filteredComplaintList = Data.filter(status, filteredComplaintList, new ComplaintStatusFilter());
+
         filteredComplaintList = Data.filter(voteRange, filteredComplaintList, new ComplaintVoteFilter());
 
 

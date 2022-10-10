@@ -23,6 +23,7 @@ import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
 import ku.cs.services.datasource.units.UnitListFileDataSource;
 import ku.cs.services.filter.ComplaintCategoryFilter;
+import ku.cs.services.filter.ComplaintStatusFilter;
 import ku.cs.services.filter.ComplaintTopicFilter;
 import ku.cs.services.filter.UnitNameFilter;
 import ku.cs.util.Data;
@@ -42,6 +43,8 @@ public class ModeratorComplaintListController {
     private ComboBox<Category> categoryComboBox;
     @FXML
     private ComboBox<Pair<Comparator, String>> sortComboBox;
+    @FXML
+    private ComboBox<String> statusComboBox;
     @FXML
     private TextField searchTextField;
     @FXML
@@ -79,6 +82,7 @@ public class ModeratorComplaintListController {
         setupComplaintArea(complaints);
         setupCategoryComboBox();
         setupSortComboBox();
+        setupStatusComboBox();
 
         reverseButton.setFont(FontLoader.font("fa_wf", 15));
     }
@@ -203,7 +207,6 @@ public class ModeratorComplaintListController {
         categoryComboBox.setButtonCell(factory.call(null));
         categoryComboBox.setItems(FXCollections.observableArrayList(categoryList));
     }
-
     private void setupSortComboBox() {
         Callback<ListView<Pair<Comparator, String>>, ListCell<Pair<Comparator, String>>> factory = lv -> new ListCell<>() {
             @Override
@@ -223,10 +226,18 @@ public class ModeratorComplaintListController {
 
         sortComboBox.setItems(FXCollections.observableArrayList(comparatorList));
     }
+    private void setupStatusComboBox() {
+        statusComboBox.setItems(FXCollections.observableArrayList(
+                "NOTSTARTED",
+                "INPROGRESS",
+                "DONE"
+        ));
+    }
 
     private void filterComplaint() {
         String topic = searchTextField.getText();
         Category category = categoryComboBox.getValue();
+        String status = statusComboBox.getValue();
         Comparator comparator;
         try {
             comparator = sortComboBox.getValue().getKey();
@@ -239,6 +250,8 @@ public class ModeratorComplaintListController {
             filteredComplaintList = Data.filter(category.getName(), filteredComplaintList, new ComplaintCategoryFilter());
         if (comparator != null)
             Collections.sort(filteredComplaintList, comparator);
+        if (status != null)
+            filteredComplaintList = Data.filter(status, filteredComplaintList, new ComplaintStatusFilter());
 
 
         setupComplaintArea(filteredComplaintList);
