@@ -101,7 +101,7 @@ public class HomeController {
         box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
 
         String buttonDataList[] = {
-                "รายการร้องเรียน,\uF0AD,manage_complaint.fxml",
+                "จัดการเรื่องร้องเรียน,\uF0AD,moderator_complaint_list.fxml",
                 "วิธีใช้งาน,\uF0AD,tutorial.fxml",
                 "เกี่ยวกับ,\uF0AD,about.fxml"
         };

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ComplaintListPageController">
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ModeratorComplaintListController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1180.0">
          <children>
@@ -42,36 +42,13 @@
                               <ComboBox fx:id="sortComboBox" prefHeight="30.0" promptText="Sort by">
                                  <HBox.margin>
                                     <Insets left="10.0" />
-                                 </HBox.margin></ComboBox>
+                                 </HBox.margin>
+                              </ComboBox>
                               <ComboBox fx:id="categoryComboBox" prefHeight="30.0" promptText="Category">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
                               </ComboBox>
-                              <HBox alignment="CENTER" prefHeight="5.0" spacing="2.0">
-                                 <children>
-                                    <Label text="Vote range">
-                                       <font>
-                                          <Font name="THSarabunPSK" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="fromVoteTextField" prefHeight="25.0" prefWidth="50.0" promptText="From">
-                                       <font>
-                                          <Font name="THSarabunPSK" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label text="-">
-                                       <font>
-                                          <Font name="THSarabunPSK" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="toVoteTextField" prefHeight="25.0" prefWidth="50.0" promptText="To">
-                                       <font>
-                                          <Font name="THSarabunPSK" size="13.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </HBox>
                               <Button mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="30.0" text="Search">
                                  <font>
                                     <Font name="THSarabunPSK" size="15.0" />
@@ -112,7 +89,7 @@
                                                 <Font name="THSarabunPSK" size="20.0" />
                                              </font>
                                           </Label>
-                                          <Label prefWidth="645.0" text="test time">
+                                          <Label prefWidth="600.0" text="test time">
                                              <font>
                                                 <Font name="THSarabunPSK" size="20.0" />
                                              </font>
@@ -140,7 +117,8 @@
                               </VBox>
                            </children>
                         </HBox>
-                     </children></FlowPane>
+                     </children>
+                  </FlowPane>
                </children>
                <padding>
                   <Insets top="30.0" />

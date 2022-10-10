@@ -60,5 +60,13 @@ public class AccountList {
             }
 
         }
+    }
 
-}}
+    public void changeUnit(String oldUnit,String newUnit){
+        for(Account a : accounts){
+            if(a instanceof Moderator){
+                if(((Moderator) a).getAffiliation().equals(oldUnit)) ((Moderator) a).setAffiliation(newUnit);
+            }
+        }
+    }
+}
