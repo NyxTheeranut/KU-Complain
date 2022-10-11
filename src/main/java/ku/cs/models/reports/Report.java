@@ -8,7 +8,7 @@ public class Report {
 
     private String type;
     //private String id;
-    private static UUID id;
+    private UUID id;
     private String topic;
     private String description;
 
@@ -19,7 +19,7 @@ public class Report {
         this.description = description;
     }
 
-    public static UUID getId() {
+    public UUID getId() {
         return id;
     }
     public String getType() {

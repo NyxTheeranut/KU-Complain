@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Complaint {
-    private static UUID id;
-    private static Account author; //Store account id
+    private UUID id;
+    private Account author; //Store account id
     private String topic;
     private Category category;
     private ArrayList<String> fields;
@@ -64,10 +64,10 @@ public class Complaint {
 
 
     //Getter
-    public static UUID getId() {
+    public UUID getId() {
         return id;
     }
-    public static Account getAuthor() {
+    public Account getAuthor() {
         return author;
     }
     public String getTopic() {

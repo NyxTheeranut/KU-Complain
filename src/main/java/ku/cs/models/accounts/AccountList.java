@@ -65,10 +65,10 @@ public class AccountList {
         }
     }
 
-    public void getBaned(Account account, Boolean ban){
-        for (Account i : accounts) {
-            if (i.getName().equals(account.getName())) {
-                i.setBanned(ban);
+    public void setBan(UUID id,boolean status){
+        for (Account account : accounts) {
+            if (account.getId().equals(id)) {
+                account.setBanned(status);
                 return;
             }
         }

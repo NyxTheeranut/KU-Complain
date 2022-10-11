@@ -34,20 +34,16 @@ import java.util.List;
 public class ReportListController {
     @FXML
     private FlowPane reportListArea;
-    private ArrayList<Report> reports;
-
 
     public void initialize() {
         DataSource<ReportList> dataSource = new ReportListFileDataSource();
-        reports = dataSource.readData().getAllReport();
 
-        setupReportListArea(reports);
-
+        updateReportList();
     }
     Font ths1 = FontLoader.font("ths", 30);
     Font ths2 = FontLoader.font("ths", 20);
 
-    private void setupReportListArea(ArrayList<Report> reports){
+    private void updateReportList(){
         reportListArea.getChildren().clear();
 
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
@@ -59,7 +55,7 @@ public class ReportListController {
         DataSource<ComplaintList> dataSource2 = new ComplaintListFileDataSource();
         ComplaintList complaintList = dataSource2.readData();
 
-        for(Report i : reports){
+        for(Report i : reportList.getAllReport()){
 
             HBox hBox = new HBox();
             hBox.setPadding(new Insets(0, 0, 0, 20));
@@ -135,24 +131,27 @@ public class ReportListController {
             reportListArea.getChildren().add(hBox);
 
             banButton.setOnAction(actionEvent -> {
-                if(Report.getId().equals(Complaint.getAuthor().getId())){
-                    accountList.getBaned(Complaint.getAuthor(), Boolean.TRUE);
-                    dataSource.writeData(accountList);
-                }
+                accountList.setBan(i.getId(),true);
+                dataSource.writeData(accountList);
+
+                reportList.getAllReport().remove(i);
+                dataSource1.writeData(reportList);
+                updateReportList();
             });
 
             dismissButton.setOnAction(actionEvent -> {
-                reports.remove(i);
-                reportList.equals(reports);
+                reportList.getAllReport().remove(i);
                 dataSource1.writeData(reportList);
-
+                updateReportList();
             });
 
             removeButton.setOnAction(actionEvent -> {
-                /*if(i.getId().equals(Complaint.getId())){
-                    reports.remove(i);
-                    dataSource.writeData(reports);
-                }*/
+                complaintList.removeComplaint(i.getId());
+                dataSource2.writeData(complaintList);
+
+                reportList.getAllReport().remove(i);
+                dataSource1.writeData(reportList);
+                updateReportList();
             });
         }
 
