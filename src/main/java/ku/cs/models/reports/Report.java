@@ -2,6 +2,7 @@ package ku.cs.models.reports;
 
 import ku.cs.models.accounts.User;
 
+
 public class Report {
 
     private String type;

@@ -1,32 +1,41 @@
 
 .primary-color {
-    -fx-background-color: #141d26;
+    -fx-background-color: #F7F7F7;
 }
 
 .secondary-color {
-    -fx-background-color: #243447;
+    -fx-background-color: #2f3337;
+    -fx-text-fill: #2f3337;
 }
 
 .green-color {
     -fx-background-color: #03a96b;
     -fx-text-fill: #ffffff;
 }
+
+.scroll-pane {
+    -fx-background: #F7F7F7;
+    -fx-border-color: #F7F7F7;
+}
 .text-field {
     -fx-background-radius: 30 30 30 30;
     -fx-background-color: #ffffff99;
 }
 
-.label {
-    -fx-text-fill: #B8B8B8;
+.login-register {
+    -fx-background-radius: 10 10 10 10;
+    -fx-background-color: #ffffff60;
 }
-.scroll-pane {
-    -fx-background: #141d26;
-    -fx-border-color: #141d26;
+
+.textColor {
+    -fx-text-fill: #000000;
 }
+
 .combo-box {
     -fx-background-radius: 30 30 30 30;
     -fx-background-color: #ffffffb4;
 }
+
 .button {
     -fx-background-radius: 30 30 30 30;
     -fx-background-color: #ffffffb4;
@@ -34,16 +43,12 @@
 
 .button:hover {
     -fx-background-radius: 30 30 30 30;
-    -fx-background-color: #ffffff;
+    -fx-background-color: #03a96b;
+    -fx-text-fill: #ffffff;
 }
 
 .button:pressed {
     -fx-background-radius: 30 30 30 30;
     -fx-background-color: #ffffffd2;
+    -fx-text-fill: #000000;
 }
-/*
-black 18, 28, 38 dark grey
-grey  58, B8, D8, E8, F8 white
------
-Add Stylesheets in scene builder
-*/
