@@ -4,6 +4,7 @@ import ku.cs.util.Util;
 import ku.cs.services.filter.AccountUsernameFilter;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class AccountList {
     private ArrayList<Account> accounts;
@@ -62,5 +63,15 @@ public class AccountList {
                 if(((Moderator) a).getAffiliation().equals(oldUnit)) ((Moderator) a).setAffiliation(newUnit);
             }
         }
+    }
+
+    public void removeAffiliation(UUID id){
+        for(Account a : accounts) if(a.getId().equals(id)) ((Moderator) a).setAffiliation("");
+    }
+
+    public ArrayList<Moderator> getAllMod(){
+        ArrayList<Moderator> mods = new ArrayList<>();
+        for(Account a : accounts) if(a instanceof Moderator) mods.add((Moderator) a);
+        return mods;
     }
 }

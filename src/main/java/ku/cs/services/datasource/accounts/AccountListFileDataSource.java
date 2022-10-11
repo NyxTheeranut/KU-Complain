@@ -29,7 +29,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                     account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned);
                 }
                 else if (data[0].equals("mod")){
-                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, data[8]);
+                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, (data.length == 9)?data[8]:"");
                 }
                 else if (data[0].equals("user")){
                     account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned);
@@ -71,7 +71,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                         + account.getSurname() + ","
                         + account.getImagePath() + ","
                         + isBanned;
-                if(account.getRole()=="mod") line += ","+((Moderator)account).getAffiliation();
+                if(account.getRole().equals("mod") && !((Moderator)account).getAffiliation().equals("")) line += ","+((Moderator)account).getAffiliation();
                 buffer.append(line);
                 buffer.newLine();
             }
