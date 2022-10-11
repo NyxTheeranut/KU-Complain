@@ -1,5 +1,7 @@
 package ku.cs.models.complaints;
 
+import ku.cs.models.accounts.Account;
+
 import java.util.ArrayList;
 
 public class ComplaintList {
@@ -17,4 +19,6 @@ public class ComplaintList {
     public ArrayList<Complaint> getAllComplaints(){
         return complaints;
     }
+
+
 }

@@ -12,11 +12,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
+import ku.cs.models.complaints.Complaint;
+import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.reports.Report;
 import ku.cs.models.reports.ReportList;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
+import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
+import ku.cs.services.filter.AccountUsernameFilter;
 import ku.cs.services.reports.ReportListFileDataSource;
+import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
 
@@ -50,6 +55,9 @@ public class ReportListController {
 
         DataSource<ReportList> dataSource1 = new ReportListFileDataSource();
         ReportList reportList = dataSource1.readData();
+
+        DataSource<ComplaintList> dataSource2 = new ComplaintListFileDataSource();
+        ComplaintList complaintList = dataSource2.readData();
 
         for(Report i : reports){
 
@@ -127,19 +135,24 @@ public class ReportListController {
             reportListArea.getChildren().add(hBox);
 
             banButton.setOnAction(actionEvent -> {
-                if(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getComplaint().getAuthor().getId().equals(i.getId())){
-                    accountList.getBaned(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getComplaint().getAuthor(), true);
+                if(Report.getId().equals(Complaint.getAuthor().getId())){
+                    accountList.getBaned(Complaint.getAuthor(), Boolean.TRUE);
                     dataSource.writeData(accountList);
-
-                    ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getComplaint().getAuthor().setBanned(true);
-
                 }
             });
 
             dismissButton.setOnAction(actionEvent -> {
-                    reports.remove(i);
-                    dataSource1.writeData(reportList);
+                reports.remove(i);
+                reportList.equals(reports);
+                dataSource1.writeData(reportList);
 
+            });
+
+            removeButton.setOnAction(actionEvent -> {
+                /*if(i.getId().equals(Complaint.getId())){
+                    reports.remove(i);
+                    dataSource.writeData(reports);
+                }*/
             });
         }
 
