@@ -6,7 +6,7 @@ public class AccountUsernameFilter implements Filterer<Account> {
 
     @Override
     public boolean found(Account obj, String filter) {
-        if (obj.getUsername().equals(filter)) return true;
+        if (obj.getUsername().contains(filter)) return true;
         return false;
     }
 

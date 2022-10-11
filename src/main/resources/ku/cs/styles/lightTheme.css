@@ -8,15 +8,18 @@
     -fx-text-fill: #2f3337;
 }
 
-.green-color {
+.tertiary-color {
     -fx-background-color: #03a96b;
+}
+
+.primary-text-color {
     -fx-text-fill: #ffffff;
 }
 
-.scroll-pane {
-    -fx-background: #F7F7F7;
-    -fx-border-color: #F7F7F7;
+.secondary-text-color {
+    -fx-text-fill: #9d9fa1;
 }
+
 .text-field {
     -fx-background-radius: 30 30 30 30;
     -fx-background-color: #ffffff99;

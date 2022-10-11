@@ -1,8 +1,11 @@
 package ku.cs.models.accounts;
 
-import ku.cs.util.Util;
+import ku.cs.services.datasource.DataSource;
+import ku.cs.services.datasource.accounts.AccountListFileDataSource;
+import ku.cs.util.Data;
 import ku.cs.services.filter.AccountUsernameFilter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class AccountList {
@@ -22,15 +25,18 @@ public class AccountList {
 
     public Account checkLogin(String username, String password) {
 
-        Account account = Util.search(username, getAllAccount(), new AccountUsernameFilter());
+        Account account = Data.search(username, getAllAccount(), new AccountUsernameFilter());
         if (account.getPassword().equals(password)) {
+            account.setLastLogin(LocalDateTime.now());
+            DataSource<AccountList> dataSource = new AccountListFileDataSource();
+            dataSource.writeData(this);
             return account;
         }
         return null;
     }
 
     public Boolean checkRegister(String username) {
-        if (Util.search(username, accounts, new AccountUsernameFilter()) == null) {
+        if (Data.search(username, accounts, new AccountUsernameFilter()) == null) {
             return true;
         }
         return false;
@@ -54,5 +60,13 @@ public class AccountList {
             }
 
         }
+    }
 
-}}
+    public void changeUnit(String oldUnit,String newUnit){
+        for(Account a : accounts){
+            if(a instanceof Moderator){
+                if(((Moderator) a).getAffiliation().equals(oldUnit)) ((Moderator) a).setAffiliation(newUnit);
+            }
+        }
+    }
+}

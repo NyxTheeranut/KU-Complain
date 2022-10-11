@@ -1,14 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ku.cs.controllers.AccountListController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AccountListController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1180.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="90.0" text="รายชื่อผู้ใช้">
+               <font>
+                  <Font name="THSarabunPSK-Bold" size="70.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane maxWidth="-Infinity" prefHeight="200.0" prefWidth="1010.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="100.0">
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="980.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="980.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="900.0" spacing="5.0">
+                           <children>
+                              <TextField fx:id="searchTextField" prefHeight="30.0" prefWidth="200.0" promptText="username">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <ComboBox fx:id="roleComboBox" prefHeight="30.0" promptText="Role" />
+                              <Button mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="30.0" text="Search">
+                                 <font>
+                                    <Font name="THSarabunPSK" size="15.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="reverseButton" mnemonicParsing="false" onAction="#handleReverseButton" prefHeight="30.0" prefWidth="30.0" text="">
+                                 <font>
+                                    <Font name="FontAwesome" size="15.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#handleResetButton" text="Reset">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <FlowPane fx:id="accountArea" maxWidth="-Infinity" prefWidth="980.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="980.0">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                              <VBox prefHeight="100.0" prefWidth="880.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="960.0">
+                                       <children>
+                                          <Label alignment="TOP_LEFT" prefWidth="715.0" text="dujrawee">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="TOP_LEFT" prefWidth="100.0" text="Role : user">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="30.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="960.0" spacing="20.0">
+                                       <children>
+                                          <Label text="dujrawee lhaoyookhong">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="id : 5a1a1623-4655-4d48-b46d-16781b9da90a">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="960.0">
+                                       <children>
+                                          <Label text="Last login : ">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefWidth="645.0" text="1 day">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="125.0" spacing="5.0">
+                                             <children>
+                                                <Label text="Status">
+                                                   <font>
+                                                      <Font name="THSarabunPSK" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="authorize">
+                                                   <font>
+                                                      <Font name="THSarabunPSK" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </FlowPane>
+               </children>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
+            </VBox>
+         </content>
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </ScrollPane>
+   </children>
 </AnchorPane>

@@ -1,5 +1,8 @@
 package ku.cs.models.category;
 
+import ku.cs.services.filter.CategoryNameFilter;
+import ku.cs.util.Data;
+
 import java.util.ArrayList;
 
 public class CategoryList {
@@ -15,5 +18,16 @@ public class CategoryList {
 
     public ArrayList<Category> getAllCategory() {
         return categories;
+    }
+    public void removeAll(ArrayList<Category> list){
+        for(int i=0; i<categories.size(); i++){
+            //System.out.println(categories.get(i).getName());
+            if(Data.search(categories.get(i).getName(),list,new CategoryNameFilter()) != null){
+                //System.out.println("Remove : "+categories.get(i).getName());
+                categories.remove(categories.get(i));
+                i--;
+            }
+
+        }
     }
 }

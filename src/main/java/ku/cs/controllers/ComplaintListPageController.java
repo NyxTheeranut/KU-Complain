@@ -6,36 +6,56 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.util.Callback;
+import javafx.util.Pair;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
+import ku.cs.models.complaints.Status;
+import ku.cs.services.comparator.CompareComplaintByDatePost;
+import ku.cs.services.comparator.CompareComplaintByName;
+import ku.cs.services.comparator.CompareComplaintByVote;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
-import ku.cs.services.filter.Filterer;
+import ku.cs.services.filter.ComplaintCategoryFilter;
+import ku.cs.services.filter.ComplaintStatusFilter;
+import ku.cs.services.filter.ComplaintTopicFilter;
+import ku.cs.services.filter.ComplaintVoteFilter;
+import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
-import ku.cs.util.Util;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
 import ku.cs.services.datasource.DataSource;
 import com.github.saacsos.FXRouter;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ComplaintListPageController {
     @FXML
     private FlowPane complaintArea;
     @FXML
-    private ComboBox<Filterer> filterComboBox;
+    private ComboBox<Category> categoryComboBox;
+    @FXML
+    private ComboBox<Pair<Comparator, String>> sortComboBox;
+    @FXML
+    private ComboBox<String> statusComboBox;
     @FXML
     private TextField searchTextField;
+    @FXML
+    private TextField fromVoteTextField;
+    @FXML
+    private TextField toVoteTextField;
+    @FXML
+    private Button reverseButton;
+
     private DataSource<ComplaintList> dataSource;
-    private ComplaintList complaintList;
+    private ArrayList<Complaint> complaints;
+    private ArrayList<Complaint> filteredComplaintList;
 
     //constant
     private final Font topicFont = FontLoader.font("ths", 30);
@@ -46,23 +66,27 @@ public class ComplaintListPageController {
     public void initialize(){
         //get complaint list from dataSource
         dataSource = new ComplaintListFileDataSource();
-        complaintList = dataSource.readData();
+        complaints = dataSource.readData().getAllComplaints();
+        filteredComplaintList = complaints;
 
+        setupComplaintArea(complaints);
+        setupCategoryComboBox();
+        setupSortComboBox();
+        setupStatusComboBox();
 
-        setupComplaintArea(complaintList);
-        setupFilterComboBox();
+        reverseButton.setFont(FontLoader.font("fa_wf", 15));
     }
 
-    private void setupComplaintArea(ComplaintList complaintList){
+    private void setupComplaintArea(ArrayList<Complaint> complaints){
 
         complaintArea.getChildren().clear();
 
-        for(Complaint i : complaintList.getAllComplaints()){
+        for(Complaint i : complaints){
             //System.out.println(i);
             //setup hBox
             HBox hBox = new HBox();
             hBox.setAlignment(Pos.CENTER);
-            hBox.setPrefSize(1000, 100);
+            hBox.setPrefSize(980, 100);
 
 //            Test hBox
 //            hBox.setStyle("-fx-background-color: #2969c0");
@@ -72,7 +96,7 @@ public class ComplaintListPageController {
             VBox vBox = new VBox();
             vBox.setAlignment(Pos.TOP_LEFT);
             vBox.setPadding(new Insets(0, 0, 0, 40));
-            vBox.setPrefSize(1000, 100);
+            vBox.setPrefSize(980, 100);
 
 //            Test vBox
 //            vBox.setStyle("-fx-background-color: #2969c0");
@@ -100,7 +124,7 @@ public class ComplaintListPageController {
 
             //setup dataPostLabel
             Label datePostLabel = new Label();
-            datePostLabel.setPrefWidth(645);
+            datePostLabel.setPrefWidth(600);
             LocalDateTime postTime = i.getDatePosted();
 
             Long yearsBetween = ChronoUnit.YEARS.between(postTime, LocalDateTime.now());
@@ -159,35 +183,84 @@ public class ComplaintListPageController {
         ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("complaint.fxml");
     }
 
-    private void setupFilterComboBox() {
+    private void setupCategoryComboBox() {
+        DataSource<CategoryList> dataSource = new CategoryListFileDataSource();
+        CategoryList categoryList = dataSource.readData();
 
-        Callback<ListView<Filterer>, ListCell<Filterer>> factory = lv -> new ListCell<Filterer>() {
+        Callback<ListView<Category>, ListCell<Category>> factory = lv -> new ListCell<Category>() {
             @Override
-            protected void updateItem(Filterer item, boolean empty) {
+            protected void updateItem(Category item, boolean empty) {
                 super.updateItem(item, empty);
                 setText(empty ? "" : item.getName());
             }
         };
 
-        filterComboBox.setCellFactory(factory);
-        filterComboBox.setButtonCell(factory.call(null));
+        categoryComboBox.setCellFactory(factory);
+        categoryComboBox.setButtonCell(factory.call(null));
+        categoryComboBox.setItems(FXCollections.observableArrayList(categoryList.getAllCategory()));
+    }
+    private void setupSortComboBox() {
+        Callback<ListView<Pair<Comparator, String>>, ListCell<Pair<Comparator, String>>> factory = lv -> new ListCell<>() {
+            @Override
+            protected void updateItem(Pair<Comparator, String> item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : item.getValue());
+            }
+        };
 
-        //filterComboBox.setOnAction(event -> handleSelectedCategoryComboBox());
-        filterComboBox.setItems(FXCollections.observableArrayList(Util.complaintFilter));
+        sortComboBox.setCellFactory(factory);
+        sortComboBox.setButtonCell(factory.call(null));
+
+        ArrayList<Pair<Comparator, String>> comparatorList = new ArrayList<>();
+        comparatorList.add(new Pair(new CompareComplaintByName(), "Name"));
+        comparatorList.add(new Pair(new CompareComplaintByDatePost(), "Date posted"));
+        comparatorList.add(new Pair(new CompareComplaintByVote(), "Vote"));
+
+        sortComboBox.setItems(FXCollections.observableArrayList(comparatorList));
+    }
+    private void setupStatusComboBox() {
+        statusComboBox.setItems(FXCollections.observableArrayList(
+                "NOTSTARTED",
+                "INPROGRESS",
+                "DONE"
+        ));
     }
 
-    public void handleSearchButton() {
-        ComplaintList filteredComplaintList = new ComplaintList();
-
-        Filterer filterer = filterComboBox.getValue();
-
-        ArrayList<Complaint> filteredComplaintArrayList = new ArrayList<>();
-        filteredComplaintArrayList = Util.filter(searchTextField.getText(), complaintList.getAllComplaints(), filterer);
-
-        for(Complaint i : filteredComplaintArrayList) {
-            filteredComplaintList.addComplaint(i);
+    private void filterComplaint() {
+        String topic = searchTextField.getText();
+        Category category = categoryComboBox.getValue();
+        Comparator comparator;
+        String status = statusComboBox.getValue();
+        try {
+            comparator = sortComboBox.getValue().getKey();
+        } catch (NullPointerException e) {
+            comparator = null;
         }
+        String voteRange = fromVoteTextField.getText() + "," + toVoteTextField.getText();
 
+        filteredComplaintList = Data.filter(topic, complaints, new ComplaintTopicFilter());
+        if (category != null)
+            filteredComplaintList = Data.filter(category.getName(), filteredComplaintList, new ComplaintCategoryFilter());
+        if (comparator != null)
+            Collections.sort(filteredComplaintList, comparator);
+        if (status != null)
+            filteredComplaintList = Data.filter(status, filteredComplaintList, new ComplaintStatusFilter());
+
+        filteredComplaintList = Data.filter(voteRange, filteredComplaintList, new ComplaintVoteFilter());
+
+
+        setupComplaintArea(filteredComplaintList);
+    }
+    public void handleSearchButton() {
+        filterComplaint();
+    }
+    public void handleResetButton() {
+        ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("complaint_list.fxml");
+    }
+    public void handleReverseButton() {
+        if ((reverseButton.getText().equals("\uF0D8"))) reverseButton.setText("\uF0D7");
+        else reverseButton.setText("\uF0D8");
+        Collections.reverse(filteredComplaintList);
         setupComplaintArea(filteredComplaintList);
     }
 }

@@ -1,15 +1,15 @@
 package ku.cs.services.datasource.complaints;
 
-import javafx.util.Pair;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
+import ku.cs.models.accounts.Moderator;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
 import ku.cs.models.complaints.Status;
 import ku.cs.services.datasource.DataSource;
-import ku.cs.util.Util;
+import ku.cs.util.Data;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.filter.AccountIdFilter;
@@ -53,26 +53,25 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 String[] data = line.split(","); //get line data
 
                 //account
-                Account author = Util.search(data[1], accountList.getAllAccount(), new AccountIdFilter());
+                Account author = Data.search(data[1], accountList.getAllAccount(), new AccountIdFilter());
 
                 //category
-                Category category = Util.search(data[3], categoryList.getAllCategory(), new CategoryNameFilter());
+                Category category = Data.search(data[3], categoryList.getAllCategory(), new CategoryNameFilter());
 
                 //time post
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                 LocalDateTime datePosted = LocalDateTime.parse(data[4], formatter);
 
                 //moderator
-                Account moderator = Util.search(data[6], accountList.getAllAccount(), new AccountIdFilter());
+                Moderator moderator = (Moderator) Data.search(data[6], accountList.getAllAccount(), new AccountIdFilter());
 
                 //fields
                 ArrayList<String> fields = new ArrayList<>(Arrays.asList(data[8].split("-")));
                 //votes
-                ArrayList<Pair<UUID, Boolean>> votes = new ArrayList<>();
+                ArrayList<UUID> votes = new ArrayList<>();
                 if (data.length>9) {
                     for (String i : data[9].split("/")) {
-                        String vote[] = i.split(":");
-                        votes.add(new Pair<>(UUID.fromString(vote[0]), Boolean.parseBoolean(vote[1])));
+                        votes.add(UUID.fromString(i));
                     }
                 }
 
@@ -127,8 +126,8 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                         String.join("-", complaint.getFields());
 
                 ArrayList<String> votes = new ArrayList<>();
-                for (Pair<UUID, Boolean> i:complaint.getVotes()) {
-                    votes.add(i.getKey()+":"+i.getValue());
+                for (UUID i:complaint.getVotes()) {
+                    votes.add(i.toString());
                 }
                 line += ","+String.join("/", votes);
 

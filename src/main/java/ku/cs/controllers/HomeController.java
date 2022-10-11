@@ -54,8 +54,8 @@ public class HomeController {
         account = ((ObjectStorage) FXRouter.getData()).getAccount();
 
         if (account.getRole().equals("user")) loadUserButton();
-        //else if (account.getRole().equals("mod")) loadModButton();
-        //else if (account.getRole().equals("admin")) loadAdminButton();
+        else if (account.getRole().equals("mod")) loadModButton();
+        else if (account.getRole().equals("admin")) loadAdminButton();
     }
 
     public void changeTheme() {
@@ -91,6 +91,44 @@ public class HomeController {
             //button.setOnMouseEntered(event -> handleOnMouseEnterButton(button));
             //button.setOnMouseExited(event -> handleOnMouseExitButton(button));
             buttonVBox.getChildren().add(button);
+        }
+    }
+
+    public void loadAdminButton(){
+        VBox box = (VBox) menu.getChildren().get(0);
+        box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+
+        String buttonDataList[] = {
+                "รายชื่อบัญชี,\uF00B,account_list.fxml",
+                "รายงานจากผู้ใช้,\uF02F,report_list.fxml",
+                "เพิ่มเจ้าหน้าที่,\uF007,add_moderator.fxml",
+                "จัดการหน่วยงาน,\uF044,unit_manage.fxml",
+                "จัดการหมวดหมู่,\uF040,add_category.fxml",
+                "วิธีใช้งาน,\uF0AD,tutorial.fxml",
+                "เกี่ยวกับ,\uF0C0,about.fxml"
+        };
+
+        for(String buttonData:buttonDataList){
+            String[] data = buttonData.split(",");
+            HBox button = newButton(data[0],data[1],data[2]);
+            box.getChildren().add(button);
+        }
+    }
+
+    public void loadModButton(){
+        VBox box = (VBox) menu.getChildren().get(0);
+        box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+
+        String buttonDataList[] = {
+                "จัดการเรื่องร้องเรียน,\uF0AD,moderator_complaint_list.fxml",
+                "วิธีใช้งาน,\uF0AD,tutorial.fxml",
+                "เกี่ยวกับ,\uF0AD,about.fxml"
+        };
+
+        for(String buttonData:buttonDataList){
+            String[] data = buttonData.split(",");
+            HBox button = newButton(data[0],data[1],data[2]);
+            box.getChildren().add(button);
         }
     }
 
@@ -192,27 +230,27 @@ public class HomeController {
     }
     @FXML
     public void handleOnMouseEnterButton(HBox button){
-        button.getChildren().get(0).setStyle("-fx-text-fill: #ffffff");
+        button.getChildren().get(0).getStyleClass().setAll("primary-text-color"); // #9d9fa1
         if (button.getChildren().get(1) instanceof Label)
-            button.getChildren().get(1).setStyle("-fx-text-fill: #ffffff");
+            button.getChildren().get(1).getStyleClass().setAll("primary-text-color"); // #9d9fa1
     }
     @FXML
     public void handleOnMouseExitButton(HBox button){
-        if (button.getStyle().equals("-fx-background-color: #03a96b")) return;
-        button.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+        if (button.getStyleClass().get(0).toString().equals("tertiary-color")) return;
+        button.getChildren().get(0).getStyleClass().setAll("secondary-text-color"); // #9d9fa1
         if (button.getChildren().get(1) instanceof Label)
-            button.getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+            button.getChildren().get(1).getStyleClass().setAll("secondary-text-color"); // #9d9fa1
     }
     @FXML
     public void handleOnMouseClickedButton(VBox menu,HBox button,String pagePath){
-        button.getStyleClass().setAll("green-color");
+        button.getStyleClass().setAll("tertiary-color");
         for(Node b:buttonVBox.getChildren()) {
             if (button == b) continue;
             HBox hBox = (HBox)b;
             hBox.getStyleClass().setAll("secondary-color");
-            hBox.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+            hBox.getChildren().get(0).getStyleClass().setAll("secondary-text-color"); // #9d9fa1
             if (hBox.getChildren().get(1) instanceof Label)
-                hBox.getChildren().get(1).getStyleClass().setAll("-fx-text-fill: #9d9fa1"); // #9d9fa1
+                hBox.getChildren().get(1).getStyleClass().setAll("secondary-text-color"); // #9d9fa1
         }
         loadPage(pagePath);
     }

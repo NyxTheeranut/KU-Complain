@@ -3,7 +3,6 @@ package ku.cs.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -20,7 +19,7 @@ import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
 import ku.cs.util.ObjectStorage;
-import ku.cs.util.Util;
+import ku.cs.util.ImageManager;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
 import ku.cs.services.datasource.DataSource;
@@ -38,8 +37,6 @@ public class ComplaintPostPageController {
 
     public void initialize(){
         account = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount();
-        fieldArea.setOrientation(Orientation.VERTICAL);
-        fieldArea.setVgap(10);
         setupComboBox();
     }
 
@@ -60,7 +57,10 @@ public class ComplaintPostPageController {
             else if (categoryComboBox.getValue().getFields().get(i).getKey().equals("pic")) { //pic
                 Image image = ((ImageView)((VBox) hBox.getChildren().get(2)).getChildren().get(1)).getImage();
                 if (image == null) System.out.printf("X");
-                fields.add(Util.saveImage(image, "complaint"));
+                fields.add(ImageManager.saveImage(image, "complaint"));
+            }
+            else if (categoryComboBox.getValue().getFields().get(i).getKey().equals("detail")) {
+                fields.add(( (TextArea) hBox.getChildren().get(1)).getText());
             }
         }
 
@@ -77,9 +77,7 @@ public class ComplaintPostPageController {
     }
     @FXML
     private void handleSelectedCategoryComboBox(){
-
         fieldArea.getChildren().clear(); //Reset flowpane
-        fieldArea.setPrefHeight(0);
 
         Category category = categoryComboBox.getValue(); //Get category
         for (Pair<String, String> i : category.getFields()) {
@@ -113,17 +111,11 @@ public class ComplaintPostPageController {
 
                 button.setOnAction(event -> { //set on action method for button
                     try {
-                        Image image = Util.selectImage();
+                        Image image = ImageManager.selectImage();
                         imagePathLabel.setText(image.getUrl());
 
                         double imageWidth = 200;
                         double imageHeight = imageWidth/image.getWidth() * image.getHeight();
-
-                        if (previewImageView.getImage()!=null) { //reset size of flowpane
-                            fieldArea.setPrefHeight(fieldArea.getPrefHeight() -
-                                    (imageWidth/previewImageView.getImage().getWidth() * previewImageView.getImage().getHeight()));
-                        }
-                        fieldArea.setPrefHeight(fieldArea.getPrefHeight()+imageHeight); //adjust flowpane size
 
                         previewImageView.setImage(image);
                         previewImageView.setFitWidth(imageWidth);
@@ -139,13 +131,17 @@ public class ComplaintPostPageController {
                 hBox.getChildren().add(button);
                 hBox.getChildren().add(vBox); //Add vbox to hbox
             }
+            else if (i.getKey().equals("detail")) {
+                TextArea field = new TextArea(); //Textfield
+                field.setPrefSize(930, 256);
+                field.setMaxSize(930, 256);
+                field.setWrapText(true);
+                hBox.getChildren().add(field);
+            }
+
+            fieldArea.getChildren().add(hBox);
 
             fieldName.setText(i.getValue()); //Set name label
-
-
-
-            fieldArea.setPrefHeight(fieldArea.getPrefHeight()+40); //Increase flowpane height
-            fieldArea.getChildren().add(hBox); //add HBox to flowpane
         }
     }
 
