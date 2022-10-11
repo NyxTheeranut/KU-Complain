@@ -9,6 +9,7 @@ import ku.cs.services.datasource.DataSource;
 
 import java.io.*;
 import java.nio.Buffer;
+import java.util.UUID;
 
 public class ReportListFileDataSource implements DataSource<ReportList> {
 
@@ -29,10 +30,10 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
                 if (data[0].equals("Account")) {
-                    report = new AccountReport(data[0] ,data[1] ,data[2], data[3]);
+                    report = new AccountReport(data[0] , UUID.fromString(data[1]), data[2], data[3]);
                 }
                 if (data[0].equals("Complaint")) {
-                    report = new ComplaintReport(data[0] ,data[1],data[2], data[3]);
+                    report = new ComplaintReport(data[0] , UUID.fromString(data[1]), data[2], data[3]);
                 }
                 reportList.addReport(report);
             }
@@ -67,7 +68,7 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
 
             for (Report report : reportList.getAllReport()) {
                 String line = report.getType() + ","
-                        + report.getId() + ","
+                        + report.getId().toString() + ","
                         + report.getTopic() + ","
                         + report.getDescription();
                 buffer.append(line);

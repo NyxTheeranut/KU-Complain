@@ -15,7 +15,7 @@ import ku.cs.util.Util;
 
 import javax.swing.*;
 import java.util.UUID;
-
+import com.github.saacsos.FXRouter;
 
 public class ReportPageController {
 
@@ -40,13 +40,14 @@ public class ReportPageController {
 
         if(ComplaintReportButton.isSelected()) {
             type = "Complaint";
-            id = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getComplaint().getId();
+            id = ((ObjectStorage) FXRouter.getData()).getComplaint().getId();
         }
         else {
             type = "Account";
             //id = Util.complaint.getAuthor().getId();
+            id = ((ObjectStorage) FXRouter.getData()).getComplaint().getAuthor().getId();
         }
-        //report(type, id, topic, detail);
+        report(type, id, topic, detail);
 
         Stage stage = (Stage) reportButton.getScene().getWindow();
         stage.close();
@@ -54,7 +55,7 @@ public class ReportPageController {
 
     //user,1,topic,detail
 
-    private void report(String type,String id, String topic, String detail) {
+    private void report(String type,UUID id, String topic, String detail) {
         DataSource<ReportList> dataSource = new ReportListFileDataSource();
         ReportList reportList = dataSource.readData();
         Report report = new Report(type,id,topic, detail);
