@@ -3,6 +3,7 @@ package ku.cs.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import ku.cs.services.datasource.DataSource;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -25,14 +26,14 @@ public class ReportPageController {
     @FXML
     TextField topicTextField;
     @FXML
-    TextField detailTextField;
+    TextArea detailTextArea;
     @FXML RadioButton ComplaintReportButton;
     @FXML RadioButton AccountReportButton;
 
 
     public void handleReportButton() {
         String topic = topicTextField.getText();
-        String detail = detailTextField.getText();
+        String detail = detailTextArea.getText();
         UUID id;
         String type;
 

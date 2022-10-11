@@ -11,7 +11,7 @@
 .tertiary-color {
     -fx-background-color: #03a96b;
 }
-
+/* menu */
 .primary-text-color {
     -fx-text-fill: #ffffff;
 }
@@ -20,16 +20,48 @@
     -fx-text-fill: #9d9fa1;
 }
 
+.text-area {
+    -fx-background-color: #ffffff99;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+.text-area:hover {
+    -fx-background-radius: 15;
+    -fx-background-color: #ffffff;
+}
+
 .text-field {
     -fx-background-radius: 30 30 30 30;
-    -fx-background-color: #ffffff99;
+    -fx-background-color: #fcfcfc;
+}
+
+.text-field:hover {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #FEFEFE;
 }
 
 .login-register {
     -fx-background-radius: 10 10 10 10;
     -fx-background-color: #ffffff60;
 }
+.login-register-text-field {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #ffffff80;
+}
 
+.login-register-text-field:hover {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #ffffff99;
+}
 .textColor {
     -fx-text-fill: #000000;
 }
@@ -37,6 +69,12 @@
 .combo-box {
     -fx-background-radius: 30 30 30 30;
     -fx-background-color: #ffffffb4;
+}
+
+.combo-box:hover {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #03a96b;
+    -fx-text-fill: #ffffff;
 }
 
 .button {

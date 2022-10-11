@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ReportPageController">
+<AnchorPane prefHeight="640.0" prefWidth="960.0" stylesheets="@../styles/lightTheme.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ReportPageController">
    <children>
       <Label layoutX="85.0" layoutY="50.0" text="รายงาน">
          <font>
@@ -58,11 +59,6 @@
             <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="detailTextField" alignment="TOP_LEFT" layoutX="505.0" layoutY="290.0" prefHeight="200.0" prefWidth="380.0">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextField>
       <Button fx:id="backButton" layoutX="680.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-color: 48915;" text="ยกเลิก" underline="true">
          <font>
             <Font name="THSarabunPSK-Bold" size="25.0" />
@@ -79,5 +75,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <TextArea fx:id="detailTextArea" layoutX="505.0" layoutY="290.0" prefHeight="200.0" prefWidth="380.0" wrapText="true">
+         <font>
+            <Font name="TH SarabunPSK" size="18.0" />
+         </font>
+      </TextArea>
    </children>
 </AnchorPane>

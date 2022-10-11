@@ -97,6 +97,7 @@ public class HomeController {
     public void loadAdminButton(){
         VBox box = (VBox) menu.getChildren().get(0);
         box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+        buttonVBox.setPadding(new Insets(60,0,0,0));
 
         String buttonDataList[] = {
                 "รายชื่อบัญชี,\uF00B,account_list.fxml",
@@ -118,6 +119,7 @@ public class HomeController {
     public void loadModButton(){
         VBox box = (VBox) menu.getChildren().get(0);
         box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+        buttonVBox.setPadding(new Insets(60,0,0,0));
 
         String buttonDataList[] = {
                 "จัดการเรื่องร้องเรียน,\uF0AD,moderator_complaint_list.fxml",
@@ -139,6 +141,7 @@ public class HomeController {
         hBox.setAlignment(Pos.CENTER_RIGHT);
         //hBox.setStyle("-fx-background-color:#2f3337;");
         hBox.setPadding(new Insets(0, 15, 0, 0));
+        hBox.getStyleClass().setAll("secondary-color");
         hBox.setPrefSize(300, 60);
         hBox.setOnMouseClicked(event -> handleOnMouseClickedButton((VBox) (menu.getChildren().get(0)), hBox, page));
         hBox.setOnMouseEntered(event -> handleOnMouseEnterButton(hBox));
