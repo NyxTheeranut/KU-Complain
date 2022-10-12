@@ -1,0 +1,57 @@
+
+.primary-color {
+    -fx-background-color: #F7F7F7;
+}
+
+.secondary-color {
+    -fx-background-color: #2f3337;
+    -fx-text-fill: #2f3337;
+}
+
+.tertiary-color {
+    -fx-background-color: #03a96b;
+}
+
+.primary-text-color {
+    -fx-text-fill: #ffffff;
+}
+
+.secondary-text-color {
+    -fx-text-fill: #9d9fa1;
+}
+
+.text-field {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #ffffff99;
+}
+
+.login-register {
+    -fx-background-radius: 10 10 10 10;
+    -fx-background-color: #ffffff60;
+}
+
+.textColor {
+    -fx-text-fill: #000000;
+}
+
+.combo-box {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #ffffffb4;
+}
+
+.button {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #ffffffb4;
+}
+
+.button:hover {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #03a96b;
+    -fx-text-fill: #ffffff;
+}
+
+.button:pressed {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #ffffffd2;
+    -fx-text-fill: #000000;
+}

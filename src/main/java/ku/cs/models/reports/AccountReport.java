@@ -1,6 +1,6 @@
 package ku.cs.models.reports;
 
-import ku.cs.models.accounts.Account;
+import java.util.UUID;
 
 import java.util.UUID;
 

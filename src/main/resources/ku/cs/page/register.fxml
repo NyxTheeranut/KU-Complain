@@ -12,10 +12,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.RegisterPageController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../styles/lightTheme.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.RegisterPageController">
    <children>
       <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,16 +23,15 @@
       </ImageView>
       <AnchorPane layoutX="184.0" layoutY="233.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="320.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="180.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="460.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <Line endX="179.0" startX="-138.0" stroke="#fffffffc" strokeWidth="3.0" AnchorPane.bottomAnchor="397.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="380.0" prefWidth="300.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+            <Line endX="179.0" startX="-138.0" stroke="#fffffffc" strokeWidth="3.0" AnchorPane.bottomAnchor="390.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0" />
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="320.0" styleClass="login-register" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label text="สร้างบัญชี" textFill="WHITE">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="50.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="5.0" />
+                        <Insets left="10.0" top="5.0" />
                      </VBox.margin>
                   </Label>
                   <Label text="ชื่อบัญชี" textFill="WHITE">
@@ -41,7 +39,7 @@
                         <Font name="THSarabunPSK-Bold" size="35.0" />
                      </font>
                      <VBox.margin>
-                        <Insets />
+                        <Insets left="15.0" right="15.0" />
                      </VBox.margin>
                   </Label>
                   <TextField fx:id="usernameField" prefHeight="39.0" prefWidth="254.0">
@@ -51,11 +49,17 @@
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
                   </TextField>
                   <Label text="รหัสผ่าน" textFill="WHITE">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="35.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
                   </Label>
                   <PasswordField fx:id="passwordField" prefHeight="39.0" prefWidth="254.0">
                      <font>
@@ -64,11 +68,17 @@
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
                   </PasswordField>
                   <Label text="ยืนยันรหัสผ่าน" textFill="WHITE">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="35.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
                   </Label>
                   <PasswordField fx:id="confirmPasswordField" prefHeight="39.0" prefWidth="254.0">
                      <font>
@@ -77,11 +87,17 @@
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
                   </PasswordField>
                   <Label fx:id="wrongRegister" textFill="#ffe791">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
                   </Label>
                   <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegisterButton" prefHeight="45.0" prefWidth="120.0" text="ลงทะเบียน">
                      <font>
@@ -91,7 +107,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <VBox.margin>
-                        <Insets left="90.0" />
+                        <Insets left="100.0" />
                      </VBox.margin>
                   </Button>
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="300.0">
@@ -104,7 +120,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <HBox.margin>
-                              <Insets left="100.0" />
+                              <Insets left="112.0" />
                            </HBox.margin>
                         </Button>
                      </children>

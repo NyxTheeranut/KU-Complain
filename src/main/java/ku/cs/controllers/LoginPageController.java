@@ -46,6 +46,7 @@ public class LoginPageController {
                     FXRouter.goTo("home", FXRouter.getData());
                 } catch (IOException e) {
                     System.err.println("Error loading home page");
+                    System.err.println(e);
                 }
             }
             wrongLogin.setText("ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง");

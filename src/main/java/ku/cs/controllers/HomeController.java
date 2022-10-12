@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -22,6 +23,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 import ku.cs.models.accounts.Account;
+import ku.cs.services.styles.Theme;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
 
@@ -33,12 +35,15 @@ import com.github.saacsos.FXRouter;
 public class HomeController {
     @FXML private AnchorPane home;
     @FXML private AnchorPane menu;
+    @FXML private VBox buttonVBox;
     @FXML private StackPane content;
+    @FXML private ImageView themeIcon;
     private final String packageStrPage = "/ku/cs/page/";
     private final int menuCloseWidth = -230;
 
     private Account account;
 
+    private boolean isLightTheme = true;
     @FXML
     public void initialize() {
         menu.setTranslateX(menuCloseWidth); //set menu on close state
@@ -53,8 +58,21 @@ public class HomeController {
         else if (account.getRole().equals("admin")) loadAdminButton();
     }
 
+    public void changeTheme() {
+        isLightTheme = !isLightTheme;
+        if (isLightTheme) {
+            Theme.setTheme(home, "toLight");
+            Image image = new Image(String.valueOf(getClass().getResource("/ku/cs/image/lightTheme.png")));
+            themeIcon.setImage(image);
+        } else {
+            Theme.setTheme(home, "toDark");
+            Image image = new Image(String.valueOf(getClass().getResource("/ku/cs/image/darkTheme.png")));
+            themeIcon.setImage(image);
+        }
+
+    }
+
     public void loadUserButton(){
-        VBox box = (VBox) menu.getChildren().get(0);
 
         String buttonDataList[] = {
                 "รายการร้องเรียน,\uF00B,complaint_list.fxml",
@@ -63,7 +81,8 @@ public class HomeController {
                 "เกี่ยวกับ,\uF0C0,about.fxml"
         };
 
-        box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+        buttonVBox.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+        buttonVBox.setPadding(new Insets(60,0,0,0));
 
         for(String buttonData:buttonDataList){
             String[] data = buttonData.split(",");
@@ -71,7 +90,7 @@ public class HomeController {
             //button.setOnMouseClicked(event -> handleOnMouseClickedButton(box,button,data[2]));
             //button.setOnMouseEntered(event -> handleOnMouseEnterButton(button));
             //button.setOnMouseExited(event -> handleOnMouseExitButton(button));
-            box.getChildren().add(button);
+            buttonVBox.getChildren().add(button);
         }
     }
 
@@ -118,7 +137,7 @@ public class HomeController {
         //setup hBox
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_RIGHT);
-        hBox.setStyle("-fx-background-color:#2f3337;");
+        //hBox.setStyle("-fx-background-color:#2f3337;");
         hBox.setPadding(new Insets(0, 15, 0, 0));
         hBox.setPrefSize(300, 60);
         hBox.setOnMouseClicked(event -> handleOnMouseClickedButton((VBox) (menu.getChildren().get(0)), hBox, page));
@@ -151,7 +170,7 @@ public class HomeController {
         //setup hBox
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_RIGHT);
-        hBox.setStyle("-fx-background-color:#2f3337;");
+        //hBox.setStyle("-fx-background-color:#2f3337;");
         hBox.setPadding(new Insets(0, 0, 0, 0));
         hBox.setPrefSize(300, 60);
         hBox.setOnMouseClicked(event -> handleOnMouseClickedButton((VBox) (menu.getChildren().get(0)), hBox, page));
@@ -211,27 +230,27 @@ public class HomeController {
     }
     @FXML
     public void handleOnMouseEnterButton(HBox button){
-        button.getChildren().get(0).setStyle("-fx-text-fill: #ffffff");
+        button.getChildren().get(0).getStyleClass().setAll("primary-text-color"); // #9d9fa1
         if (button.getChildren().get(1) instanceof Label)
-            button.getChildren().get(1).setStyle("-fx-text-fill: #ffffff");
+            button.getChildren().get(1).getStyleClass().setAll("primary-text-color"); // #9d9fa1
     }
     @FXML
     public void handleOnMouseExitButton(HBox button){
-        if (button.getStyle().equals("-fx-background-color: #03a96b")) return;
-        button.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+        if (button.getStyleClass().get(0).toString().equals("tertiary-color")) return;
+        button.getChildren().get(0).getStyleClass().setAll("secondary-text-color"); // #9d9fa1
         if (button.getChildren().get(1) instanceof Label)
-            button.getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+            button.getChildren().get(1).getStyleClass().setAll("secondary-text-color"); // #9d9fa1
     }
     @FXML
     public void handleOnMouseClickedButton(VBox menu,HBox button,String pagePath){
-        button.setStyle("-fx-background-color: #03a96b");
-        for(Node b:menu.getChildren()) {
+        button.getStyleClass().setAll("tertiary-color");
+        for(Node b:buttonVBox.getChildren()) {
             if (button == b) continue;
             HBox hBox = (HBox)b;
-            b.setStyle("-fx-background-color: #2f3337");
-            hBox.getChildren().get(0).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+            hBox.getStyleClass().setAll("secondary-color");
+            hBox.getChildren().get(0).getStyleClass().setAll("secondary-text-color"); // #9d9fa1
             if (hBox.getChildren().get(1) instanceof Label)
-                hBox.getChildren().get(1).setStyle("-fx-text-fill: #9d9fa1"); // #9d9fa1
+                hBox.getChildren().get(1).getStyleClass().setAll("secondary-text-color"); // #9d9fa1
         }
         loadPage(pagePath);
     }

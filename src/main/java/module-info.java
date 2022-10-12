@@ -26,4 +26,6 @@ module cs.ku {
     opens ku.cs.services.datasource to javafx.fxml;
     exports ku.cs.util;
     opens ku.cs.util to javafx.fxml;
+    exports ku.cs.services.styles;
+    opens ku.cs.services.styles to javafx.fxml;
 }
