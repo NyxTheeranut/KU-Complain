@@ -10,21 +10,26 @@ import ku.cs.util.ObjectStorage;
 
 public class ProfilePageController {
 
-    @FXML private Label roleLabel;
+    @FXML private Label usernameLabel;
     @FXML private Label nameLabel;
+    @FXML private Label roleLabel;
+
     @FXML private ImageView image;
     Account account;
-
 
     @FXML
     public void initialize(){
         account = ((ObjectStorage)FXRouter.getData()).getAccount();
 
         image.setImage(account.getImage());
-        nameLabel.setText(account.getName());
+        usernameLabel.setText(account.getUsername());
+        nameLabel.setText(account.getName() + " " + account.getSurname());
         roleLabel.setText(account.getRole());
     }
-    @FXML
+    public void handleMyComplaintButton() {
+        ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("my_complaint.fxml");
+    }
+
     public void handleEditProfileButton(ActionEvent actionEvent){
         ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("edit_profile.fxml");
     }

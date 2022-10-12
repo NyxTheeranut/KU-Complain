@@ -15,12 +15,12 @@ public class User extends Account {
     public void setImagePath(String url){
         imagePath = url;
     }
-    public User(UUID id, String username, String password, String name, String surname, String imagePath, Boolean isBanned, LocalDateTime lastLogin) {
-        super("user", id, username, password, name, surname, imagePath, isBanned, lastLogin);
+    public User(UUID id, String username, String password, String name, String surname, String imagePath, Boolean isBanned, int loginAttempt, LocalDateTime lastLogin) {
+        super("user", id, username, password, name, surname, imagePath, isBanned,0, lastLogin);
     }
 
     public User(UUID id, String username, String password) {
-        this(id, username, password, "", "", "default.png", false, LocalDateTime.now());
+        this(id, username, password, "", "", "default.png", false, 0, LocalDateTime.now());
     }
 
 }

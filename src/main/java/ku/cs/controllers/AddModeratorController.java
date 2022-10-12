@@ -84,7 +84,7 @@ public class AddModeratorController {
             return;
         }
         Moderator mod = new Moderator(UUID.randomUUID() ,userField.getText(),passwordField.getText(),nameField.getText(),surnameField.getText()
-                                    , ImageManager.saveImage(imageView.getImage(),"account"),false,LocalDateTime.now(),unitListField.getValue().getUnitName());
+                                    , ImageManager.saveImage(imageView.getImage(),"account"),false,0,LocalDateTime.now(),unitListField.getValue().getUnitName());
         accountList.addAccount(mod);
         accountListFileDataSource.writeData(accountList);
 

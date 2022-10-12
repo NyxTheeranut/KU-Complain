@@ -18,18 +18,20 @@ public class Account {
     private String surname;
     protected String imagePath;
     protected boolean isBanned;
+    private int loginAttempt;
     private LocalDateTime lastLogin;
 
-    public Account(String role, UUID id, String username, String password, String name, String surname, String imagePath, boolean isBanned, LocalDateTime lastLogin) {
-        this.role = role;
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.imagePath = imagePath;
-        this.isBanned = isBanned;
-        this.lastLogin = lastLogin;
+    public Account(String role, UUID id, String username, String password, String name, String surname, String imagePath, boolean isBanned, int loginAttempt, LocalDateTime lastLogin) {
+        this.role         = role;
+        this.id           = id;
+        this.username     = username;
+        this.password     = password;
+        this.name         = name;
+        this.surname      = surname;
+        this.imagePath    = imagePath;
+        this.isBanned     = isBanned;
+        this.loginAttempt = loginAttempt;
+        this.lastLogin    = lastLogin;
     }
     //getter
     public String getRole(){
@@ -51,8 +53,11 @@ public class Account {
         return surname;
     }
     public String getImagePath() { return  imagePath; }
-    public boolean getIsBanned() {
+    public boolean isBanned() {
         return isBanned;
+    }
+    public int getLoginAttempt() {
+        return loginAttempt;
     }
     public Image getImage() {
         FileInputStream fileInputStream = null;
@@ -83,6 +88,9 @@ public class Account {
     }
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+    public void setLoginAttempt(int loginAttempt) {
+        this.loginAttempt = loginAttempt;
     }
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;

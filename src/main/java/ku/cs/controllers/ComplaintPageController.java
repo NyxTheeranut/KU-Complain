@@ -63,7 +63,7 @@ public class ComplaintPageController {
         if (complaint.getStatus() != Status.NOTSTARTED) fieldArea.getChildren().add(setupSolvingDetail());
     }
     private void setupFieldArea() {
-
+        fieldArea.getChildren().clear();
         ArrayList<String> fields = complaint.getFields();
         ArrayList<Pair<String, String>> categoryFields = complaint.getCategory().getFields();
 

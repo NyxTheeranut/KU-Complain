@@ -21,21 +21,22 @@ import java.nio.file.*;
 
 
 public class EditProfileController extends AccountList {
-
-    @FXML private Label passwordLabel;
     @FXML private Label usernameLabel;
-    @FXML private TextField rePasswordTextField;
+    @FXML private TextField changePassword;
     @FXML private ImageView profilePicture;
+    @FXML private Account account;
 
     @FXML public void handleProfilePicture(ActionEvent actionEvent) throws IOException {
         selectPicture();
     }
-    @FXML public void handleRePassword(ActionEvent actionEvent) throws IOException {
+    @FXML public void handleChangePassword(ActionEvent actionEvent) throws IOException {
        changePassword();
     }
 
     @FXML public void initialize(){
-        usernameLabel.setText(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount().getName());
+        account = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount();
+        usernameLabel.setText(account.getName());
+
     }
 
     public void selectPicture() throws IOException {
@@ -63,7 +64,7 @@ public class EditProfileController extends AccountList {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
         Account account = Data.search(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount().getName(),accountList.getAllAccount(),new AccountUsernameFilter());
-        String newName = rePasswordTextField.getText();
+        String newName = changePassword.getText();
         accountList.changePassword(((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount(), newName);
         dataSource.writeData(accountList);
     }

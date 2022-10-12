@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
+import ku.cs.models.accounts.Moderator;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.*;
@@ -74,20 +75,21 @@ public class AccountListController {
             //setup hBox1
             HBox hBox1 = new HBox();
             hBox1.setPrefSize(960, 38);
+            hBox1.setSpacing(40);
 
             //setup usernameLabel
             Label usernameLabel = new Label();
-            usernameLabel.setText(i.getUsername());
+            usernameLabel.setText(i.getRole() + " " + i.getUsername());
             usernameLabel.setFont(ths1);
-            usernameLabel.setPrefWidth(715);
-
-            //setup roleLabel
-            Label roleLabel = new Label();
-            roleLabel.setText("Role : " + i.getRole());
-            roleLabel.setFont(ths1);
 
             hBox1.getChildren().add(usernameLabel);
-            hBox1.getChildren().add(roleLabel);
+
+            if (i.getRole().equals("mod")) {
+                Label unitLabel = new Label();
+                unitLabel.setText("Unit : " + ((Moderator) i).getAffiliation());
+                unitLabel.setFont(ths1);
+                hBox1.getChildren().add(unitLabel);
+            }
 
             //setup hBox2
             HBox hBox2 = new HBox();
@@ -130,7 +132,7 @@ public class AccountListController {
 
             //setup isBanLabel
             Label isBanLabel = new Label();
-            isBanLabel.setText("Status : " + ((i.getIsBanned())?"banned" : "authorize"));
+            isBanLabel.setText("Status : " + ((i.isBanned())?"banned" : "authorize"));
             isBanLabel.setFont(ths2);
 
             hBox3.getChildren().add(lastLoginLabel);

@@ -30,14 +30,14 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField fx:id="rePasswordTextField" layoutX="612.0" layoutY="348.0" />
+      <TextField fx:id="changePassword" layoutX="612.0" layoutY="348.0" />
       <Label layoutX="612.0" layoutY="312.0" prefHeight="27.0" prefWidth="139.0" text="New Password">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button layoutX="328.0" layoutY="413.0" mnemonicParsing="false" onAction="#handleProfilePicture" text="แก้ไขรูป" />
-      <Button fx:id="renameButton" layoutX="612.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleRePassword" text="submit" />
+      <Button fx:id="renameButton" layoutX="612.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleChangePassword" text="submit" />
       <Label fx:id="wrongRename" layoutX="612.0" layoutY="375.0" prefHeight="17.0" prefWidth="149.0" />
       <Button fx:id="back" layoutX="1080.0" layoutY="643.0" mnemonicParsing="false" onAction="#handleBackButton" text="Button" />
       <Label fx:id="usernameLabel" layoutX="730.0" layoutY="213.0" prefHeight="27.0" prefWidth="131.0" text="UsernameLabel">

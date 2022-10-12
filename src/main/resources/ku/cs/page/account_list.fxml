@@ -67,14 +67,19 @@
                               <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
                               <VBox prefHeight="100.0" prefWidth="880.0">
                                  <children>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="960.0">
+                                    <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="960.0" spacing="10.0">
                                        <children>
-                                          <Label alignment="TOP_LEFT" prefWidth="715.0" text="dujrawee">
+                                          <Label alignment="TOP_LEFT" text="user">
                                              <font>
                                                 <Font name="THSarabunPSK" size="30.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="TOP_LEFT" prefWidth="100.0" text="Role : user">
+                                          <Label alignment="TOP_LEFT" text="dujrawee">
+                                             <font>
+                                                <Font name="THSarabunPSK" size="30.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="TOP_LEFT" text="unit : testunit">
                                              <font>
                                                 <Font name="THSarabunPSK" size="30.0" />
                                              </font>

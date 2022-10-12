@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ComplaintListPageController">
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.MyComplaintController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1180.0">
          <children>
-            <Label alignment="CENTER" prefHeight="90.0" text="รายการเรื่องร้องเรียน">
+            <Label alignment="CENTER" prefHeight="90.0" text="เรื่องร้องเรียนของฉัน">
                <font>
                   <Font name="THSarabunPSK-Bold" size="70.0" />
                </font>
@@ -150,7 +150,8 @@
                               </VBox>
                            </children>
                         </HBox>
-                     </children></FlowPane>
+                     </children>
+                  </FlowPane>
                </children>
                <padding>
                   <Insets top="30.0" />
