@@ -2,21 +2,24 @@ package ku.cs.models.reports;
 
 import ku.cs.models.accounts.User;
 
+import java.util.UUID;
+
 public class Report {
 
     private String type;
-    private String id;
+    //private String id;
+    private UUID id;
     private String topic;
     private String description;
 
-    public Report(String type, String id, String topic, String description) {
+    public Report(String type, UUID id, String topic, String description) {
         this.id = id;
         this.type = type;
         this.topic = topic;
         this.description = description;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
     public String getType() {

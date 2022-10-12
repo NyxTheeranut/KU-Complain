@@ -64,8 +64,8 @@ public class AccountListController {
 
             //setup profilePic
             ImageView profilePic= new ImageView(i.getImage());
-            profilePic.setFitWidth(90);
-            profilePic.setFitHeight(90);
+            profilePic.setFitWidth(100);
+            profilePic.setFitHeight(100);
 
             //setup vBox
             VBox vBox = new VBox();
@@ -93,21 +93,24 @@ public class AccountListController {
 
             //setup hBox2
             HBox hBox2 = new HBox();
-            hBox2.setPrefSize(960, 30);
+            hBox2.setPrefSize(960, 38);
             hBox2.setSpacing(20);
 
             //setup nameLabel
             Label nameLabel = new Label();
             nameLabel.setText(i.getName() + " " + i.getSurname());
             nameLabel.setFont(ths2);
+            nameLabel.setPrefWidth(200);
 
             //setup idLabel
             Label idLabel = new Label();
             idLabel.setText("id : " + i.getId().toString());
             idLabel.setFont(ths2);
+            idLabel.setPrefWidth(460);
 
             hBox2.getChildren().add(nameLabel);
             hBox2.getChildren().add(idLabel);
+
 
             //setup hBox3
             HBox hBox3 = new HBox();

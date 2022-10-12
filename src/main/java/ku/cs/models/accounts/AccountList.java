@@ -7,6 +7,7 @@ import ku.cs.services.filter.AccountUsernameFilter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class AccountList {
     private ArrayList<Account> accounts;
@@ -15,7 +16,7 @@ public class AccountList {
         accounts = new ArrayList<>();
     }
 
-    public void addAccount(Account account){
+    public void addAccount(Account account) {
         accounts.add(account);
     }
 
@@ -41,10 +42,10 @@ public class AccountList {
         }
         return false;
     }
-    
-    public void changePassword(Account account, String password){
-        for(Account i : accounts){
-            if (i.getName().equals(account.getName())){
+
+    public void changePassword(Account account, String password) {
+        for (Account i : accounts) {
+            if (i.getName().equals(account.getName())) {
                 i.setPassword(password);
                 return;
             }
@@ -52,9 +53,10 @@ public class AccountList {
         }
 
     }
-    public void changePicture(Account account, String picture){
-        for(Account i : accounts){
-            if (i.getName().equals(account.getName())){
+
+    public void changePicture(Account account, String picture) {
+        for (Account i : accounts) {
+            if (i.getName().equals(account.getName())) {
                 i.setImagePath(picture);
                 return;
             }
@@ -66,6 +68,15 @@ public class AccountList {
         for(Account a : accounts){
             if(a instanceof Moderator){
                 if(((Moderator) a).getAffiliation().equals(oldUnit)) ((Moderator) a).setAffiliation(newUnit);
+            }
+        }
+    }
+
+    public void setBan(UUID id,boolean status){
+        for (Account account : accounts) {
+            if (account.getId().equals(id)) {
+                account.setBanned(status);
+                return;
             }
         }
     }

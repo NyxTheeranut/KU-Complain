@@ -98,6 +98,9 @@ public class Account {
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
+    public void setBanned(boolean banned) {
+        isBanned = banned;
+    }
 
     @Override
     public String toString() {

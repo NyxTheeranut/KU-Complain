@@ -16,4 +16,5 @@ public class ReportList {
     public ArrayList<Report> getAllReport() {
         return reports;
     }
+
 }
