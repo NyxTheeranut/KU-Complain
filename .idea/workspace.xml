@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77806d16-a86b-4cf7-8e1b-b5942fb2b5f9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/MyComplaintController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/filter/ComplaintAuthorIdFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/my_complaint.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/account_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/account_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/complaint_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/complaint_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AccountListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AccountListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddModeratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddModeratorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ProfilePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/accounts/AccountListFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/accounts/AccountListFileDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/account_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/account_list.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/complaint_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/complaint_list.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/edit_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/edit_profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/profile.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="77806d16-a86b-4cf7-8e1b-b5942fb2b5f9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +76,7 @@
       <workItem from="1665335859138" duration="204000" />
       <workItem from="1665336085243" duration="84000" />
       <workItem from="1665407613818" duration="6807000" />
-      <workItem from="1665589340222" duration="600000" />
+      <workItem from="1665589340222" duration="1076000" />
     </task>
     <servers />
   </component>
