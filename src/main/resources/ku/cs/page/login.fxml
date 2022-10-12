@@ -24,7 +24,7 @@
       </ImageView>
       <AnchorPane layoutX="174.0" layoutY="223.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="320.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="480.0" AnchorPane.topAnchor="180.0">
          <children>
-            <Line endX="179.0" startX="-138.0" stroke="#fffffffc" strokeWidth="3.0" AnchorPane.bottomAnchor="390.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0" />
+            <Line endX="179.0" startX="-138.0" stroke="#ffffff" strokeWidth="3.0" AnchorPane.bottomAnchor="390.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0" />
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="460.0" prefWidth="320.0" styleClass="login-register" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label text="ลงชื่อเข้าใช้" textFill="WHITE">
@@ -43,7 +43,7 @@
                         <Insets left="15.0" right="15.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="usernameField" prefHeight="39.0" prefWidth="254.0">
+                  <TextField fx:id="usernameField" prefHeight="39.0" prefWidth="254.0" styleClass="login-register-text-field">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>
@@ -62,7 +62,7 @@
                         <Insets left="15.0" right="15.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="passwordField" prefHeight="39.0" prefWidth="254.0">
+                  <PasswordField fx:id="passwordField" prefHeight="39.0" prefWidth="254.0" styleClass="login-register-text-field">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>

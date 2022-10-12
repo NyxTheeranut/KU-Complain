@@ -42,7 +42,7 @@
                         <Insets left="15.0" right="15.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="usernameField" prefHeight="39.0" prefWidth="254.0">
+                  <TextField fx:id="usernameField" prefHeight="39.0" prefWidth="254.0" styleClass="login-register-text-field">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>
@@ -61,7 +61,7 @@
                         <Insets left="15.0" right="15.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="passwordField" prefHeight="39.0" prefWidth="254.0">
+                  <PasswordField fx:id="passwordField" prefHeight="39.0" prefWidth="254.0" styleClass="login-register-text-field">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>
@@ -80,7 +80,7 @@
                         <Insets left="15.0" right="15.0" />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="confirmPasswordField" prefHeight="39.0" prefWidth="254.0">
+                  <PasswordField fx:id="confirmPasswordField" prefHeight="39.0" prefWidth="254.0" styleClass="login-register-text-field">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>

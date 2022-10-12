@@ -1,14 +1,14 @@
 
 .primary-color {
-    -fx-background-color: #141d26;
+    -fx-background-color: #191E26;
 }
 
 .secondary-color {
-    -fx-background-color: #243447;
+    -fx-background-color: #202731;
 }
 
 .tertiary-color {
-    -fx-background-color: #03a96b;
+    -fx-background-color: #238636;
 }
 
 .primary-text-color {
@@ -21,33 +21,64 @@
 
 .text-field {
     -fx-background-radius: 30 30 30 30;
-    -fx-background-color: #ffffff99;
+    -fx-background-color: #c9d1d9;
+    -fx-prompt-text-fill: #000000;
 }
 
+.text-field:hover {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #D8E3EC;
+    -fx-prompt-text-fill: #000000;
+}
+
+.text-area {
+    -fx-background-color: #c9d1d9;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+.text-area:hover {
+    -fx-background-radius: 15;
+    -fx-background-color: #D8E3EC;
+}
 .label {
-    -fx-text-fill: #B8B8B8;
+    -fx-text-fill: #c9d1d9;
 }
 .scroll-pane {
-    -fx-background: #141d26;
-    -fx-border-color: #141d26;
+    -fx-background: #2B3542;
+    -fx-border-color: #2B3542;
 }
 .combo-box {
     -fx-background-radius: 30 30 30 30;
-    -fx-background-color: #ffffffb4;
+    -fx-background-color: #c9d1d9;
+}
+
+.combo-box:hover {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: #D8E3EC;
+    -fx-text-fill: #000000;
 }
 .button {
     -fx-background-radius: 30 30 30 30;
-    -fx-background-color: #ffffffb4;
+    -fx-background-color: #c9d1d9;
 }
 
 .button:hover {
     -fx-background-radius: 30 30 30 30;
-    -fx-background-color: #ffffff;
+    -fx-background-color: #D8E3EC;
 }
 
 .button:pressed {
     -fx-background-radius: 30 30 30 30;
-    -fx-background-color: #ffffffd2;
+    -fx-background-color: #c9d1d9;
 }
 /*
 black 18, 28, 38 dark grey
