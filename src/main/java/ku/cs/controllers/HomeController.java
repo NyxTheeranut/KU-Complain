@@ -74,7 +74,7 @@ public class HomeController {
 
     public void loadUserButton(){
 
-        String buttonDataList[] = {
+        String[] buttonDataList = {
                 "รายการร้องเรียน,\uF00B,complaint_list.fxml",
                 "เสนอเรื่องร้องเรียน,\uF044,complaint_post.fxml",
                 "วิธีใช้งาน,\uF0AD,tutorial.fxml",
@@ -92,6 +92,8 @@ public class HomeController {
             //button.setOnMouseExited(event -> handleOnMouseExitButton(button));
             buttonVBox.getChildren().add(button);
         }
+
+        loadPage("complaint_list.fxml");
     }
 
     public void loadAdminButton(){
@@ -99,7 +101,7 @@ public class HomeController {
         box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
         buttonVBox.setPadding(new Insets(60,0,0,0));
 
-        String buttonDataList[] = {
+        String[] buttonDataList = {
                 "รายชื่อบัญชี,\uF00B,account_list.fxml",
                 "รายงานจากผู้ใช้,\uF02F,report_list.fxml",
                 "blacklist,\uF00D,blacklist.fxml",
@@ -115,6 +117,8 @@ public class HomeController {
             HBox button = newButton(data[0],data[1],data[2]);
             box.getChildren().add(button);
         }
+
+        loadPage("account_list.fxml");
     }
 
     public void loadModButton(){
@@ -122,7 +126,7 @@ public class HomeController {
         box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
         buttonVBox.setPadding(new Insets(60,0,0,0));
 
-        String buttonDataList[] = {
+        String[] buttonDataList = {
                 "จัดการเรื่องร้องเรียน,\uF0AD,moderator_complaint_list.fxml",
                 "วิธีใช้งาน,\uF0AD,tutorial.fxml",
                 "เกี่ยวกับ,\uF0AD,about.fxml"
@@ -133,6 +137,8 @@ public class HomeController {
             HBox button = newButton(data[0],data[1],data[2]);
             box.getChildren().add(button);
         }
+
+        loadPage("moderator_complaint_list.fxml");
     }
 
     private HBox newButton(String buttonName, String icon, String page) {
