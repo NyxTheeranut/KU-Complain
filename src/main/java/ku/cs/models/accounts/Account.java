@@ -19,9 +19,10 @@ public class Account {
     protected String imagePath;
     protected boolean isBanned;
     private int loginAttempt;
+    private String unbanRequest;
     private LocalDateTime lastLogin;
 
-    public Account(String role, UUID id, String username, String password, String name, String surname, String imagePath, boolean isBanned, int loginAttempt, LocalDateTime lastLogin) {
+    public Account(String role, UUID id, String username, String password, String name, String surname, String imagePath, boolean isBanned, int loginAttempt, String unbanRequest, LocalDateTime lastLogin) {
         this.role         = role;
         this.id           = id;
         this.username     = username;
@@ -31,6 +32,7 @@ public class Account {
         this.imagePath    = imagePath;
         this.isBanned     = isBanned;
         this.loginAttempt = loginAttempt;
+        this.unbanRequest = unbanRequest;
         this.lastLogin    = lastLogin;
     }
     //getter
@@ -58,6 +60,9 @@ public class Account {
     }
     public int getLoginAttempt() {
         return loginAttempt;
+    }
+    public String getUnbanRequest() {
+        return unbanRequest;
     }
     public Image getImage() {
         FileInputStream fileInputStream = null;
@@ -91,6 +96,9 @@ public class Account {
     }
     public void setLoginAttempt(int loginAttempt) {
         this.loginAttempt = loginAttempt;
+    }
+    public void setUnbanRequest(String unbanRequest) {
+        this.unbanRequest = unbanRequest;
     }
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;

@@ -102,6 +102,7 @@ public class HomeController {
         String buttonDataList[] = {
                 "รายชื่อบัญชี,\uF00B,account_list.fxml",
                 "รายงานจากผู้ใช้,\uF02F,report_list.fxml",
+                "blacklist,\uF00D,blacklist.fxml",
                 "เพิ่มเจ้าหน้าที่,\uF007,add_moderator.fxml",
                 "จัดการหน่วยงาน,\uF044,unit_manage.fxml",
                 "จัดการหมวดหมู่,\uF040,add_category.fxml",
@@ -173,6 +174,7 @@ public class HomeController {
         //setup hBox
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_RIGHT);
+        hBox.getStyleClass().setAll("secondary-color");
         //hBox.setStyle("-fx-background-color:#2f3337;");
         hBox.setPadding(new Insets(0, 0, 0, 0));
         hBox.setPrefSize(300, 60);

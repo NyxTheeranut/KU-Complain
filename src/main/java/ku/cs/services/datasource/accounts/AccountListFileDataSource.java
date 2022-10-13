@@ -23,22 +23,22 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             buffer = new BufferedReader(reader);
             String line = "";
             while((line = buffer.readLine()) != null){
-                // 0    1     2       3       4     5         6        7        8           9
-                //role,id,username,password,name,surname,default.png,isBan,loginAttempt,lastLogin
+                // 0    1     2       3       4     5         6        7        8            9            10
+                //role,id,username,password,name,surname,default.png,isBan,loginAttempt,unban request,lastLogin
                 String[] data = line.split(",");
                 Boolean isBanned;
                 if (data[7].equals("0")) isBanned = false;
                 else isBanned = true;
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                LocalDateTime lastLogin = LocalDateTime.parse(data[9], formatter);
+                LocalDateTime lastLogin = LocalDateTime.parse(data[10], formatter);
                 if (data[0].equals("admin")){
-                    account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), lastLogin);
+                    account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin);
                 }
                 else if (data[0].equals("mod")){
-                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), lastLogin, data[10]);
+                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin, data[11]);
                 }
                 else if (data[0].equals("user")){
-                    account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), lastLogin);
+                    account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin);
                 }
                 accountList.addAccount(account); //add account to account list
             }
@@ -79,6 +79,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                         + account.getImagePath() + ","
                         + isBanned + ","
                         + account.getLoginAttempt() + ","
+                        + account.getUnbanRequest() + ","
                         + account.getLastLogin().format(formatter)
                         ;
                 if(account.getRole()=="mod") line += ","+((Moderator)account).getAffiliation();
