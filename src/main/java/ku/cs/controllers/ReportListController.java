@@ -19,6 +19,7 @@ import ku.cs.models.reports.ReportList;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
+import ku.cs.services.filter.AccountIdFilter;
 import ku.cs.services.filter.AccountUsernameFilter;
 import ku.cs.services.reports.ReportListFileDataSource;
 import ku.cs.util.Data;
@@ -34,9 +35,11 @@ import java.util.List;
 public class ReportListController {
     @FXML
     private FlowPane reportListArea;
+    private ReportList reportList;
 
     public void initialize() {
-        DataSource<ReportList> dataSource = new ReportListFileDataSource();
+        DataSource<ReportList> reportDataSource = new ReportListFileDataSource();
+        reportList = reportDataSource.readData();
 
         updateReportList();
     }
@@ -45,15 +48,6 @@ public class ReportListController {
 
     private void updateReportList(){
         reportListArea.getChildren().clear();
-
-        DataSource<AccountList> dataSource = new AccountListFileDataSource();
-        AccountList accountList = dataSource.readData();
-
-        DataSource<ReportList> dataSource1 = new ReportListFileDataSource();
-        ReportList reportList = dataSource1.readData();
-
-        DataSource<ComplaintList> dataSource2 = new ComplaintListFileDataSource();
-        ComplaintList complaintList = dataSource2.readData();
 
         for(Report i : reportList.getAllReport()){
 
@@ -130,31 +124,40 @@ public class ReportListController {
 
             reportListArea.getChildren().add(hBox);
 
-            banButton.setOnAction(actionEvent -> {
-                accountList.setBan(i.getId(),true);
-                dataSource.writeData(accountList);
+            banButton.setOnAction(event -> ban(i));
 
-                reportList.getAllReport().remove(i);
-                dataSource1.writeData(reportList);
-                updateReportList();
-            });
+            removeButton.setOnAction(event -> removeComplaint(i));
 
-            dismissButton.setOnAction(actionEvent -> {
-                reportList.getAllReport().remove(i);
-                dataSource1.writeData(reportList);
-                updateReportList();
-            });
-
-            removeButton.setOnAction(actionEvent -> {
-                complaintList.removeComplaint(i.getId());
-                dataSource2.writeData(complaintList);
-
-                reportList.getAllReport().remove(i);
-                dataSource1.writeData(reportList);
-                updateReportList();
-            });
+            dismissButton.setOnAction(event -> dismiss(i));
         }
 
     }
 
+    private void ban(Report report) {
+        DataSource<AccountList> dataSource = new AccountListFileDataSource();
+        AccountList accountList = dataSource.readData();
+
+        Account account =  Data.search(report.getId().toString(), accountList.getAllAccount(), new AccountIdFilter());
+        account.setBanned(true);
+        dataSource.writeData(accountList);
+
+        dismiss(report);
+    }
+    private void removeComplaint(Report report) {
+        DataSource<ComplaintList> dataSource = new ComplaintListFileDataSource();
+        ComplaintList complaintList = dataSource.readData();
+
+        complaintList.removeComplaint(report.getId());
+        dataSource.writeData(complaintList);
+
+        dismiss(report);
+    }
+    private void dismiss(Report report) {
+        DataSource<ReportList> dataSource = new ReportListFileDataSource();
+        reportList.getAllReport().remove(report);
+
+        dataSource.writeData(reportList);
+
+        updateReportList();
+    }
 }

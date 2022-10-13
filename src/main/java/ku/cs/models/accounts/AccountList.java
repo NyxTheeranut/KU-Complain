@@ -43,48 +43,6 @@ public class AccountList {
         return false;
     }
 
-    public void changePassword(Account account, String password) {
-        for (Account i : accounts) {
-            if (i.getName().equals(account.getName())) {
-                i.setPassword(password);
-                return;
-            }
-
-        }
-
-    }
-
-    public void changePicture(Account account, String picture) {
-        for (Account i : accounts) {
-            if (i.getName().equals(account.getName())) {
-                i.setImagePath(picture);
-                return;
-            }
-
-        }
-    }
-
-    public void changeUnit(String oldUnit,String newUnit){
-        for(Account a : accounts){
-            if(a instanceof Moderator){
-                if(((Moderator) a).getUnit().equals(oldUnit)) ((Moderator) a).setUnit(newUnit);
-            }
-        }
-    }
-
-    public void setBan(UUID id,boolean status) {
-        for (Account account : accounts) {
-            if (account.getId().equals(id)) {
-                account.setBanned(status);
-                return;
-            }
-        }
-    }
-
-    public void removeAffiliation(UUID id){
-        for(Account a : accounts) if(a.getId().equals(id)) ((Moderator) a).setUnit("");
-    }
-
     public ArrayList<Moderator> getAllMod(){
         ArrayList<Moderator> mods = new ArrayList<>();
         for(Account a : accounts) if(a instanceof Moderator) mods.add((Moderator) a);

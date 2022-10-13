@@ -8,9 +8,9 @@ import javafx.scene.image.ImageView;
 import ku.cs.models.accounts.Account;
 import ku.cs.util.ObjectStorage;
 
-public class ProfilePageController {
+import java.io.IOException;
 
-    @FXML private Label usernameLabel;
+public class ProfilePageController {
     @FXML private Label nameLabel;
     @FXML private Label roleLabel;
 
@@ -22,7 +22,6 @@ public class ProfilePageController {
         account = ((ObjectStorage)FXRouter.getData()).getAccount();
 
         image.setImage(account.getImage());
-        usernameLabel.setText(account.getUsername());
         nameLabel.setText(account.getName() + " " + account.getSurname());
         roleLabel.setText(account.getRole());
     }
@@ -32,6 +31,15 @@ public class ProfilePageController {
 
     public void handleEditProfileButton(ActionEvent actionEvent){
         ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("edit_profile.fxml");
+    }
+
+    @FXML
+    public void handleLogOutButton(ActionEvent actionEvent){
+        try{
+            FXRouter.goTo("login_page");
+        } catch (IOException e){
+            System.err.println("Error Logging out");
+        }
     }
 
 }

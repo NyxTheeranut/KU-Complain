@@ -136,7 +136,10 @@ public class UnitManageController {
         if(modListView.getSelectionModel().getSelectedItem() == null) return;
 
         AccountList accountList = accountListDataSource.readData();
-        accountList.removeAffiliation(modListView.getSelectionModel().getSelectedItem().getId());
+
+        ((Moderator) Data.search(modListView.getSelectionModel().getSelectedItem().getId().toString(),
+                accountList.getAllAccount(), new AccountIdFilter())).setUnit("");
+
         accountListDataSource.writeData(accountList);
 
         UnitList unitList = unitListDataSource.readData();

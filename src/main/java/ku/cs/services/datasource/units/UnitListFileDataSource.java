@@ -67,12 +67,11 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
             for(Unit unit:unitList.getAllUnits()) {
                 String line = unit.getUnitName();
                 line += ",";
-                //System.out.println(1);
                 for(int i=0; i < unit.getModeratorList().size(); i++ ) {
+                    System.out.println(unit.getModeratorList().get(i));
                     if(i>0) line += ":";
                     line += unit.getModeratorList().get(i).getId();
                 }
-                //System.out.println(2);
                 line += ",";
                 for(int i=0; i < unit.getCategoryList().size(); i++ ) {
                     if(i>0) line += ":";
