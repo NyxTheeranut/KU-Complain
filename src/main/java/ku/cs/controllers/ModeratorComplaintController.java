@@ -7,8 +7,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
@@ -165,7 +163,7 @@ public class ModeratorComplaintController {
         hBox1.setPadding(new Insets(0,0,0,10));
 
         Label moderatorLabel = new Label();
-        moderatorLabel.setText("ผู้ดูแล : " + complaint.getModerator().getUsername() + "  หน่วยงาน : " + complaint.getModerator().getAffiliation());
+        moderatorLabel.setText("ผู้ดูแล : " + complaint.getModerator().getUsername() + "  หน่วยงาน : " + complaint.getModerator().getUnit());
         moderatorLabel.setFont(FontLoader.font("ths", 20));
         hBox1.getChildren().add(moderatorLabel);
 

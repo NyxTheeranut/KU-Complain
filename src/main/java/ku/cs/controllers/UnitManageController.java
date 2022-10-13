@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import ku.cs.models.accounts.AccountList;
@@ -155,7 +153,7 @@ public class UnitManageController {
         if(freeModComboBox.getSelectionModel().getSelectedItem() == null) return;
 
         Moderator moderator = freeModComboBox.getSelectionModel().getSelectedItem();
-        moderator.setAffiliation(selectedUnit.getUnitName());
+        moderator.setUnit(selectedUnit.getUnitName());
         selectedUnit.addModerator(moderator);
 
         UnitList unitList = unitListDataSource.readData();
@@ -163,7 +161,7 @@ public class UnitManageController {
         unitListDataSource.writeData(unitList);
 
         AccountList accountList = accountListDataSource.readData();
-        ((Moderator)Data.search(moderator.getId().toString(),accountList.getAllAccount(),new AccountIdFilter())).setAffiliation(selectedUnit.getUnitName());
+        ((Moderator)Data.search(moderator.getId().toString(),accountList.getAllAccount(),new AccountIdFilter())).setUnit(selectedUnit.getUnitName());
         accountListDataSource.writeData(accountList);
 
         updateUnitList();

@@ -82,7 +82,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                         + account.getUnbanRequest() + ","
                         + account.getLastLogin().format(formatter)
                         ;
-                if(account.getRole().equals("mod") && !((Moderator)account).getAffiliation().equals("")) line += ","+((Moderator)account).getAffiliation();
+                if(account.getRole().equals("mod") && !((Moderator)account).getUnit().equals("")) line += ","+((Moderator)account).getUnit();
                 buffer.append(line);
                 buffer.newLine();
             }

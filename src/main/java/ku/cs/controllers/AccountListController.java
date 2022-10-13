@@ -86,7 +86,7 @@ public class AccountListController {
 
             if (i.getRole().equals("mod")) {
                 Label unitLabel = new Label();
-                unitLabel.setText("Unit : " + ((Moderator) i).getAffiliation());
+                unitLabel.setText("Unit : " + ((Moderator) i).getUnit());
                 unitLabel.setFont(ths1);
                 hBox1.getChildren().add(unitLabel);
             }

@@ -1,13 +1,12 @@
 package ku.cs.services.filter;
 
-import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.Moderator;
 
 public class AffiliationFilter implements Filterer<Moderator> {
 
     @Override
     public boolean found(Moderator moderator, String filter) {
-        if(moderator.getAffiliation().equals(filter)) return true;
+        if(moderator.getUnit().equals(filter)) return true;
         return false;
     }
 

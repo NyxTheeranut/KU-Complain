@@ -1,15 +1,11 @@
 package ku.cs.models.units;
 
-import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
 import ku.cs.models.accounts.Moderator;
 import ku.cs.models.category.Category;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
-import ku.cs.services.filter.AccountIdFilter;
-import ku.cs.util.Util;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Unit {
     private String unitName;
@@ -47,7 +43,7 @@ public class Unit {
         dataSource.writeData(accountList);
 
         this.unitName = unitName;
-        for(Moderator m: moderatorList) m.setAffiliation(unitName);
+        for(Moderator m: moderatorList) m.setUnit(unitName);
     }
 
     public ArrayList<Category> getCategoryList() {

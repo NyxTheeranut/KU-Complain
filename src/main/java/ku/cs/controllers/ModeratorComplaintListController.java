@@ -68,9 +68,8 @@ public class ModeratorComplaintListController {
         DataSource<UnitList> unitDataSource = new UnitListFileDataSource();
         UnitList unitList = unitDataSource.readData();
         complaints = new ArrayList<>();
-
         //get unit category list
-        categoryList = Data.search(account.getAffiliation(), unitList.getAllUnits(), new UnitNameFilter()).getCategoryList();
+        categoryList = Data.search(account.getUnit(), unitList.getAllUnits(), new UnitNameFilter()).getCategoryList();
         dataSource = new ComplaintListFileDataSource();
         for (Category i : categoryList) {
             for (Complaint j : Data.filter(i.getName(), dataSource.readData().getAllComplaints(), new ComplaintCategoryFilter())) {

@@ -173,7 +173,7 @@ public class ComplaintPageController {
         hBox1.setPadding(new Insets(0,0,0,10));
 
         Label moderatorLabel = new Label();
-        moderatorLabel.setText("หน่วยงาน : " + complaint.getModerator().getAffiliation());
+        moderatorLabel.setText("หน่วยงาน : " + complaint.getModerator().getUnit());
         moderatorLabel.setFont(FontLoader.font("ths", 20));
         hBox1.getChildren().add(moderatorLabel);
 

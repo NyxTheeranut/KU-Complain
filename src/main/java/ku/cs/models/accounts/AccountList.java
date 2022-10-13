@@ -67,7 +67,7 @@ public class AccountList {
     public void changeUnit(String oldUnit,String newUnit){
         for(Account a : accounts){
             if(a instanceof Moderator){
-                if(((Moderator) a).getAffiliation().equals(oldUnit)) ((Moderator) a).setAffiliation(newUnit);
+                if(((Moderator) a).getUnit().equals(oldUnit)) ((Moderator) a).setUnit(newUnit);
             }
         }
     }
@@ -82,7 +82,7 @@ public class AccountList {
     }
 
     public void removeAffiliation(UUID id){
-        for(Account a : accounts) if(a.getId().equals(id)) ((Moderator) a).setAffiliation("");
+        for(Account a : accounts) if(a.getId().equals(id)) ((Moderator) a).setUnit("");
     }
 
     public ArrayList<Moderator> getAllMod(){

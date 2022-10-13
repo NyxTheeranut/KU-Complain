@@ -32,7 +32,7 @@ public class UnitList {
     }
 
     public void removeModerator(String unitName, Moderator moderator){
-        Util.search(unitName,units,new UnitNameFilter()).removeModerator(moderator);
+        Data.search(unitName,units,new UnitNameFilter()).removeModerator(moderator);
     }
 
     public ArrayList<Unit> getAllUnits(){
