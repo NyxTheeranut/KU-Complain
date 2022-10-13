@@ -72,12 +72,22 @@ public class AccountList {
         }
     }
 
-    public void setBan(UUID id,boolean status){
+    public void setBan(UUID id,boolean status) {
         for (Account account : accounts) {
             if (account.getId().equals(id)) {
                 account.setBanned(status);
                 return;
             }
         }
+    }
+
+    public void removeAffiliation(UUID id){
+        for(Account a : accounts) if(a.getId().equals(id)) ((Moderator) a).setAffiliation("");
+    }
+
+    public ArrayList<Moderator> getAllMod(){
+        ArrayList<Moderator> mods = new ArrayList<>();
+        for(Account a : accounts) if(a instanceof Moderator) mods.add((Moderator) a);
+        return mods;
     }
 }

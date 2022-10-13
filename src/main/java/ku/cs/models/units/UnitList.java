@@ -1,5 +1,6 @@
 package ku.cs.models.units;
 
+import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.Moderator;
 import ku.cs.models.category.Category;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
@@ -29,6 +30,11 @@ public class UnitList {
     public void addCategory(String unitName, Category category){
         Data.search(unitName,units,new UnitNameFilter()).addCategory(category);
     }
+
+    public void removeModerator(String unitName, Moderator moderator){
+        Util.search(unitName,units,new UnitNameFilter()).removeModerator(moderator);
+    }
+
     public ArrayList<Unit> getAllUnits(){
         return units;
     }

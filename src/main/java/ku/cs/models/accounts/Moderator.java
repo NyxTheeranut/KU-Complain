@@ -16,6 +16,10 @@ public class Moderator extends Account {
         this.affiliation = affiliation;
     }
 
-    public String toString() { return this.getName()+" "+this.getSurname()+" ("+affiliation+")"; }
+    public String toString() {
+        String str = this.getName()+" "+this.getSurname();
+        if(affiliation != "") str += " (" + affiliation + ")";
+        return str;
+    }
 
 }

@@ -11,37 +11,41 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import ku.cs.models.accounts.AccountList;
 import ku.cs.models.accounts.Moderator;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
 import ku.cs.models.units.Unit;
 import ku.cs.models.units.UnitList;
 import ku.cs.services.datasource.DataSource;
+import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
 import ku.cs.services.datasource.units.UnitListFileDataSource;
+import ku.cs.services.filter.AccountIdFilter;
+import ku.cs.services.filter.AffiliationFilter;
 
 import java.io.IOException;
 
 import com.github.saacsos.FXRouter;
+import ku.cs.util.Data;
 import ku.cs.util.ObjectStorage;
 
 public class UnitManageController {
-    @FXML
-    private AnchorPane anchorPane;
     @FXML private ListView<Unit> unitListView;
-    @FXML private StackPane stackPane;
     @FXML private Label unitLabel;
     @FXML private ListView<Moderator> modListView;
     @FXML private ListView<Category> categoryListView;
     @FXML private ComboBox<Category> categoryComboBox;
+    @FXML private ComboBox<Moderator> freeModComboBox;
     private Unit selectedUnit;
     private DataSource<UnitList> unitListDataSource;
     private DataSource<CategoryList> categoryListDataSource;
-    private CategoryList categoryList;
+    private DataSource<AccountList> accountListDataSource;
     public void initialize(){
         unitListDataSource = new UnitListFileDataSource();
         categoryListDataSource = new CategoryListFileDataSource();
-        //System.out.println(unitList.getAllUnits().size());
+        accountListDataSource = new AccountListFileDataSource();
+
         updateUnitList();
         handleSelectedListView();
         unitListView.getSelectionModel().select(0);
@@ -66,8 +70,17 @@ public class UnitManageController {
         categoryComboBox.getItems().addAll(categoryAddList.getAllCategory());
     }
 
-    public void handleSelectedListView() {
+    public void updateModerator(){
+        modListView.getItems().clear();
+        modListView.getItems().addAll(selectedUnit.getModeratorList());
+        modListView.refresh();
 
+        freeModComboBox.getItems().clear();
+        AccountList accountList = new AccountListFileDataSource().readData();
+        freeModComboBox.getItems().addAll(Data.filter("",accountList.getAllMod(), new AffiliationFilter()));
+    }
+
+    public void handleSelectedListView() {
         unitListView.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     if(newValue != null) {
@@ -81,13 +94,8 @@ public class UnitManageController {
         selectedUnit = unit;
 
         unitLabel.setText(unit.getUnitName());
-
-        modListView.getItems().clear();
-        modListView.getItems().addAll(unit.getModeratorList());
-
+        updateModerator();
         updateCategory();
-
-        for (Moderator m : unit.getModeratorList()) System.out.println(m.getName());
     }
 
     public void handleCreateUnitButton() throws IOException {
@@ -111,14 +119,11 @@ public class UnitManageController {
         ((ObjectStorage)FXRouter.getData()).setUnit(selectedUnit);
         stage.showAndWait();
         updateUnitList();
-        //showSelectedUnit((Unit) unitListView.getSelectionModel().getSelectedItem());
         showSelectedUnit(((ObjectStorage) FXRouter.getData()).getUnit());
     }
 
     public void handleAddCategoryButton(){
         if(categoryComboBox.getSelectionModel().getSelectedItem() == null) return;
-
-        System.out.println("Adding "+ categoryComboBox.getSelectionModel().getSelectedItem().getName() + " to " + selectedUnit.getUnitName());
 
         selectedUnit.addCategory(categoryComboBox.getSelectionModel().getSelectedItem());
         UnitList unitList = unitListDataSource.readData();
@@ -127,5 +132,42 @@ public class UnitManageController {
 
         updateUnitList();
         updateCategory();
+    }
+
+    public void handleRemoveModeratorButton(){
+        if(modListView.getSelectionModel().getSelectedItem() == null) return;
+
+        AccountList accountList = accountListDataSource.readData();
+        accountList.removeAffiliation(modListView.getSelectionModel().getSelectedItem().getId());
+        accountListDataSource.writeData(accountList);
+
+        UnitList unitList = unitListDataSource.readData();
+        unitList.removeModerator(selectedUnit.getUnitName(),modListView.getSelectionModel().getSelectedItem());
+        unitListDataSource.writeData(unitList);
+
+        selectedUnit.removeModerator(modListView.getSelectionModel().getSelectedItem());
+        updateUnitList();
+        updateCategory();
+        updateModerator();
+    }
+
+    public void handleAddModeratorButton(){
+        if(freeModComboBox.getSelectionModel().getSelectedItem() == null) return;
+
+        Moderator moderator = freeModComboBox.getSelectionModel().getSelectedItem();
+        moderator.setAffiliation(selectedUnit.getUnitName());
+        selectedUnit.addModerator(moderator);
+
+        UnitList unitList = unitListDataSource.readData();
+        unitList.addModerator(selectedUnit.getUnitName(),moderator.getId());
+        unitListDataSource.writeData(unitList);
+
+        AccountList accountList = accountListDataSource.readData();
+        ((Moderator)Data.search(moderator.getId().toString(),accountList.getAllAccount(),new AccountIdFilter())).setAffiliation(selectedUnit.getUnitName());
+        accountListDataSource.writeData(accountList);
+
+        updateUnitList();
+        updateCategory();
+        updateModerator();
     }
 }

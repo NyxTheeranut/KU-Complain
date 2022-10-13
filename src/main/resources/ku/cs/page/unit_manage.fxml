@@ -20,7 +20,9 @@
       <ListView fx:id="categoryListView" layoutX="665.0" layoutY="392.0" prefHeight="143.0" prefWidth="157.0" />
       <Button layoutX="837.0" layoutY="564.0" mnemonicParsing="false" onAction="#handleAddCategoryButton" text="เพิ่ม" />
       <Label layoutX="442.0" layoutY="392.0" text="หมวดหมู่เรื่องร้องเรียนในความรับผิดชอบ" />
-      <ComboBox layoutX="665.0" layoutY="348.0" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox fx:id="freeModComboBox" layoutX="665.0" layoutY="348.0" prefHeight="25.0" prefWidth="200.0" />
       <ComboBox fx:id="categoryComboBox" layoutX="665.0" layoutY="564.0" prefHeight="25.0" prefWidth="157.0" />
+      <Button layoutX="871.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleAddModeratorButton" text="เพิ่ม" />
+      <Button layoutX="871.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleRemoveModeratorButton" prefHeight="43.0" prefWidth="91.0" text="ลบเจ้าหน้าที่ออกจากหน่วยงาน" wrapText="true" />
    </children>
 </AnchorPane>

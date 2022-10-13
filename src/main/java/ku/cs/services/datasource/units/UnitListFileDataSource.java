@@ -78,7 +78,7 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
                     if(i>0) line += ":";
                     line += unit.getCategoryList().get(i).getName();
                 }
-                System.out.println(3);
+                //System.out.println(3);
                 buffer.append(line);
                 buffer.newLine();
             }

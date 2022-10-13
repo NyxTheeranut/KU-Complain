@@ -5,8 +5,11 @@ import ku.cs.models.accounts.AccountList;
 import ku.cs.models.accounts.Moderator;
 import ku.cs.models.category.Category;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
+import ku.cs.services.filter.AccountIdFilter;
+import ku.cs.util.Util;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Unit {
     private String unitName;
@@ -22,6 +25,14 @@ public class Unit {
 
     public void addModerator(Moderator moderator){
         moderatorList.add(moderator);
+    }
+    public void removeModerator(Moderator moderator) {
+        for(Moderator m : moderatorList){
+            if(m.getId().equals(moderator.getId())){
+                moderatorList.remove(m);
+                return;
+            }
+        }
     }
     public void addCategory(Category category) { categoryList.add(category); }
 

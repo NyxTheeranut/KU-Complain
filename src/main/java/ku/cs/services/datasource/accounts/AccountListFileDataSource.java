@@ -23,8 +23,8 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             buffer = new BufferedReader(reader);
             String line = "";
             while((line = buffer.readLine()) != null){
-                // 0    1     2       3       4     5         6        7        8            9            10
-                //role,id,username,password,name,surname,default.png,isBan,loginAttempt,unban request,lastLogin
+                // 0    1     2       3       4     5         6        7        8            9            10     11
+                //role,id,username,password,name,surname,default.png,isBan,loginAttempt,unban request,lastLogin,unit
                 String[] data = line.split(",");
                 Boolean isBanned;
                 if (data[7].equals("0")) isBanned = false;
@@ -35,7 +35,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                     account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin);
                 }
                 else if (data[0].equals("mod")){
-                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin, data[11]);
+                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin, (data.length == 12)?data[11]:"");
                 }
                 else if (data[0].equals("user")){
                     account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin);
@@ -82,7 +82,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                         + account.getUnbanRequest() + ","
                         + account.getLastLogin().format(formatter)
                         ;
-                if(account.getRole()=="mod") line += ","+((Moderator)account).getAffiliation();
+                if(account.getRole().equals("mod") && !((Moderator)account).getAffiliation().equals("")) line += ","+((Moderator)account).getAffiliation();
                 buffer.append(line);
                 buffer.newLine();
             }
