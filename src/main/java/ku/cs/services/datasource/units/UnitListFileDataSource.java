@@ -33,14 +33,17 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
             CategoryListFileDataSource dataSource2 = new CategoryListFileDataSource();
             CategoryList categoryList = dataSource2.readData();
             while((line = buffer.readLine()) != null){
-                //System.out.println(line);
+                System.out.println(line);
                 String[] data = line.split(",");
-                //System.out.println(data.length);
+                System.out.println(data.length);
                 Unit unit = new Unit(data[0]);
-                if(data.length > 1 && !data[1].equals("")) for(String moderatorID: data[1].split(":")) unit.addModerator((Moderator) Data.search(moderatorID,accountList.getAllAccount(),new AccountIdFilter()));
-                if(data.length > 2 && !data[2].equals("")) for(String categoryName : data[2].split(":")) unit.addCategory((Category) Data.search(categoryName,categoryList.getAllCategory(),new CategoryNameFilter()));
+                if(data.length > 1 && !data[1].equals(""))
+                    for(String moderatorID: data[1].split(":")) unit.addModerator((Moderator) Data.search(moderatorID,accountList.getAllAccount(),new AccountIdFilter()));
+                if(data.length > 2 && !data[2].equals(""))
+                    for(String categoryName : data[2].split(":")) unit.addCategory((Category) Data.search(categoryName,categoryList.getAllCategory(),new CategoryNameFilter()));
                 unitList.addUnit(unit);
             }
+            System.out.println("Read completed");
         }catch (FileNotFoundException e){
             throw new RuntimeException(e);
         }catch (IOException e) {
@@ -68,7 +71,6 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
                 String line = unit.getUnitName();
                 line += ",";
                 for(int i=0; i < unit.getModeratorList().size(); i++ ) {
-                    System.out.println(unit.getModeratorList().get(i));
                     if(i>0) line += ":";
                     line += unit.getModeratorList().get(i).getId();
                 }
