@@ -27,6 +27,7 @@ public class AccountList {
     public Account checkLogin(String username, String password) {
 
         Account account = Data.search(username, getAllAccount(), new AccountUsernameFilter());
+        if(account == null) return null;
         if (account.getPassword().equals(password)) {
             account.setLastLogin(LocalDateTime.now());
             DataSource<AccountList> dataSource = new AccountListFileDataSource();
