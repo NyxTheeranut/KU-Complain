@@ -59,7 +59,7 @@
             <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="680.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-color: 48915;" text="ยกเลิก" underline="true">
+      <Button fx:id="backButton" layoutX="680.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleBackButton" text="ยกเลิก" underline="true">
          <font>
             <Font name="THSarabunPSK-Bold" size="25.0" />
          </font>
@@ -80,5 +80,10 @@
             <Font name="TH SarabunPSK" size="18.0" />
          </font>
       </TextArea>
+      <Label fx:id="errorLabel" layoutX="464.0" layoutY="555.0" text="Label">
+         <font>
+            <Font name="THSarabunPSK" size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" stylesheets="@../styles/lightTheme.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.TutorialPageController">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="1180.0">
+         <children>
+            <Label text="วิธีร้องเรียน">
+               <font>
+                  <Font name="THSarabunPSK-Bold" size="70.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="50.0" top="14.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="90.0" layoutY="100.0" prefHeight="620.0" prefWidth="1000.0">
+         <children>
+            <Label text="1. เลือกเมนู 'เสนอเรื่องร้องเรียน'">
+               <font>
+                  <Font name="TH SarabunPSK" size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="174.0" fitWidth="205.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="-250.0" top="80.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../image/t1.png" />
+               </image>
+            </ImageView>
+            <Label text="2. ระบุหัวข้อเรื่องที่ต้องการร้องเรียน">
+               <HBox.margin>
+                  <Insets left="180.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="TH SarabunPSK" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="179.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="-280.0" top="80.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../image/t2.png" />
+               </image>
+            </ImageView>
+            <Label text="3. เลือกหมวดหมู่ที่ต้องการร้องเรียน">
+               <font>
+                  <Font name="TH SarabunPSK" size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="-740.0" top="280.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="160.0" fitWidth="325.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/t3.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="-300.0" top="340.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label text="4. กรอกรายละเอียดให้ครบถ้วน แล้วกดส่งเรื่่องร้องเรียน">
+               <font>
+                  <Font name="TH SarabunPSK" size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="70.0" top="280.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="157.0" fitWidth="282.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/t4.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="-460.0" top="340.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

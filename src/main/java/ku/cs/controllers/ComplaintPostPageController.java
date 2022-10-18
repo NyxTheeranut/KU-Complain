@@ -18,6 +18,7 @@ import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.category.Category;
 import ku.cs.models.category.CategoryList;
+import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
 import ku.cs.util.ImageManager;
 import ku.cs.services.datasource.categorytlists.CategoryListFileDataSource;
@@ -85,6 +86,7 @@ public class ComplaintPostPageController {
             hBox.setSpacing(20); //Set spacing for HBox
 
             Label fieldName = new Label(); //Name label
+            fieldName.setFont(FontLoader.font("ths",20));
             fieldName.setPrefSize(80, 30);
 
             hBox.getChildren().add(fieldName);
@@ -98,6 +100,7 @@ public class ComplaintPostPageController {
             else if (i.getKey().equals("pic")){
 
                 Button button = new Button("Upload รูปภาพ");
+                button.setFont(FontLoader.font("ths_b",14));
                 button.setPrefSize(100, 30);
                 button.setAlignment(Pos.CENTER);
 

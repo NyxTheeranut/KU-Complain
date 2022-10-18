@@ -52,6 +52,10 @@
 .label {
     -fx-text-fill: #c9d1d9;
 }
+
+.text {
+    -fx-text-fill: #c9d1d9;
+}
 .scroll-pane {
     -fx-background: #2B3542;
     -fx-border-color: #2B3542;

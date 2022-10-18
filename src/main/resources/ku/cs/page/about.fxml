@@ -1,75 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AboutPageController">
    <children>
-      <Circle fill="#429772" layoutX="423.0" layoutY="87.0" radius="40.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="#429772" layoutX="752.0" layoutY="87.0" radius="40.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="80.0" layoutX="423.0" layoutY="47.0" stroke="TRANSPARENT" strokeType="INSIDE" width="336.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="58.0" layoutX="428.0" layoutY="58.0" stroke="TRANSPARENT" strokeType="INSIDE" width="326.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="226.0" layoutX="371.0" layoutY="417.0" stroke="TRANSPARENT" strokeType="INSIDE" width="439.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="387.0" layoutY="430.0" stroke="TRANSPARENT" strokeType="INSIDE" width="406.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="20.0" layoutX="381.0" layoutY="422.0" stroke="TRANSPARENT" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="20.0" layoutX="381.0" layoutY="620.0" stroke="TRANSPARENT" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="20.0" layoutX="786.0" layoutY="620.0" stroke="TRANSPARENT" strokeType="INSIDE" width="14.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#429772" height="20.0" layoutX="786.0" layoutY="420.0" stroke="TRANSPARENT" strokeType="INSIDE" width="14.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="459.0" layoutY="46.0" prefHeight="70.0" prefWidth="264.0" text="คณะผู้จัดทำ">
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="98.0" prefWidth="1180.0" text="เกี่ยวกับ">
          <font>
-            <Font size="48.0" />
+            <Font name="THSarabunPSK-Bold" size="80.0" />
+         </font>
+         <padding>
+            <Insets left="50.0" top="20.0" />
+         </padding>
+      </Label>
+      <Label alignment="TOP_LEFT" layoutX="406.0" layoutY="342.0" prefHeight="37.0" prefWidth="350.0" text="6410400993     กัญจน์ ศรีประไพ">
+         <font>
+            <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="436.0" layoutY="448.0" prefHeight="27.0" prefWidth="137.0" text="6410400993">
+      <Label alignment="TOP_LEFT" layoutX="406.0" layoutY="379.0" prefHeight="37.0" prefWidth="350.0" text="6410401060     ธนภัทร เชื้อโตหลวง">
          <font>
-            <Font size="18.0" />
+            <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="436.0" layoutY="489.0" text="6410401060">
+      <Label alignment="TOP_LEFT" layoutX="406.0" layoutY="416.0" prefHeight="37.0" prefWidth="350.0" text="6410406584     ดุจรวี เหล่าอยู่คง">
          <font>
-            <Font size="18.0" />
+            <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="436.0" layoutY="530.0" text="6410406584">
+      <Label alignment="TOP_LEFT" layoutX="406.0" layoutY="453.0" prefHeight="37.0" prefWidth="350.0" text="6410406673     ธีรณัฏฐ์ สุธนรักษ์">
          <font>
-            <Font size="18.0" />
+            <Font name="TH SarabunPSK" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="436.0" layoutY="571.0" text="6410406673">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="636.0" layoutY="448.0" text="กัญจน์ ศรีประไพ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="627.0" layoutY="489.0" text="ธนภัทร เชื้อโตหลวง">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="637.0" layoutY="530.0" text="ดุจรวี เหล่าอยู่คง">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="634.0" layoutY="571.0" text="ธีรณัฏฐ์ สุธนรักษ์">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="294.0" fitWidth="536.0" layoutX="323.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
-      <Circle fill="WHITE" layoutX="428.0" layoutY="87.0" radius="29.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="750.0" layoutY="87.0" radius="29.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="397.0" layoutY="440.0" radius="10.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="783.0" layoutY="440.0" radius="10.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="397.0" layoutY="620.0" radius="10.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-      <Circle fill="WHITE" layoutX="783.0" layoutY="620.0" radius="10.0" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>
 </AnchorPane>

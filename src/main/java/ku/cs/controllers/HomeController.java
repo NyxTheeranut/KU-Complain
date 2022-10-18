@@ -82,7 +82,6 @@ public class HomeController {
         };
 
         buttonVBox.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
-        buttonVBox.setPadding(new Insets(60,0,0,0));
 
         for(String buttonData:buttonDataList){
             String[] data = buttonData.split(",");
@@ -99,7 +98,6 @@ public class HomeController {
     public void loadAdminButton(){
         VBox box = (VBox) menu.getChildren().get(0);
         box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
-        buttonVBox.setPadding(new Insets(60,0,0,0));
 
         String[] buttonDataList = {
                 "รายชื่อบัญชี,\uF00B,account_list.fxml",
@@ -124,7 +122,6 @@ public class HomeController {
     public void loadModButton(){
         VBox box = (VBox) menu.getChildren().get(0);
         box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
-        buttonVBox.setPadding(new Insets(60,0,0,0));
 
         String[] buttonDataList = {
                 "จัดการเรื่องร้องเรียน,\uF0AD,moderator_complaint_list.fxml",

@@ -1,7 +1,5 @@
 package ku.cs.controllers;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -20,18 +18,10 @@ import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
 import ku.cs.services.filter.AccountIdFilter;
-import ku.cs.services.filter.AccountUsernameFilter;
 import ku.cs.services.filter.ComplaintIdFilter;
-import ku.cs.services.reports.ReportListFileDataSource;
+import ku.cs.services.datasource.reports.ReportListFileDataSource;
 import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
-import ku.cs.util.ObjectStorage;
-
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ReportListController {
     @FXML
@@ -40,8 +30,8 @@ public class ReportListController {
 
     public void initialize() {
         DataSource<ReportList> reportDataSource = new ReportListFileDataSource();
-        reportList = reportDataSource.readData();
 
+        reportList = reportDataSource.readData();
         updateReportList();
     }
     Font ths1 = FontLoader.font("ths", 30);
@@ -50,7 +40,8 @@ public class ReportListController {
     private void updateReportList(){
         reportListArea.getChildren().clear();
 
-        for(Report i : reportList.getAllReport()){
+        for(int x=0; x<reportList.getAllReport().size(); x++){
+            Report i = reportList.getAllReport().get(x);
             DataSource<AccountList> accountListDataSource = new AccountListFileDataSource();
             DataSource<ComplaintList> complaintListDataSource = new ComplaintListFileDataSource();
             AccountList accountList = accountListDataSource.readData();
@@ -61,9 +52,18 @@ public class ReportListController {
 
             if (i.getType().equals("Account")) {
                 account = Data.search(i.getId().toString(), accountList.getAllAccount(), new AccountIdFilter());
-            }
-            else {
+                if (account.isBanned()) {
+                    x--;
+                    dismiss(i);
+                    continue;
+                }
+            } else {
                 complaint = Data.search(i.getId().toString(), complaintList.getAllComplaints(), new ComplaintIdFilter());
+                if (complaint==null) {
+                    x--;
+                    dismiss(i);
+                    continue;
+                }
             }
 
             HBox hBox = new HBox();

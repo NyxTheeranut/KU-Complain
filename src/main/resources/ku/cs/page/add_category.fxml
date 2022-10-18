@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AddCategoryController">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="620.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -28,7 +27,7 @@
       </HBox>
       <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="1080.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <VBox layoutX="15.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-15.0" AnchorPane.topAnchor="0.0">
+            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label prefHeight="50.0" text="ชื่อหมวดหมู่">
                      <font>
@@ -50,9 +49,18 @@
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#addText" text="กล่องข้อความ (เล็ก)" />
-                        <Button mnemonicParsing="false" onAction="#addPicture" text="ใส่รูปภาพ" />
-                        <Button mnemonicParsing="false" onAction="#addDetail" text="กล่องใส่รายละเอียด (ใหญ่)" />
+                        <Button mnemonicParsing="false" onAction="#addText" text="กล่องข้อความ (เล็ก)">
+                           <font>
+                              <Font name="THSarabunPSK-Bold" size="20.0" />
+                           </font></Button>
+                        <Button mnemonicParsing="false" onAction="#addPicture" text="ใส่รูปภาพ">
+                           <font>
+                              <Font name="THSarabunPSK-Bold" size="20.0" />
+                           </font></Button>
+                        <Button mnemonicParsing="false" onAction="#addDetail" text="กล่องใส่รายละเอียด (ใหญ่)">
+                           <font>
+                              <Font name="THSarabunPSK-Bold" size="20.0" />
+                           </font></Button>
                      </children>
                   </HBox>
                   <ScrollPane maxWidth="-Infinity" prefHeight="370.0" prefWidth="1100.0">

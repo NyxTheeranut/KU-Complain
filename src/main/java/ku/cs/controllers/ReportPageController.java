@@ -2,29 +2,26 @@ package ku.cs.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import ku.cs.services.datasource.DataSource;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ku.cs.models.reports.Report;
 import ku.cs.models.reports.ReportList;
-import ku.cs.services.reports.ReportListFileDataSource;
+import ku.cs.services.datasource.reports.ReportListFileDataSource;
 import ku.cs.util.ObjectStorage;
 
 import java.util.UUID;
 import com.github.saacsos.FXRouter;
 
 public class ReportPageController {
-
-    Report report;
     @FXML
     Button reportButton;
     @FXML
     Button backButton;
     @FXML
     TextField topicTextField;
+    @FXML
+    Label errorLabel;
     @FXML
     TextArea detailTextArea;
     @FXML RadioButton ComplaintReportButton;
@@ -34,6 +31,10 @@ public class ReportPageController {
     public void handleReportButton() {
         String topic = topicTextField.getText();
         String detail = detailTextArea.getText();
+        if (topic.isEmpty() || detail.isEmpty()) {
+            errorLabel.setText("กรุณาใส่ข้อมูลให้ครบ");
+            return;
+        }
         UUID id;
         String type;
 
