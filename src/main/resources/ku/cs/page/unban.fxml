@@ -14,7 +14,7 @@
             <Font name="THSarabunPSK-Bold" size="80.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="615.0" layoutY="548.0" mnemonicParsing="false" onAction="#handleBackButton" style="-fx-background-color: 48915;" text="ยกเลิก" underline="true">
+      <Button fx:id="backButton" layoutX="649.0" layoutY="549.0" mnemonicParsing="false" onAction="#handleBackButton" text="ยกเลิก">
          <font>
             <Font name="THSarabunPSK-Bold" size="25.0" />
          </font>
@@ -22,7 +22,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="submitButton" layoutX="719.0" layoutY="549.0" mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="48.0" text="ส่งคำขอปลดแบน">
+      <Button fx:id="submitButton" layoutX="736.0" layoutY="549.0" mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="48.0" text="ส่งคำขอปลดแบน">
          <font>
             <Font name="THSarabunPSK-Bold" size="25.0" />
          </font>
@@ -38,6 +38,11 @@
       <Label layoutX="79.0" layoutY="155.0" text="ส่งคำขอปลดแบน">
          <font>
             <Font name="THSarabunPSK" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" layoutX="70.0" layoutY="561.0" textFill="RED">
+         <font>
+            <Font name="THSarabunPSK" size="20.0" />
          </font>
       </Label>
    </children>

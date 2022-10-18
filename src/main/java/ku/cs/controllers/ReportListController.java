@@ -21,6 +21,7 @@ import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.datasource.complaints.ComplaintListFileDataSource;
 import ku.cs.services.filter.AccountIdFilter;
 import ku.cs.services.filter.AccountUsernameFilter;
+import ku.cs.services.filter.ComplaintIdFilter;
 import ku.cs.services.reports.ReportListFileDataSource;
 import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
@@ -50,6 +51,20 @@ public class ReportListController {
         reportListArea.getChildren().clear();
 
         for(Report i : reportList.getAllReport()){
+            DataSource<AccountList> accountListDataSource = new AccountListFileDataSource();
+            DataSource<ComplaintList> complaintListDataSource = new ComplaintListFileDataSource();
+            AccountList accountList = accountListDataSource.readData();
+            ComplaintList complaintList = complaintListDataSource.readData();
+
+            Account account = null;
+            Complaint complaint = null;
+
+            if (i.getType().equals("Account")) {
+                account = Data.search(i.getId().toString(), accountList.getAllAccount(), new AccountIdFilter());
+            }
+            else {
+                complaint = Data.search(i.getId().toString(), complaintList.getAllComplaints(), new ComplaintIdFilter());
+            }
 
             HBox hBox = new HBox();
             hBox.setPadding(new Insets(0, 0, 0, 20));
@@ -63,25 +78,20 @@ public class ReportListController {
             hBox1.setPrefSize(995, 40);
             hBox1.setSpacing(20);
 
-            Label idLabel = new Label();
-            idLabel.setText("Id: " + i.getId());
-            idLabel.setFont(ths1);
-            idLabel.setPrefWidth(500);
+            Label nameLabel = new Label();
+            if (i.getType().equals("Account")) nameLabel.setText("Account name : " + account.getName());
+            else nameLabel.setText("Complaint topic : " + complaint.getTopic());
+            nameLabel.setFont(ths1);
+            nameLabel.setPrefWidth(500);
 
-            Label typeLabel = new Label();
-            typeLabel.setText("Type: " + i.getType());
-            typeLabel.setFont(ths1);
-            typeLabel.setPrefWidth(245);
-
-            hBox1.getChildren().add(idLabel);
-            hBox1.getChildren().add(typeLabel);
+            hBox1.getChildren().add(nameLabel);
 
             HBox hBox2 = new HBox();
             hBox2.setPrefSize(995, 31);
             hBox2.setSpacing(20);
 
             Label topicLabel = new Label();
-            topicLabel.setText("Topic: " + i.getTopic());
+            topicLabel.setText("หัวข้อเรื่องร้องเรียน : " + i.getTopic());
             topicLabel.setFont(ths2);
             topicLabel.setPrefWidth(800);
 
@@ -99,13 +109,12 @@ public class ReportListController {
                 hBox2.getChildren().add(removeButton);
             }
 
-
             HBox hBox3 = new HBox();
             hBox3.setPrefSize(995, 31);
             hBox3.setSpacing(20);
 
             Label descriptionLabel = new Label();
-            descriptionLabel.setText("Description: " + i.getDescription());
+            descriptionLabel.setText("รายละเอียดเรื่องร้องเรียน : " + i.getDescription());
             descriptionLabel.setFont(ths2);
             descriptionLabel.setPrefWidth(800);
 

@@ -52,7 +52,11 @@ public class LoginPageController {
             Account account = accountList.checkLogin(username, password);
             if (account != null) {
                 ((ObjectStorage) FXRouter.getData()).setAccount(account);
-                if (account.isBanned()) showBannedWindow();
+                if (account.isBanned()) { // Banned account
+                    account.setLoginAttempt(account.getLoginAttempt()+1);
+                    showBannedWindow();
+                    dataSource.writeData(accountList);
+                }
                 else {
                     try {
                         FXRouter.goTo("home", FXRouter.getData());

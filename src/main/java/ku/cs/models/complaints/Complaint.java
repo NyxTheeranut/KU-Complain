@@ -102,21 +102,4 @@ public class Complaint {
         }
         return co;
     }
-
-    @Override
-    public String toString() {
-        return topic;
-//        return "Complaint{" +
-//                "id=" + id +
-//                ", author=" + author +
-//                ", topic='" + topic + '\'' +
-//                ", category=" + category +
-//                ", fields=" + fields +
-//                ", datePosted=" + datePosted +
-//                ", status=" + status +
-//                ", moderator=" + moderator +
-//                ", solvingDetail='" + solvingDetail + '\'' +
-//                ", votes=" + votes +
-//                '}';
-    }
 }
