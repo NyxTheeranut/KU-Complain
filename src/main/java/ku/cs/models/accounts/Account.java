@@ -39,31 +39,41 @@ public class Account {
     public String getRole(){
         return role;
     }
+
     public UUID getId() {
         return id;
     }
+
     public String getUsername() {
         return username;
     }
+
     public String getPassword() {
         return password;
     }
+
     public String getName() {
         return name;
     }
+
     public String getSurname() {
         return surname;
     }
+
     public String getImagePath() { return  imagePath; }
+
     public boolean isBanned() {
         return isBanned;
     }
+
     public int getLoginAttempt() {
         return loginAttempt;
     }
+
     public String getUnbanRequest() {
         return unbanRequest;
     }
+
     public Image getImage() {
         FileInputStream fileInputStream = null;
         try {
@@ -78,34 +88,44 @@ public class Account {
         Image image = new Image(fileInputStream);
         return image;
     }
+
     public LocalDateTime getLastLogin() {
         return this.lastLogin;
     }
+
     //setter
     public void setUsername(String username) {
         this.username = username;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
     public void setLoginAttempt(int loginAttempt) {
         this.loginAttempt = loginAttempt;
     }
+
     public void setUnbanRequest(String unbanRequest) {
         this.unbanRequest = unbanRequest;
     }
+
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
+
     public void setBanned(boolean banned) {
         isBanned = banned;
     }

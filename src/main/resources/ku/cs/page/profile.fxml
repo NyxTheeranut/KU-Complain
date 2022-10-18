@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ProfilePageController">
     <children>
-      <HBox layoutX="3.0" prefHeight="100.0" prefWidth="1180.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox fx:id="titleHBox" layoutX="3.0" prefHeight="100.0" prefWidth="1180.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="บัญชีผู้ใช้">
                <font>
@@ -21,14 +21,6 @@
                   <Insets left="50.0" top="14.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#handleMyComplaintButton" text="เรื่องร้องเรียนของฉัน" underline="true">
-               <HBox.margin>
-                  <Insets left="760.0" top="30.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="TH SarabunPSK" size="24.0" />
-               </font>
-            </Button>
          </children>
       </HBox>
       <VBox layoutY="100.0" prefHeight="620.0" prefWidth="1180.0">
