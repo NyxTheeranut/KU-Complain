@@ -23,34 +23,47 @@ import java.nio.file.*;
 import com.github.saacsos.FXRouter;
 public class EditProfileController extends AccountList {
 
-    @FXML private Label passwordLabel;
-    @FXML private Label surnameLabel;
-    @FXML private Label nameLabel;
-    @FXML private TextField changePasswordTextField;
-    @FXML private TextField nameTextField;
-    @FXML private TextField surnameTextField;
-    @FXML private TextField oldPasswordTextField;
-    @FXML private ImageView profilePicture;
-    @FXML private Account account;
-    @FXML private Account account1;
-    @FXML private AccountList accountList;
+    @FXML
+    private Label surnameLabel;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private TextField changePasswordTextField;
+    @FXML
+    private TextField nameTextField;
+    @FXML
+    private TextField surnameTextField;
+    @FXML
+    private TextField oldPasswordTextField;
+    @FXML
+    private ImageView profilePicture;
+    @FXML
+    private Account account;
+    @FXML
+    private Account account1;
+    @FXML
+    private AccountList accountList;
 
 
     public void handleProfilePicture(ActionEvent actionEvent) throws IOException {
         selectPicture();
     }
-    @FXML public void handleChangePassword(ActionEvent actionEvent) throws IOException {
-       changePassword();
+
+    @FXML
+    public void handleChangePassword(ActionEvent actionEvent) throws IOException {
+        changePassword();
     }
+
     public void handleName(ActionEvent actionEvent) throws IOException {
         changeName();
     }
 
-    public void handleSurname(ActionEvent actionEvent) throws  IOException{
+    public void handleSurname(ActionEvent actionEvent) throws IOException {
         changeSurname();
     }
 
-    @FXML public void initialize(){
+    @FXML
+    public void initialize() {
         account = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount();
 
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
@@ -60,7 +73,6 @@ public class EditProfileController extends AccountList {
 
         nameLabel.setText(account.getName());
         surnameLabel.setText(account.getSurname());
-        passwordLabel.setText(account.getPassword());
     }
 
     public void selectPicture() throws IOException {
@@ -76,7 +88,7 @@ public class EditProfileController extends AccountList {
         CopyOption[] options = new CopyOption[]{
                 StandardCopyOption.REPLACE_EXISTING,
                 StandardCopyOption.COPY_ATTRIBUTES};
-        Files.copy(from.toFile().toPath(), to.toFile().toPath(),options);
+        Files.copy(from.toFile().toPath(), to.toFile().toPath(), options);
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
 
@@ -84,29 +96,28 @@ public class EditProfileController extends AccountList {
         account1.setImagePath(selectedFile.getName());
 
     }
-    public void changePassword(){
+
+    public void changePassword() {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
 
         String newPassword = changePasswordTextField.getText();
         String passwordOld = oldPasswordTextField.getText();
-        if( passwordOld.equals(((ObjectStorage) FXRouter.getData()).getAccount().getPassword())){
+        if (passwordOld.equals(((ObjectStorage) FXRouter.getData()).getAccount().getPassword())) {
             account1.setPassword(newPassword);
             account.setPassword(newPassword);
 
             dataSource.writeData(accountList);
-
-            passwordLabel.setText(account.getPassword());
 
             changePasswordTextField.setText("");
             oldPasswordTextField.setText("");
         }
     }
 
-    public void changeName(){
+    public void changeName() {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         String name = nameTextField.getText();
-        if(nameTextField.getText().isEmpty()){
-        }else{
+        if (nameTextField.getText().isEmpty()) {
+        } else {
             account.setName(name);
             account1.setName(name);
 
@@ -117,12 +128,12 @@ public class EditProfileController extends AccountList {
         }
     }
 
-    public void changeSurname(){
+    public void changeSurname() {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         //Account account = Util.search(((ObjectStorage) FXRouter.getData()).getAccount().getName(),accountList.getAllAccount(),new AccountUsernameFilter());
         String surname = surnameTextField.getText();
-        if(surnameTextField.getText().isEmpty()){
-        }else{
+        if (surnameTextField.getText().isEmpty()) {
+        } else {
             account.setSurname(surname);
             account1.setSurname(surname);
             dataSource.writeData(accountList);
@@ -133,12 +144,9 @@ public class EditProfileController extends AccountList {
             surnameTextField.setText("");
         }
     }
+
     @FXML
-    public void handleBackButton(ActionEvent actionEvent){
-        try{
-            com.github.saacsos.FXRouter.goTo("home");
-        } catch (IOException e){
-            System.err.println("Error loading profile page");
-        }
+    public void handleBackButton(ActionEvent actionEvent) {
+        ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("profile.fxml");
     }
 }

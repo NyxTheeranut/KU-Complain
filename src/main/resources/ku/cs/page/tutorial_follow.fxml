@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.TutorialPageController">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="1180.0">
+         <children>
+            <Label text="การติดตามเรื่องร้องเรียน">
+               <font>
+                  <Font name="THSarabunPSK-Bold" size="70.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="50.0" top="14.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutX="90.0" layoutY="100.0" prefHeight="620.0" prefWidth="1000.0">
+         <children>
+            <Label alignment="TOP_LEFT" text="     ในเมนู 'รายการเรื่องร้องเรียน' จะแสดงเรื่องร้องเรียนทั้งหมด โดยแสดงสถานะการดำเนินการ ของเรื่องร้องเรียนนั้น ๆ ไว้ทางด้านขวา" wrapText="true">
+               <font>
+                  <Font name="TH SarabunPSK" size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <ImageView fitHeight="327.0" fitWidth="883.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/t5.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="80.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label alignment="TOP_LEFT" text="     โดยสถานะการดำเนินการจะแบ่งออกเป็น รอดำเนินการ (NOTSTARTED), กำลังดำเนินการ (INPROGRESS) และดำเนินการเรียบร้อย (DONE)" wrapText="true">
+               <font>
+                  <Font name="TH SarabunPSK" size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" top="40.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <Ellipse fill="#1f93ff00" radiusX="47.0" radiusY="21.0" stroke="#03a96b" strokeType="INSIDE" strokeWidth="2.0" AnchorPane.leftAnchor="800.0" AnchorPane.topAnchor="415.0" />
+   </children>
+</AnchorPane>

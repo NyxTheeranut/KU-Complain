@@ -5,20 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e4d2cf5-a95b-4c9a-8c0b-ec372c350e1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/filter/AccountUnitFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/account_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/account_list.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/complaint_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/complaint_list.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/report_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/report_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/ProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/ProjectApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AboutPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AboutPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPostPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPostPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ProfilePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ReportListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ReportListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UnitManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UnitManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/AccountList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/AccountList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/units/UnitListFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/units/UnitListFileDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/TutorialPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/TutorialPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/about.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/about.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/add_category.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/add_category.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/add_moderator.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/add_moderator.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/blacklist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/blacklist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/create_unit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/create_unit.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/edit_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/edit_profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/manage_complaint.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/manage_complaint.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/moderator_complaint.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/moderator_complaint.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/moderator_complaint_list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/moderator_complaint_list.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/rename_unit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/rename_unit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/report.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/report.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/tutorial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/tutorial.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/unban.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/unban.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/unit_manage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/unit_manage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/styles/darkTheme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/styles/darkTheme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/styles/lightTheme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/styles/lightTheme.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +44,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../Program Files/Java/jdk-17.0.3.1/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,13 +75,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/labbb/project211-araikordai",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "configurable.group.appearance"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="ProjectApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="ku.cs.ProjectApplication" />
-      <module name="CS211-Project" />
+      <module name="project211-araikordai" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ku.cs.*" />
@@ -101,6 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665666324311</updated>
       <workItem from="1665666328878" duration="4909000" />
+      <workItem from="1666084742635" duration="17499000" />
     </task>
     <servers />
   </component>

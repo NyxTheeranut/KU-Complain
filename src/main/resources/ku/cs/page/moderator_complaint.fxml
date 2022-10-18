@@ -52,7 +52,7 @@
                         <Font name="THSarabunPSK-Bold" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="category" prefHeight="20.0" text="test categary">
+                  <Label fx:id="category" prefHeight="20.0" text="test category">
                      <font>
                         <Font name="THSarabunPSK" size="25.0" />
                      </font>
@@ -65,9 +65,9 @@
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="220.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="70.0" />
-                  <Button mnemonicParsing="false" onAction="#handleManageButton" prefHeight="40.0" text="Manage">
+                  <Button mnemonicParsing="false" onAction="#handleManageButton" prefHeight="40.0" text="จัดการ">
                      <font>
-                        <Font name="THSarabunPSK-Bold" size="20.0" />
+                        <Font name="THSarabunPSK-Bold" size="22.0" />
                      </font>
                   </Button>
                </children>

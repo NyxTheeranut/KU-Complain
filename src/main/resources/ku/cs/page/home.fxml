@@ -18,7 +18,7 @@
                   <Insets />
                </opaqueInsets>
             </VBox>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#changeTheme" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: 48915;" AnchorPane.topAnchor="0.0">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#changeTheme" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: 48915;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="660.0">
                <graphic>
                   <ImageView fx:id="themeIcon" fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>

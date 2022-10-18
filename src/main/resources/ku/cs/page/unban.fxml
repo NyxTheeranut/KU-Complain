@@ -32,7 +32,7 @@
       </Button>
       <TextArea fx:id="detailTextArea" layoutX="119.0" layoutY="212.0" prefHeight="200.0" prefWidth="380.0" promptText="รายละเอียด" wrapText="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="200.0">
          <font>
-            <Font name="TH SarabunPSK" size="18.0" />
+            <Font name="TH SarabunPSK" size="20.0" />
          </font>
       </TextArea>
       <Label layoutX="79.0" layoutY="155.0" text="ส่งคำขอปลดแบน">

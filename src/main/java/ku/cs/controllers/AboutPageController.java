@@ -7,4 +7,5 @@ import com.github.saacsos.FXRouter;
 import java.io.IOException;
 
 public class AboutPageController {
+
 }

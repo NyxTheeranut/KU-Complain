@@ -17,13 +17,13 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="100.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="100.0">
+            <VBox prefWidth="330.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="100.0">
                <children>
                   <VBox>
                      <children>
-                        <Label text="username">
+                        <Label text="ชื่อบัญชี">
                            <font>
-                              <Font name="THSarabunPSK" size="20.0" />
+                              <Font name="THSarabunPSK-Bold" size="24.0" />
                            </font>
                         </Label>
                         <TextField fx:id="userField">
@@ -35,19 +35,25 @@
                   </VBox>
                   <VBox>
                      <children>
-                        <Label text="password" />
+                        <Label text="รหัสผ่าน">
+                           <font>
+                              <Font name="THSarabunPSK-Bold" size="24.0" />
+                           </font></Label>
                         <PasswordField fx:id="passwordField">
                            <font>
                               <Font name="THSarabunPSK" size="20.0" />
                            </font>
                         </PasswordField>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </VBox>
                   <VBox>
                      <children>
-                        <Label text="confirm password">
+                        <Label text="ยืนยันรหัสผ่าน">
                            <font>
-                              <Font name="THSarabunPSK" size="20.0" />
+                              <Font name="THSarabunPSK-Bold" size="24.0" />
                            </font>
                         </Label>
                         <PasswordField fx:id="passwordConfirmField">
@@ -56,6 +62,9 @@
                            </font>
                         </PasswordField>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </VBox>
                   <HBox spacing="1.0">
                      <children>
@@ -63,13 +72,16 @@
                            <children>
                               <Label text="ชื่อ">
                                  <font>
-                                    <Font name="THSarabunPSK" size="20.0" />
+                                    <Font name="THSarabunPSK-Bold" size="24.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="nameField">
                                  <font>
                                     <Font name="THSarabunPSK" size="20.0" />
                                  </font>
+                                 <VBox.margin>
+                                    <Insets right="5.0" />
+                                 </VBox.margin>
                               </TextField>
                            </children>
                         </VBox>
@@ -77,28 +89,46 @@
                            <children>
                               <Label text="นามสกุล">
                                  <font>
-                                    <Font name="THSarabunPSK" size="20.0" />
+                                    <Font name="THSarabunPSK-Bold" size="24.0" />
                                  </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
                               </Label>
                               <TextField fx:id="surnameField">
                                  <font>
                                     <Font name="THSarabunPSK" size="20.0" />
                                  </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
                               </TextField>
                            </children>
                         </VBox>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </HBox>
                   <VBox alignment="TOP_CENTER">
                      <children>
-                        <Label text="หน่วยงาน" />
+                        <Label text="หน่วยงาน">
+                           <font>
+                              <Font name="THSarabunPSK-Bold" size="24.0" />
+                           </font></Label>
                         <ComboBox fx:id="unitListField" prefWidth="150.0" />
-                        <Label fx:id="errorLabel" text="Label">
+                        <Label fx:id="errorLabel">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
+                           <font>
+                              <Font name="TH SarabunPSK" size="20.0" />
+                           </font>
                         </Label>
                      </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
                   </VBox>
                </children>
             </VBox>
@@ -116,7 +146,7 @@
                   <Font name="THSarabunPSK-Bold" size="70.0" />
                </font>
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="20.0" top="10.0" />
                </HBox.margin>
             </Label>
          </children>

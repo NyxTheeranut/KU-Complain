@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.TutorialPageController" />
+
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.TutorialPageController">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="1180.0">
+         <children>
+            <Label text="วิธีใช้งาน KU ร้องเรียน">
+               <font>
+                  <Font name="THSarabunPSK-Bold" size="70.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="50.0" top="14.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutX="120.0" layoutY="100.0" prefHeight="520.0" prefWidth="940.0">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleHowToButton" prefHeight="70.0" prefWidth="940.0" text="วิธีร้องเรียน">
+               <VBox.margin>
+                  <Insets top="100.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="THSarabunPSK-Bold" size="36.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleFollowButton" prefHeight="70.0" prefWidth="940.0" text="การติดตามเรื่องร้องเรียน">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="THSarabunPSK-Bold" size="36.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleAccountButton" prefHeight="70.0" prefWidth="940.0" text="บัญชีผู้ใช้">
+               <font>
+                  <Font name="THSarabunPSK-Bold" size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

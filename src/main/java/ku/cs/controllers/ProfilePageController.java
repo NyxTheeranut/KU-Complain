@@ -24,8 +24,9 @@ public class ProfilePageController {
         image.setImage(account.getImage());
         nameLabel.setText(account.getName() + " " + account.getSurname());
         roleLabel.setText(account.getRole());
+
     }
-    public void handleMyComplaintButton() {
+    public void handleMyComplaintButton(ActionEvent actionEvent) {
         ((ObjectStorage) FXRouter.getData()).getHomeController().loadPage("my_complaint.fxml");
     }
 
