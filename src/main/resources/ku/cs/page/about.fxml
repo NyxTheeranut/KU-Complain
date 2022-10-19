@@ -2,38 +2,118 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.AboutPageController">
    <children>
-      <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="98.0" prefWidth="1180.0" text="เกี่ยวกับ">
-         <font>
-            <Font name="THSarabunPSK-Bold" size="80.0" />
-         </font>
-         <padding>
-            <Insets left="50.0" top="20.0" />
-         </padding>
-      </Label>
-      <Label alignment="TOP_LEFT" layoutX="406.0" layoutY="342.0" prefHeight="37.0" prefWidth="350.0" text="6410400993     กัญจน์ ศรีประไพ">
-         <font>
-            <Font name="TH SarabunPSK" size="30.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_LEFT" layoutX="406.0" layoutY="379.0" prefHeight="37.0" prefWidth="350.0" text="6410401060     ธนภัทร เชื้อโตหลวง">
-         <font>
-            <Font name="TH SarabunPSK" size="30.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_LEFT" layoutX="406.0" layoutY="416.0" prefHeight="37.0" prefWidth="350.0" text="6410406584     ดุจรวี เหล่าอยู่คง">
-         <font>
-            <Font name="TH SarabunPSK" size="30.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_LEFT" layoutX="406.0" layoutY="453.0" prefHeight="37.0" prefWidth="350.0" text="6410406673     ธีรณัฏฐ์ สุธนรักษ์">
-         <font>
-            <Font name="TH SarabunPSK" size="30.0" />
-         </font>
-      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" opacity="0.55" stroke="TRANSPARENT" strokeType="INSIDE" width="1180.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.07582938388625593">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5372549295425415" green="0.800000011920929" blue="0.800000011920929" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.686274528503418" green="0.800000011920929" blue="0.5333333611488342" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <HBox prefHeight="100.0" prefWidth="1180.0">
+         <children>
+            <Label alignment="TOP_LEFT" text="ผู้จัดทำ">
+               <font>
+                  <Font name="THSarabunPSK-Bold" size="80.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" layoutX="1.0" layoutY="95.0" prefHeight="400.0" prefWidth="1180.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="280.0" style="-fx-background-color: #afcc8890; -fx-background-radius: 30 30 30 30;">
+               <children>
+                  <ImageView fitHeight="280.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/g.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="TOP_CENTER" prefHeight="90.0" prefWidth="195.0" text="    6410400993    กัญจน์ ศรีประไพ" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="THSarabunPSK-Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="280.0" style="-fx-background-color: #9FCCA590; -fx-background-radius: 30 30 30 30;">
+               <children>
+                  <ImageView fitHeight="280.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/t.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="TOP_LEFT" prefHeight="90.0" prefWidth="195.0" text="      6410401060     ธนภัทร เชื้อโตหลวง" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="THSarabunPSK-Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="280.0" style="-fx-background-color: #9FCCBE90; -fx-background-radius: 30 30 30 30;">
+               <children>
+                  <ImageView fitHeight="280.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/d.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="TOP_LEFT" prefHeight="81.0" prefWidth="195.0" text="      6410406584      ดุจรวี เหล่าอยู่คง" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="THSarabunPSK-Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="280.0" style="-fx-background-color: #89cccc90; -fx-background-radius: 30 30 30 30;">
+               <children>
+                  <ImageView fitHeight="280.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/n.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="TOP_LEFT" prefHeight="84.0" prefWidth="195.0" text="     6410406673     ธีรณัฏฐ์ สุธนรักษ์" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="THSarabunPSK-Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="576.0" layoutY="119.0" />
    </children>
 </AnchorPane>
