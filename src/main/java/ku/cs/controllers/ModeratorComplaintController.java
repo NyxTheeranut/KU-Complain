@@ -74,36 +74,36 @@ public class ModeratorComplaintController {
         //setup hBox
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_LEFT);
-        hBox.setPadding(new Insets(0, 0, 0, 10));
+        hBox.setPadding(new Insets(10, 0, 0, 10));
         hBox.setPrefSize(940, 30);
 
         //setup fieldNameLabel
         Label fieldNameLabel = new Label();
         fieldNameLabel.setText(fieldName + " : ");
-        fieldNameLabel.setFont(FontLoader.font("ths", 20));
+        fieldNameLabel.setFont(FontLoader.font("ths_b", 25));
         fieldNameLabel.setAlignment(Pos.CENTER_LEFT);
 
         //setup fieldDetailLabel
         Label fieldDetailLabel = new Label();
         fieldDetailLabel.setText(fieldDetail);
-        fieldDetailLabel.setFont(FontLoader.font("ths", 20));
+        fieldDetailLabel.setFont(FontLoader.font("ths", 25));
 
         hBox.getChildren().add(fieldNameLabel);
         hBox.getChildren().add(fieldDetailLabel);
 
         return hBox;
     }
-    private VBox setupPictureField(String fieldName, String imagePath) {
+    private HBox setupPictureField(String fieldName, String imagePath) {
         //setup hBox
-        VBox vBox = new VBox();
-        vBox.setAlignment(Pos.TOP_CENTER);
-        vBox.setPadding(new Insets(0, 0, 0, 10));
-        vBox.setPrefSize(940, 425);
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.TOP_LEFT);
+        hBox.setPadding(new Insets(20, 0, 0, 10));
+        hBox.setPrefSize(940, 325);
 
         //setup fieldNameLabel
         Label fieldNameLabel = new Label();
         fieldNameLabel.setText(fieldName + " : ");
-        fieldNameLabel.setFont(FontLoader.font("ths", 20));
+        fieldNameLabel.setFont(FontLoader.font("ths_b", 25));
 
         //setup image
         FileInputStream fileInputStream = null;
@@ -121,25 +121,25 @@ public class ModeratorComplaintController {
         //setup ImageView
         ImageView fieldImageView = new ImageView();
         fieldImageView.setImage(image);
-        fieldImageView.setFitWidth(400/image.getHeight() * image.getWidth());
-        fieldImageView.setFitHeight(400);
+        fieldImageView.setFitWidth(300/image.getHeight() * image.getWidth());
+        fieldImageView.setFitHeight(300);
 
-        vBox.getChildren().add(fieldNameLabel);
-        vBox.getChildren().add(fieldImageView);
+        hBox.getChildren().add(fieldNameLabel);
+        hBox.getChildren().add(fieldImageView);
 
-        return vBox;
+        return hBox;
     }
     private HBox setupDetailField(String fieldName, String fieldDetail) {
         //setup hBox
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.TOP_LEFT);
-        hBox.setPadding(new Insets(0, 0, 0, 10));
+        hBox.setPadding(new Insets(20, 0, 0, 10));
         hBox.setPrefWidth(940);
 
         //setup fieldNameLabel
         Label fieldNameLabel = new Label();
         fieldNameLabel.setText(fieldName + " : ");
-        fieldNameLabel.setFont(FontLoader.font("ths", 20));
+        fieldNameLabel.setFont(FontLoader.font("ths_b", 25));
         fieldNameLabel.setAlignment(Pos.CENTER_LEFT);
 
         //setup fieldDetailLabel
@@ -147,7 +147,7 @@ public class ModeratorComplaintController {
         fieldDetailLabel.setWrapText(true);
         fieldDetailLabel.setMaxWidth(850);
         fieldDetailLabel.setText(fieldDetail);
-        fieldDetailLabel.setFont(FontLoader.font("ths", 20));
+        fieldDetailLabel.setFont(FontLoader.font("ths", 25));
 
         hBox.getChildren().add(fieldNameLabel);
         hBox.getChildren().add(fieldDetailLabel);
@@ -165,7 +165,7 @@ public class ModeratorComplaintController {
 
         Label moderatorLabel = new Label();
         moderatorLabel.setText("ผู้ดูแล : " + complaint.getModerator().getUsername() + "  หน่วยงาน : " + complaint.getModerator().getUnit());
-        moderatorLabel.setFont(FontLoader.font("ths", 20));
+        moderatorLabel.setFont(FontLoader.font("ths_b", 25));
         hBox1.getChildren().add(moderatorLabel);
 
         HBox hBox2 = new HBox();
@@ -173,14 +173,14 @@ public class ModeratorComplaintController {
         hBox2.setPadding(new Insets(0,0,0,10));
 
         Label detailLabel = new Label("รายละเอียดการแก้ไข : ");
-        detailLabel.setFont(FontLoader.font("ths", 20));
+        detailLabel.setFont(FontLoader.font("ths_b", 25));
         hBox2.getChildren().add(detailLabel);
 
         Label detailTextField = new Label();
         detailTextField.setWrapText(true);
         detailTextField.setMaxWidth(800);
         detailTextField.setText(complaint.getSolvingDetail());
-        detailTextField.setFont(FontLoader.font("ths", 20));
+        detailTextField.setFont(FontLoader.font("ths", 25));
         hBox2.getChildren().add(detailTextField);
 
         vBox.getChildren().add(hBox1);

@@ -58,7 +58,7 @@ public class ComplaintListPageController {
     private ArrayList<Complaint> filteredComplaintList;
 
     //constant
-    private final Font topicFont = FontLoader.font("ths", 30);
+    private final Font topicFont = FontLoader.font("ths_b", 30);
     private final Font categoryFont = FontLoader.font("ths", 20);
     private final Font datePostFont = FontLoader.font("ths", 20);
     private final Font statusFont = FontLoader.font("ths", 20);
@@ -146,13 +146,13 @@ public class ComplaintListPageController {
             //setup status hBox
             HBox statusHBox = new HBox();
             statusHBox.setAlignment(Pos.CENTER_LEFT);
-            statusHBox.setSpacing(5);
+            statusHBox.setSpacing(2);
             statusHBox.setPrefSize(125, 30);
 
             //System.out.println(i.getStatus().name());
 
             //setup status Label
-            Label status = new Label("Status");
+            Label status = new Label("สถานะ");
             status.setFont(statusFont);
             Label statusLabel = new Label();
             statusLabel.setFont(statusFont);

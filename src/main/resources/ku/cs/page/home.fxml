@@ -25,7 +25,7 @@
                         <Image url="@../image/lightTheme.png" />
                      </image>
                      <HBox.margin>
-                        <Insets right="10.0" />
+                        <Insets right="5.0" />
                      </HBox.margin>
                   </ImageView>
                </children>

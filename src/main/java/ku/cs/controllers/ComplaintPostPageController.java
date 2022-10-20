@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.util.Callback;
 import javafx.util.Pair;
 import ku.cs.models.accounts.Account;
@@ -98,13 +99,14 @@ public class ComplaintPostPageController {
             if (i.getKey().equals("text")){
                 TextField field = new TextField(); //Textfield
                 field.setPrefSize(930, 30);
+                field.setFont(FontLoader.font("ths", 20));
                 hBox.getChildren().add(field);
 
             }
             else if (i.getKey().equals("pic")){
 
                 Button button = new Button("Upload รูปภาพ");
-                button.setFont(FontLoader.font("ths_b",14));
+                button.setFont(FontLoader.font("ths_b",16));
                 button.setPrefSize(100, 30);
                 button.setAlignment(Pos.CENTER);
 
@@ -112,6 +114,7 @@ public class ComplaintPostPageController {
                 ImageView previewImageView = new ImageView();
                 Label imagePathLabel = new Label();
                 imagePathLabel.setPrefSize(820, 30);
+                imagePathLabel.setFont(FontLoader.font("ths_i",20));
 
                 vBox.getChildren().add(imagePathLabel);
                 vBox.getChildren().add(previewImageView);
@@ -142,6 +145,7 @@ public class ComplaintPostPageController {
                 TextArea field = new TextArea(); //Textfield
                 field.setPrefSize(930, 256);
                 field.setMaxSize(930, 256);
+                field.setFont(FontLoader.font("ths",20));
                 field.setWrapText(true);
                 hBox.getChildren().add(field);
             }
@@ -168,10 +172,9 @@ public class ComplaintPostPageController {
                 setText(empty ? "" : item.getName());
             }
         };
-
+        categoryComboBox.getEditor().setFont(FontLoader.font("ths_b",18));
         categoryComboBox.setCellFactory(factory);
         categoryComboBox.setButtonCell(factory.call(null));
-
         categoryComboBox.setOnAction(event -> handleSelectedCategoryComboBox());
         categoryComboBox.setItems(FXCollections.observableArrayList(categoryList.getAllCategory()));
     }

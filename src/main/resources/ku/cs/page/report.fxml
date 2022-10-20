@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="960.0" styleClass="secondary-color" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ReportPageController">
+<AnchorPane prefHeight="640.0" prefWidth="960.0" styleClass="pop-up" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ReportPageController">
    <children>
       <Label layoutX="85.0" layoutY="50.0" text="รายงาน">
          <font>

@@ -41,17 +41,17 @@
                                           <Font name="THSarabunPSK" size="15.0" />
                                        </font>
                                     </TextField>
-                                    <ComboBox fx:id="sortComboBox" prefHeight="30.0" promptText="Sort by">
+                                    <ComboBox fx:id="sortComboBox" prefHeight="30.0" promptText="ตัวกรอง">
                                        <HBox.margin>
                                           <Insets left="10.0" />
                                        </HBox.margin>
                                     </ComboBox>
-                                    <ComboBox fx:id="categoryComboBox" prefHeight="30.0" promptText="Category">
+                                    <ComboBox fx:id="categoryComboBox" prefHeight="30.0" promptText="ประเภท">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
                                     </ComboBox>
-                                    <ComboBox fx:id="statusComboBox" prefHeight="30.0" promptText="Status" />
+                                    <ComboBox fx:id="statusComboBox" prefHeight="30.0" promptText="สถานะ" />
                                     <HBox alignment="CENTER" prefHeight="5.0" spacing="2.0">
                                        <children>
                                           <Label text="Vote range">
@@ -76,14 +76,14 @@
                                           </TextField>
                                        </children>
                                     </HBox>
-                                    <Button mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="30.0" text="Search">
+                                    <Button mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="30.0" text="ค้นหา">
                                        <font>
-                                          <Font name="THSarabunPSK" size="15.0" />
+                                          <Font name="THSarabunPSK-Bold" size="18.0" />
                                        </font>
                                     </Button>
                                     <Button fx:id="reverseButton" mnemonicParsing="false" onAction="#handleReverseButton" prefHeight="30.0" prefWidth="30.0" text="">
                                        <font>
-                                          <Font name="FontAwesome" size="15.0" />
+                                          <Font size="16.0" />
                                        </font>
                                        <HBox.margin>
                                           <Insets />
@@ -91,12 +91,12 @@
                                     </Button>
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" onAction="#handleResetButton" prefHeight="30.0" text="Reset">
+                              <Button mnemonicParsing="false" onAction="#handleResetButton" prefHeight="30.0" text="ล้าง">
                                  <HBox.margin>
                                     <Insets left="30.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="THSarabunPSK" size="15.0" />
+                                    <Font name="THSarabunPSK-Bold" size="18.0" />
                                  </font>
                               </Button>
                            </children>
