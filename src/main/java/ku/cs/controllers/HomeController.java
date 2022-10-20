@@ -19,14 +19,11 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 import ku.cs.models.accounts.Account;
-import ku.cs.util.FontLoader;
-import ku.cs.util.ObjectStorage;
+import ku.cs.util.*;
 
 import java.io.IOException;
 
 import com.github.saacsos.FXRouter;
-import ku.cs.util.Theme;
-import ku.cs.util.ThemeChanger;
 
 public class HomeController {
     @FXML private AnchorPane home;
@@ -42,9 +39,8 @@ public class HomeController {
     private boolean isLightTheme = true;
     @FXML
     public void initialize() {
-        menu.setTranslateX(menuCloseWidth); //set menu on close state
 
-        loadPage("complaint_list.fxml");
+        menu.setTranslateX(menuCloseWidth); //set menu on close state
 
         ((ObjectStorage) FXRouter.getData()).setHomeController(this);
         account = ((ObjectStorage) FXRouter.getData()).getAccount();
@@ -56,6 +52,11 @@ public class HomeController {
 
     public void changeTheme() {
         isLightTheme = !isLightTheme;
+        Image image;
+        if (isLightTheme) image = ImageManager.loadImage("src/main/resources/ku/cs/image/lightTheme.png");
+        else image = ImageManager.loadImage("src/main/resources/ku/cs/image/darkTheme.png");
+        themeIcon.setImage(image);
+
         ((ObjectStorage) FXRouter.getData()).setTheme((isLightTheme)? Theme.LIGHT : Theme.DARK);
         ThemeChanger.setTheme(home);
     }

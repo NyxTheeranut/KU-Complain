@@ -21,18 +21,15 @@ public class UnitList {
     public void addUnit(Unit unit){
         units.add(unit);
     }
-
     public void addModerator(String unitName, UUID id) {
         for (Unit u:units) {
             if(unitName.equals(u.getUnitName()))
                 u.addModerator((Moderator) Data.search(id.toString(),new AccountListFileDataSource().readData().getAllAccount(),new AccountIdFilter()));
         }
     }
-
     public void addCategory(String unitName, Category category){
         Data.search(unitName,units,new UnitNameFilter()).addCategory(category);
     }
-
     public void removeModerator(String unitName, Moderator moderator){
         Data.search(unitName,units,new UnitNameFilter()).removeModerator(moderator);
     }

@@ -68,20 +68,25 @@ public class ModeratorComplaintListController {
         DataSource<UnitList> unitDataSource = new UnitListFileDataSource();
         UnitList unitList = unitDataSource.readData();
         complaints = new ArrayList<>();
+        complaintArea.getChildren().clear();
         //get unit category list
-        categoryList = Data.search(account.getUnit(), unitList.getAllUnits(), new UnitNameFilter()).getCategoryList();
-        dataSource = new ComplaintListFileDataSource();
-        for (Category i : categoryList) {
-            for (Complaint j : Data.filter(i.getName(), dataSource.readData().getAllComplaints(), new ComplaintCategoryFilter())) {
-                complaints.add(j);
+        try {
+            categoryList = Data.search(account.getUnit(), unitList.getAllUnits(), new UnitNameFilter()).getCategoryList();
+            dataSource = new ComplaintListFileDataSource();
+            for (Category i : categoryList) {
+                for (Complaint j : Data.filter(i.getName(), dataSource.readData().getAllComplaints(), new ComplaintCategoryFilter())) {
+                    complaints.add(j);
+                }
             }
-        }
-        filteredComplaintList = complaints;
+            filteredComplaintList = complaints;
 
-        setupComplaintArea(complaints);
-        setupCategoryComboBox();
-        setupSortComboBox();
-        setupStatusComboBox();
+            setupComplaintArea(complaints);
+            setupCategoryComboBox();
+            setupSortComboBox();
+            setupStatusComboBox();
+        } catch (NullPointerException e) {
+            System.err.println("You are not currently in an unit");
+        }
 
         reverseButton.setFont(FontLoader.font("fa_wf", 15));
     }

@@ -44,20 +44,6 @@ public class EditProfileController extends AccountList {
     @FXML
     private AccountList accountList;
 
-
-    public void handleProfilePicture(ActionEvent actionEvent) throws IOException {
-        selectPicture();
-    }
-
-    @FXML
-    public void handleChangePassword(ActionEvent actionEvent) throws IOException {
-        changePassword();
-    }
-
-    public void handleName(ActionEvent actionEvent) throws IOException {
-        changeName();
-    }
-
     @FXML
     public void initialize() {
         account = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount();
@@ -69,8 +55,18 @@ public class EditProfileController extends AccountList {
 
         nameLabel.setText(account.getName());
         surnameLabel.setText(account.getSurname());
+        profilePicture.setImage(account.getImage());
     }
 
+    public void handleProfilePicture(ActionEvent actionEvent) throws IOException {
+        selectPicture();
+    }
+    public void handleChangePassword(ActionEvent actionEvent) throws IOException {
+        changePassword();
+    }
+    public void handleName(ActionEvent actionEvent) throws IOException {
+        changeName();
+    }
     public void selectPicture() throws IOException {
 
         FileChooser fileChooser = new FileChooser();
@@ -92,7 +88,6 @@ public class EditProfileController extends AccountList {
         dataSource.writeData(accountList);
 
     }
-
     public void changePassword() {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
 
@@ -108,7 +103,6 @@ public class EditProfileController extends AccountList {
             oldPasswordTextField.setText("");
         }
     }
-
     public void changeName(){
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         String name = nameTextField.getText();

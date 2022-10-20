@@ -56,7 +56,6 @@ public class Unit {
     public ArrayList<Category> getCategoryList() {
         return categoryList;
     }
-
     public ArrayList<Moderator> getModeratorList() {
         return moderatorList;
     }

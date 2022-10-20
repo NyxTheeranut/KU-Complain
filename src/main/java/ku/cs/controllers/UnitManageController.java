@@ -27,6 +27,7 @@ import java.io.IOException;
 import com.github.saacsos.FXRouter;
 import ku.cs.util.Data;
 import ku.cs.util.ObjectStorage;
+import ku.cs.util.ThemeChanger;
 
 public class UnitManageController {
     @FXML private ListView<Unit> unitListView;
@@ -103,6 +104,7 @@ public class UnitManageController {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Create unit");
         stage.setScene(scene);
+        ThemeChanger.setTheme(scene);
         stage.showAndWait();
         updateUnitList();
     }
@@ -114,6 +116,7 @@ public class UnitManageController {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Rename unit");
         stage.setScene(scene);
+        ThemeChanger.setTheme(scene);
         ((ObjectStorage)FXRouter.getData()).setUnit(selectedUnit);
         stage.showAndWait();
         updateUnitList();
@@ -138,7 +141,7 @@ public class UnitManageController {
         AccountList accountList = accountListDataSource.readData();
 
         ((Moderator) Data.search(modListView.getSelectionModel().getSelectedItem().getId().toString(),
-                accountList.getAllAccount(), new AccountIdFilter())).setUnit("");
+                accountList.getAllAccount(), new AccountIdFilter())).setUnit("none");
 
         accountListDataSource.writeData(accountList);
 

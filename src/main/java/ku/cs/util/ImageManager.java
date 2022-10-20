@@ -4,6 +4,8 @@ import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.*;
 
@@ -47,5 +49,16 @@ public final class ImageManager {
             System.out.println("Error saving image");
         }
         return name+".jpg";
+    }
+    public static Image loadImage(String url) {
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(url.replaceAll("//", File.separator));
+        } catch (FileNotFoundException e) {
+            System.err.println("Cannot open image");
+            System.err.println(e);
+        }
+        Image image = new Image(fileInputStream);
+        return image;
     }
 }

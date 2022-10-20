@@ -20,6 +20,7 @@ import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.Status;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
+import ku.cs.util.ThemeChanger;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -195,6 +196,8 @@ public class ModeratorComplaintController {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Manage");
         stage.setScene(scene);
-        stage.show();
+        ThemeChanger.setTheme(scene);
+        stage.showAndWait();
+        ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getHomeController().loadPage("moderator_complaint_list.fxml");
     }
 }
