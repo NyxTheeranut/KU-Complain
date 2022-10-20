@@ -1,7 +1,5 @@
 package ku.cs.models.reports;
 
-import ku.cs.models.accounts.User;
-
 import java.util.UUID;
 
 public class Report {

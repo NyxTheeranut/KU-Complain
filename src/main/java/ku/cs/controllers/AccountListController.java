@@ -21,6 +21,7 @@ import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.*;
 import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
+import ku.cs.util.ImageManager;
 import ku.cs.util.ObjectStorage;
 
 import java.time.LocalDateTime;
@@ -64,7 +65,7 @@ public class AccountListController {
             hBox.setPrefSize(980, 100);
 
             //setup profilePic
-            ImageView profilePic= new ImageView(i.getImage());
+            ImageView profilePic= new ImageView(ImageManager.loadImage("data/image/account/" + i.getImagePath()));
             profilePic.setFitWidth(100);
             profilePic.setFitHeight(100);
 

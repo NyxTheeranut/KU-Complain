@@ -30,4 +30,9 @@ public class Moderator extends Account {
                 unit;
     }
 
+    @Override
+    public String toString() {
+        return this.username;
+    }
+
 }

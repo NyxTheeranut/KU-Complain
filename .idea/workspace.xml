@@ -5,27 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e4d2cf5-a95b-4c9a-8c0b-ec372c350e1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/image/account/4.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/account_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/account_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/category_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/category_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/complaint_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/complaint_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/unit_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/unit_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programPrototype/CS211-Project-1.0-SNAPSHOT-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/programPrototype/CS211-Project-1.0-SNAPSHOT-shaded.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AboutPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AboutPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AccountListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AccountListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/BlacklistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/BlacklistController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ModeratorComplaintListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UnitManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UnitManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ProfilePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/Complaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/Complaint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/ComplaintList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/ComplaintList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/reports/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/reports/Report.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/UnitList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/UnitList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/util/ImageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/util/ImageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/image/d.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/image/d.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/image/n.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/image/n.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/image/t.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/image/t.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/create_unit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/create_unit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/rename_unit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/rename_unit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/report.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/report.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

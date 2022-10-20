@@ -20,6 +20,7 @@ import ku.cs.services.filter.AccountStatusFilter;
 import ku.cs.services.filter.AccountUsernameFilter;
 import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
+import ku.cs.util.ImageManager;
 import ku.cs.util.ObjectStorage;
 
 import java.time.LocalDateTime;
@@ -76,7 +77,7 @@ public class BlacklistController {
             unbanButton.setFont(ths2);
 
             //setup profilePic
-            ImageView profilePic= new ImageView(user.getImage());
+            ImageView profilePic= new ImageView(ImageManager.loadImage("data/image/account/" + user.getImagePath()));
             profilePic.setFitWidth(100);
             profilePic.setFitHeight(100);
 

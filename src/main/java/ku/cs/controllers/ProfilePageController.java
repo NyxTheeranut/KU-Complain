@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import ku.cs.models.accounts.Account;
 import ku.cs.util.FontLoader;
+import ku.cs.util.ImageManager;
 import ku.cs.util.ObjectStorage;
 
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class ProfilePageController {
     public void initialize(){
         account = ((ObjectStorage)FXRouter.getData()).getAccount();
 
-        image.setImage(account.getImage());
+        image.setImage(ImageManager.loadImage("data/image/account/" + account.getImagePath()));
         nameLabel.setText(account.getName() + " " + account.getSurname());
         roleLabel.setText(account.getRole());
 

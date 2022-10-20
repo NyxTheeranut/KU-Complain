@@ -1,6 +1,5 @@
 package ku.cs.models.complaints;
 
-import ku.cs.models.accounts.Account;
 import ku.cs.services.filter.ComplaintIdFilter;
 import ku.cs.util.Data;
 
