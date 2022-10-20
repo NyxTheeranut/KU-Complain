@@ -79,9 +79,6 @@
       │        │     │  
       │        │     └───filter
       │        │     │    │ *.java
-      │        │     │  
-      │        │     └───styles
-      │        │     │    │ *.java
       │        │
       │        └───util
       │        │     │  *.java
