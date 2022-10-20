@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="150.0" prefWidth="300.0" styleClass="secondary-color" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.CreateUnitController">
+<AnchorPane prefHeight="150.0" prefWidth="300.0" styleClass="pop-up" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.CreateUnitController">
    <children>
       <Button fx:id="backButton" layoutX="173.0" layoutY="99.0" mnemonicParsing="false" onAction="#handleBackButton" text="ย้อนกลับ" AnchorPane.rightAnchor="70.0">
          <font>

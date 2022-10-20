@@ -35,28 +35,31 @@
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="900.0" spacing="5.0">
                            <children>
-                              <TextField fx:id="searchTextField" prefHeight="30.0" prefWidth="200.0" promptText="username">
+                              <TextField fx:id="searchTextField" prefHeight="37.0" prefWidth="200.0" promptText="ชื่อบัญชีผู้ใช้">
                                  <font>
                                     <Font name="THSarabunPSK" size="15.0" />
                                  </font>
                               </TextField>
-                              <ComboBox fx:id="roleComboBox" prefHeight="30.0" promptText="Role" />
-                              <Button mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="30.0" text="Search">
+                              <ComboBox fx:id="roleComboBox" prefHeight="35.0" prefWidth="73.0" promptText="สถานะ" />
+                              <Button mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="30.0" text="ค้นหา">
                                  <font>
-                                    <Font name="THSarabunPSK" size="15.0" />
+                                    <Font name="TH SarabunPSK" size="18.0" />
                                  </font>
                               </Button>
                               <Button fx:id="reverseButton" mnemonicParsing="false" onAction="#handleReverseButton" prefHeight="30.0" prefWidth="30.0" text="">
                                  <font>
-                                    <Font name="FontAwesome" size="15.0" />
+                                    <Font size="16.0" />
                                  </font>
                               </Button>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" onAction="#handleResetButton" text="Reset">
+                        <Button mnemonicParsing="false" onAction="#handleResetButton" text="ล้าง">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="THSarabunPSK-Bold" size="18.0" />
+                           </font>
                         </Button>
                      </children>
                   </HBox>

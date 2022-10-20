@@ -54,10 +54,14 @@ public class ComplaintPageController {
         account = ((ObjectStorage) FXRouter.getData()).getAccount();
         complaint = ((ObjectStorage) FXRouter.getData()).getComplaint();
 
-        topic.setText(complaint.getTopic() + " Status : " + complaint.getStatus().toString());
+        topic.setText(complaint.getTopic() + " - สถานะ : " + complaint.getStatus().toString());
+        topic.setFont(FontLoader.font("ths_b",35));
         topic.setWrapText(true);
+        topic.setPadding(new Insets(0,0,0,10));
 
         category.setText(complaint.getCategory().getName());
+        category.setFont(FontLoader.font("ths", 28));
+        category.setPadding(new Insets(0,0,0,11));
 
         setupFieldArea();
         updateVote();
@@ -84,36 +88,39 @@ public class ComplaintPageController {
         //setup hBox
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_LEFT);
-        hBox.setPadding(new Insets(0, 0, 0, 10));
+        hBox.setPadding(new Insets(10, 0, 0, 10));
         hBox.setPrefSize(940, 30);
 
         //setup fieldNameLabel
         Label fieldNameLabel = new Label();
+        fieldNameLabel.setPrefWidth(110);
         fieldNameLabel.setText(fieldName + " : ");
-        fieldNameLabel.setFont(FontLoader.font("ths", 20));
+        fieldNameLabel.setFont(FontLoader.font("ths_b", 25));
         fieldNameLabel.setAlignment(Pos.CENTER_LEFT);
 
         //setup fieldDetailLabel
         Label fieldDetailLabel = new Label();
+        fieldDetailLabel.setPrefWidth(830);
         fieldDetailLabel.setText(fieldDetail);
-        fieldDetailLabel.setFont(FontLoader.font("ths", 20));
+        fieldDetailLabel.setFont(FontLoader.font("ths", 25));
 
         hBox.getChildren().add(fieldNameLabel);
         hBox.getChildren().add(fieldDetailLabel);
 
         return hBox;
     }
-    private VBox setupPictureField(String fieldName, String imagePath) {
+    private HBox setupPictureField(String fieldName, String imagePath) {
         //setup hBox
-        VBox vBox = new VBox();
-        vBox.setAlignment(Pos.TOP_CENTER);
-        vBox.setPadding(new Insets(0, 0, 0, 10));
-        vBox.setPrefSize(940, 425);
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.TOP_LEFT);
+        hBox.setPadding(new Insets(20, 0, 0, 10));
+        hBox.setPrefSize(940, 325);
 
         //setup fieldNameLabel
         Label fieldNameLabel = new Label();
+        fieldNameLabel.setPrefWidth(110);
         fieldNameLabel.setText(fieldName + " : ");
-        fieldNameLabel.setFont(FontLoader.font("ths", 20));
+        fieldNameLabel.setFont(FontLoader.font("ths_b", 25));
 
         //setup image
         FileInputStream fileInputStream = null;
@@ -131,33 +138,34 @@ public class ComplaintPageController {
         //setup ImageView
         ImageView fieldImageView = new ImageView();
         fieldImageView.setImage(image);
-        fieldImageView.setFitWidth(400/image.getHeight() * image.getWidth());
-        fieldImageView.setFitHeight(400);
+        fieldImageView.setFitWidth(300/image.getHeight() * image.getWidth());
+        fieldImageView.setFitHeight(300);
 
-        vBox.getChildren().add(fieldNameLabel);
-        vBox.getChildren().add(fieldImageView);
+        hBox.getChildren().add(fieldNameLabel);
+        hBox.getChildren().add(fieldImageView);
 
-        return vBox;
+        return hBox;
     }
     private HBox setupDetailField(String fieldName, String fieldDetail) {
         //setup hBox
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.TOP_LEFT);
-        hBox.setPadding(new Insets(0, 0, 0, 10));
+        hBox.setPadding(new Insets(20, 0, 0, 10));
         hBox.setPrefWidth(940);
 
         //setup fieldNameLabel
         Label fieldNameLabel = new Label();
+        fieldNameLabel.setPrefWidth(110);
         fieldNameLabel.setText(fieldName + " : ");
-        fieldNameLabel.setFont(FontLoader.font("ths", 20));
+        fieldNameLabel.setFont(FontLoader.font("ths_b", 25));
         fieldNameLabel.setAlignment(Pos.CENTER_LEFT);
 
         //setup fieldDetailLabel
         Label fieldDetailLabel = new Label();
         fieldDetailLabel.setWrapText(true);
-        fieldDetailLabel.setMaxWidth(850);
+        fieldDetailLabel.setMaxWidth(830);
         fieldDetailLabel.setText(fieldDetail);
-        fieldDetailLabel.setFont(FontLoader.font("ths", 20));
+        fieldDetailLabel.setFont(FontLoader.font("ths", 25));
 
         hBox.getChildren().add(fieldNameLabel);
         hBox.getChildren().add(fieldDetailLabel);
@@ -171,26 +179,27 @@ public class ComplaintPageController {
 
         HBox hBox1 = new HBox();
         hBox1.setPrefWidth(940);
-        hBox1.setPadding(new Insets(0,0,0,10));
+        hBox1.setPadding(new Insets(20,0,0,10));
 
         Label moderatorLabel = new Label();
         moderatorLabel.setText("หน่วยงาน : " + complaint.getModerator().getUnit());
-        moderatorLabel.setFont(FontLoader.font("ths", 20));
+
+        moderatorLabel.setFont(FontLoader.font("ths_b", 25));
         hBox1.getChildren().add(moderatorLabel);
 
         HBox hBox2 = new HBox();
         hBox2.setPrefWidth(940);
-        hBox2.setPadding(new Insets(0,0,0,10));
+        hBox2.setPadding(new Insets(10,0,0,10));
 
         Label detailLabel = new Label("รายละเอียดการแก้ไข : ");
-        detailLabel.setFont(FontLoader.font("ths", 20));
+        detailLabel.setFont(FontLoader.font("ths_b", 25));
         hBox2.getChildren().add(detailLabel);
 
         Label detailTextField = new Label();
         detailTextField.setWrapText(true);
         detailTextField.setMaxWidth(800);
         detailTextField.setText(complaint.getSolvingDetail());
-        detailTextField.setFont(FontLoader.font("ths", 20));
+        detailTextField.setFont(FontLoader.font("ths", 25));
         hBox2.getChildren().add(detailTextField);
 
         vBox.getChildren().add(hBox1);

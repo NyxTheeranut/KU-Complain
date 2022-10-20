@@ -161,7 +161,7 @@ public class AccountListController {
     private void setupRoleComboBox() {
         roleComboBox.setItems(FXCollections.observableArrayList(
                 "user",
-                "moderator",
+                "mod",
                 "admin"
         ));
     }
@@ -178,7 +178,7 @@ public class AccountListController {
         String username = searchTextField.getText();
         String role = roleComboBox.getValue();
 
-        filteredAccountList = Data.filter(username, accounts, new AccountUsernameFilter());
+        filteredAccountList = Data.filter(username, accounts, new AccountUsernameContainFilter());
         if (role != null)
             filteredAccountList = Data.filter(role, filteredAccountList, new AccountRoleFilter());
 

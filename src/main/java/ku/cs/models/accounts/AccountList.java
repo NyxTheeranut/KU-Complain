@@ -3,7 +3,7 @@ package ku.cs.models.accounts;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.util.Data;
-import ku.cs.services.filter.AccountUsernameFilter;
+import ku.cs.services.filter.AccountUsernameContainFilter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class AccountList {
     }
     public Account checkLogin(String username, String password) {
 
-        Account account = Data.search(username, getAllAccount(), new AccountUsernameFilter());
+        Account account = Data.search(username, getAllAccount(), new AccountUsernameContainFilter());
         if(account == null) return null;
         if (account.getPassword().equals(password)) {
             account.setLastLogin(LocalDateTime.now());
@@ -32,7 +32,7 @@ public class AccountList {
         return null;
     }
     public Boolean checkRegister(String username) {
-        if (Data.search(username, accounts, new AccountUsernameFilter()) == null) {
+        if (Data.search(username, accounts, new AccountUsernameContainFilter()) == null) {
             return true;
         }
         return false;

@@ -11,6 +11,10 @@
 .tertiary-color {
     -fx-background-color: #03a96b;
 }
+
+.pop-up {
+    -fx-background-color: #F7F7F7;
+}
 /* menu */
 .primary-text-color {
     -fx-text-fill: #ffffff;
@@ -81,6 +85,9 @@
     -fx-text-fill: #ffffff;
 }
 
+.radio-button {
+    -fx-text-fill: #000000;
+}
 .button {
     -fx-background-radius: 30 30 30 30;
     -fx-background-color: #ffffffb4;
@@ -96,6 +103,8 @@
     -fx-background-radius: 30 30 30 30;
     -fx-background-color: #ffffffd2;
     -fx-text-fill: #000000;
+
 }
+
 
 

@@ -17,7 +17,7 @@ import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.AccountIdFilter;
 import ku.cs.services.filter.AccountStatusFilter;
-import ku.cs.services.filter.AccountUsernameFilter;
+import ku.cs.services.filter.AccountUsernameContainFilter;
 import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ImageManager;
@@ -217,7 +217,7 @@ public class BlacklistController {
         String username = searchTextField.getText();
         Comparator comparator = sortComboBox.getValue().getKey();
 
-        filteredAccountList = Data.filter(username, accounts, new AccountUsernameFilter());
+        filteredAccountList = Data.filter(username, accounts, new AccountUsernameContainFilter());
         if (comparator != null)
             Collections.sort(filteredAccountList, comparator);
 

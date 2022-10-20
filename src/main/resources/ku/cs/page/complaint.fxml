@@ -81,7 +81,7 @@
          <content>
             <FlowPane fx:id="fieldArea" maxWidth="-Infinity" prefWidth="950.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1000.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="940.0">
                      <children>
                         <Label text="Test field name : ">
                            <font>

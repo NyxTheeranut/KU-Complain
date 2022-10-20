@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="960.0" stylesheets="@../styles/lightTheme.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ManageComplaintController">
+<AnchorPane prefHeight="640.0" prefWidth="960.0" styleClass="pop-up" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.ManageComplaintController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="540.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="86.0" prefWidth="960.0" AnchorPane.bottomAnchor="558.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" prefHeight="90.0" text="จัดการเรื่องร้องเรียน">
                <font>
@@ -23,7 +23,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="440.0" prefWidth="960.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <HBox layoutY="89.0" prefHeight="455.0" prefWidth="960.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0">
          <children>
             <AnchorPane prefHeight="440.0" prefWidth="960.0">
                <children>
@@ -32,16 +32,19 @@
                         <Font name="THSarabunPSK" size="20.0" />
                      </font>
                   </TextArea>
-                  <Label layoutX="116.0" layoutY="59.0" text="รายละเอียดการแก้ไข" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="70.0">
+                  <Label layoutX="100.0" layoutY="75.0" text="รายละเอียดการแก้ไข" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="75.0">
                      <font>
                         <Font name="THSarabunPSK" size="40.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="statusComboBox" layoutX="181.0" layoutY="14.0" prefWidth="150.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="45.0" />
-                  <Label layoutX="105.0" layoutY="6.0" text="สถานะการแก้ไข" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="0.0">
+                  <ComboBox fx:id="statusComboBox" layoutX="100.0" layoutY="37.0" prefHeight="39.0" prefWidth="257.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="603.0" AnchorPane.topAnchor="37.0" />
+                  <Label layoutX="100.0" layoutY="2.0" text="สถานะการแก้ไข" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="2.0">
                      <font>
                         <Font name="THSarabunPSK" size="40.0" />
                      </font>
+                     <padding>
+                        <Insets top="-10.0" />
+                     </padding>
                   </Label>
                </children>
             </AnchorPane>
@@ -57,7 +60,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#handleSaveButton" text="Save">
+            <Button mnemonicParsing="false" onAction="#handleSaveButton" text="บันทึก">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>

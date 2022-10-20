@@ -45,6 +45,8 @@ public class HomeController {
         ((ObjectStorage) FXRouter.getData()).setHomeController(this);
         account = ((ObjectStorage) FXRouter.getData()).getAccount();
 
+        ((ObjectStorage) FXRouter.getData()).setTheme(Theme.LIGHT);
+
         if (account.getRole().equals("user")) loadUserButton();
         else if (account.getRole().equals("mod")) loadModButton();
         else if (account.getRole().equals("admin")) loadAdminButton();
