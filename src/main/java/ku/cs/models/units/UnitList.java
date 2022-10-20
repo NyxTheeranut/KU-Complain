@@ -1,6 +1,5 @@
 package ku.cs.models.units;
 
-import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.Moderator;
 import ku.cs.models.category.Category;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;

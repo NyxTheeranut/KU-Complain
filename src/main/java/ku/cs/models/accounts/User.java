@@ -1,7 +1,5 @@
 package ku.cs.models.accounts;
 
-import ku.cs.models.accounts.Account;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
@@ -54,6 +52,6 @@ public class User extends Account {
                 lastLogin.format(formatter) + "," +
                 isBanned + ',' +
                 unbanRequest + ',' +
-                loginAttempt;
+                loginAttempt + ',';
     }
 }

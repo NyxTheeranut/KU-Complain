@@ -1,10 +1,5 @@
 package ku.cs.models.accounts;
 
-import javafx.scene.image.Image;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -49,20 +44,6 @@ public class Account {
         return surname;
     }
     public String getImagePath() { return  imagePath; }
-    public Image getImage() {
-        FileInputStream fileInputStream = null;
-        try {
-            fileInputStream = new FileInputStream("data" +
-                    File.separator+ "image" +
-                    File.separator+ "account" +
-                    File.separator+ imagePath);
-        } catch (FileNotFoundException e) {
-            System.err.println("Cannot open image");
-            System.err.println(e);
-        }
-        Image image = new Image(fileInputStream);
-        return image;
-    }
     public LocalDateTime getLastLogin() {
         return this.lastLogin;
     }

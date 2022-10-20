@@ -72,7 +72,7 @@ public class HomeController {
                 "เกี่ยวกับ,\uF0C0,about.fxml"
         };
 
-        buttonVBox.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+        buttonVBox.getChildren().add(newProfileButton(account.getUsername(), ImageManager.loadImage("data/image/account/" + account.getImagePath()), "profile.fxml"));
 
         for(String buttonData:buttonDataList){
             String[] data = buttonData.split(",");
@@ -88,7 +88,7 @@ public class HomeController {
 
     public void loadAdminButton(){
         VBox box = (VBox) menu.getChildren().get(0);
-        box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+        box.getChildren().add(newProfileButton(account.getUsername(), ImageManager.loadImage("data/image/account/" + account.getImagePath()), "profile.fxml"));
 
         String[] buttonDataList = {
                 "รายชื่อบัญชี,\uF00B,account_list.fxml",
@@ -112,7 +112,7 @@ public class HomeController {
 
     public void loadModButton(){
         VBox box = (VBox) menu.getChildren().get(0);
-        box.getChildren().add(newProfileButton(account.getUsername(), account.getImage(), "profile.fxml"));
+        box.getChildren().add(newProfileButton(account.getUsername(), ImageManager.loadImage("data/image/account/" + account.getImagePath()), "profile.fxml"));
 
         String[] buttonDataList = {
                 "จัดการเรื่องร้องเรียน,\uF0AD,moderator_complaint_list.fxml",

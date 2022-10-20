@@ -13,6 +13,7 @@ import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.AccountIdFilter;
 import ku.cs.util.Data;
+import ku.cs.util.ImageManager;
 import ku.cs.util.ObjectStorage;
 
 
@@ -54,7 +55,7 @@ public class EditProfileController extends AccountList {
 
         nameLabel.setText(account.getName());
         surnameLabel.setText(account.getSurname());
-        profilePicture.setImage(account.getImage());
+        profilePicture.setImage(ImageManager.loadImage("data/image/account/" + account.getImagePath()));
     }
 
     public void handleProfilePicture(ActionEvent actionEvent) throws IOException {

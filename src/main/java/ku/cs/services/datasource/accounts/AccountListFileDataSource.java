@@ -24,8 +24,9 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             buffer = new BufferedReader(reader);
             String line = "";
             while((line = buffer.readLine()) != null){
-                // 0    1     2       3       4     5         6        7        8            9            10
-                //user,id,username,password,name,surname,default.jpg,lastLogin,isBan,unban request,loginAttempt
+                // 0    1     2       3       4     5         6        7        8            9            10     11
+                //role,id,username,password,name,surname,default.jpg,lastLogin,isBan,unban request,loginAttempt,unit
+                //user,id,username,password,name,surname,default.jpg,lastLogin,isBan,unban request,loginAttempt,unit
                 //admin,id,username,password,name,surname,default.jpg,lastLogin
                 //mod,id,username,password,name,surname,default.jpg,lastLogin,unit
 
@@ -37,7 +38,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                     account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin);
                 }
                 else if (data[0].equals("mod")){
-                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin, data[8]);
+                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin, data[11]);
                 }
                 else if (data[0].equals("user")){
                     account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin, data[8].equals("1"), data[9], Integer.parseInt(data[10]));
