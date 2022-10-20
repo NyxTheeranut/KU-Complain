@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e4d2cf5-a95b-4c9a-8c0b-ec372c350e1e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/account_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/account_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programPrototype/CS211-Project-1.0-SNAPSHOT-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/programPrototype/CS211-Project-1.0-SNAPSHOT-shaded.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AboutPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AboutPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AccountListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AccountListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddCategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/BlacklistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/BlacklistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ProfilePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/Complaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/Complaint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/ComplaintList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/complaints/ComplaintList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/reports/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/reports/Report.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/UnitList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/units/UnitList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/category_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/category_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/complaint_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/complaint_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/unit_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/unit_list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programPrototype/CS211-Project-1.0-SNAPSHOT-shaded.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programPrototype/data/account_list.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programPrototype/data/complaint_list.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,21 +48,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/project211-araikordai&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/User/Desktop/project211-araikordai",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "File.Encoding"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Work\A.Subject\2.1\Lab_java\project211-araikordai\programPrototype" />
       <recent name="C:\Users\User\Desktop\Work\A.Subject\2.1\Lab_java\project211-araikordai\data\image\account" />
     </key>
   </component>
@@ -140,5 +133,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
