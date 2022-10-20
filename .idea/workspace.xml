@@ -5,48 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e4d2cf5-a95b-4c9a-8c0b-ec372c350e1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/util/Spliter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/util/Theme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ku/cs/util/ThemeChanger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/account_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/account_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/category_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/category_list.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/complaint_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/complaint_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/image/account/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/image/account/default.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/unit_list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/unit_list.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AccountListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AccountListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddModeratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/AddModeratorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/BlacklistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/BlacklistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/image/profileImage/default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/image/profileImage/ku-table.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/ProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/ProjectApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPostPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ComplaintPostPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/EditProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LoginPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/LoginPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/RegisterPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/RegisterPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ReportListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/ReportListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UnbanPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/controllers/UnbanPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/AccountList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/AccountList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/Moderator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/models/accounts/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/reports/AccountReport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/models/reports/ComplaintReport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/services/comparator/CompareAccountByLoginAttempt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/comparator/CompareAccountByLoginAttempt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/accounts/AccountListFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/accounts/AccountListFileDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/reports/ReportListFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/datasource/reports/ReportListFileDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/services/filter/AccountStatusFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/services/filter/AccountStatusFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/services/styles/Theme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ku/cs/util/ObjectStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ku/cs/util/ObjectStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/edit_profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/edit_profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ku/cs/page/report.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ku/cs/page/report.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +33,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -85,10 +62,11 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/labbb/project211-araikordai&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/project211-araikordai&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   }
 }</component>

@@ -58,10 +58,6 @@ public class EditProfileController extends AccountList {
         changeName();
     }
 
-    public void handleSurname(ActionEvent actionEvent) throws IOException {
-        changeSurname();
-    }
-
     @FXML
     public void initialize() {
         account = ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount();
@@ -113,36 +109,26 @@ public class EditProfileController extends AccountList {
         }
     }
 
-    public void changeName() {
+    public void changeName(){
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         String name = nameTextField.getText();
-        if (nameTextField.getText().isEmpty()) {
-        } else {
+        String surname = surnameTextField.getText();
+        if (!name.isEmpty()){
             account.setName(name);
             account1.setName(name);
-
-            dataSource.writeData(accountList);
 
             nameLabel.setText(name);
             nameTextField.setText("");
         }
-    }
-
-    public void changeSurname() {
-        DataSource<AccountList> dataSource = new AccountListFileDataSource();
-        //Account account = Util.search(((ObjectStorage) FXRouter.getData()).getAccount().getName(),accountList.getAllAccount(),new AccountUsernameFilter());
-        String surname = surnameTextField.getText();
-        if (surnameTextField.getText().isEmpty()) {
-        } else {
+        if(!surname.isEmpty()){
             account.setSurname(surname);
             account1.setSurname(surname);
-            dataSource.writeData(accountList);
-            ((ObjectStorage) FXRouter.getData()).getAccount().setSurname(surname);
-            //((ObjectStorage) FXRouter.getData()).setAccount(account);
-            //account.setSurname(surname);
+
             surnameLabel.setText(surname);
             surnameTextField.setText("");
         }
+
+        dataSource.writeData(accountList);
     }
 
     @FXML

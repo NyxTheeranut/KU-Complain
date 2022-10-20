@@ -5,7 +5,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.github.saacsos.FXRouter;
-import ku.cs.services.styles.Theme;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
 

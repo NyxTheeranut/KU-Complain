@@ -1,6 +1,6 @@
 package ku.cs.util;
 
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.AnchorPane;
 import ku.cs.controllers.HomeController;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.complaints.Complaint;
@@ -16,6 +16,7 @@ public class ObjectStorage {
     private Complaint complaint;
     private HomeController homeController;
     private Unit unit;
+    private Theme theme;
 
     /**
      *
@@ -51,6 +52,9 @@ public class ObjectStorage {
     public HomeController getHomeController() {
         return homeController;
     }
+    public Theme getTheme() {
+        return theme;
+    }
     public void setAccount(Account account) {
         this.account = account;
     }
@@ -59,6 +63,9 @@ public class ObjectStorage {
     }
     public void setHomeController(HomeController homeController) {
         this.homeController = homeController;
+    }
+    public void setTheme(Theme theme) {
+        this.theme = theme;
     }
 
     public Unit getUnit() {

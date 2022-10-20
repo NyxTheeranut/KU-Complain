@@ -65,16 +65,20 @@ public class ComplaintPostPageController {
             }
         }
 
-        complaintList.addComplaint(
-                new Complaint(
-                        UUID.randomUUID(),
-                        account,
-                        topicField.getText(),
-                        categoryComboBox.getValue(),
-                        LocalDateTime.now(),
-                        fields
-                        ));
+        Complaint complaint = new Complaint(
+                UUID.randomUUID(),
+                account,
+                topicField.getText(),
+                categoryComboBox.getValue(),
+                LocalDateTime.now(),
+                fields
+        );
+
+        complaintList.addComplaint(complaint);
         complaintDataSource.writeData(complaintList);
+
+        ((ObjectStorage) com.github.saacsos.FXRouter.getData()).setComplaint(complaint);
+        ((ObjectStorage) com.github.saacsos.FXRouter.getData()).getHomeController().loadPage("complaint.fxml");
     }
     @FXML
     private void handleSelectedCategoryComboBox(){

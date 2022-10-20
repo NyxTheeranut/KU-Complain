@@ -12,7 +12,9 @@ import ku.cs.models.accounts.AccountList;
 import ku.cs.models.accounts.User;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
-import ku.cs.util.ObjectStorage;
+import ku.cs.services.filter.AccountIdFilter;
+import ku.cs.services.filter.AccountUsernameFilter;
+import ku.cs.util.Data;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -36,14 +38,23 @@ public class RegisterPageController {
         String usernameText = usernameField.getText(); //get content from username field
         String passwordText = passwordField.getText(); //get content from password field
         String confirmText = confirmPasswordField.getText(); //get content from confirm password field
-        if (usernameText.isEmpty() || passwordText.isEmpty() || confirmText.isEmpty()) { //missing infomation
+        if (usernameText.isEmpty() || passwordText.isEmpty() || confirmText.isEmpty()) { //missing information
             wrongRegister.setText("กรุณาข้อมูลให้ครบถ้วน");
+        }
+        else if (Data.search(usernameText,new AccountListFileDataSource().readData().getAllAccount(),new AccountUsernameFilter()) != null){
+            wrongRegister.setText("ชื่อบัญชีนี้ถูกใช้แล้ว ลองใหม่อีกครั้ง");
         }
         else if (passwordText.length() < 8) {
             wrongRegister.setText("รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร");
         }
         else if (passwordText.equals(confirmText)) {
             register(usernameText, passwordText);
+
+            try{
+                FXRouter.goTo("login_page");
+            } catch (IOException e){
+                System.err.println(e);
+            }
         }
         else {
             wrongRegister.setText("รหัสผ่านไม่ตรงกัน ลองใหม่อีกครั้ง");

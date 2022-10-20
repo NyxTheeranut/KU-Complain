@@ -33,6 +33,7 @@ import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ku.cs.util.ThemeChanger;
 
 public class ComplaintPageController {
     Account account;
@@ -204,6 +205,7 @@ public class ComplaintPageController {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Report");
         stage.setScene(scene);
+        ThemeChanger.setTheme(scene);
         stage.show();
     }
     public void handleVoteButton() {vote();}

@@ -138,17 +138,9 @@
                         <Insets left="20.0" top="8.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#handleSurname" text="ยืนยัน">
-                     <font>
-                        <Font name="TH SarabunPSK" size="20.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="20.0" top="10.0" />
-                     </VBox.margin>
-                  </Button>
                   <Button fx:id="renameButton" mnemonicParsing="false" onAction="#handleChangePassword" text="ยืนยัน">
                      <VBox.margin>
-                        <Insets left="20.0" top="96.0" />
+                        <Insets left="20.0" top="116.0" />
                      </VBox.margin>
                      <font>
                         <Font name="TH SarabunPSK" size="20.0" />

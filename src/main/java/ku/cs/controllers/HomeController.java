@@ -1,7 +1,6 @@
 package ku.cs.controllers;
 
 import javafx.animation.TranslateTransition;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -11,26 +10,23 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
 import javafx.util.Duration;
 import ku.cs.models.accounts.Account;
-import ku.cs.services.styles.Theme;
 import ku.cs.util.FontLoader;
 import ku.cs.util.ObjectStorage;
 
-import javax.swing.text.LabelView;
 import java.io.IOException;
-import java.util.ArrayList;
+
 import com.github.saacsos.FXRouter;
+import ku.cs.util.Theme;
+import ku.cs.util.ThemeChanger;
 
 public class HomeController {
     @FXML private AnchorPane home;
@@ -60,16 +56,8 @@ public class HomeController {
 
     public void changeTheme() {
         isLightTheme = !isLightTheme;
-        if (isLightTheme) {
-            Theme.setTheme(home, "toLight");
-            Image image = new Image(String.valueOf(getClass().getResource("/ku/cs/image/lightTheme.png")));
-            themeIcon.setImage(image);
-        } else {
-            Theme.setTheme(home, "toDark");
-            Image image = new Image(String.valueOf(getClass().getResource("/ku/cs/image/darkTheme.png")));
-            themeIcon.setImage(image);
-        }
-
+        ((ObjectStorage) FXRouter.getData()).setTheme((isLightTheme)? Theme.LIGHT : Theme.DARK);
+        ThemeChanger.setTheme(home);
     }
 
     public void loadUserButton(){
