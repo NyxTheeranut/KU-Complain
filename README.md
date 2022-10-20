@@ -67,7 +67,7 @@
       │        │     └───reports
       │        │     │    │ *.java
       │        │     │  
-      │        │     └───unit
+      │        │     └───units
       │        │          │ *.java
       │        │       
       │        └───services
@@ -78,9 +78,6 @@
       │        │     │    │ *.java
       │        │     │  
       │        │     └───filter
-      │        │     │    │ *.java
-      │        │     │  
-      │        │     └───styles
       │        │     │    │ *.java
       │        │
       │        └───util

@@ -52,6 +52,6 @@ public class User extends Account {
                 lastLogin.format(formatter) + "," +
                 isBanned + ',' +
                 unbanRequest + ',' +
-                loginAttempt;
+                loginAttempt + ',';
     }
 }
