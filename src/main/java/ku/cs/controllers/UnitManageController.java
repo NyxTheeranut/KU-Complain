@@ -76,7 +76,7 @@ public class UnitManageController {
 
         freeModComboBox.getItems().clear();
         AccountList accountList = new AccountListFileDataSource().readData();
-        freeModComboBox.getItems().addAll(Data.filter("",accountList.getAllMod(), new AffiliationFilter()));
+        freeModComboBox.getItems().addAll(Data.filter("none",accountList.getAllMod(), new AffiliationFilter()));
     }
 
     public void handleSelectedListView() {
@@ -84,7 +84,7 @@ public class UnitManageController {
                 (observable, oldValue, newValue) -> {
                     if(newValue != null) {
                         showSelectedUnit(newValue);
-                        System.out.println(newValue.getUnitName() + " is selected");
+                        //System.out.println(newValue.getUnitName() + " is selected");
                     }
                 });
     }
