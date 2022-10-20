@@ -12,6 +12,7 @@ import ku.cs.models.accounts.AccountList;
 import ku.cs.models.accounts.User;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
+import ku.cs.util.ObjectStorage;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -55,8 +56,13 @@ public class RegisterPageController {
         if (accountList.checkRegister(username)){
             Account account = new User(UUID.randomUUID(), username, password);
             accountList.addAccount(account);
-
             dataSource.writeData(accountList);
+
+            try {
+                FXRouter.goTo("login_page");
+            } catch (IOException e) {
+                System.err.println(e);
+            }
         }
 
     }

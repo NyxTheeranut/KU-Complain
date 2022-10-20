@@ -83,17 +83,17 @@ public class EditProfileController extends AccountList {
         Image image = new Image(selectedFile.toURI().toString());
         profilePicture.setImage(image);
         Path from = Paths.get(selectedFile.toURI());
-        Path to = Paths.get("data\\image\\profileImage\\" + selectedFile.getName());
-        String pictureName = selectedFile.getName();
+        Path to = Paths.get("data\\image\\account\\" + account.getId() + ".jpg");
         CopyOption[] options = new CopyOption[]{
                 StandardCopyOption.REPLACE_EXISTING,
                 StandardCopyOption.COPY_ATTRIBUTES};
         Files.copy(from.toFile().toPath(), to.toFile().toPath(), options);
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
-        AccountList accountList = dataSource.readData();
 
-        account.setImagePath(selectedFile.getName());
-        account1.setImagePath(selectedFile.getName());
+        account.setImagePath(account.getId() + ".jpg");
+        account1.setImagePath(account.getId() + ".jpg");
+
+        dataSource.writeData(accountList);
 
     }
 

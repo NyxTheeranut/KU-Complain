@@ -14,6 +14,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
+import ku.cs.models.accounts.User;
 import ku.cs.util.ObjectStorage;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
@@ -52,8 +53,8 @@ public class LoginPageController {
             Account account = accountList.checkLogin(username, password);
             if (account != null) {
                 ((ObjectStorage) FXRouter.getData()).setAccount(account);
-                if (account.isBanned()) { // Banned account
-                    account.setLoginAttempt(account.getLoginAttempt()+1);
+                if (account instanceof User && ((User) account).isBanned()) { // Banned account
+                    ((User)account).setLoginAttempt(((User)account).getLoginAttempt()+1);
                     showBannedWindow();
                     dataSource.writeData(accountList);
                 }

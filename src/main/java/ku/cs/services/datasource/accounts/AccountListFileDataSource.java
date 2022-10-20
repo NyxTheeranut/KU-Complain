@@ -2,6 +2,7 @@ package ku.cs.services.datasource.accounts;
 
 import ku.cs.models.accounts.*;
 import ku.cs.services.datasource.DataSource;
+import ku.cs.util.Spliter;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -23,22 +24,23 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             buffer = new BufferedReader(reader);
             String line = "";
             while((line = buffer.readLine()) != null){
-                // 0    1     2       3       4     5         6        7        8            9            10     11
-                //role,id,username,password,name,surname,default.png,isBan,loginAttempt,unban request,lastLogin,unit
-                String[] data = line.split(",");
-                Boolean isBanned;
-                if (data[7].equals("0")) isBanned = false;
-                else isBanned = true;
+                // 0    1     2       3       4     5         6        7        8            9            10
+                //user,id,username,password,name,surname,default.jpg,lastLogin,isBan,unban request,loginAttempt
+                //admin,id,username,password,name,surname,default.jpg,lastLogin
+                //mod,id,username,password,name,surname,default.jpg,lastLogin,unit
+
+                String[] data = Spliter.split(line,",");
+
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                LocalDateTime lastLogin = LocalDateTime.parse(data[10], formatter);
+                LocalDateTime lastLogin = LocalDateTime.parse(data[7], formatter);
                 if (data[0].equals("admin")){
-                    account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin);
+                    account = new Admin(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin);
                 }
                 else if (data[0].equals("mod")){
-                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin, (data.length == 12)?data[11]:"");
+                    account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin, data[8]);
                 }
                 else if (data[0].equals("user")){
-                    account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], isBanned, Integer.parseInt(data[8]), data[9], lastLogin);
+                    account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin, data[8].equals("1"), data[9], Integer.parseInt(data[10]));
                 }
                 accountList.addAccount(account); //add account to account list
             }
@@ -65,24 +67,20 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
             writer = new FileWriter(file);
             buffer = new BufferedWriter(writer);
             for(Account account : accountList.getAllAccount()) {
-                String isBanned;
-                if (account.isBanned())  isBanned = "1";
-                else isBanned = "0";
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-                //role,name,password,imagepath
-                String line = account.getRole() + ","
-                        + account.getId().toString() + ","
-                        + account.getUsername() + ","
-                        + account.getPassword() + ","
-                        + account.getName() + ","
-                        + account.getSurname() + ","
-                        + account.getImagePath() + ","
-                        + isBanned + ","
-                        + account.getLoginAttempt() + ","
-                        + account.getUnbanRequest() + ","
-                        + account.getLastLogin().format(formatter)
-                        ;
-                if(account.getRole().equals("mod") && !((Moderator)account).getUnit().equals("")) line += ","+((Moderator)account).getUnit();
+
+                String line;
+
+                if (account instanceof User) {
+                    line = ((User) account).format();
+                }
+                else if (account instanceof Moderator) {
+                    line = ((Moderator) account).format();
+                }
+                else if (account instanceof Admin) {
+                    line = ((Admin) account).format();
+                }
+                else continue;
+
                 buffer.append(line);
                 buffer.newLine();
             }

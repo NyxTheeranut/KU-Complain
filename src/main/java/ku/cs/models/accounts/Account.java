@@ -10,19 +10,16 @@ import java.util.UUID;
 
 public class Account {
 
-    private String role;
-    private UUID id;
-    private String username;
-    private String password;
-    private String name;
-    private String surname;
+    protected String role;
+    protected UUID id;
+    protected String username;
+    protected String password;
+    protected String name;
+    protected String surname;
     protected String imagePath;
-    protected boolean isBanned;
-    private int loginAttempt;
-    private String unbanRequest;
-    private LocalDateTime lastLogin;
+    protected LocalDateTime lastLogin;
 
-    public Account(String role, UUID id, String username, String password, String name, String surname, String imagePath, boolean isBanned, int loginAttempt, String unbanRequest, LocalDateTime lastLogin) {
+    public Account(String role, UUID id, String username, String password, String name, String surname, String imagePath, LocalDateTime lastLogin) {
         this.role         = role;
         this.id           = id;
         this.username     = username;
@@ -30,50 +27,28 @@ public class Account {
         this.name         = name;
         this.surname      = surname;
         this.imagePath    = imagePath;
-        this.isBanned     = isBanned;
-        this.loginAttempt = loginAttempt;
-        this.unbanRequest = unbanRequest;
         this.lastLogin    = lastLogin;
     }
     //getter
     public String getRole(){
         return role;
     }
-
     public UUID getId() {
         return id;
     }
-
     public String getUsername() {
         return username;
     }
-
     public String getPassword() {
         return password;
     }
-
     public String getName() {
         return name;
     }
-
     public String getSurname() {
         return surname;
     }
-
     public String getImagePath() { return  imagePath; }
-
-    public boolean isBanned() {
-        return isBanned;
-    }
-
-    public int getLoginAttempt() {
-        return loginAttempt;
-    }
-
-    public String getUnbanRequest() {
-        return unbanRequest;
-    }
-
     public Image getImage() {
         FileInputStream fileInputStream = null;
         try {
@@ -88,7 +63,6 @@ public class Account {
         Image image = new Image(fileInputStream);
         return image;
     }
-
     public LocalDateTime getLastLogin() {
         return this.lastLogin;
     }
@@ -97,39 +71,21 @@ public class Account {
     public void setUsername(String username) {
         this.username = username;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
-    public void setLoginAttempt(int loginAttempt) {
-        this.loginAttempt = loginAttempt;
-    }
-
-    public void setUnbanRequest(String unbanRequest) {
-        this.unbanRequest = unbanRequest;
-    }
-
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
-
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
-
-    public void setBanned(boolean banned) {
-        isBanned = banned;
-    }
-
     @Override
     public String toString() {
         return "Account{" +
@@ -140,7 +96,6 @@ public class Account {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", imagePath='" + imagePath + '\'' +
-                ", isBanned=" + isBanned +
                 '}';
     }
 }

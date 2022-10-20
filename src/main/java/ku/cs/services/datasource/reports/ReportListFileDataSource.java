@@ -1,7 +1,5 @@
 package ku.cs.services.datasource.reports;
 
-import ku.cs.models.reports.AccountReport;
-import ku.cs.models.reports.ComplaintReport;
 import ku.cs.models.reports.Report;
 import ku.cs.models.reports.ReportList;
 import ku.cs.services.datasource.DataSource;
@@ -27,12 +25,9 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
             String line = "";
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                if (data[0].equals("Account")) {
-                    report = new AccountReport(data[0] , UUID.fromString(data[1]), data[2], data[3]);
-                }
-                if (data[0].equals("Complaint")) {
-                    report = new ComplaintReport(data[0] , UUID.fromString(data[1]), data[2], data[3]);
-                }
+
+                report = new Report(data[0] , UUID.fromString(data[1]), data[2], data[3]);
+
                 reportList.addReport(report);
             }
         } catch (FileNotFoundException e) {

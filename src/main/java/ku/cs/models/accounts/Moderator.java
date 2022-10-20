@@ -1,12 +1,13 @@
 package ku.cs.models.accounts;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Moderator extends Account {
     private String unit;
-    public Moderator(UUID id, String username, String password, String name, String surname, String imagePath, Boolean isBanned, int loginAttempt, String unbanRequest, LocalDateTime lastLogin, String unit) {
-        super("mod",id,username,password,name,surname,imagePath,isBanned,loginAttempt,unbanRequest,lastLogin);
+    public Moderator(UUID id, String username, String password, String name, String surname, String imagePath, LocalDateTime lastLogin, String unit) {
+        super("mod",id,username,password,name,surname,imagePath,lastLogin);
         this.unit = unit;
     }
 
@@ -16,10 +17,17 @@ public class Moderator extends Account {
         this.unit = unit;
     }
 
-    public String toString() {
-        String str = this.getName()+" "+this.getSurname();
-        if(unit != "") str += " (" + unit + ")";
-        return str;
+    public String format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return role + ',' +
+                id + ',' +
+                username + ',' +
+                password + ',' +
+                name + ',' +
+                surname + ',' +
+                imagePath + ',' +
+                lastLogin.format(formatter) + ',' +
+                unit;
     }
 
 }

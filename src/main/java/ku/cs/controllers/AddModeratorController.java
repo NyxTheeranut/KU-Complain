@@ -42,7 +42,7 @@ public class AddModeratorController {
             fileInputStream = new FileInputStream("data" +
                     File.separator+ "image" +
                     File.separator+ "account" +
-                    File.separator+ "default.png");
+                    File.separator+ "default.jpg");
         } catch (FileNotFoundException e) {
             System.err.println("Cannot open image");
             System.err.println(e);
@@ -84,7 +84,7 @@ public class AddModeratorController {
             return;
         }
         Moderator mod = new Moderator(UUID.randomUUID() ,userField.getText(),passwordField.getText(),nameField.getText(),surnameField.getText()
-                                    , ImageManager.saveImage(imageView.getImage(),"account"),false,0,"",LocalDateTime.now(),unitListField.getValue().getUnitName());
+                                    , ImageManager.saveImage(imageView.getImage(),"account"),LocalDateTime.now(),unitListField.getValue().getUnitName());
 
         accountList.addAccount(mod);
         accountListFileDataSource.writeData(accountList);

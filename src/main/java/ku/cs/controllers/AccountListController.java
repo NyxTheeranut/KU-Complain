@@ -15,6 +15,7 @@ import javafx.scene.text.Font;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
 import ku.cs.models.accounts.Moderator;
+import ku.cs.models.accounts.User;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.*;
@@ -135,7 +136,11 @@ public class AccountListController {
 
             //setup isBanLabel
             Label isBanLabel = new Label();
-            isBanLabel.setText("Status : " + ((i.isBanned())?"banned" : "authorize"));
+            try {
+                isBanLabel.setText("Status : " + ((((User)i).isBanned()) ? "banned" : "authorize"));
+            }catch (ClassCastException e) {
+                isBanLabel.setText("Status : " + "authorize");
+            }
             isBanLabel.setFont(ths2);
 
             hBox3.getChildren().add(lastLoginLabel);

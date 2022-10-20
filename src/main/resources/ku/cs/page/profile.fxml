@@ -60,9 +60,9 @@
                         </Button>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="200.0">
+                  <VBox prefHeight="200.0">
                      <children>
-                          <Label fx:id="nameLabel" prefHeight="27.0" prefWidth="200.0" text="UsernameLabel">
+                          <Label fx:id="nameLabel" prefHeight="27.0" text="UsernameLabel">
                               <font>
                                   <Font name="TH SarabunPSK" size="36.0" />
                               </font>
@@ -70,7 +70,7 @@
                               <Insets top="50.0" />
                            </VBox.margin>
                           </Label>
-                          <Label fx:id="roleLabel" prefHeight="27.0" prefWidth="200.0" text="RoleLabel">
+                          <Label fx:id="roleLabel" prefHeight="27.0" text="RoleLabel">
                               <font>
                                   <Font name="TH SarabunPSK" size="36.0" />
                               </font>

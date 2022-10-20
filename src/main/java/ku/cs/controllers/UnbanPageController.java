@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
+import ku.cs.models.accounts.User;
 import ku.cs.services.datasource.DataSource;
 import ku.cs.services.datasource.accounts.AccountListFileDataSource;
 import ku.cs.services.filter.AccountIdFilter;
@@ -34,7 +35,7 @@ public class UnbanPageController {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         AccountList accountList = dataSource.readData();
 
-        Data.search(account.getId().toString(), accountList.getAllAccount(), new AccountIdFilter()).setUnbanRequest(detail);
+        ((User)Data.search(account.getId().toString(), accountList.getAllAccount(), new AccountIdFilter())).setUnbanRequest(detail);
 
         errorLabel.setText("ส่งคำขอสำเร็จ");
 

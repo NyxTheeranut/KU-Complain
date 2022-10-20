@@ -10,6 +10,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import ku.cs.models.accounts.Account;
 import ku.cs.models.accounts.AccountList;
+import ku.cs.models.accounts.Admin;
+import ku.cs.models.accounts.User;
 import ku.cs.models.complaints.Complaint;
 import ku.cs.models.complaints.ComplaintList;
 import ku.cs.models.reports.Report;
@@ -22,6 +24,7 @@ import ku.cs.services.filter.ComplaintIdFilter;
 import ku.cs.services.datasource.reports.ReportListFileDataSource;
 import ku.cs.util.Data;
 import ku.cs.util.FontLoader;
+import ku.cs.util.ObjectStorage;
 
 public class ReportListController {
     @FXML
@@ -52,7 +55,7 @@ public class ReportListController {
 
             if (i.getType().equals("Account")) {
                 account = Data.search(i.getId().toString(), accountList.getAllAccount(), new AccountIdFilter());
-                if (account.isBanned()) {
+                if (((User) account).isBanned()) {
                     x--;
                     dismiss(i);
                     continue;
@@ -147,7 +150,7 @@ public class ReportListController {
         AccountList accountList = dataSource.readData();
 
         Account account =  Data.search(report.getId().toString(), accountList.getAllAccount(), new AccountIdFilter());
-        account.setBanned(true);
+        ((Admin)((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount()).ban((User) account);
         dataSource.writeData(accountList);
 
         dismiss(report);
