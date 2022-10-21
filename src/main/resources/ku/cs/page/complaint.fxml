@@ -65,7 +65,7 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onAction="#handleReportButton" prefHeight="40.0" prefWidth="70.0" text="Report">
+                  <Button mnemonicParsing="false" onAction="#handleReportButton" prefHeight="40.0" prefWidth="70.0" text="รายงาน">
                      <font>
                         <Font name="THSarabunPSK-Bold" size="20.0" />
                      </font>

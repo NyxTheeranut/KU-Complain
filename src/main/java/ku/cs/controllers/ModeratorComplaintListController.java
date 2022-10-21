@@ -57,7 +57,7 @@ public class ModeratorComplaintListController {
     ArrayList<Category> categoryList;
 
     //constant
-    private final Font topicFont = FontLoader.font("ths", 30);
+    private final Font topicFont = FontLoader.font("ths_b", 30);
     private final Font categoryFont = FontLoader.font("ths", 20);
     private final Font datePostFont = FontLoader.font("ths", 20);
     private final Font statusFont = FontLoader.font("ths", 20);
