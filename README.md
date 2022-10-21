@@ -104,10 +104,10 @@
  Role|Username|Password
  ---|---|---
  Admin|admin|adminadmin
- Moderator|mooteh|mootehthacat
+ Moderator|mooteh|mootehthecat
  Moderator|farm|farmthebread
- User|tangmod|Tangmodlaew
- User|jengjeaw|Jengthedog
+ User|tangmod|tangmodleaw
+ User|jengjeaw|jengthedog
  User|emi|emithecat
 ## สรุปสิ่งที่พัฒนาแต่ละครั้งที่นำเสนอความก้าวหน้าของระบบ
 * ### ครั้งที่ 1 (11 Aug 2022)
