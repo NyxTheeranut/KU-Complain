@@ -6,11 +6,9 @@
 - นายธีรณัฏฐ์ สุธนรักษ์ 6410406673<br>
 
 ## วิธีการติดตั้งโปรแกรม
-ให้ผู้ใช้ [ดาวน์โหลดไฟล์โปรแกรม]() <br>
+ให้ผู้ใช้ [ดาวน์โหลดไฟล์โปรแกรม](https://drive.google.com/file/d/1qIgP7SrFDOac8QxmdA-3dDU0y0--XGog/view?usp=sharing) <br>
 - ### สำหรับผู้ใช้ Windows
-&nbsp; &nbsp; &nbsp; &nbsp; `*****ไว้มาเขียน`
-- ### สำหรับผู้ใช้ macOS
-&nbsp; &nbsp; &nbsp; &nbsp; `*****ไว้มาเขียน`
+&nbsp; &nbsp; &nbsp; &nbsp; `ให้ extract ไฟล์จากนั้นดับเบิ้ลคลิกที่ KU-Rongrian.jar เพื่อเริ่มต้นโปรแกรม`
 
 ## การวางโครงสร้างไฟล์
 
