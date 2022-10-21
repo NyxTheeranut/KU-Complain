@@ -22,7 +22,7 @@
                <children>
                   <ImageView fx:id="themeIcon" fitHeight="50.0" fitWidth="60.0" onMouseClicked="#changeTheme" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../image/lightTheme.png" />
+                        <Image url="@../../../../../../data/image/lightTheme.png" />
                      </image>
                      <HBox.margin>
                         <Insets right="5.0" />

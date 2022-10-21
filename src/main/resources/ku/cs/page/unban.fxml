@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="960.0" stylesheets="@../styles/lightTheme.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UnbanPageController">
+<AnchorPane prefHeight="640.0" prefWidth="960.0" stylesheets="@../../../../../../data/styles/lightTheme.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.UnbanPageController">
    <children>
       <Label layoutX="85.0" layoutY="50.0" text="คุณโดนแบน" textFill="RED" AnchorPane.bottomAnchor="511.6" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="642.0" AnchorPane.topAnchor="30.0">
          <font>

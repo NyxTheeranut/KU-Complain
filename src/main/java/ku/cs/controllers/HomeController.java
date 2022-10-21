@@ -36,7 +36,7 @@ public class HomeController {
 
     private Account account;
 
-    private boolean isLightTheme = true;
+    private Boolean isLightTheme = true;
     @FXML
     public void initialize() {
 
@@ -46,6 +46,7 @@ public class HomeController {
         account = ((ObjectStorage) FXRouter.getData()).getAccount();
 
         ((ObjectStorage) FXRouter.getData()).setTheme(Theme.LIGHT);
+        themeIcon.setImage(ImageManager.loadImage("data/image/lightTheme.png"));
 
         if (account.getRole().equals("user")) loadUserButton();
         else if (account.getRole().equals("mod")) loadModButton();
@@ -53,10 +54,11 @@ public class HomeController {
     }
 
     public void changeTheme() {
+
         isLightTheme = !isLightTheme;
         Image image;
-        if (isLightTheme) image = ImageManager.loadImage("src/main/resources/ku/cs/image/lightTheme.png");
-        else image = ImageManager.loadImage("src/main/resources/ku/cs/image/darkTheme.png");
+        if (isLightTheme) image = ImageManager.loadImage("data/image/lightTheme.png");
+        else image = ImageManager.loadImage("data/image/darkTheme.png");
         themeIcon.setImage(image);
 
         ((ObjectStorage) FXRouter.getData()).setTheme((isLightTheme)? Theme.LIGHT : Theme.DARK);

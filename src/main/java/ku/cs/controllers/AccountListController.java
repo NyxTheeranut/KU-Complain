@@ -42,8 +42,10 @@ public class AccountListController {
     private ArrayList<Account> accounts;
     private ArrayList<Account> filteredAccountList;
     public void initialize() {
+
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
         accounts = dataSource.readData().getAllAccount();
+
         filteredAccountList = accounts;
 
         setupAccountArea(accounts);
@@ -60,6 +62,7 @@ public class AccountListController {
         accountArea.getChildren().clear();
 
         for (Account i:accounts) {
+            System.out.println(i.getUsername());
             //setup hBox
             HBox hBox = new HBox();
             hBox.setPadding(new Insets(0, 0, 0, 20));

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="720.0" prefWidth="1180.0" stylesheets="@../styles/lightTheme.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.TutorialPageController">
+<AnchorPane prefHeight="720.0" prefWidth="1180.0" stylesheets="@../../../../../../data/styles/lightTheme.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ku.cs.controllers.TutorialPageController">
    <children>
       <HBox prefHeight="100.0" prefWidth="1180.0">
          <children>
