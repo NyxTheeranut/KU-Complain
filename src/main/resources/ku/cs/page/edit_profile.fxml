@@ -96,7 +96,7 @@
                         <Font name="TH SarabunPSK" size="18.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="changePasswordTextField" promptText="new password">
+                  <TextField fx:id="newPasswordTextField" promptText="new password">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>

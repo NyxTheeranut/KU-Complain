@@ -13,6 +13,7 @@ import ku.cs.util.Data;
 import ku.cs.services.filter.CategoryNameFilter;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class UnitListFileDataSource implements DataSource<UnitList> {
     private final String directoryName = "data";
@@ -25,8 +26,8 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
         BufferedReader buffer = null;
         Account account = null;
         try {
-            reader = new FileReader(file);
-            buffer = new BufferedReader(reader);
+            buffer = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(file), "UTF-8"));
             String line = "";
             AccountListFileDataSource dataSource = new AccountListFileDataSource();
             AccountList accountList = dataSource.readData();
@@ -48,7 +49,7 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
         }finally {
             try {
                 buffer.close();
-                reader.close();
+                //reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -62,8 +63,10 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
         FileWriter writer = null;
         BufferedWriter buffer = null;
         try {
-            writer = new FileWriter(file);
-            buffer = new BufferedWriter(writer);
+//            writer = new FileWriter(file);
+//            buffer = new BufferedWriter(writer);
+            buffer = new BufferedWriter(new FileWriter(file, StandardCharsets.UTF_8));
+
             for(Unit unit:unitList.getAllUnits()) {
                 String line = unit.getUnitName();
                 line += ",";
@@ -76,7 +79,7 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
                     if(i>0) line += ":";
                     line += unit.getCategoryList().get(i).getName();
                 }
-                //System.out.println(3);
+
                 buffer.append(line);
                 buffer.newLine();
             }
@@ -87,7 +90,7 @@ public class UnitListFileDataSource implements DataSource<UnitList> {
         }finally {
             try {
                 buffer.close();
-                writer.close();
+                //writer.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

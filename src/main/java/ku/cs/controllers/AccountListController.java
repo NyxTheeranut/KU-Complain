@@ -49,6 +49,7 @@ public class AccountListController {
         setupAccountArea(accounts);
         setupRoleComboBox();
 
+        reverseButton.setFont(FontLoader.font("fa_wf", 15));
     }
 
     Font ths1 = FontLoader.font("ths", 30);

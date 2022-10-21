@@ -49,6 +49,7 @@ public class BlacklistController {
         setupAccountArea(accounts);
         setupSortComboBox();
 
+        reverseButton.setFont(FontLoader.font("fa_wf", 15));
     }
 
     Font ths1 = FontLoader.font("ths", 30);
@@ -169,7 +170,6 @@ public class BlacklistController {
             hBox.getChildren().add(vBox);
 
             accountArea.getChildren().add(hBox);
-
         }
     }
     private void toggleBan(User user, Button unbanButton) {
@@ -179,8 +179,8 @@ public class BlacklistController {
 
         User user1 = (User)Data.search(user.getId().toString(), accountList.getAllAccount(), new AccountIdFilter());
 
-        if (user1.isBanned()) ((Admin)((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount()).ban(user1);
-        else ((Admin)((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount()).unban(user1);
+        if (user1.isBanned()) ((Admin)((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount()).unban(user1);
+        else ((Admin)((ObjectStorage) com.github.saacsos.FXRouter.getData()).getAccount()).ban(user1);
 
         unbanButton.setText((user1.isBanned())? "Unban" : "Ban");
 

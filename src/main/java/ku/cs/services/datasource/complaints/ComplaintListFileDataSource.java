@@ -33,8 +33,9 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
         FileReader fileReader = null;
         BufferedReader buffer = null;
         try {
-            fileReader = new FileReader(file);
-            buffer = new BufferedReader(fileReader);
+            buffer = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(file), "UTF-8"));
+
             String line = "";
 
             //Get Account list
@@ -100,8 +101,9 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
         FileWriter writer = null;
         BufferedWriter buffer = null;
         try {
-            writer = new FileWriter(file);
-            buffer = new BufferedWriter(writer);
+//            writer = new FileWriter(file);
+//            buffer = new BufferedWriter(writer);
+            buffer = new BufferedWriter(new FileWriter(file, StandardCharsets.UTF_8));
             for(Complaint complaint : complaintList.getAllComplaints()){
                 //id,authorid,topic,category,datepost,moderator,solvingdetail
                 //field1-field2,voterUuid:vote/voterUuid:vote-vote2
@@ -132,9 +134,7 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
                 line += ","+String.join("/", votes);
 
 
-                byte[] bytes = line.getBytes(StandardCharsets.UTF_8);
-                String encodedLine = new String(bytes,StandardCharsets.UTF_8);
-                buffer.append(encodedLine);
+                buffer.append(line);
                 buffer.newLine();
             }
         } catch (IOException e) {
@@ -142,7 +142,7 @@ public class ComplaintListFileDataSource implements DataSource<ComplaintList> {
         }finally {
             try {
                 buffer.close();
-                writer.close();
+                //writer.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

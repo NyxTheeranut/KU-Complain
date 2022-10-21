@@ -28,7 +28,7 @@ public class EditProfileController extends AccountList {
     @FXML
     private Label nameLabel;
     @FXML
-    private TextField changePasswordTextField;
+    private TextField newPasswordTextField;
     @FXML
     private TextField nameTextField;
     @FXML
@@ -91,15 +91,15 @@ public class EditProfileController extends AccountList {
     public void changePassword() {
         DataSource<AccountList> dataSource = new AccountListFileDataSource();
 
-        String newPassword = changePasswordTextField.getText();
-        String passwordOld = oldPasswordTextField.getText();
-        if (passwordOld.equals(((ObjectStorage) FXRouter.getData()).getAccount().getPassword())) {
+        String newPassword = newPasswordTextField.getText();
+        String oldPassword = oldPasswordTextField.getText();
+        if (oldPassword.equals(account.getPassword())) {
             account1.setPassword(newPassword);
             account.setPassword(newPassword);
 
             dataSource.writeData(accountList);
 
-            changePasswordTextField.setText("");
+            newPasswordTextField.setText("");
             oldPasswordTextField.setText("");
         }
     }

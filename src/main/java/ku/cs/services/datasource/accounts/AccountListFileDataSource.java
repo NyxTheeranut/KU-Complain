@@ -5,6 +5,7 @@ import ku.cs.services.datasource.DataSource;
 import ku.cs.util.Spliter;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
@@ -20,8 +21,8 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
         BufferedReader buffer = null;
         Account account = null;
         try {
-            reader = new FileReader(file);
-            buffer = new BufferedReader(reader);
+            buffer = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(file), "UTF-8"));
             String line = "";
             while((line = buffer.readLine()) != null){
                 // 0    1     2       3       4     5         6        7        8            9            10     11
@@ -41,7 +42,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
                     account = new Moderator(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin, data[11]);
                 }
                 else if (data[0].equals("user")){
-                    account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin, data[8].equals("1"), data[9], Integer.parseInt(data[10]));
+                    account = new User(UUID.fromString(data[1]), data[2], data[3], data[4], data[5], data[6], lastLogin, data[8].equals("true"), data[9], Integer.parseInt(data[10]));
                 }
                 accountList.addAccount(account); //add account to account list
             }
@@ -52,7 +53,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
         }finally {
             try {
                 buffer.close();
-                reader.close();
+                //reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -65,8 +66,10 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
         FileWriter writer = null;
         BufferedWriter buffer = null;
         try {
-            writer = new FileWriter(file);
-            buffer = new BufferedWriter(writer);
+//            writer = new FileWriter(file);
+//            buffer = new BufferedWriter(writer);
+            buffer = new BufferedWriter(new FileWriter(file, StandardCharsets.UTF_8));
+
             for(Account account : accountList.getAllAccount()) {
 
                 String line;
@@ -92,7 +95,7 @@ public class AccountListFileDataSource implements DataSource<AccountList> {
         }finally {
             try {
                 buffer.close();
-                writer.close();
+                //writer.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

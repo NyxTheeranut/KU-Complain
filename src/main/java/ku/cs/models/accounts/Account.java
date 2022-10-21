@@ -1,6 +1,7 @@
 package ku.cs.models.accounts;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Account {
@@ -66,17 +67,5 @@ public class Account {
     }
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
-    }
-    @Override
-    public String toString() {
-        return "Account{" +
-                "role='" + role + '\'' +
-                ", id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", imagePath='" + imagePath + '\'' +
-                '}';
     }
 }

@@ -44,8 +44,8 @@ public class ReportPageController {
         }
         else {
             type = "Account";
-            //id = Util.complaint.getAuthor().getId();
             id = ((ObjectStorage) FXRouter.getData()).getComplaint().getAuthor().getId();
+            System.out.println(id);
         }
         report(type, id, topic, detail);
 

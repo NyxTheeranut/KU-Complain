@@ -6,6 +6,7 @@ import ku.cs.models.category.CategoryList;
 import ku.cs.services.datasource.DataSource;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,8 +25,8 @@ public class CategoryListFileDataSource implements DataSource<CategoryList> {
 
         try {
             //open reader
-            reader = new FileReader(file);
-            buffer = new BufferedReader(reader);
+            buffer = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(file), "UTF-8"));
 
             String line = "";
             while((line = buffer.readLine()) != null){//not eof
@@ -50,7 +51,7 @@ public class CategoryListFileDataSource implements DataSource<CategoryList> {
         }finally {
             try {
                 buffer.close();
-                reader.close();
+                //reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -63,8 +64,10 @@ public class CategoryListFileDataSource implements DataSource<CategoryList> {
         FileWriter writer = null;
         BufferedWriter buffer = null;
         try {
-            writer = new FileWriter(file);
-            buffer = new BufferedWriter(writer);
+//            writer = new FileWriter(file);
+//            buffer = new BufferedWriter(writer);
+
+            buffer = new BufferedWriter(new FileWriter(file, StandardCharsets.UTF_8));
             for(Category category : categoryList.getAllCategory()) {
                 //format
                 //name,text-name,pic-url
@@ -88,7 +91,7 @@ public class CategoryListFileDataSource implements DataSource<CategoryList> {
         }finally {
             try {
                 buffer.close();
-                writer.close();
+                //writer.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

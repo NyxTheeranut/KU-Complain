@@ -5,6 +5,7 @@ import ku.cs.models.reports.ReportList;
 import ku.cs.services.datasource.DataSource;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 public class ReportListFileDataSource implements DataSource<ReportList> {
@@ -20,8 +21,9 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
         Report report = null;
 
         try {
-            reader = new FileReader(file);
-            buffer = new BufferedReader(reader);
+            buffer = new BufferedReader(new InputStreamReader(
+                    new FileInputStream(file), "UTF-8"));
+
             String line = "";
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
@@ -37,11 +39,7 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
         } finally {
             try {
                 buffer.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                reader.close();
+                //reader.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -56,14 +54,16 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
         BufferedWriter buffer = null;
 
         try {
-            writer = new FileWriter(file);
-            buffer = new BufferedWriter(writer);
+//            writer = new FileWriter(file);
+//            buffer = new BufferedWriter(writer);
+            buffer = new BufferedWriter(new FileWriter(file, StandardCharsets.UTF_8));
 
             for (Report report : reportList.getAllReport()) {
                 String line = report.getType() + ","
                         + report.getId().toString() + ","
                         + report.getTopic() + ","
                         + report.getDescription();
+
                 buffer.append(line);
                 buffer.newLine();
             }
@@ -73,7 +73,7 @@ public class ReportListFileDataSource implements DataSource<ReportList> {
         } finally {
             try {
                 buffer.close();
-                writer.close();
+                //writer.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

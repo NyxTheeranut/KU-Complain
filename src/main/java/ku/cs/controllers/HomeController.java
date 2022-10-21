@@ -97,7 +97,6 @@ public class HomeController {
                 "เพิ่มเจ้าหน้าที่,\uF007,add_moderator.fxml",
                 "จัดการหน่วยงาน,\uF044,unit_manage.fxml",
                 "จัดการหมวดหมู่,\uF040,add_category.fxml",
-                "วิธีใช้งาน,\uF0AD,tutorial.fxml",
                 "เกี่ยวกับ,\uF0C0,about.fxml"
         };
 
@@ -116,8 +115,7 @@ public class HomeController {
 
         String[] buttonDataList = {
                 "จัดการเรื่องร้องเรียน,\uF0AD,moderator_complaint_list.fxml",
-                "วิธีใช้งาน,\uF0AD,tutorial.fxml",
-                "เกี่ยวกับ,\uF0AD,about.fxml"
+                "เกี่ยวกับ,\uF0C0,about.fxml"
         };
 
         for(String buttonData:buttonDataList){
