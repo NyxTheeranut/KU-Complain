@@ -107,7 +107,7 @@
  Moderator|mooteh|mootehthacat
  Moderator|farm|farmthebread
  User|tangmod|Tangmodlaew
- User|jengjaew|Jengthedog
+ User|jengjeaw|Jengthedog
  User|emi|emithecat
 ## สรุปสิ่งที่พัฒนาแต่ละครั้งที่นำเสนอความก้าวหน้าของระบบ
 * ### ครั้งที่ 1 (11 Aug 2022)
